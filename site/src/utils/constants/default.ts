@@ -54,7 +54,7 @@ header:
 
 **Machine Learning Engineer Intern**
   ~ Slow Feet Technology
-  ~ 07/2021 - Present
+  ~ Jul 2021 - Present
 
 - Devised a new food-agnostic formulation for fine-grained cross-ingredient meal cooking and subsumed the recent popular works into the proposed scheme
 - Proposed a cream of mushroom soup recipe which is competitive when compared with the SOTA recipes with complex steps by only altering the way of cutting mushroom, published in NeurIPS 2099 (see [~P1])
@@ -63,7 +63,7 @@ header:
 
 **Reseach Intern**
   ~ Paddling University
-  ~ 08/2020 - Present
+  ~ Aug 2020 - Present
 
 - Designed an efficient method for mapo tofu quality estimation via thermometer
 - Proposed a fast stir frying algorithm for tofu cooking problems, which specifies the amount of the hot sauce instead of using terms like "as much as you can", published in CVPR 2077 (see [~P2])
@@ -72,7 +72,7 @@ header:
 
 **Research Assistant**
   ~ Huangdu Institute of Technology
-  ~ 03/2020 - 06/2020
+  ~ Mar 2020 - Jun 2020
 
 - Proposed a novel framework consisting of a spoon and a pair of chopsticks for eating mapo toufu
 - Designed a tofu filtering strategy inspired by beans grinding method for building a dataset for this new task
@@ -82,7 +82,7 @@ header:
 
 **Reseach Intern**
   ~ Paddling University
-  ~ 07/2018 - 08/2018
+  ~ Jul 2018 - Aug 2018
 
 - Designed two sandwiches consisting of breads and meat of two traditional bacon cheese burgers to make use of unused ingredients
 - Utilized the structure duality to boost the cooking speed of two dual tasks based on shared ingredients
@@ -94,13 +94,13 @@ header:
   ~ Boston, MA
 
 M.S. in Computer Science
-  ~ 09/2021 - 01/2023
+  ~ Sep 2021 - Jan 2023
 
 **Huangdu Institute of Technology**
   ~ Shanghai, China
 
 B.Eng. in Software Engineering
-  ~ 09/2016 - 07/2020
+  ~ Sep 2016 - Jul 2020
 
 ## Awards and Honors
 
