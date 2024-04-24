@@ -56,15 +56,12 @@ export default defineNuxtConfig({
         { property: "og:url", content: "https://www.juniansoft.com/resume.md/" },
         { property: "og:type", content: "website" }
       ]
-    }
+    },
+    baseUrl: "https://www.juniansoft.com/resume.md/"
   },
 
   site: {
     url: "https://www.juniansoft.com/resume.md/"
-  },
-
-  router: {
-    base: '/resume.md/'
   },
 
   pwa
