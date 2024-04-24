@@ -117,7 +117,7 @@ B.Eng. in Software Engineering
 
 **Tools and Frameworks:** Git, PyTorch, Keras, scikit-learn, Linux, Vue, React, Django, $\\LaTeX$
 
-**Languages:** Chinese (native), English (proficient)
+**Languages:** English (proficient), Indonesia (native)
 `;
 
 export const PREVIEW_SELECTOR = "#vue-smart-pages-preview";
