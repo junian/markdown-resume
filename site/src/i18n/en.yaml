@@ -2,9 +2,9 @@ lang: Language
 toggle_dark: Toggle dark mode
 
 head:
-  title: Resume.md - Free Online Resume Maker
+  title: Resume.md - Free Online Markdown Resume Maker
   desc: Free online resume maker, allows you to create your resume in minutes with Markdown!
-  keywords: resume maker, cv maker, curriculum vitae maker, markdown resume
+  keywords: resume maker, cv maker, curriculum vitae maker, markdown resume, resume.md
 
 landing:
   hero: Write your <span text-brand>resume</span> in Markdown!
