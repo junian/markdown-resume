@@ -42,6 +42,10 @@ export default defineNuxtConfig({
   },
 
   app: {
+    // If host it on https://example.com
+    //    baseURL: '/'
+    // Else if host it on https://example.com/resume
+    //    baseURL: '/resume/'
     baseURL: '/resume.md/', // baseURL: '/<repository>/'
     buildAssetsDir: 'assets', // don't use "_" at the begining of the folder name to avoids
     head: {
@@ -67,9 +71,4 @@ export default defineNuxtConfig({
 
   pwa,
 
-  target: 'static',
-
-  router: {
-    base: '/resume.md/'
-  }
 });
