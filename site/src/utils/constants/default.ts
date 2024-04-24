@@ -35,21 +35,6 @@ header:
     newLine: true
 ---
 
-## Education
-
-**University of Charles River**
-  ~ Boston, MA
-
-M.S. in Computer Science
-  ~ 09/2021 - 01/2023
-
-**Huangdu Institute of Technology**
-  ~ Shanghai, China
-
-B.Eng. in Software Engineering
-  ~ 09/2016 - 07/2020
-
-
 ## Publications
 
 [~P1]: **Eating is All You Need**
@@ -103,6 +88,19 @@ B.Eng. in Software Engineering
 - Utilized the structure duality to boost the cooking speed of two dual tasks based on shared ingredients
 - Outperformed strong baselines on QWE'15 and ASDF'14 dataset
 
+## Education
+
+**University of Charles River**
+  ~ Boston, MA
+
+M.S. in Computer Science
+  ~ 09/2021 - 01/2023
+
+**Huangdu Institute of Technology**
+  ~ Shanghai, China
+
+B.Eng. in Software Engineering
+  ~ 09/2016 - 07/2020
 
 ## Awards and Honors
 
