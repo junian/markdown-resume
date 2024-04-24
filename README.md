@@ -1,22 +1,20 @@
 # Resume.md
 
-Word and LaTeX are too overkill for a curriculum vitae / resume.
+Write your Resume in Markdown. Available to anyone, optimized for dev.
 
-So why not write it in Markdown?
+Start writing on [juniansoft.com/resume.md](https://www.juniansoft.com/resume.md/)
 
-Have fun: [www.juniansoft.com/resume.md](https://www.juniansoft.com/resume.md/)
+## About
 
-**WIP**
+This is a fork of [Renovamen/oh-my-cv](https://github.com/Renovamen/oh-my-cv).
 
+The purpose of this fork is to make it more ATS and developer-friendly.
 
-&nbsp;
+You can visit the original work [here](https://ohmycv.app/).
 
 ## Notice
 
 Highly recommend using Chromium-based browsers, e.g., [Chrome](https://www.google.com/chrome/) and [Microsoft Edge](https://www.microsoft.com/en-us/edge).
-
-
-&nbsp;
 
 ## Features
 
@@ -38,9 +36,6 @@ Highly recommend using Chromium-based browsers, e.g., [Chrome](https://www.googl
   - Open-source static website hosted on [Github Pages](https://pages.github.com/), which doesn't (have the ability to) collect your data
   - No user tracking, no ads
 - Dark mode
-
-
-&nbsp;
 
 ## Development
 
@@ -71,11 +66,9 @@ pnpm dev
 pnpm build
 ```
 
-
-&nbsp;
-
 ## Credits
 
+- The original work: [Renovamen/oh-my-cv](https://github.com/Renovamen/oh-my-cv)
 - [billryan/resume](https://github.com/billryan/resume)
 
 
@@ -83,4 +76,6 @@ pnpm build
 
 ## License
 
-[MIT](LICENSE)
+This project is licensed under [MIT](LICENSE) license.
+
+Made with ☕ by [Junian.dev](https://www.junian.dev).
