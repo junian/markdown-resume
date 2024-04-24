@@ -50,17 +50,21 @@ export default defineNuxtConfig({
       ],
       meta: [
         { name: "viewport", content: "width=device-width, initial-scale=1" },
-        { name: "application-name", content: "Oh My CV!" },
-        { name: "apple-mobile-web-app-title", content: "Oh My CV!" },
+        { name: "application-name", content: "Resume.md" },
+        { name: "apple-mobile-web-app-title", content: "Resume.md" },
         { name: "msapplication-TileColor", content: "#fff" },
-        { property: "og:url", content: "https://ohmycv.app" },
+        { property: "og:url", content: "https://www.juniansoft.com/resume.md/" },
         { property: "og:type", content: "website" }
       ]
     }
   },
 
   site: {
-    url: "https://ohmycv.app"
+    url: "https://www.juniansoft.com/resume.md/"
+  },
+
+  router: {
+    base: '/resume.md/'
   },
 
   pwa
