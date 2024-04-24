@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ohmycv.app/sitemap.xml
+Sitemap: https://www.juniansoft.com/resume.md/sitemap.xml

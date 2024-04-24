@@ -4,7 +4,7 @@ Word and LaTeX are too overkill for a curriculum vitae / resume.
 
 So why not write it in Markdown?
 
-Have fun: [ohmycv.app](https://ohmycv.app/)
+Have fun: [www.juniansoft.com/resume.md](https://www.juniansoft.com/resume.md/)
 
 **WIP**
 
