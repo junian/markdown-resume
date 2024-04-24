@@ -20,7 +20,7 @@ export const DEFAULT_STYLES = {
 } as ResumeStyles;
 
 export const DEFAULT_MD_CONTENT = `---
-name: John Doe
+name: Bruce Wayne
 header:
   - text: <span class="iconify" data-icon="tabler:phone"></span> (+1) 123-456-7890
   - text: <span class="iconify" data-icon="tabler:mail"></span> email@example.com
@@ -28,12 +28,16 @@ header:
   - text: <span class="iconify" data-icon="tabler:brand-github"></span> example
     link: https://github.com/example
   - text: <span class="iconify" data-icon="tabler:brand-linkedin"></span> example
-    link: https://www.linkedin.com/in/example/
+    link: https://www.linkedin.com/in/bruce-wayne/
   - text: <span class="iconify" data-icon="charm:person"></span> example.com
     link: https://example.com
   - text: <span class="iconify" data-icon="ic:outline-location-on"></span> 1234 Abc Street, Boston, MA 02215
     newLine: true
 ---
+
+## Summary
+
+I am vengeance, I am the night, I am Batman.
 
 ## Experience
 
