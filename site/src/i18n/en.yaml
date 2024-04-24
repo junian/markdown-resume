@@ -12,7 +12,7 @@ landing:
   start: Create My Resume
   feats:
     - title: Simple and Powerful
-      items: Manage multiple resumes<br>Real-time preview<br>Export to PDF format<br>Fully customizable<br>Pick fonts and add icons<br>And <a href="https://github.com/Renovamen/oh-my-cv#features" target="_blank">more features</a>
+      items: Manage multiple resumes<br>Real-time preview<br>Export to PDF format<br>Fully customizable<br>Pick fonts and add icons<br>And <a href="https://github.com/junian/resume.md#features" target="_blank">more features</a>
     - title: Privacy First
       items: Open source and free<br>Data are saved locally<br>No login or registration required<br>No user tracking<br>No ads
 

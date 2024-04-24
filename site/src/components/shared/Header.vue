@@ -24,7 +24,7 @@
       <ToggleDark />
       <a
         class="round-btn"
-        href="http://github.com/Renovamen/oh-my-cv"
+        href="http://github.com/junian/resume.md/"
         target="_blank"
         rel="nofollow noopener"
       >

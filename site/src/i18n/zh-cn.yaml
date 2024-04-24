@@ -12,7 +12,7 @@ landing:
   start: 开始制作简历
   feats:
     - title: 简单且强大
-      items: 创建并管理多份简历<br>实时预览<br>导出为 PDF 格式<br>可定制程度高<br>轻松切换字体和添加图标<br>以及<a href="https://github.com/Renovamen/oh-my-cv#features" target="_blank">更多特性</a>
+      items: 创建并管理多份简历<br>实时预览<br>导出为 PDF 格式<br>可定制程度高<br>轻松切换字体和添加图标<br>以及<a href="https://github.com/junian/resume.md#features" target="_blank">更多特性</a>
     - title: 隐私优先
       items: 开源免费<br>数据保存在本地<br>无需登录或注册<br>没有用户追踪<br>没有广告
 
