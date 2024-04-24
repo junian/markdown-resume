@@ -42,6 +42,8 @@ export default defineNuxtConfig({
   },
 
   app: {
+    baseURL: '/resume.md/', // baseURL: '/<repository>/'
+    buildAssetsDir: 'assets', // don't use "_" at the begining of the folder name to avoids
     head: {
       viewport: "width=device-width,initial-scale=1",
       link: [
