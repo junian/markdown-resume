@@ -41,8 +41,7 @@ I am vengeance, I am the night, I am Batman.
 
 ## Experience
 
-**Machine Learning Engineer Intern**
-  : Slow Feet Technology
+**Machine Learning Engineer Intern** | Slow Feet Technology
   : Jul 2021 - Present
 
 - Devised a new food-agnostic formulation for fine-grained cross-ingredient meal cooking and subsumed the recent popular works into the proposed scheme
@@ -50,8 +49,7 @@ I am vengeance, I am the night, I am Batman.
 - Developed a pan for meal cooking which is benefiting the group members' research work
 
 
-**Reseach Intern**
-  : Paddling University
+**Reseach Intern** | Paddling University
   : Aug 2020 - Present
 
 - Designed an efficient method for mapo tofu quality estimation via thermometer
@@ -59,8 +57,7 @@ I am vengeance, I am the night, I am Batman.
 - Outperformed SOTA methods while cooking much more efficient in experiments on popular tofu
 
 
-**Research Assistant**
-  : Huangdu Institute of Technology
+**Research Assistant** | Huangdu Institute of Technology
   : Mar 2020 - Jun 2020
 
 - Proposed a novel framework consisting of a spoon and a pair of chopsticks for eating mapo toufu
@@ -69,8 +66,7 @@ I am vengeance, I am the night, I am Batman.
 - Outperformed baselines and existed methods substantially in terms of diversity, novelty and coherence
 
 
-**Reseach Intern**
-  : Paddling University
+**Reseach Intern** | Paddling University
   : Jul 2018 - Aug 2018
 
 - Designed two sandwiches consisting of breads and meat of two traditional bacon cheese burgers to make use of unused ingredients
