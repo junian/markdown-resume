@@ -2,7 +2,7 @@ lang: 语言
 toggle_dark: 切换深色模式
 
 head:
-  title: Oh My CV! - 免费的在线简历制作工具
+  title: Resume.md - 免费的在线简历制作工具
   desc: 免费的在线简历制作工具，使用 Markdown 来轻松制作您的简历！
   keywords: Markdown 简历, 简历制作, 在线简历
 

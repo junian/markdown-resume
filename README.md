@@ -1,4 +1,4 @@
-# Oh My CV!
+# Resume.md
 
 Word and LaTeX are too overkill for a curriculum vitae / resume.
 
