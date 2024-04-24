@@ -1,36 +1,36 @@
 import type { ResumeStyles } from "~/types";
 
-export const DEFAULT_NAME = "New Resume";
+export const DEFAULT_NAME = "My Resume";
 
 export const DEFAULT_STYLES = {
   marginV: 55,
   marginH: 45,
   lineHeight: 1.3,
   paragraphSpace: 5,
-  themeColor: "#377bb5",
+  themeColor: "#000000",
   fontCJK: {
     name: "华康宋体",
     fontFamily: "HKST"
   },
   fontEN: {
-    name: "Minion Pro"
+    name: "Times New Roman"
   },
   fontSize: 15,
   paper: "A4"
 } as ResumeStyles;
 
 export const DEFAULT_MD_CONTENT = `---
-name: Haha Ha
+name: John Doe
 header:
   - text: <span class="iconify" data-icon="tabler:phone"></span> (+1) 123-456-7890
-  - text: <span class="iconify" data-icon="tabler:mail"></span> renovamenzxh@gmail.com
-    link: mailto:renovamenzxh@gmail.com
-  - text: <span class="iconify" data-icon="tabler:brand-github"></span> Renovamen
-    link: https://github.com/Renovamen
-  - text: <span class="iconify" data-icon="tabler:brand-linkedin"></span> xiaohan-zou
-    link: https://www.linkedin.com/in/xiaohan-zou/
-  - text: <span class="iconify" data-icon="charm:person"></span> zxh.io
-    link: https://zxh.io
+  - text: <span class="iconify" data-icon="tabler:mail"></span> email@example.com
+    link: mailto:email@example.com
+  - text: <span class="iconify" data-icon="tabler:brand-github"></span> example
+    link: https://github.com/example
+  - text: <span class="iconify" data-icon="tabler:brand-linkedin"></span> example
+    link: https://www.linkedin.com/in/example/
+  - text: <span class="iconify" data-icon="charm:person"></span> example.com
+    link: https://example.com
   - text: <span class="iconify" data-icon="ic:outline-location-on"></span> 1234 Abc Street, Boston, MA 02215
     newLine: true
 ---
@@ -176,7 +176,7 @@ ${PREVIEW_SELECTOR} ol {
 }
 
 ${PREVIEW_SELECTOR} ul {
-  list-style-type: circle;
+  list-style-type: disc;
 }
 
 ${PREVIEW_SELECTOR} ol {
