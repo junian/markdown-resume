@@ -102,6 +102,14 @@ M.S. in Computer Science
 B.Eng. in Software Engineering
   : Sep 2016 - Jul 2020
 
+## Skills
+
+**Programming Languages:** <span class="iconify" data-icon="vscode-icons:file-type-python"></span> Python, <span class="iconify" data-icon="vscode-icons:file-type-js-official"></span> JavaScript / <span class="iconify" data-icon="vscode-icons:file-type-typescript-official"></span> TypeScript, <span class="iconify" data-icon="vscode-icons:file-type-html"></span> HTML / <span class="iconify" data-icon="vscode-icons:file-type-css"></span> CSS, <span class="iconify" data-icon="logos:java" data-inline="false"></span> Java
+
+**Tools and Frameworks:** Git, PyTorch, Keras, scikit-learn, Linux, Vue, React, Django, $\\LaTeX$
+
+**Languages:** English (proficient), Indonesia (native)
+
 ## Awards and Honors
 
 **Gold**, International Collegiate Catching Fish Contest (ICCFC)
@@ -110,14 +118,6 @@ B.Eng. in Software Engineering
 **First Prize**, China National Scholarship for Outstanding Dragons
   : 2017, 2018
 
-
-## Skills
-
-**Programming Languages:** <span class="iconify" data-icon="vscode-icons:file-type-python"></span> Python, <span class="iconify" data-icon="vscode-icons:file-type-js-official"></span> JavaScript / <span class="iconify" data-icon="vscode-icons:file-type-typescript-official"></span> TypeScript, <span class="iconify" data-icon="vscode-icons:file-type-html"></span> HTML / <span class="iconify" data-icon="vscode-icons:file-type-css"></span> CSS, <span class="iconify" data-icon="logos:java" data-inline="false"></span> Java
-
-**Tools and Frameworks:** Git, PyTorch, Keras, scikit-learn, Linux, Vue, React, Django, $\\LaTeX$
-
-**Languages:** English (proficient), Indonesia (native)
 `;
 
 export const PREVIEW_SELECTOR = "#vue-smart-pages-preview";
