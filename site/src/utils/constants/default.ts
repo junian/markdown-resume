@@ -152,7 +152,7 @@ ${PREVIEW_SELECTOR} h1 {
 ${PREVIEW_SELECTOR} h2,
 ${PREVIEW_SELECTOR} h3 {
   margin-bottom: 0.25em;
-  margin-top: 0.75em;
+  margin-top: 1.0em;
   font-size: 1.2em;
 }
 
@@ -168,7 +168,7 @@ ${PREVIEW_SELECTOR} h2 {
 ${PREVIEW_SELECTOR} ul,
 ${PREVIEW_SELECTOR} ol {
   padding-left: 1.5em;
-  margin: 0.2em 0 0.5em 0;
+  margin: 0.2em 0 1.0em 0;
 }
 
 ${PREVIEW_SELECTOR} ul {
