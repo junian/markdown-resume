@@ -13,7 +13,7 @@ export const DEFAULT_STYLES = {
     fontFamily: "HKST"
   },
   fontEN: {
-    name: "Times New Roman"
+    name: "Verdana"
   },
   fontSize: 15,
   paper: "A4"
@@ -119,7 +119,7 @@ B.Eng. in Software Engineering
 
 `;
 
-export const PREVIEW_SELECTOR = "#vue-smart-pages-preview";
+export const PREVIEW_SELECTOR = "#markdown-resume-page";
 
 export const DEFAULT_CSS_CONTENT = `/* Backbone CSS for Resume Template 1 */
 
