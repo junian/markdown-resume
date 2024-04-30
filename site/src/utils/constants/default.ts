@@ -15,25 +15,18 @@ export const DEFAULT_STYLES = {
   fontEN: {
     name: "Verdana"
   },
-  fontSize: 15,
+  fontSize: 12,
   paper: "A4"
 } as ResumeStyles;
 
 export const DEFAULT_MD_CONTENT = `---
-name: Bruce Wayne
-header:
-  - text: <span class="iconify" data-icon="tabler:phone"></span> (+1) 123-456-7890
-  - text: <span class="iconify" data-icon="tabler:mail"></span> email@example.com
-    link: mailto:email@example.com
-  - text: <span class="iconify" data-icon="tabler:brand-github"></span> example
-    link: https://github.com/example
-  - text: <span class="iconify" data-icon="tabler:brand-linkedin"></span> example
-    link: https://www.linkedin.com/in/bruce-wayne/
-  - text: <span class="iconify" data-icon="charm:person"></span> example.com
-    link: https://example.com
-  - text: <span class="iconify" data-icon="ic:outline-location-on"></span> 1234 Abc Street, Boston, MA 02215
-    newLine: true
 ---
+
+# Bruce Wayne
+
+<span class="iconify" data-icon="charm:person"></span> [example.com](https://example.com/)<br><span class="iconify" data-icon="ic:outline-location-on"></span> 1234 Abc Street, Example, EX 01234
+  : <span class="iconify" data-icon="tabler:brand-github"></span> [github.com/example](https://github.com/example)<br><span class="iconify" data-icon="tabler:brand-linkedin"></span> [linkedin.com/in/example](https://linkedin.com/in/example/)
+  : <span class="iconify" data-icon="tabler:phone"></span> [(+1) 123-456-7890](https://wa.me/11234567890)<br><span class="iconify" data-icon="tabler:mail"></span> [email@example.com](mailto:mail@example.com)
 
 ## Summary
 
@@ -42,7 +35,7 @@ I am vengeance, I am the night, I am Batman.
 ## Experience
 
 **Machine Learning Engineer Intern** | Slow Feet Technology
-  : Jul 2021 - Present
+  : **Jul 2021 - Present**
 
 - Devised a new food-agnostic formulation for fine-grained cross-ingredient meal cooking and subsumed the recent popular works into the proposed scheme
 - Proposed a cream of mushroom soup recipe which is competitive when compared with the SOTA recipes with complex steps by only altering the way of cutting mushroom, published in NeurIPS 2099 (see [~P1])
@@ -50,7 +43,7 @@ I am vengeance, I am the night, I am Batman.
 
 
 **Reseach Intern** | Paddling University
-  : Aug 2020 - Present
+  : **Aug 2020 - Present**
 
 - Designed an efficient method for mapo tofu quality estimation via thermometer
 - Proposed a fast stir frying algorithm for tofu cooking problems, which specifies the amount of the hot sauce instead of using terms like "as much as you can", published in CVPR 2077 (see [~P2])
@@ -58,7 +51,7 @@ I am vengeance, I am the night, I am Batman.
 
 
 **Research Assistant** | Huangdu Institute of Technology
-  : Mar 2020 - Jun 2020
+  : **Mar 2020 - Jun 2020**
 
 - Proposed a novel framework consisting of a spoon and a pair of chopsticks for eating mapo toufu
 - Designed a tofu filtering strategy inspired by beans grinding method for building a dataset for this new task
@@ -67,7 +60,7 @@ I am vengeance, I am the night, I am Batman.
 
 
 **Reseach Intern** | Paddling University
-  : Jul 2018 - Aug 2018
+  : **Jul 2018 - Aug 2018**
 
 - Designed two sandwiches consisting of breads and meat of two traditional bacon cheese burgers to make use of unused ingredients
 - Utilized the structure duality to boost the cooking speed of two dual tasks based on shared ingredients
@@ -75,17 +68,17 @@ I am vengeance, I am the night, I am Batman.
 
 ## Education
 
-**University of Charles River**
+**M.S. in Computer Science**
+  : **Sep 2021 - Jan 2023**
+
+University of Charles River
   : Boston, MA
 
-M.S. in Computer Science
-  : Sep 2021 - Jan 2023
+**B.Eng. in Software Engineering**
+  : **Sep 2016 - Jul 2020**
 
-**Huangdu Institute of Technology**
+Huangdu Institute of Technology
   : Shanghai, China
-
-B.Eng. in Software Engineering
-  : Sep 2016 - Jul 2020
 
 ## Skills
 
@@ -128,7 +121,7 @@ export const DEFAULT_CSS_CONTENT = `/* Backbone CSS for Resume Template 1 */
 ${PREVIEW_SELECTOR} {
   background-color: white;
   color: black;
-  text-align: justify;
+  text-align: left;
   -moz-hyphens: auto;
   -ms-hyphens: auto;
   -webkit-hyphens: auto;
@@ -150,18 +143,24 @@ ${PREVIEW_SELECTOR} h3 {
 }
 
 ${PREVIEW_SELECTOR} h1 {
-  font-size: 2.13em;
+  font-size: 2.5em;
+  letter-spacing: 0.1em;
+  text-align: center;
+  margin-bottom: 0.25em;
 }
 
 ${PREVIEW_SELECTOR} h2,
 ${PREVIEW_SELECTOR} h3 {
-  margin-bottom: 5px;
+  margin-bottom: 0.25em;
+  margin-top: 0.75em;
   font-size: 1.2em;
 }
 
+${PREVIEW_SELECTOR} h1,
 ${PREVIEW_SELECTOR} h2 {
   border-bottom-style: solid;
   border-bottom-width: 1px;
+  border-bottom-color: darkgrey;
 }
 
 /* Lists */
@@ -169,7 +168,7 @@ ${PREVIEW_SELECTOR} h2 {
 ${PREVIEW_SELECTOR} ul,
 ${PREVIEW_SELECTOR} ol {
   padding-left: 1.5em;
-  margin: 0.2em 0;
+  margin: 0.2em 0 0.5em 0;
 }
 
 ${PREVIEW_SELECTOR} ul {
