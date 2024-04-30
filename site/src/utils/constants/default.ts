@@ -119,7 +119,7 @@ B.Eng. in Software Engineering
 
 `;
 
-export const PREVIEW_SELECTOR = "#markdown-resume-page";
+export const PREVIEW_SELECTOR = "#vue-smart-pages-preview";
 
 export const DEFAULT_CSS_CONTENT = `/* Backbone CSS for Resume Template 1 */
 
