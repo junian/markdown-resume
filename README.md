@@ -1,8 +1,8 @@
 <h1 align="center">Markdown Resume</h1>
 
-<p align="center">Write your Resume in Markdown. Available to anyone, optimized for dev.</p>
+<p align="center">Write an ATS-friendly Resume in Markdown. Available for anyone, Optimized for Dev.</p>
 
-<p align="center"><a href="https://www.juniansoft.com/markdown-resume/">Start Writing!</a></p>
+<p align="center"><a href="https://www.juniansoft.com/markdown-resume/">Start Writing Now</a>!</p>
 
 <img align="center" src="https://raw.githubusercontent.com/junian/markdown-resume/assets/img/markdown-resume-screenshot-00.jpg"/>
 
