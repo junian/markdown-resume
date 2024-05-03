@@ -23,6 +23,12 @@ export const EN_FONTS: Font[] = [
     name: "Georgia"
   },
   {
+    name: "Palatino"
+  },
+  {
+    name: "Tahoma"
+  },
+  {
     name: "Times New Roman"
   },
   {
