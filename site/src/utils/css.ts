@@ -5,7 +5,7 @@ const themeColorCss = (styles: ResumeStyles, id: string) => {
   return (
     `#${id} :not(.resume-header-item) > a { color: ${styles.themeColor} }` +
     `#${id} h1, #${id} h2, #${id} h3 { color: ${styles.themeColor} }` +
-    `#${id} h2 { border-bottom-color: ${styles.themeColor} }`
+    `#${id} h1, #${id} h2 { border-bottom-color: ${styles.themeColor} }`
   );
 };
 
