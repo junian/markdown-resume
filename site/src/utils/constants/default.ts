@@ -24,12 +24,13 @@ export const DEFAULT_MD_CONTENT = `---
 
 # Bruce Wayne
 
-<span class="iconify" data-icon="charm:person"></span> [example.com](https://example.com/)<br>
+<span class="iconify" data-icon="charm:person"></span> [example.com](https://example.com/)
+  : <span class="iconify" data-icon="tabler:brand-github"></span> [github.com/example](https://github.com/example)
+  : <span class="iconify" data-icon="tabler:phone"></span> [(+1) 123-456-7890](https://wa.me/11234567890)
+
 <span class="iconify" data-icon="ic:outline-location-on"></span> 1234 Abc Street, Example, EX 01234
-  : <span class="iconify" data-icon="tabler:brand-github"></span> [github.com/example](https://github.com/example)<br>
-    <span class="iconify" data-icon="tabler:brand-linkedin"></span> [linkedin.com/in/example](https://linkedin.com/in/example/)
-  : <span class="iconify" data-icon="tabler:phone"></span> [(+1) 123-456-7890](https://wa.me/11234567890)<br>
-    <span class="iconify" data-icon="tabler:mail"></span> [email@example.com](mailto:mail@example.com)
+  : <span class="iconify" data-icon="tabler:brand-linkedin"></span> [linkedin.com/in/example](https://linkedin.com/in/example/)
+  : <span class="iconify" data-icon="tabler:mail"></span> [email@example.com](mailto:mail@example.com)
 
 ## Experience
 
