@@ -24,17 +24,17 @@ export const DEFAULT_MD_CONTENT = `---
 
 # Bruce Wayne
 
-<span class="iconify" data-icon="charm:person"></span> [example.com](https://example.com/)<br><span class="iconify" data-icon="ic:outline-location-on"></span> 1234 Abc Street, Example, EX 01234
-  : <span class="iconify" data-icon="tabler:brand-github"></span> [github.com/example](https://github.com/example)<br><span class="iconify" data-icon="tabler:brand-linkedin"></span> [linkedin.com/in/example](https://linkedin.com/in/example/)
-  : <span class="iconify" data-icon="tabler:phone"></span> [(+1) 123-456-7890](https://wa.me/11234567890)<br><span class="iconify" data-icon="tabler:mail"></span> [email@example.com](mailto:mail@example.com)
-
-## Summary
-
-I am vengeance, I am the night, I am Batman.
+<span class="iconify" data-icon="charm:person"></span> [example.com](https://example.com/)<br>
+<span class="iconify" data-icon="ic:outline-location-on"></span> 1234 Abc Street, Example, EX 01234
+  : <span class="iconify" data-icon="tabler:brand-github"></span> [github.com/example](https://github.com/example)<br>
+    <span class="iconify" data-icon="tabler:brand-linkedin"></span> [linkedin.com/in/example](https://linkedin.com/in/example/)
+  : <span class="iconify" data-icon="tabler:phone"></span> [(+1) 123-456-7890](https://wa.me/11234567890)<br>
+    <span class="iconify" data-icon="tabler:mail"></span> [email@example.com](mailto:mail@example.com)
 
 ## Experience
 
-**Machine Learning Engineer Intern** | Slow Feet Technology
+**Machine Learning Engineer Intern**
+  : **Slow Feet Technology**
   : **Jul 2021 - Present**
 
 - Devised a new food-agnostic formulation for fine-grained cross-ingredient meal cooking and subsumed the recent popular works into the proposed scheme
@@ -42,7 +42,8 @@ I am vengeance, I am the night, I am Batman.
 - Developed a pan for meal cooking which is benefiting the group members' research work
 
 
-**Reseach Intern** | Paddling University
+**Reseach Intern**
+  : **Paddling University**
   : **Aug 2020 - Present**
 
 - Designed an efficient method for mapo tofu quality estimation via thermometer
@@ -50,7 +51,8 @@ I am vengeance, I am the night, I am Batman.
 - Outperformed SOTA methods while cooking much more efficient in experiments on popular tofu
 
 
-**Research Assistant** | Huangdu Institute of Technology
+**Research Assistant**
+  : **Huangdu Institute of Technology**
   : **Mar 2020 - Jun 2020**
 
 - Proposed a novel framework consisting of a spoon and a pair of chopsticks for eating mapo toufu
@@ -59,7 +61,8 @@ I am vengeance, I am the night, I am Batman.
 - Outperformed baselines and existed methods substantially in terms of diversity, novelty and coherence
 
 
-**Reseach Intern** | Paddling University
+**Reseach Intern**
+  : **Paddling University**
   : **Jul 2018 - Aug 2018**
 
 - Designed two sandwiches consisting of breads and meat of two traditional bacon cheese burgers to make use of unused ingredients
