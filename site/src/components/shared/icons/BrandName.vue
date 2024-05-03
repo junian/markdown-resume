@@ -1,1 +1,1 @@
-<template><span text-brand>Resume</span>.md</template>
+<template><span text-brand>Markdown</span> Resume</template>

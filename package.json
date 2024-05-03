@@ -1,5 +1,5 @@
 {
-  "name": "resume-md",
+  "name": "markdown-resume",
   "private": true,
   "packageManager": "pnpm@8.15.6",
   "type": "module",

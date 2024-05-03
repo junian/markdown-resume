@@ -1,8 +1,8 @@
-# Resume.md
+# Markdown Resume
 
 Write your Resume in Markdown. Available to anyone, optimized for dev.
 
-Start writing on [juniansoft.com/resume.md](https://www.juniansoft.com/resume.md/)
+Start writing on [juniansoft.com/markdown-resume](https://www.juniansoft.com/markdown-resume/)
 
 ## About
 

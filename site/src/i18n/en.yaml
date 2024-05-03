@@ -2,7 +2,7 @@ lang: Language
 toggle_dark: Toggle dark mode
 
 head:
-  title: Resume.md - Free Online Markdown Resume Maker
+  title: Markdown Resume - Free Online Markdown Resume Maker
   desc: Free online resume maker, allows you to create your resume in minutes with Markdown!
   keywords: resume maker, cv maker, curriculum vitae maker, markdown resume, resume.md
 
@@ -12,7 +12,7 @@ landing:
   start: Create My Resume
   feats:
     - title: Simple and Powerful
-      items: Manage multiple resumes<br>Real-time preview<br>Export to PDF format<br>Fully customizable<br>Pick fonts and add icons<br>And <a href="https://github.com/junian/resume.md#features" target="_blank">more features</a>
+      items: Manage multiple resumes<br>Real-time preview<br>Export to PDF format<br>Fully customizable<br>Pick fonts and add icons<br>And <a href="https://github.com/junian/markdown-resume#features" target="_blank">more features</a>
     - title: Privacy First
       items: Open source and free<br>Data are saved locally<br>No login or registration required<br>No user tracking<br>No ads
 

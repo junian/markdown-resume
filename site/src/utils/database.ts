@@ -3,10 +3,10 @@ import { downloadFile, uploadFile, copy, isClient } from "@renovamen/utils";
 import { DEFAULT_STYLES, DEFAULT_NAME, DEFAULT_MD_CONTENT, DEFAULT_CSS_CONTENT } from ".";
 import type { ResumeStorage, ResumeStorageItem, ResumeStyles } from "~/types";
 
-const RESUMEMD_KEY = "resumemd_data";
+const MARKDOWN_RESUME_KEY = "MARKDOWN_RESUME_data";
 
 export const getStorage = async () =>
-  isClient ? localForage.getItem<ResumeStorage>(RESUMEMD_KEY) : null;
+  isClient ? localForage.getItem<ResumeStorage>(MARKDOWN_RESUME_KEY) : null;
 
 export const getResumeList = async () => {
   const storage = (await getStorage()) || {};
@@ -65,7 +65,7 @@ export const saveResume = async (id: string, resume: ResumeStorageItem) => {
   const storage = (await getStorage()) || {};
   storage[id] = resume;
 
-  await localForage.setItem(RESUMEMD_KEY, storage);
+  await localForage.setItem(MARKDOWN_RESUME_KEY, storage);
 
   const toast = useToast();
   toast.save();
@@ -97,7 +97,7 @@ export const newResume = async () => {
  */
 export const saveResumesToLocal = async () => {
   const storage = (await getStorage()) || {};
-  downloadFile("resumemd_data.json", JSON.stringify(storage));
+  downloadFile("MARKDOWN_RESUME_data.json", JSON.stringify(storage));
 };
 
 /**
@@ -150,7 +150,7 @@ export const importResumesFromLocal = async (callback?: () => void) => {
       ...data
     };
 
-    await localForage.setItem(RESUMEMD_KEY, newStorage);
+    await localForage.setItem(MARKDOWN_RESUME_KEY, newStorage);
     toast.import(true);
 
     callback && callback();
@@ -167,7 +167,7 @@ export const deleteResume = async (id: string) => {
     const name = storage[id].name;
     delete storage[id];
 
-    await localForage.setItem(RESUMEMD_KEY, storage);
+    await localForage.setItem(MARKDOWN_RESUME_KEY, storage);
 
     toast.delete(name);
   }
@@ -200,7 +200,7 @@ export const duplicateResume = async (id: string) => {
     resume.update = newId;
     storage[newId] = resume;
 
-    await localForage.setItem(RESUMEMD_KEY, storage);
+    await localForage.setItem(MARKDOWN_RESUME_KEY, storage);
     toast.duplicate(oldName);
   }
 };
@@ -209,7 +209,7 @@ export const renameResume = async (id: string, name: string) => {
   const storage = (await getStorage()) || {};
   storage[id].name = name;
 
-  await localForage.setItem(RESUMEMD_KEY, storage);
+  await localForage.setItem(MARKDOWN_RESUME_KEY, storage);
 
   const toast = useToast();
   toast.save();

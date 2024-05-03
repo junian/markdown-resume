@@ -11,6 +11,7 @@
     <slot name="middle" />
 
     <div hstack>
+      <!--
       <NavItem
         mr-3
         :link="$nuxt.$localePath('/resumes')"
@@ -18,13 +19,16 @@
         icon="i-ep:menu"
       />
       <ToggleLang mr-1.5 />
+      -->
 
       <slot name="tail" />
 
+      <!--
       <ToggleDark />
+      -->
       <a
         class="round-btn"
-        href="http://github.com/junian/resume.md/"
+        href="http://github.com/junian/markdown-resume/"
         target="_blank"
         rel="nofollow noopener"
       >

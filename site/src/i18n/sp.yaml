@@ -2,7 +2,7 @@ lang: Idioma
 toggle_dark: Cambiar tema claro/oscuro
 
 head:
-  title: Resume.md - Generador de CV online GRATUITO!!
+  title: Markdown Resume - Generador de CV online GRATUITO!!
   desc: El creador de currículums vitae en línea gratuito le permite crear su currículum en minutos con Markdown!
   keywords: generador curriculum, generador cv, generador curriculum vitae, curriculum markdown, markdown cv
 
@@ -12,7 +12,7 @@ landing:
   start: Crear My Resumen
   feats:
     - title: Simple y poderoso
-      items: Administra multiples curriculums con <br>Vista previa en tiempo real<br>Exportar a PDF format<br>Completamente configurable<br>Elige fuentes y agrega íconos<br>Y <a href="https://github.com/junian/resume.md#features" target="_blank">más funciones</a>
+      items: Administra multiples curriculums con <br>Vista previa en tiempo real<br>Exportar a PDF format<br>Completamente configurable<br>Elige fuentes y agrega íconos<br>Y <a href="https://github.com/junian/markdown-resume#features" target="_blank">más funciones</a>
     - title: Primero tu privacidad
       items: Open source, libre y gratuito<br>Información guardada en tu equipo<br>No necesita que te registres<br>No realizamos ningún trackeo ni mostramos publicidad<br>No ads
 

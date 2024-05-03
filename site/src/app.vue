@@ -9,7 +9,7 @@
 <script setup lang="ts">
 const { t, locale } = useI18n();
 const colorMode = useColorMode();
-const preferredDark = usePreferredDark();
+const preferredDark = { value: false }; //usePreferredDark();
 
 useHead({
   title: t("head.title"),
