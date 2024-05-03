@@ -1,16 +1,20 @@
-# Markdown Resume
+<h1 align="center">Markdown Resume</h1>
 
-Write your Resume in Markdown. Available to anyone, optimized for dev.
+<p align="center">Write your Resume in Markdown. Available to anyone, optimized for dev.</p>
 
-Start writing on [juniansoft.com/markdown-resume](https://www.juniansoft.com/markdown-resume/)
+<p align="center"><a href="https://www.juniansoft.com/markdown-resume/">Start Writing!</a></p>
+
+<img align="center" src="https://raw.githubusercontent.com/junian/markdown-resume/assets/img/markdown-resume-screenshot-00.jpg"/>
 
 ## About
 
-This is a fork of [Renovamen/oh-my-cv](https://github.com/Renovamen/oh-my-cv).
+A fork of "Oh My CV!". You can visit the original work [here](https://ohmycv.app/).
 
-The purpose of this fork is to make it more ATS and developer-friendly.
-
-You can visit the original work [here](https://ohmycv.app/).
+Changes I made from the original work:
+- Default template is now as close as possible with [CareerCup's](https://www.careercup.com/resume) resume template.
+- Default color is all Black.
+- Added Web-safe fonts for easier ATS parsing.
+- And many more ...
 
 ## Notice
 
@@ -71,11 +75,10 @@ pnpm build
 - The original work: [Renovamen/oh-my-cv](https://github.com/Renovamen/oh-my-cv)
 - [billryan/resume](https://github.com/billryan/resume)
 
-
-&nbsp;
-
 ## License
 
 This project is licensed under [MIT](LICENSE) license.
+
+---
 
 Made with ☕ by [Junian.dev](https://www.junian.dev).
