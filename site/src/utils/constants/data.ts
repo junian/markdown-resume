@@ -14,6 +14,25 @@ export const THEME_COLORS = [
 
 export const EN_FONTS: Font[] = [
   {
+    name: "Arial"
+  },
+  {
+    name: "Courier New"
+  },
+  {
+    name: "Georgia"
+  },
+  {
+    name: "Times New Roman"
+  },
+  {
+    name: "Trebuchet MS"
+  },
+  {
+    name: "Verdana"
+  },
+  /*
+  {
     name: "Adobe Garamond Pro"
   },
   {
@@ -31,6 +50,7 @@ export const EN_FONTS: Font[] = [
   {
     name: "Times Newer Roman"
   }
+  */
 ];
 
 export const CJK_FONTS: Font[] = [
