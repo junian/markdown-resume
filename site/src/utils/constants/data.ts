@@ -17,6 +17,12 @@ export const EN_FONTS: Font[] = [
     name: "Arial"
   },
   {
+    name: "Arial Black"
+  },
+  {
+    name: "Arial Narrow"
+  },
+  {
     name: "Courier New"
   },
   {
