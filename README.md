@@ -2,7 +2,7 @@
 
 <p align="center">Write an ATS-friendly Resume in Markdown. Available for anyone, Optimized for Dev.</p>
 
-<p align="center"><a href="https://www.juniansoft.com/markdown-resume/">Start Writing Now</a>!</p>
+<p align="center"><a href="https://www.juniansoft.com/markdown-resume/"><strong>Start Writing Now</strong></a>!</p>
 
 <img align="center" src="https://raw.githubusercontent.com/junian/markdown-resume/assets/img/markdown-resume-screenshot-00.jpg"/>
 
