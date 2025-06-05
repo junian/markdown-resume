@@ -6,9 +6,15 @@ body {
 }
 
 .header {
-  @apply h-12;  /* 48px */
+  @apply h-12; /* 48px */
 }
 
 svg.iconify {
   @apply inline-block;
+}
+
+/* Monaco editor CSS fixes */
+.monaco-icon-label:after {
+  /* Fix for Monaco editor CSS minification warning */
+  content: "";
 }

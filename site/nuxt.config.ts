@@ -1,5 +1,6 @@
-import { pwa } from "./configs/pwa";
+import { defineNuxtConfig } from "nuxt/config";
 import { i18n } from "./configs/i18n";
+import { pwa } from "./configs/pwa";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -46,8 +47,8 @@ export default defineNuxtConfig({
     //    baseURL: '/'
     // Else if host it on https://example.com/resume
     //    baseURL: '/resume/'
-    baseURL: '/markdown-resume/', // baseURL: '/<repository>/'
-    buildAssetsDir: 'assets', // don't use "_" at the begining of the folder name to avoids
+    baseURL: "/markdown-resume/", // baseURL: '/<repository>/'
+    buildAssetsDir: "assets", // don't use "_" at the begining of the folder name to avoids
     head: {
       viewport: "width=device-width,initial-scale=1",
       link: [
@@ -66,9 +67,8 @@ export default defineNuxtConfig({
   },
 
   site: {
-    url: "https://www.juniansoft.com/markdown-resume/"
+    url: "https://www.juniansoft.com"
   },
 
-  pwa,
-
+  pwa
 });

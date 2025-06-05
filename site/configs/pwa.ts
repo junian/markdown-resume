@@ -11,6 +11,8 @@ export const pwa: ModuleOptions = {
     scope,
     name: "Markdown Resume",
     short_name: "markdown-resume",
+    theme_color: "#000000",
+    background_color: "#ffffff",
     icons: [
       {
         src: "/pwa-192x192.png",
