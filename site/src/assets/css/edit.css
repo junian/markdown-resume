@@ -75,7 +75,6 @@
 
   .vue-smart-page-break {
     page-break-before: always;
-    margin-top: 0 !important;
     border: none;
   }
 }
