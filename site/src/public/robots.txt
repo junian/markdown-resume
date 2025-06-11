@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.juniansoft.com/markdown-resume/sitemap.xml
+Sitemap: https://www.junian.dev/markdown-resume/sitemap.xml
