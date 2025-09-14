@@ -43,7 +43,7 @@
     "markdown-it-deflist": "^3.0.0",
     "markdown-it-latex-cmds": "workspace:*",
     "markdown-it-link-attributes": "^4.0.1",
-    "monaco-editor": "^0.47.0",
+    "monaco-editor": "^0.53.0",
     "nuxt": "^3.11.2",
     "nuxt-simple-sitemap": "^4.4.1",
     "pinia": "^2.1.7",
