@@ -4,7 +4,7 @@
       id="font-size"
       unit="px"
       :default="styles.fontSize"
-      :min="12"
+      :min="10"
       :max="20"
       :on-value-change="setFontSize"
     />
