@@ -8,7 +8,7 @@
     >
       <template #button>
         <li class="dropdown-li space-x-1.5 rounded" role="button">
-          <span i-mdi:upload text-base />
+          <span i-mdi:download text-base />
           <span>{{ $t("toolbar.file.import") }}</span>
         </li>
       </template>
