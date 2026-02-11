@@ -1,0 +1,70 @@
+lang: Bahasa
+toggle_dark: Ubah mode gelap
+
+head:
+  title: Markdown Resume - Pembuat Resume Markdown Online Gratis
+  desc: Pembuat resume online gratis, memungkinkan Anda membuat resume dalam hitungan menit dengan Markdown!
+  keywords: pembuat resume, pembuat cv, pembuat curriculum vitae, resume markdown, resume.md
+
+landing:
+  hero: Tulis <span text-brand>resume</span> Anda dengan Markdown!
+  desc: adalah alat gratis dan open source yang dibuat untuk membangun dan mengelola resume Anda semudah mungkin, tanpa kehilangan privasi data Anda.
+  start: Buat Resume Saya
+  feats:
+    - title: Sederhana dan Powerful
+      items: Kelola beberapa resume<br>Pratinjau real-time<br>Ekspor ke format PDF<br>Sepenuhnya dapat disesuaikan<br>Pilih font dan tambahkan ikon<br>Dan <a href="https://github.com/junian/markdown-resume#features" target="_blank">fitur lainnya</a>
+    - title: Privasi Utama
+      items: Open source dan gratis<br>Data disimpan secara lokal<br>Tidak perlu login atau registrasi<br>Tidak ada pelacakan pengguna<br>Tidak ada iklan
+
+resumes:
+  my_resumes: Resume Saya
+  created: "Dibuat: "
+  updated: "Diperbarui: "
+  new: Baru
+  save: Simpan
+  saveas: Cadangkan DB ...
+  import: Pulihkan DB ...
+  rename: Ubah Nama
+  duplicate: Duplikat
+  delete: Hapus
+
+import:
+  title: Impor file Markdown
+  from_local: Seret file Anda ke sini, atau klik di sini untuk memilih file
+  from_url: Tempel URL file
+
+toolbar:
+  file:
+    text: Impor / Ekspor
+    import: Impor Markdown
+    export_pdf: Ekspor PDF
+    export_md: Ekspor Markdown
+    export_html: Ekspor HTML
+  correct_case:
+    text: Perbaiki Huruf Besar/Kecil
+    desc: "Contoh: \"Github\" → \"GitHub\" <br> Catatan: kata-kata yang hanya berisi huruf besar atau kecil (\"GITHUB\" atau \"github\") tidak akan diubah"
+    btn : Perbaiki!
+  paper: Ukuran Kertas
+  font_family: Jenis Font
+  font_size: Ukuran Font
+  cjk: CJK
+  en: Inggris
+  theme_color: Warna Tema
+  paragraph: Jarak Paragraf
+  line: Jarak Baris
+  margin: Margin
+  vertical: Atas & Bawah
+  horizontal: Kiri & Kanan
+
+notification:
+  save: Perubahan Anda telah disimpan
+  switch: Beralih ke resume "{msg}"
+  delete: Resume "{msg}" telah dihapus
+  new: Resume baru dibuat
+  duplicate: Duplikat resume "{old}" dibuat "{new}"
+  correct:
+    yes: Memperbaiki {num} kata
+    no : Semua huruf sudah benar!
+  import:
+    yes: Data berhasil diimpor!
+    no : Format data tidak valid.
