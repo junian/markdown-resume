@@ -39,6 +39,7 @@ toolbar:
     import: 导入 Markdown
     export_pdf: 导出为 PDF
     export_md: 导出为 Markdown
+    export_html: 导出为 HTML
   correct_case:
     text: 专有名词大小写修正
     desc: "例如：\"Github\" → \"GitHub\" <br> 注意：不会修正全为大写或小写字母的单词（如 \"GITHUB\" 或 \"github\"）"

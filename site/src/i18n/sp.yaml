@@ -39,6 +39,7 @@ toolbar:
     import: Importar Markdown
     export_pdf: Exportar PDF
     export_md: Exportar Markdown
+    export_html: Exportar HTML
   correct_case:
     text: Corregir Mayusculas
     desc: "Ejemplo: \"Github\" → \"GitHub\" <br> Nota: No se modificarán las palabras que sólo contengan mayúsculas o minúsculas (\"GITHUB\" or \"github\")"
