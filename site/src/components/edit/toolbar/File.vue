@@ -40,6 +40,9 @@
 <script lang="ts" setup>
 import { downloadFile } from "@renovamen/utils";
 
+const escapeHtml = (str: string) =>
+  str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+
 const { data } = useDataStore();
 const { styles } = useStyleStore();
 const saveName = computed(() => data.curResumeName.trim().replace(/\s+/g, "_"));
@@ -73,7 +76,7 @@ const exportHtml = () => {
   const dynamicCss = `
 
 .resume {
-  font-family: ${fontEN}, ${fontCJK}, sans-serif;
+  font-family: "${fontEN}", "${fontCJK}", sans-serif;
   font-size: ${styles.fontSize}px;
   padding: ${styles.marginV}px ${styles.marginH}px;
   width: ${paperW}mm;
@@ -153,16 +156,19 @@ const exportHtml = () => {
     CJK_FONTS.some((f) => (f.fontFamily || f.name) === name);
 
   let googleFontsLink = "";
-  const gFontFamilies: string[] = [];
-  if (!isSystemFont(fontEN)) gFontFamilies.push(fontEN);
-  if (!isSystemFont(fontCJK)) gFontFamilies.push(fontCJK);
-  if (gFontFamilies.length) {
-    const families = gFontFamilies
-      .map((f) => `family=${f.replace(/\s+/g, "+")}:wght@400;700`)
+  const gFontFamilies = new Set<string>();
+  if (!isSystemFont(fontEN)) gFontFamilies.add(fontEN);
+  if (!isSystemFont(fontCJK)) gFontFamilies.add(fontCJK);
+  if (gFontFamilies.size) {
+    const families = Array.from(gFontFamilies)
+      .map((f) => {
+        const encoded = encodeURIComponent(f).replace(/%20/g, "+");
+        return `family=${encoded}:wght@400;700`;
+      })
       .join("&");
     googleFontsLink = `<link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?${families}&display=swap">`;
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?${families}&display=swap">`;
   }
 
   const htmlDocument = `<!DOCTYPE html>
@@ -170,7 +176,7 @@ const exportHtml = () => {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${data.curResumeName}</title>
+  <title>${escapeHtml(data.curResumeName)}</title>
   ${googleFontsLink}
   <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"><\/script>
 
