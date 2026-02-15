@@ -119,17 +119,19 @@ const exportHtml = () => {
       body {
         background-color: white;
         padding: 0;
+        margin: 0;
       }
       
       #vue-smart-pages-preview {
         width: 100%;
         max-width: none;
         box-shadow: none;
-        padding: ${styles.marginV}mm ${styles.marginH}mm;
+        margin: 0;
+        padding: ${styles.marginV}px ${styles.marginH}px;
       }
       
       @page {
-        size: ${paperWidthMm}mm ${paperHeightMm}mm;
+        size: ${styles.paper};
         margin: 0;
       }
     }
