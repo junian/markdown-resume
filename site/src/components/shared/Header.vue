@@ -11,12 +11,14 @@
     <slot name="middle" />
 
     <div hstack>
+      <!--
       <NavItem
         mr-3
         :link="$nuxt.$localePath('/resumes')"
         :label="$t('resumes.my_resumes')"
         icon="i-ep:menu"
       />
+      -->
       <ToggleLang mr-1.5 />
 
       <slot name="tail" />
