@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button v-bind="api.triggerProps" class="hstack cursor-pointer space-x-1">
+    <button v-bind="api.triggerProps" class="hstack cursor-pointer space-x-1 p-1.5 rounded transition-colors hover:bg-gray-200 dark:hover:bg-gray-700">
       <span v-if="icon" :class="icon" md:text-lg />
       <span class="truncate max-w-xs hide-on-mobile">
         {{ label }}
