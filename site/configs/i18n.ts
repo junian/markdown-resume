@@ -16,6 +16,7 @@ export const i18n: NuxtI18nOptions = {
       icon: "i-circle-flags:id",
       file: "id.yaml"
     },
+    /*
     {
       code: "sp",
       name: "Spanish",
@@ -28,6 +29,7 @@ export const i18n: NuxtI18nOptions = {
       icon: "i-icon-park-outline:chinese",
       file: "zh-cn.yaml"
     }
+    */
   ],
   langDir: "i18n",
   compilation: {
