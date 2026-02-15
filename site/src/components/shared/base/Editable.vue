@@ -36,10 +36,17 @@ const [state, send] = useMachine(
   editable.machine({
     id: props.id,
     selectOnFocus: false,
-    submitMode: "enter",
+    submitMode: "both",
     onValueCommit: (details) => {
-      console.log("Value submitted", details.value);
-      props.onValueCommit(details.value);
+      const newValue = details.value.trim();
+      // Only commit if the value is not empty and different from default
+      if (newValue && newValue !== props.default) {
+        console.log("Value submitted", newValue);
+        props.onValueCommit(newValue);
+      } else {
+        // Revert to default if empty or unchanged
+        api.value.setValue(props.default);
+      }
     }
   })
 );
