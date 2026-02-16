@@ -40,6 +40,7 @@ toolbar:
     export_pdf: Ekspor PDF
     export_md: Ekspor Markdown
     export_html: Ekspor HTML
+    export_docx: Ekspor DOCX
   correct_case:
     text: Perbaiki Huruf Besar/Kecil
     desc: "Contoh: \"Github\" → \"GitHub\" <br> Catatan: kata-kata yang hanya berisi huruf besar atau kecil (\"GITHUB\" atau \"github\") tidak akan diubah"

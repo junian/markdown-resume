@@ -40,6 +40,7 @@ toolbar:
     export_pdf: Export PDF
     export_md: Export Markdown
     export_html: Export HTML
+    export_docx: Export DOCX
   correct_case:
     text: Correct Case
     desc: "Example: \"Github\" → \"GitHub\" <br> Note: the words only including uppercase or lowercase (\"GITHUB\" or \"github\") will be left untouched"

@@ -34,6 +34,11 @@
       <span i-mdi:language-html5 text-base />
       <span>{{ $t("toolbar.file.export_html") }}</span>
     </li>
+
+    <li class="dropdown-li space-x-1.5 rounded" role="button" @click="exportDocx">
+      <span i-mdi:file-word text-base />
+      <span>{{ $t("toolbar.file.export_docx") }}</span>
+    </li>
   </ToolItem>
 </template>
 
@@ -161,5 +166,96 @@ ${html}
 </html>`;
   
   downloadFile(`${saveName.value}.html`, htmlDocument);
+};
+
+const exportDocx = async () => {
+  try {
+    const html = renderMarkdown(data.mdContent);
+    
+    // Generate inline CSS for DOCX
+    const inlineCss = `
+      <style>
+        body {
+          font-family: ${styles.fontEN.fontFamily || styles.fontEN.name}, ${styles.fontCJK.fontFamily || styles.fontCJK.name};
+          font-size: ${styles.fontSize}pt;
+          line-height: ${styles.lineHeight.toFixed(2)};
+          color: #000000;
+        }
+        
+        a {
+          color: ${styles.themeColor};
+        }
+        
+        h1, h2, h3 {
+          color: ${styles.themeColor};
+        }
+        
+        h1 {
+          font-size: 2.5em;
+          letter-spacing: 0.1em;
+          text-align: center;
+          margin-bottom: 0.25em;
+          border-bottom: 1px solid ${styles.themeColor};
+        }
+        
+        h2, h3 {
+          margin-bottom: 0.25em;
+          margin-top: ${styles.paragraphSpace}px;
+          font-size: 1.2em;
+          border-bottom: 1px solid ${styles.themeColor};
+        }
+        
+        p, li {
+          line-height: ${styles.lineHeight.toFixed(2)};
+          margin: 0;
+        }
+        
+        ul, ol {
+          padding-left: 1.5em;
+          margin: 0.2em 0 1.0em 0;
+        }
+        
+        .resume-header {
+          text-align: center;
+        }
+        
+        .resume-header h1 {
+          text-align: center;
+          line-height: 1;
+          margin-bottom: 8px;
+        }
+        
+        .resume-header-item:not(.no-separator)::after {
+          content: " | ";
+        }
+      </style>
+    `;
+    
+    // Create HTML document for DOCX conversion
+    const docxHtml = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>${data.curResumeName}</title>
+  ${inlineCss}
+</head>
+<body>
+${html}
+</body>
+</html>`;
+    
+    // Dynamic import of the libraries
+    const { asBlob } = await import('html-docx-js-typescript');
+    // @ts-ignore - file-saver types not available
+    const { saveAs } = await import('file-saver');
+    
+    // Convert HTML to DOCX and save
+    asBlob(docxHtml).then(data => {
+      saveAs(data, `${saveName.value}.docx`);
+    });
+  } catch (error) {
+    console.error('Error exporting DOCX:', error);
+    alert('Failed to export DOCX. Please try again.');
+  }
 };
 </script>
