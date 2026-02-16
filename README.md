@@ -12,11 +12,11 @@ This repo is a fork of [Oh My CV!](https://ohmycv.app/), which is beautifully ma
 
 Changes I made from the original:
 
-* The default template is now as close as possible to [CareerCup's][careercup] resume template.
-* The default color is all black.
-* Uses web-safe fonts for easier and safer ATS parsing.
-* Export as HTML and DOCX.
-* And many more...
+- The default template is now as close as possible to [CareerCup's][careercup] resume template.
+- The default color is all black.
+- Uses web-safe fonts for easier and safer ATS parsing.
+- Export as HTML and DOCX.
+- And many more...
 
 I'm passionate about helping anyone get a job, which is why I made this fork.
 Most of the modifications ensure your resume is readable by both ATS systems and humans, so you don’t have to worry about the design.
@@ -30,25 +30,24 @@ Highly recommend using Chromium-based browsers, e.g., [Chrome][chrome] or [Micro
 
 ## Features
 
-* Write your resume in Markdown and preview it in real time — smooth experience!
-* Works offline ([PWA][pwa])
-* Export to A4 and US Letter PDFs
-* Customize page margins, theme colors, line heights, fonts, etc.
-* Pick any fonts from [Google Fonts](https://fonts.google.com/)
-* Add icons easily via [Iconify](https://github.com/iconify/iconify) (search icons on [Icônes](https://icones.js.org/))
-* TeX support ([KaTeX](https://github.com/KaTeX/KaTeX))
-* Cross-referencing (useful for academic CVs)
-* Case correction (e.g., `Github` → `GitHub`)
-* Add line breaks (`\\[10px]`) or start a new page (`\newpage`) like in LaTeX
-* Automatic page breaking
-* Custom CSS support
-* Manage multiple resumes
-* Your data stays in your hands:
-
-  * Data is saved locally in your browser (see [here](https://localforage.github.io/localForage/) for details)
-  * Open-source static website hosted on [GitHub Pages](https://pages.github.com/), which does not (and cannot) collect your data
-  * No user tracking, no ads
-* Dark mode
+- Write your resume in Markdown and preview it in real time — smooth experience!
+- Works offline ([PWA][pwa])
+- Export to A4 and US Letter PDFs
+- Customize page margins, theme colors, line heights, fonts, etc.
+- Pick any fonts from [Google Fonts](https://fonts.google.com/)
+- Add icons easily via [Iconify](https://github.com/iconify/iconify) (search icons on [Icônes](https://icones.js.org/))
+- TeX support ([KaTeX](https://github.com/KaTeX/KaTeX))
+- Cross-referencing (useful for academic CVs)
+- Case correction (e.g., `Github` → `GitHub`)
+- Add line breaks (`\\[10px]`) or start a new page (`\newpage`) like in LaTeX
+- Automatic page breaking
+- Custom CSS support
+- Manage multiple resumes
+- Your data stays in your hands:
+  - Data is saved locally in your browser (see [here](https://localforage.github.io/localForage/) for details)
+  - Open-source static website hosted on [GitHub Pages](https://pages.github.com/), which does not (and cannot) collect your data
+  - No user tracking, no ads
+- Dark mode
 
 ## Development
 
@@ -81,8 +80,8 @@ pnpm build
 
 ## Credits
 
-* Original project: [Renovamen/oh-my-cv](https://github.com/Renovamen/oh-my-cv)
-* [billryan/resume](https://github.com/billryan/resume)
+- Original project: [Renovamen/oh-my-cv](https://github.com/Renovamen/oh-my-cv)
+- [billryan/resume](https://github.com/billryan/resume)
 
 ## License
 
