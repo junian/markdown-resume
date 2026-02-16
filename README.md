@@ -1,6 +1,6 @@
 <h1 align="center">Markdown Resume</h1>
 
-<p align="center">Write an ATS-friendly Resume in Markdown. Available for anyone, Optimized for Dev.</p>
+<p align="center">Write an ATS-friendly resume in Markdown. Available for everyone, optimized for developers.</p>
 
 <p align="center"><a href="https://www.junian.dev/markdown-resume/"><strong>Start Writing Now</strong></a>!</p>
 
@@ -8,42 +8,51 @@
 
 ## About
 
-A fork of "Oh My CV!". You can visit the original work [here](https://ohmycv.app/).
+This repo is a fork of [Oh My CV!](https://ohmycv.app/), which is beautifully made — go check out their work.
 
-Changes I made from the original work:
-- Default template is now as close as possible with [CareerCup's](https://www.careercup.com/resume) resume template.
-- Default color is all Black.
-- Added Web-safe fonts for easier ATS parsing.
-- And many more ...
+Changes I made from the original:
+
+* The default template is now as close as possible to [CareerCup's][careercup] resume template.
+* The default color is all black.
+* Uses web-safe fonts for easier and safer ATS parsing.
+* Export as HTML and DOCX.
+* And many more...
+
+I'm passionate about helping anyone get a job, which is why I made this fork.
+Most of the modifications ensure your resume is readable by both ATS systems and humans, so you don’t have to worry about the design.
+
+I can’t guarantee that using this will improve your job search success rate.
+But I hope it helps.
 
 ## Notice
 
-Highly recommend using Chromium-based browsers, e.g., [Chrome](https://www.google.com/chrome/) and [Microsoft Edge](https://www.microsoft.com/en-us/edge).
+Highly recommend using Chromium-based browsers, e.g., [Chrome][chrome] or [Microsoft Edge][edge].
 
 ## Features
 
-- Write your resume in Markdown and preview it in real-time, it's smooth!
-- It works offline ([PWA](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps))
-- Export to A4 and US Letter size PDFs
-- Customize page margins, theme colors, line heights, fonts, etc.
-- Pick any fonts from [Google Fonts](https://fonts.google.com/)
-- Add icons easily via [Iconify](https://github.com/iconify/iconify) (search for icons on [Icônes](https://icones.js.org/))
-- Tex support ([KaTeX](https://github.com/KaTeX/KaTeX))
-- Cross-reference (would be useful for an academic CV)
-- Case correction (e.g. `Github` -> `GitHub`)
-- Add line breaks (`\\[10px]`) or start a new page (`\newpage`) just like in LaTeX
-- Break pages automatically
-- Customize CSS
-- Manage multiple resumes
-- Your data in your hands:
-  - Data are saved locally within your browser, see [here](https://localforage.github.io/localForage/) for details
-  - Open-source static website hosted on [Github Pages](https://pages.github.com/), which doesn't (have the ability to) collect your data
-  - No user tracking, no ads
-- Dark mode
+* Write your resume in Markdown and preview it in real time — smooth experience!
+* Works offline ([PWA][pwa])
+* Export to A4 and US Letter PDFs
+* Customize page margins, theme colors, line heights, fonts, etc.
+* Pick any fonts from [Google Fonts](https://fonts.google.com/)
+* Add icons easily via [Iconify](https://github.com/iconify/iconify) (search icons on [Icônes](https://icones.js.org/))
+* TeX support ([KaTeX](https://github.com/KaTeX/KaTeX))
+* Cross-referencing (useful for academic CVs)
+* Case correction (e.g., `Github` → `GitHub`)
+* Add line breaks (`\\[10px]`) or start a new page (`\newpage`) like in LaTeX
+* Automatic page breaking
+* Custom CSS support
+* Manage multiple resumes
+* Your data stays in your hands:
+
+  * Data is saved locally in your browser (see [here](https://localforage.github.io/localForage/) for details)
+  * Open-source static website hosted on [GitHub Pages](https://pages.github.com/), which does not (and cannot) collect your data
+  * No user tracking, no ads
+* Dark mode
 
 ## Development
 
-It's built on [Nuxt 3](https://nuxt.com), with the power of [Vue 3](https://github.com/vuejs/vue-next), [Vite](https://github.com/vitejs/vite), [Zag](https://zagjs.com/), and [UnoCSS](https://github.com/antfu/unocss).
+Built with [Nuxt 3](https://nuxt.com), powered by [Vue 3](https://github.com/vuejs/vue-next), [Vite](https://github.com/vitejs/vite), [Zag](https://zagjs.com/), and [UnoCSS](https://github.com/antfu/unocss).
 
 Clone the repo and install dependencies:
 
@@ -51,13 +60,13 @@ Clone the repo and install dependencies:
 pnpm install
 ```
 
-Build some [packages](packages):
+Build the [packages](packages):
 
 ```bash
 pnpm build:pkg
 ```
 
-To enable picking fonts from [Google Fonts](https://fonts.google.com/), you will need to generate a [Google Fonts Developer API Key](https://developers.google.com/fonts/docs/developer_api#APIKey). Then, create a `.env` file in [`site`](site/) folder and put:
+To enable font selection from [Google Fonts](https://fonts.google.com/), generate a [Google Fonts Developer API Key](https://developers.google.com/fonts/docs/developer_api#APIKey). Then create a `.env` file inside the [`site`](site/) folder and add:
 
 ```
 NUXT_PUBLIC_GOOGLE_FONTS_KEY="YOUR_API_KEY"
@@ -72,13 +81,18 @@ pnpm build
 
 ## Credits
 
-- The original work: [Renovamen/oh-my-cv](https://github.com/Renovamen/oh-my-cv)
-- [billryan/resume](https://github.com/billryan/resume)
+* Original project: [Renovamen/oh-my-cv](https://github.com/Renovamen/oh-my-cv)
+* [billryan/resume](https://github.com/billryan/resume)
 
 ## License
 
-This project is licensed under [MIT](LICENSE) license.
+This project is licensed under the [MIT](LICENSE) license.
 
 ---
 
 Made with ☕ by [Junian.dev](https://www.junian.dev).
+
+[careercup]: <https://web.archive.org/web/20240501052328/https://www.careercup.com/resume> "CareerCup Good Resume"
+[chrome]: <https://www.google.com/chrome/> "Download Google Chrome"
+[edge]: <https://www.microsoft.com/en-us/edge/> "Download Microsoft Edge"
+[pwa]: https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps
