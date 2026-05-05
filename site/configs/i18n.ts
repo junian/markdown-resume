@@ -16,6 +16,13 @@ export const i18n: NuxtI18nOptions = {
       icon: "i-circle-flags:id",
       file: "id.yaml"
     },
+    {
+      code: "fa",
+      name: "فارسی",
+      icon: "i-circle-flags:ir",
+      dir: "rtl",
+      file: "fa.yaml"
+    },
     /*
     {
       code: "sp",
