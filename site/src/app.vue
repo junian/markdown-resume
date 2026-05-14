@@ -7,11 +7,20 @@
 </template>
 
 <script setup lang="ts">
-const { t, locale } = useI18n();
+const { t, locale, locales } = useI18n();
 const colorMode = useColorMode();
 const preferredDark = { value: false }; //usePreferredDark();
 
+const isRtl = computed(() => {
+  const current = locales.value.find((l) => l.code === locale.value);
+  return current && "dir" in current && current.dir === "rtl";
+});
+
 useHead({
+  htmlAttrs: {
+    dir: () => (isRtl.value ? "rtl" : "ltr"),
+    lang: () => locale.value
+  },
   title: t("head.title"),
   meta: [
     { name: "keywords", content: t("head.keywords") },

@@ -12,3 +12,13 @@ body {
 svg.iconify {
   @apply inline-block;
 }
+
+/* RTL support */
+
+[dir="rtl"] .header {
+  @apply pr-4 pl-1;
+}
+
+[dir="rtl"] .tools-pane {
+  @apply lt-lg:(left-0 right-auto);
+}
