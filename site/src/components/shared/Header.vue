@@ -5,7 +5,7 @@
       :to="$nuxt.$localePath('/')"
     >
       <Logo hide-on-mobile text="sm md:base" />
-      <h1 text="base md:lg"><BrandName /></h1>
+      <div text="base md:lg"><BrandName /></div>
     </nuxt-link>
 
     <slot name="middle" />
