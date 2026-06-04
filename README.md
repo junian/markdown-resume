@@ -4,7 +4,7 @@
 
 <p align="center"><a href="https://www.junian.dev/markdown-resume/"><strong>Start Writing Now</strong></a>!</p>
 
-<img align="center" src="https://raw.githubusercontent.com/junian/markdown-resume/assets/img/markdown-resume-screenshot-00.jpg"/>
+<img align="center" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0XXzED8hJoI6NjzZSGKN68nANKihJrglZSuv9LnTFrSTN6w7Xgl0smpr8q5s6vLGCl1BOIeQYeBF-AbpOxpOHzeR6531A3eAuLJrTUimd01QWAmvP6gZZYUggkND1q7LOh5iQuNJg3nu7ekr5wezPa9quyhh0O9itQj9qTPY0vkmdwv1dtfTa-7uYsds/s1600/markdown-resume-screenshot.png" alt="Markdown Resume Screenshot" title="Markdown Resume Screenshot">
 
 ## About
 
@@ -34,7 +34,6 @@ Highly recommend using Chromium-based browsers, e.g., [Chrome][chrome] or [Micro
 - Works offline ([PWA][pwa])
 - Export to A4 and US Letter PDFs
 - Customize page margins, theme colors, line heights, fonts, etc.
-- Pick any fonts from [Google Fonts](https://fonts.google.com/)
 - Add icons easily via [Iconify](https://github.com/iconify/iconify) (search icons on [Icônes](https://icones.js.org/))
 - TeX support ([KaTeX](https://github.com/KaTeX/KaTeX))
 - Cross-referencing (useful for academic CVs)
@@ -43,15 +42,18 @@ Highly recommend using Chromium-based browsers, e.g., [Chrome][chrome] or [Micro
 - Automatic page breaking
 - Custom CSS support
 - Manage multiple resumes
-- Your data stays in your hands:
-  - Data is saved locally in your browser (see [here](https://localforage.github.io/localForage/) for details)
-  - Open-source static website hosted on [GitHub Pages](https://pages.github.com/), which does not (and cannot) collect your data
-  - No user tracking, no ads
+- Data is saved locally in your browser using IndexedDB browser feature (see [`localForage` repo](https://localforage.github.io/localForage/) for details)
 - Dark mode
 
 ## Development
 
-Built with [Nuxt 3](https://nuxt.com), powered by [Vue 3](https://github.com/vuejs/vue-next), [Vite](https://github.com/vitejs/vite), [Zag](https://zagjs.com/), and [UnoCSS](https://github.com/antfu/unocss).
+Built with:
+
+- [Nuxt 3](https://nuxt.com)
+- [Vue 3](https://github.com/vuejs/vue-next)
+- [Vite](https://github.com/vitejs/vite)
+- [Zag](https://zagjs.com/)
+- [UnoCSS](https://github.com/antfu/unocss)
 
 Clone the repo and install dependencies:
 
