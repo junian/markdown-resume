@@ -11,6 +11,7 @@
   "devDependencies": {
     "@iconify/json": "^2.2.199",
     "@nuxt/devtools": "latest",
+    "@nuxt/scripts": "^1.2.1",
     "@nuxtjs/color-mode": "^3.3.3",
     "@nuxtjs/i18n": "^8.3.0",
     "@pinia/nuxt": "^0.5.1",
@@ -47,7 +48,6 @@
     "markdown-it-link-attributes": "^4.0.1",
     "monaco-editor": "^0.53.0",
     "nuxt": "^3.11.2",
-    "nuxt-gtag": "^4.1.0",
     "nuxt-simple-sitemap": "^4.4.1",
     "pinia": "^2.1.7",
     "ts-debounce": "^4.0.0",
