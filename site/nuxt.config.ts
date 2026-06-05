@@ -5,6 +5,7 @@ const siteConfig = {
   title: "Free Markdown Resume App",
   description: "Free online resume maker, allows you to create your resume in minutes with Markdown!",
   image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiqtAGRJE-GkyEUNR44rnmHypGIiNLF7LB2XVVblX0l1g4TLWuwjIRM-8JV1fhZViZifolvF3STooaj-3vMUHuQsZWXul_y-EJBAWvRHaSQ54zKJdX072hdFVJ-Xu4ReyICWQ1S0RMbY2ZCC1R12dzkI4xPMQpP4zVc4WyVOQMvn2LDghmWMWJv91SccHA/s1600/markdown-resume.jpg",
+  url: "https://www.junian.dev",
   canonicalUrl: "https://www.junian.dev/markdown-resume/"
 };
 
@@ -85,7 +86,7 @@ export default defineNuxtConfig({
   },
 
   site: {
-    url: siteConfig.canonicalUrl
+    url: siteConfig.url
   },
 
   pwa,
