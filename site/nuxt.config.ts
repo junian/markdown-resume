@@ -20,8 +20,9 @@ export default defineNuxtConfig({
     "@nuxtjs/i18n",
     "@nuxtjs/color-mode",
     "@vite-pwa/nuxt",
-    "nuxt-simple-sitemap",
-    "@nuxt/scripts"
+    "nuxt-gtag",
+    "nuxt-clarity-analytics",
+    "nuxt-simple-sitemap"
   ],
 
   css: [
@@ -91,19 +92,12 @@ export default defineNuxtConfig({
 
   pwa,
 
-  $production: {
-    scripts: {
-      registry: {
-        clarity: {
-          id: process.env.NUXT_PUBLIC_CLARITY_ID || "",
-          trigger: 'onNuxtReady',
-        },
-        googleAnalytics: {
-          id: process.env.NUXT_PUBLIC_GTAG_ID || "",
-          trigger: 'onNuxtReady',
-        }
-      }
-    }
+  nitro: {
+    runtimeConfig: {}
+  },
+
+  gtag: {
+    id: process.env.NUXT_PUBLIC_GTAG_ID || ""
   }
 
 });
