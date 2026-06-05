@@ -2,13 +2,13 @@
 
 <img src="https://raw.githubusercontent.com/junian/commons-media/refs/heads/master/svg/markdown-mark-logo.svg" style="height: 96px;" alt="Markdown Logo" title="Markdown Logo" />
 
-<h1>Markdown Resume</h1>
+# Markdown Resume
 
-<p>Write an ATS-friendly resume in Markdown. Available for everyone, optimized for developers.</p>
+Write an ATS-friendly resume in Markdown. Available for everyone, optimized for developers.
 
-[![Markdown Resume](https://img.shields.io/badge/Start_Writing_Now!-1a73e8?style=for-the-badge&logo=markdown&logoColor=white "Write Resume in Markdown")](https://www.junian.dev/markdown-resume/)
+[![Markdown Resume](https://img.shields.io/badge/Start_Writing_Now-1a73e8?style=for-the-badge&logo=markdown&logoColor=white "Write Resume in Markdown")][app]
 
-<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0XXzED8hJoI6NjzZSGKN68nANKihJrglZSuv9LnTFrSTN6w7Xgl0smpr8q5s6vLGCl1BOIeQYeBF-AbpOxpOHzeR6531A3eAuLJrTUimd01QWAmvP6gZZYUggkND1q7LOh5iQuNJg3nu7ekr5wezPa9quyhh0O9itQj9qTPY0vkmdwv1dtfTa-7uYsds/s1600/markdown-resume-screenshot.png" alt="Markdown Resume Screenshot" title="Markdown Resume Screenshot">
+[![Markdown Resume Screenshot](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0XXzED8hJoI6NjzZSGKN68nANKihJrglZSuv9LnTFrSTN6w7Xgl0smpr8q5s6vLGCl1BOIeQYeBF-AbpOxpOHzeR6531A3eAuLJrTUimd01QWAmvP6gZZYUggkND1q7LOh5iQuNJg3nu7ekr5wezPa9quyhh0O9itQj9qTPY0vkmdwv1dtfTa-7uYsds/s1600/markdown-resume-screenshot.png "Markdown Resume")][app]
 
 </div>
 
@@ -103,3 +103,4 @@ Made with ☕ by [Junian.dev](https://www.junian.dev).
 [chrome]: <https://www.google.com/chrome/> "Download Google Chrome"
 [edge]: <https://www.microsoft.com/en-us/edge/> "Download Microsoft Edge"
 [pwa]: https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps
+[app]: <https://www.junian.dev/markdown-resume/> "Write Resume / CV in Markdown"
