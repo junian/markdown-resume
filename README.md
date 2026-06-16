@@ -53,14 +53,6 @@ Highly recommend using Chromium-based browsers, e.g., [Chrome][chrome] or [Micro
 
 ## Development
 
-Built with:
-
-- [Nuxt 3](https://nuxt.com)
-- [Vue 3](https://github.com/vuejs/vue-next)
-- [Vite](https://github.com/vitejs/vite)
-- [Zag](https://zagjs.com/)
-- [UnoCSS](https://github.com/antfu/unocss)
-
 Clone the repo and install dependencies:
 
 ```bash
@@ -75,7 +67,7 @@ pnpm build:pkg
 
 To enable font selection from [Google Fonts](https://fonts.google.com/), generate a [Google Fonts Developer API Key](https://developers.google.com/fonts/docs/developer_api#APIKey). Then create a `.env` file inside the [`site`](site/) folder and add:
 
-```
+```bash
 NUXT_PUBLIC_GOOGLE_FONTS_KEY="YOUR_API_KEY"
 ```
 
@@ -86,14 +78,9 @@ pnpm dev
 pnpm build
 ```
 
-## Credits
-
-- Original project: [Renovamen/oh-my-cv](https://github.com/Renovamen/oh-my-cv)
-- [billryan/resume](https://github.com/billryan/resume)
-
 ## License
 
-This project is licensed under the [MIT](LICENSE) license.
+This project is licensed under the [MIT](LICENSE) license. See [ACKNOWLEDGMENTS](ACKNOWLEDGMENTS.md) for credits.
 
 ---
 
