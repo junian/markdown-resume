@@ -80,7 +80,8 @@ pnpm build
 
 ## License
 
-This project is licensed under the [MIT](LICENSE) license. See [ACKNOWLEDGMENTS](ACKNOWLEDGMENTS.md) for credits.
+This project is licensed under the [AGPL-3.0](LICENSE) license.
+See [ACKNOWLEDGMENTS](ACKNOWLEDGMENTS.md) for credits.
 
 ---
 
