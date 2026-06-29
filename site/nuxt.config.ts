@@ -61,6 +61,7 @@ export default defineNuxtConfig({
     head: {
       viewport: "width=device-width,initial-scale=1",
       link: [
+        { rel: "canonical", href: siteConfig.canonicalUrl },
         { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
         { rel: "mask-icon", href: "/safari-pinned-tab.svg", color: "#222" }
       ],
