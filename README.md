@@ -8,7 +8,7 @@ Write an ATS-friendly resume in Markdown. Available for everyone, optimized for 
 
 [![Markdown Resume](https://img.shields.io/badge/Start_Writing_Now-1a73e8?style=for-the-badge&logo=markdown&logoColor=white "Write Resume in Markdown")][app]
 
-[![Markdown Resume Screenshot](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0XXzED8hJoI6NjzZSGKN68nANKihJrglZSuv9LnTFrSTN6w7Xgl0smpr8q5s6vLGCl1BOIeQYeBF-AbpOxpOHzeR6531A3eAuLJrTUimd01QWAmvP6gZZYUggkND1q7LOh5iQuNJg3nu7ekr5wezPa9quyhh0O9itQj9qTPY0vkmdwv1dtfTa-7uYsds/s1600/markdown-resume-screenshot.png "Markdown Resume")][app]
+[![Markdown Resume Screenshot](https://www.junian.dev/img/b/R29vZ2xl/AVvXsEi0XXzED8hJoI6NjzZSGKN68nANKihJrglZSuv9LnTFrSTN6w7Xgl0smpr8q5s6vLGCl1BOIeQYeBF-AbpOxpOHzeR6531A3eAuLJrTUimd01QWAmvP6gZZYUggkND1q7LOh5iQuNJg3nu7ekr5wezPa9quyhh0O9itQj9qTPY0vkmdwv1dtfTa-7uYsds/s1600/markdown-resume-screenshot.png "Markdown Resume")][app]
 
 </div>
 
