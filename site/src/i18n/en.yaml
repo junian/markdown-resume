@@ -57,6 +57,20 @@ toolbar:
   vertical: Top & Bottom
   horizontal: Left & Right
 
+images:
+  my_images: My Images
+  upload: Upload Image
+  sort_asc: Oldest First
+  sort_desc: Newest First
+  copy_url: Copy URL
+  delete: Delete
+  empty: No images yet. Upload one to get started.
+  upload_title: Upload an Image
+  from_local: Drag your image here, or click here to choose a file
+  copied: URL copied to clipboard
+  deleted: Image "{msg}" has been deleted
+  uploaded: Image "{msg}" uploaded successfully
+
 notification:
   save: Your changes have been saved
   switch: Switched to resume "{msg}"

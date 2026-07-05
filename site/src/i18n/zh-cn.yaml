@@ -56,6 +56,20 @@ toolbar:
   vertical: 上下
   horizontal: 左右
 
+images:
+  my_images: 我的图片
+  upload: 上传图片
+  sort_asc: 最早优先
+  sort_desc: 最新优先
+  copy_url: 复制链接
+  delete: 删除
+  empty: 暂无图片，上传一张以开始使用。
+  upload_title: 上传图片
+  from_local: 将图片拖拽至这里，或点击这里以选择图片
+  copied: 链接已复制到剪贴板
+  deleted: 已删除图片 "{msg}"
+  uploaded: 图片 "{msg}" 上传成功
+
 notification:
   save: 保存成功
   switch: 已切换到简历 "{msg}"

@@ -69,6 +69,22 @@ export type DropdownItem = {
   link: string;
 };
 
+export type ImageStorageItem = {
+  name: string;
+  blob: Blob;
+  mimeType: string;
+  size: number;
+  createdAt: string;
+};
+
+export type ImageStorage = {
+  [id: string]: ImageStorageItem;
+};
+
+export interface ImageListItem extends ImageStorageItem {
+  id: string;
+}
+
 export type ComboboxItem = {
   label: string;
   value: string;

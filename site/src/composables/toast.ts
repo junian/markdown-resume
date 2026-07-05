@@ -70,6 +70,27 @@ export const useToast = () => {
     }
   };
 
+  const uploadImage = (msg: string) => {
+    $toast.value.create({
+      description: nuxtApp.$i18n.t("images.uploaded", { msg }),
+      type: "success"
+    });
+  };
+
+  const deleteImage = (msg: string) => {
+    $toast.value.create({
+      description: nuxtApp.$i18n.t("images.deleted", { msg }),
+      type: "error"
+    });
+  };
+
+  const copyImageUrl = () => {
+    $toast.value.create({
+      description: nuxtApp.$i18n.t("images.copied"),
+      type: "success"
+    });
+  };
+
   return {
     save,
     switch: switchResume,
@@ -77,6 +98,9 @@ export const useToast = () => {
     new: newResume,
     duplicate,
     correct,
-    import: importResume
+    import: importResume,
+    uploadImage,
+    deleteImage,
+    copyImageUrl
   };
 };
