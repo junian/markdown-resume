@@ -16,9 +16,14 @@ landing:
   start: Crear My Resumen
   feats:
     - title: Simple y poderoso
-      items: Administra multiples curriculums con <br>Vista previa en tiempo real<br>Exportar a PDF format<br>Completamente configurable<br>Elige fuentes y agrega íconos<br>Y <a href="https://github.com/junian/markdown-resume#features" target="_blank">más funciones</a>
-    - title: Primero tu privacidad
-      items: Open source, libre y gratuito<br>Información guardada en tu equipo<br>No necesita que te registres<br>No realizamos ningún trackeo ni mostramos publicidad<br>No ads
+      items: Administra multiples curriculums con <br>Vista previa en tiempo real<br>Exportar a PDF format<br>Exportar a HTML<br>Exportar a MS Word (beta)<br>Galería de imágenes<br>Completamente configurable<br>Elige fuentes y agrega íconos<br>Y <a href="https://github.com/junian/markdown-resume#features" target="_blank">más funciones</a>
+    - title: Seguridad Primero
+      items: Open source, libre y gratuito<br>Información guardada en tu equipo<br>No necesita que te registres<br>Tus datos nunca salen de tu dispositivo<br>Sin almacenamiento ni procesamiento en servidores<br>Tus datos son siempre tuyos
+  analytics_disclaimer: >
+    Al acceder desde <a href="https://junian.dev/markdown-resume/" target="_blank" class="underline">junian.dev/markdown-resume/</a>,
+    esta aplicación utiliza <strong>Google Analytics</strong> y <strong>Cloudflare Web Analytics</strong> para medir
+    métricas de uso como vistas de página y usuarios activos. El contenido de tu currículum e imágenes nunca son recopilados ni transmitidos.
+    Al usar esta aplicación, aceptas la <a href="https://junian.dev/privacy-policy/" target="_blank" class="underline">Política de Privacidad</a>.
 
 resumes:
   my_resumes: Mis CVs

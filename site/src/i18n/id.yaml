@@ -16,9 +16,14 @@ landing:
   start: Buat Resume Saya
   feats:
     - title: Sederhana dan Powerful
-      items: Kelola beberapa resume<br>Pratinjau real-time<br>Ekspor ke format PDF<br>Sepenuhnya dapat disesuaikan<br>Pilih font dan tambahkan ikon<br>Dan <a href="https://github.com/junian/markdown-resume#features" target="_blank">fitur lainnya</a>
-    - title: Privasi Utama
-      items: Open source dan gratis<br>Data disimpan secara lokal<br>Tidak perlu login atau registrasi<br>Tidak ada pelacakan pengguna<br>Tidak ada iklan
+      items: Kelola beberapa resume<br>Pratinjau real-time<br>Ekspor ke format PDF<br>Ekspor ke HTML<br>Ekspor ke MS Word (beta)<br>Galeri gambar<br>Sepenuhnya dapat disesuaikan<br>Pilih font dan tambahkan ikon<br>Dan <a href="https://github.com/junian/markdown-resume#features" target="_blank">fitur lainnya</a>
+    - title: Keamanan Utama
+      items: Open source dan gratis<br>Data disimpan secara lokal<br>Tidak perlu login atau registrasi<br>Data Anda tidak pernah meninggalkan perangkat Anda<br>Tidak ada penyimpanan atau pemrosesan di server<br>Data Anda selalu milik Anda
+  analytics_disclaimer: >
+    Saat diakses melalui <a href="https://junian.dev/markdown-resume/" target="_blank" class="underline">junian.dev/markdown-resume/</a>,
+    aplikasi ini menggunakan <strong>Google Analytics</strong> dan <strong>Cloudflare Web Analytics</strong> untuk mengukur
+    metrik penggunaan seperti jumlah halaman yang dilihat dan pengguna aktif. Konten resume dan gambar Anda tidak pernah dikumpulkan atau dikirimkan.
+    Dengan menggunakan aplikasi ini, Anda menyetujui <a href="https://junian.dev/privacy-policy/" target="_blank" class="underline">Kebijakan Privasi</a>.
 
 resumes:
   my_resumes: Resume Saya

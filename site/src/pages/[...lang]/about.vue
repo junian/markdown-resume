@@ -4,8 +4,8 @@
 
     <div class="workspace">
       <div
-        class="h-fit max-w-240 sm:(absolute inset-0 m-auto)"
-        p="x-5 t-40 md:x-20 lt-sm:b-10"
+        class="h-fit max-w-240 mx-auto"
+        p="x-5 t-16 b-10 md:x-20"
       >
         <div text-center>
           <h1 text="c 3xl sm:4xl" v-html="$t('landing.hero')" />
@@ -44,7 +44,17 @@
             </div>
           </div>
         </div>
+
+        <div m="t-10 x-auto" max-w-150 text="sm light-c" p="x-4 y-3" class="disclaimer rounded-lg border border-gray-200 dark:border-gray-700">
+          <p v-html="$t('landing.analytics_disclaimer')" />
+        </div>
       </div>
     </div>
   </div>
 </template>
+
+<style scoped>
+.disclaimer :deep(a) {
+  text-decoration: underline;
+}
+</style>

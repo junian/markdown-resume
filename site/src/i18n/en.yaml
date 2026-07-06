@@ -16,9 +16,14 @@ landing:
   start: Create My Resume
   feats:
     - title: Simple and Powerful
-      items: Manage multiple resumes<br>Real-time preview<br>Export to PDF format<br>Fully customizable<br>Pick fonts and add icons<br>And <a href="https://github.com/junian/markdown-resume#features" target="_blank">more features</a>
-    - title: Privacy First
-      items: Open source and free<br>Data are saved locally<br>No login or registration required<br>No user tracking<br>No ads
+      items: Manage multiple resumes<br>Real-time preview<br>Export to PDF format<br>Export to HTML<br>Export to MS Word (beta)<br>Image gallery<br>Fully customizable<br>Pick fonts and add icons<br>And <a href="https://github.com/junian/markdown-resume#features" target="_blank">more features</a>
+    - title: Security First
+      items: Open source and free<br>Data are saved locally<br>No login or registration required<br>Your data never leave your device<br>No server-side storage or processing<br>You own your data, always
+  analytics_disclaimer: >
+    When accessed via <a href="https://junian.dev/markdown-resume/" target="_blank" class="underline">junian.dev/markdown-resume/</a>,
+    this app uses <strong>Google Analytics</strong> and <strong>Cloudflare Web Analytics</strong> to measure aggregate
+    usage metrics such as page views and active users. Your resume content and images are never collected or transmitted.
+    By using this app, you agree to the <a href="https://junian.dev/privacy-policy/" target="_blank" class="underline">Privacy Policy</a>.
 
 resumes:
   my_resumes: My Resumes
