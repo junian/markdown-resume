@@ -5,14 +5,10 @@
         href="https://www.junian.dev/"
         target="_blank"
         rel="dofollow"
-        class="flex-shrink-0"
+        class="circle size-9 md:size-10 flex-shrink-0 bg-blue-600 hover:bg-blue-500 text-white transition-colors shadow-sm"
         aria-label="Junian.dev"
       >
-        <img
-          src="https://github.com/junian.png"
-          alt="Junian.dev"
-          class="size-8 rounded-full object-cover hover:opacity-80 transition-opacity"
-        />
+        <span class="i-ic:outline-home text-lg md:text-xl" />
       </a>
 
       <nuxt-link
@@ -73,3 +69,15 @@
     </div>
   </header>
 </template>
+
+<style scoped>
+a.router-link-active.round-btn,
+a.router-link-exact-active.round-btn {
+  background-color: rgb(229 231 235); /* gray-200 */
+}
+
+:global(.dark) a.router-link-active.round-btn,
+:global(.dark) a.router-link-exact-active.round-btn {
+  background-color: rgb(55 65 81); /* gray-700 */
+}
+</style>
