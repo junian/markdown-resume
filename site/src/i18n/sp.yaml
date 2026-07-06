@@ -1,6 +1,10 @@
 lang: Idioma
 toggle_dark: Cambiar tema claro/oscuro
 
+nav:
+  about: Acerca de
+  coffee: Invítame un café
+
 head:
   title: Markdown Resume - Generador de CV online GRATUITO!!
   desc: El creador de currículums vitae en línea gratuito le permite crear su currículum en minutos con Markdown!
@@ -40,6 +44,7 @@ toolbar:
     export_pdf: Exportar PDF
     export_md: Exportar Markdown
     export_html: Exportar HTML
+    export_docx: Exportar DOCX
   correct_case:
     text: Corregir Mayusculas
     desc: "Ejemplo: \"Github\" → \"GitHub\" <br> Nota: No se modificarán las palabras que sólo contengan mayúsculas o minúsculas (\"GITHUB\" or \"github\")"
@@ -55,6 +60,20 @@ toolbar:
   margin: Margenes
   vertical: Arriba & Abajo
   horizontal: Izquierdo & Derecho
+
+images:
+  my_images: Mis Imágenes
+  upload: Subir Imagen
+  sort_asc: Más Antiguo Primero
+  sort_desc: Más Reciente Primero
+  copy_url: Copiar URL
+  delete: Eliminar
+  empty: Aún no hay imágenes. Sube una para empezar.
+  upload_title: Subir una Imagen
+  from_local: Arrastra tu imagen aquí, o haz clic para elegir un archivo
+  copied: URL copiada al portapapeles
+  deleted: Imagen "{msg}" ha sido eliminada
+  uploaded: Imagen "{msg}" subida correctamente
 
 notification:
   save: Cambios Guardados

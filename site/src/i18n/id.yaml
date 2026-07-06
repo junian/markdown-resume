@@ -1,6 +1,10 @@
 lang: Bahasa
 toggle_dark: Ubah mode gelap
 
+nav:
+  about: Tentang
+  coffee: Traktir saya kopi
+
 head:
   title: Markdown Resume - Pembuat Resume Markdown Online Gratis
   desc: Pembuat resume online gratis, memungkinkan Anda membuat resume dalam hitungan menit dengan Markdown!
@@ -56,6 +60,20 @@ toolbar:
   margin: Margin
   vertical: Atas & Bawah
   horizontal: Kiri & Kanan
+
+images:
+  my_images: Gambar Saya
+  upload: Unggah Gambar
+  sort_asc: Terlama Dulu
+  sort_desc: Terbaru Dulu
+  copy_url: Salin URL
+  delete: Hapus
+  empty: Belum ada gambar. Unggah satu untuk memulai.
+  upload_title: Unggah Gambar
+  from_local: Seret gambar Anda ke sini, atau klik di sini untuk memilih file
+  copied: URL disalin ke clipboard
+  deleted: Gambar "{msg}" telah dihapus
+  uploaded: Gambar "{msg}" berhasil diunggah
 
 notification:
   save: Perubahan Anda telah disimpan
