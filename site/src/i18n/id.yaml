@@ -5,6 +5,9 @@ nav:
   about: Tentang
   coffee: Traktir saya kopi
 
+disqus:
+  leave_a_comment: Tinggalkan Komentar
+
 head:
   title: Markdown Resume - Pembuat Resume Markdown Online Gratis
   desc: Pembuat resume online gratis, memungkinkan Anda membuat resume dalam hitungan menit dengan Markdown!

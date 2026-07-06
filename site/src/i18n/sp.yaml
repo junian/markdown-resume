@@ -5,6 +5,9 @@ nav:
   about: Acerca de
   coffee: Invítame un café
 
+disqus:
+  leave_a_comment: Dejar un Comentario
+
 head:
   title: Markdown Resume - Generador de CV online GRATUITO!!
   desc: El creador de currículums vitae en línea gratuito le permite crear su currículum en minutos con Markdown!

@@ -5,6 +5,9 @@ nav:
   about: About
   coffee: Buy me a coffee
 
+disqus:
+  leave_a_comment: Leave a Comment
+
 head:
   title: Markdown Resume - Free Online Markdown Resume Maker
   desc: Free online resume maker, allows you to create your resume in minutes with Markdown!

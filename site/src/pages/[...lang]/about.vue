@@ -48,6 +48,10 @@
         <div m="t-10 x-auto" max-w-150 text="sm light-c" p="x-4 y-3" class="disclaimer rounded-lg border border-gray-200 dark:border-gray-700">
           <p v-html="$t('landing.analytics_disclaimer')" />
         </div>
+
+        <div m="t-6 x-auto" max-w-150>
+          <DisqusComments />
+        </div>
       </div>
     </div>
   </div>

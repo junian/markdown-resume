@@ -5,6 +5,9 @@ nav:
   about: 关于
   coffee: 请我喝咖啡
 
+disqus:
+  leave_a_comment: 留言评论
+
 head:
   title: Markdown Resume - 免费的在线简历制作工具
   desc: 免费的在线简历制作工具，使用 Markdown 来轻松制作您的简历！
