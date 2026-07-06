@@ -49,7 +49,27 @@ Highly recommend using Chromium-based browsers, e.g., [Chrome][chrome] or [Micro
 - Custom CSS support
 - Manage multiple resumes
 - Data is saved locally in your browser using IndexedDB browser feature (see [`localForage` repo](https://localforage.github.io/localForage/) for details)
-- Dark mode
+- [**Image Gallery**](https://www.junian.dev/markdown-resume/images/) — upload images and reference them in your resume using Markdown or HTML (see below)
+
+## Image Support
+
+The Image Gallery screen lets you upload images and use them directly in your resume.
+
+Once uploaded, each image gets a stable URL in the format `/markdown-resume/images/<id>` served by a [Service Worker][sw] — no external hosting needed. You can copy the URL from the gallery and paste it into your Markdown:
+
+```markdown
+![My photo](/markdown-resume/images/1234567890_abc123)
+```
+
+Or as an HTML tag:
+
+```html
+<img src="/markdown-resume/images/1234567890_abc123" alt="My photo" />
+```
+
+When exporting to **HTML** or **DOCX**, image references are automatically replaced with inline base64 data URLs so the exported file is fully self-contained.
+
+**Privacy:** Images are stored entirely inside your browser's IndexedDB — the same storage used for your resumes. They are never uploaded to any server and never leave your computer.
 
 ## Development
 
@@ -91,4 +111,5 @@ Made with ☕ by [Junian.dev](https://www.junian.dev).
 [chrome]: <https://www.google.com/chrome/> "Download Google Chrome"
 [edge]: <https://www.microsoft.com/en-us/edge/> "Download Microsoft Edge"
 [pwa]: https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps
+[sw]: https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API
 [app]: <https://www.junian.dev/markdown-resume/> "Write Resume / CV in Markdown"
