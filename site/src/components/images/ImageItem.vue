@@ -11,9 +11,7 @@
       />
 
       <!-- Hover action buttons -->
-      <div
-        class="absolute inset-0 hidden group-hover:flex flex-col items-end justify-start p-2 gap-2 bg-black/20"
-      >
+      <div class="absolute right-2 top-2 hidden group-hover:flex flex-col gap-2">
         <button
           class="image-action-btn"
           :title="$t('images.copy_url')"
