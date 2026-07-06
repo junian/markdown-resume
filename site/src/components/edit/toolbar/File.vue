@@ -50,8 +50,12 @@ const { styles } = useStyleStore();
 const saveName = computed(() => data.curResumeName.trim().replace(/\s+/g, "_"));
 
 // Generate complete HTML document with styles
-const generateHtmlDocument = () => {
-  const html = renderMarkdown(data.mdContent);
+const generateHtmlDocument = async () => {
+  let html = renderMarkdown(data.mdContent);
+
+  // Replace /markdown-resume/images/<id> references with inline base64
+  // so the exported file is self-contained and works without the SW.
+  html = await inlineImagesInHtml(html);
   
   // Get paper dimensions in pixels
   const paperWidthPx = getPaperPx(styles.paper, 'w');
@@ -167,15 +171,14 @@ const exportMd = () => {
   downloadFile(`${saveName.value}.md`, data.mdContent);
 };
 
-const exportHtml = () => {
-  const htmlDocument = generateHtmlDocument();
+const exportHtml = async () => {
+  const htmlDocument = await generateHtmlDocument();
   downloadFile(`${saveName.value}.html`, htmlDocument);
 };
 
 const exportDocx = async () => {
   try {
-    // Get the same HTML document used for HTML export
-    const htmlDocument = generateHtmlDocument();
+    const htmlDocument = await generateHtmlDocument();
     
     // Dynamic import of the libraries
     const { asBlob } = await import('html-docx-js-typescript');

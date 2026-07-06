@@ -59,6 +59,42 @@ export const saveImage = async (
 };
 
 /**
+ * Replace all /markdown-resume/images/<id> src references in an HTML string
+ * with inline base64 data URLs read from IndexedDB.
+ *
+ * Call this before exporting to HTML or DOCX so the output is self-contained.
+ */
+export const inlineImagesInHtml = async (html: string): Promise<string> => {
+  const storage = (await getImageStorage()) || {};
+
+  // Match both quoted src attributes and markdown-rendered img tags
+  const pattern = /\/markdown-resume\/images\/([\w-]+)/g;
+
+  const matches = [...new Set([...html.matchAll(pattern)].map((m) => m[1]))];
+  if (matches.length === 0) return html;
+
+  // Build id → data URL map (only for ids that exist in storage)
+  const replacements: Record<string, string> = {};
+  await Promise.all(
+    matches.map(async (id) => {
+      const item = storage[id];
+      if (!item) return;
+      replacements[id] = await blobToDataUrl(item.blob);
+    })
+  );
+
+  return html.replace(pattern, (_, id) => replacements[id] ?? `/markdown-resume/images/${id}`);
+};
+
+const blobToDataUrl = (blob: Blob): Promise<string> =>
+  new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onloadend = () => resolve(reader.result as string);
+    reader.onerror = reject;
+    reader.readAsDataURL(blob);
+  });
+
+/**
  * Delete an image from IndexedDB by id.
  *
  * @param id image id
