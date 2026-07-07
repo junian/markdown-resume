@@ -150,7 +150,7 @@ ${fullCss}
   </style>
 </head>
 <body>
-  <main id="vue-smart-pages-preview">
+  <main id="vue-smart-pages-preview" class="markdown-resume">
 ${html}
   </main>
 </body>
