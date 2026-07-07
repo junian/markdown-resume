@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 pnpm install --frozen-lockfile
-pnpm release
+pnpm run release

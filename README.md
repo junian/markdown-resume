@@ -71,6 +71,46 @@ When exporting to **HTML** or **DOCX**, image references are automatically repla
 
 **Privacy:** Images are stored entirely inside your browser's IndexedDB — the same storage used for your resumes. They are never uploaded to any server and never leave your computer.
 
+## Self-Hosting
+
+1. Clone the repository:
+
+    ```bash
+    git clone https://github.com/junian/markdown-resume.git
+    cd markdown-resume
+    ```
+
+2. (Optional) Set up your environment variables. Copy the example file and fill in the values you need:
+
+    ```bash
+    cp site/.env.example site/.env
+    ```
+
+    See the [Environment Variables](#environment-variables) section for details on each variable.
+
+3. Run the build script:
+
+    ```bash
+    ./build.sh
+    ```
+
+4. Deploy the contents of the `.output/public` directory to any static hosting provider (GitHub Pages, Netlify, Vercel, Nginx, etc.).
+
+## Environment Variables
+
+Configuration is done via a `.env` file inside the [`site`](site/) folder. You can copy [`site/.env.example`](site/.env.example) as a starting point:
+
+```bash
+cp site/.env.example site/.env
+```
+
+| Variable | Description |
+|---|---|
+| `NUXT_PUBLIC_GOOGLE_FONTS_KEY` | [Google Fonts Developer API Key](https://developers.google.com/fonts/docs/developer_api#APIKey). Required to enable the font picker that lists fonts from Google Fonts. Without this key the font selection will only show locally available fonts. |
+| `NUXT_PUBLIC_GTAG_ID` | [Google Analytics 4](https://analytics.google.com/) Measurement ID (e.g. `G-XXXXXXXXXX`). Enables GA4 page-view and event tracking. Leave empty to disable analytics. |
+| `NUXT_CLARITY_ID` | [Microsoft Clarity](https://clarity.microsoft.com/) Project ID. Enables session recording and heatmap analytics. Leave empty to disable Clarity. |
+| `NUXT_PUBLIC_DISQUS_SHORTNAME` | [Disqus](https://disqus.com/) shortname for your site. Enables the Disqus comment section. Leave empty to hide comments. |
+
 ## Development
 
 Clone the repo and install dependencies:
@@ -82,20 +122,14 @@ pnpm install
 Build the [packages](packages):
 
 ```bash
-pnpm build:pkg
-```
-
-To enable font selection from [Google Fonts](https://fonts.google.com/), generate a [Google Fonts Developer API Key](https://developers.google.com/fonts/docs/developer_api#APIKey). Then create a `.env` file inside the [`site`](site/) folder and add:
-
-```bash
-NUXT_PUBLIC_GOOGLE_FONTS_KEY="YOUR_API_KEY"
+pnpm run build:pkg
 ```
 
 Start developing / building the site:
 
 ```bash
-pnpm dev
-pnpm build
+pnpm run dev
+pnpm run build
 ```
 
 ## License
