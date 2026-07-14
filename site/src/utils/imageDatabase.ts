@@ -1,3 +1,4 @@
+import { siteConfig } from "~~/configs/siteConfig";
 import * as localForage from "localforage";
 import { isClient } from "@renovamen/utils";
 import type { ImageStorage, ImageStorageItem, ImageListItem } from "~/types";
@@ -5,7 +6,7 @@ import type { ImageStorage, ImageStorageItem, ImageListItem } from "~/types";
 const IMAGE_GALLERY_KEY = "MARKDOWN_RESUME_images";
 
 /** Base path must match nuxt.config baseURL */
-const IMAGE_URL_BASE = "/markdown-resume/images/";
+const IMAGE_URL_BASE = `${siteConfig.baseURL}images/`;
 
 /** Stable URL served by the image Service Worker */
 export const getImageUrl = (id: string) => `${IMAGE_URL_BASE}${id}`;

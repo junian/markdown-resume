@@ -1,13 +1,6 @@
+import { siteConfig } from "./configs/siteConfig";
 import { pwa } from "./configs/pwa";
 import { i18n } from "./configs/i18n";
-
-const siteConfig = {
-  title: "Free Markdown Resume App",
-  description: "Free online resume maker, allows you to create your resume in minutes with Markdown!",
-  image: "https://www.junian.dev/img/b/R29vZ2xl/AVvXsEiqtAGRJE-GkyEUNR44rnmHypGIiNLF7LB2XVVblX0l1g4TLWuwjIRM-8JV1fhZViZifolvF3STooaj-3vMUHuQsZWXul_y-EJBAWvRHaSQ54zKJdX072hdFVJ-Xu4ReyICWQ1S0RMbY2ZCC1R12dzkI4xPMQpP4zVc4WyVOQMvn2LDghmWMWJv91SccHA/s1600/markdown-resume.jpg",
-  url: "https://www.junian.dev",
-  canonicalUrl: "https://www.junian.dev/markdown-resume/"
-};
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -55,16 +48,16 @@ export default defineNuxtConfig({
   app: {
     // If host it on https://example.com
     //    baseURL: '/'
-    // Else if host it on https://example.com/resume
-    //    baseURL: '/resume/'
-    baseURL: '/markdown-resume/', // baseURL: '/<repository>/'
+    // Else if host it on https://example.com/markdown-resume/
+    //    baseURL: '/markdown-resume/'
+    baseURL: siteConfig.baseURL, // baseURL: '/<repository>/'
     buildAssetsDir: 'assets', // don't use "_" at the begining of the folder name to avoids
     head: {
       viewport: "width=device-width,initial-scale=1",
       link: [
-        { rel: "canonical", href: siteConfig.canonicalUrl },
-        { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
-        { rel: "mask-icon", href: "/safari-pinned-tab.svg", color: "#222" }
+        { rel: "canonical", href: `${siteConfig.url}${siteConfig.baseURL}` },
+        { rel: "apple-touch-icon", href: `${siteConfig.baseURL}apple-touch-icon.png` },
+        { rel: "mask-icon", href: `${siteConfig.baseURL}safari-pinned-tab.svg`, color: "#222" }
       ],
       meta: [
         { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -75,7 +68,7 @@ export default defineNuxtConfig({
         { property: "og:site_name", content: siteConfig.title },
         { property: "og:title", content: siteConfig.title },
         { property: "og:description", content: siteConfig.description },
-        { property: "og:url", content: siteConfig.canonicalUrl },
+        { property: "og:url", content: `${siteConfig.url}${siteConfig.baseURL}` },
         { property: "og:type", content: "website" },
         { property: "og:locale", content: "en_US" },
         { property: "og:image", content: siteConfig.image },
