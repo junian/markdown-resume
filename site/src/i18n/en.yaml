@@ -3,6 +3,8 @@ toggle_dark: Toggle dark mode
 
 nav:
   about: About
+  privacy: Privacy Policy
+  information: Information
   coffee: Buy me a coffee
 
 disqus:

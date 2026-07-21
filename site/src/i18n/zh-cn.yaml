@@ -3,6 +3,8 @@ toggle_dark: 切换深色模式
 
 nav:
   about: 关于
+  privacy: 隐私政策
+  information: 信息
   coffee: 请我喝咖啡
 
 disqus:

@@ -42,14 +42,26 @@
         :label="$t('images.my_images')"
         icon="i-ic:outline-photo-library"
       />
-      <nuxt-link
-        class="sidebar-item"
-        :to="$nuxt.$localePath('/about')"
-        :title="isCollapsed ? $t('nav.about') : undefined"
-      >
-        <span i-ic:outline-info text-lg />
-        <span class="sidebar-label">{{ $t('nav.about') }}</span>
-      </nuxt-link>
+
+      <div class="sidebar-info-group">
+        <div class="sidebar-section-label sidebar-label">{{ $t('nav.information') }}</div>
+        <nuxt-link
+          class="sidebar-item"
+          :to="$nuxt.$localePath('/about')"
+          :title="isCollapsed ? $t('nav.about') : undefined"
+        >
+          <span i-ic:outline-info text-lg />
+          <span class="sidebar-label">{{ $t('nav.about') }}</span>
+        </nuxt-link>
+        <nuxt-link
+          class="sidebar-item"
+          :to="$nuxt.$localePath('/privacy')"
+          :title="isCollapsed ? $t('nav.privacy') : undefined"
+        >
+          <span i-mdi:shield-lock-outline text-lg />
+          <span class="sidebar-label">{{ $t('nav.privacy') }}</span>
+        </nuxt-link>
+      </div>
     </nav>
 
     <div class="sidebar-footer">
@@ -153,6 +165,14 @@ onMounted(() => {
 
 .sidebar-nav {
   @apply flex flex-col gap-1 mt-7;
+}
+
+.sidebar-info-group {
+  @apply flex flex-col gap-1 mt-4 pt-3 border-t border-c;
+}
+
+.sidebar-section-label {
+  @apply px-3 pb-1 text-xs font-bold uppercase tracking-wider text-lighter-c;
 }
 
 .sidebar-nav :deep(a),
