@@ -19,7 +19,10 @@
 }
 
 .preview-pane .pane-container {
-  @apply bg-darker-c border-4 border-light-c;
+  @apply border-4;
+  background-color: #e5e7eb !important;
+  border-color: #e5e7eb !important;
+  color-scheme: light;
 }
 
 .editor-pane .pane-container,
@@ -36,7 +39,14 @@
 }
 
 #vue-smart-pages-preview .vue-smart-page-break {
-  @apply border-t-4 border-light-c;
+  @apply border-t-4;
+  border-color: #e5e7eb !important;
+}
+
+.dark #vue-smart-pages-preview {
+  background-color: white !important;
+  color: black !important;
+  color-scheme: light;
 }
 
 /* Print mode */
