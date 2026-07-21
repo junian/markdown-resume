@@ -97,10 +97,10 @@ export const setupMonacoEditor = async (container: HTMLDivElement) => {
 
   const colorMode = useColorMode();
 
-  monaco.editor.setTheme(colorMode.preference === "dark" ? "vs-dark-dimmed" : "vs");
+  monaco.editor.setTheme(colorMode.value === "dark" ? "vs-dark-dimmed" : "vs");
 
   watch(
-    () => colorMode.preference,
+    () => colorMode.value,
     (val) => {
       monaco.editor.setTheme(val === "dark" ? "vs-dark-dimmed" : "vs");
     }

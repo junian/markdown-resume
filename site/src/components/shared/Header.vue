@@ -42,6 +42,11 @@
         :label="$t('images.my_images')"
         icon="i-ic:outline-photo-library"
       />
+      <NavItem
+        :link="$nuxt.$localePath('/settings')"
+        :label="$t('nav.settings')"
+        icon="i-ic:outline-settings"
+      />
 
       <div class="sidebar-info-group">
         <div class="sidebar-section-label sidebar-label">{{ $t('nav.information') }}</div>
@@ -98,13 +103,6 @@
       </div>
     </nav>
 
-    <div class="sidebar-footer">
-      <div class="sidebar-item sidebar-language">
-        <ToggleLang />
-      </div>
-
-      <slot name="tail" />
-    </div>
   </header>
 </template>
 
@@ -187,20 +185,8 @@ onMounted(() => {
   @apply gap-3 rounded-lg;
 }
 
-.sidebar-footer {
-  @apply flex flex-col gap-1 mt-auto;
-}
-
 .sidebar-context {
   @apply mt-4 overflow-hidden;
-}
-
-.sidebar-language {
-  @apply p-0;
-}
-
-.sidebar-language :deep(button) {
-  @apply w-full min-h-10 px-3 gap-3;
 }
 
 .coffee-link {
@@ -218,8 +204,7 @@ onMounted(() => {
 
 .header--collapsed .brand-link,
 .header--collapsed .sidebar-item,
-.header--collapsed .sidebar-nav :deep(a),
-.header--collapsed .sidebar-language :deep(button) {
+.header--collapsed .sidebar-nav :deep(a) {
   @apply justify-center px-0;
 }
 

@@ -3,10 +3,28 @@ toggle_dark: 切换深色模式
 
 nav:
   about: 关于
+  settings: 设置
   privacy: 隐私政策
   information: 信息
   links: 链接
   coffee: 请我喝咖啡
+
+settings:
+  title: 设置
+  description: 管理语言、外观和本地存储。
+  language: 语言
+  language_label: 显示语言
+  appearance: 外观
+  theme: 颜色主题
+  light: 浅色
+  dark: 深色
+  auto: 自动
+  storage: 存储
+  storage_used: 已使用的浏览器存储
+  used: 已使用
+  usage: 使用量
+  quota: 配额
+  storage_unavailable: 此浏览器不支持存储空间估算。
 
 disqus:
   leave_a_comment: 留言评论

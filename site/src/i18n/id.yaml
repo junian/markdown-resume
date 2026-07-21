@@ -3,10 +3,28 @@ toggle_dark: Ubah mode gelap
 
 nav:
   about: Tentang
+  settings: Pengaturan
   privacy: Kebijakan Privasi
   information: Informasi
   links: Tautan
   coffee: Traktir saya kopi
+
+settings:
+  title: Pengaturan
+  description: Kelola bahasa, tampilan, dan penyimpanan lokal.
+  language: Bahasa
+  language_label: Bahasa tampilan
+  appearance: Tampilan
+  theme: Tema warna
+  light: Terang
+  dark: Gelap
+  auto: Otomatis
+  storage: Penyimpanan
+  storage_used: Penyimpanan browser yang digunakan
+  used: digunakan
+  usage: Penggunaan
+  quota: Kuota
+  storage_unavailable: Perkiraan penyimpanan tidak tersedia di browser ini.
 
 disqus:
   leave_a_comment: Tinggalkan Komentar

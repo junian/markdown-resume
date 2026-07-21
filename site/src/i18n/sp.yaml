@@ -3,10 +3,28 @@ toggle_dark: Cambiar tema claro/oscuro
 
 nav:
   about: Acerca de
+  settings: Configuración
   privacy: Política de Privacidad
   information: Información
   links: Enlaces
   coffee: Invítame un café
+
+settings:
+  title: Configuración
+  description: Administra el idioma, la apariencia y el almacenamiento local.
+  language: Idioma
+  language_label: Idioma de visualización
+  appearance: Apariencia
+  theme: Tema de color
+  light: Claro
+  dark: Oscuro
+  auto: Automático
+  storage: Almacenamiento
+  storage_used: Almacenamiento del navegador utilizado
+  used: usado
+  usage: Uso
+  quota: Cuota
+  storage_unavailable: Las estimaciones de almacenamiento no están disponibles.
 
 disqus:
   leave_a_comment: Dejar un Comentario

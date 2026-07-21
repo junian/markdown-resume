@@ -3,10 +3,28 @@ toggle_dark: Toggle dark mode
 
 nav:
   about: About
+  settings: Settings
   privacy: Privacy Policy
   information: Information
   links: Links
   coffee: Buy me a coffee
+
+settings:
+  title: Settings
+  description: Manage language, appearance, and local storage.
+  language: Language
+  language_label: Display language
+  appearance: Appearance
+  theme: Color theme
+  light: Light
+  dark: Dark
+  auto: Auto
+  storage: Storage
+  storage_used: Browser storage used
+  used: used
+  usage: Usage
+  quota: Quota
+  storage_unavailable: Storage estimates are not available in this browser.
 
 disqus:
   leave_a_comment: Leave a Comment
