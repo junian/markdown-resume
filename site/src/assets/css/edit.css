@@ -38,6 +38,14 @@
     margin: 0;
   }
 
+  body {
+    background-color: white !important;
+  }
+
+  body > *:not(#__nuxt) {
+    display: none !important;
+  }
+
   .edit-page {
     height: auto;
   }
@@ -59,7 +67,9 @@
   }
 
   .pane-container {
-    border: none;
+    border: none !important;
+    background: transparent !important;
+    border-radius: 0 !important;
   }
 
   .vue-zoom {
