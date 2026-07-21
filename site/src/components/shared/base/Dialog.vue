@@ -11,7 +11,7 @@
           v-bind="api.contentProps"
           class="font-ui h-fit z-30 fixed inset-0 m-auto bg-c flex flex-col overflow-hidden text-c shadow-c"
           :class="boxClass"
-          border="1 gray-400 dark:gray-500 rounded-md"
+          border="1 gray-400 dark:neutral-700 rounded-md"
         >
           <div hstack justify-between pl-4 pr-3 py-2.5>
             <div hstack text-sm>

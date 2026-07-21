@@ -3,10 +3,7 @@
     <Header />
 
     <div class="workspace">
-      <div
-        class="h-fit max-w-240 mx-auto"
-        p="x-5 t-16 b-10 md:x-20"
-      >
+      <div class="h-fit max-w-240 mx-auto" p="x-5 t-16 b-10 md:x-20">
         <div text-center>
           <h1 text="c 3xl sm:4xl" v-html="$t('landing.hero')" />
           <div my-10 text-light-c sm:text-lg><BrandName /> {{ $t("landing.desc") }}</div>
@@ -45,7 +42,13 @@
           </div>
         </div>
 
-        <div m="t-10 x-auto" max-w-150 text="sm light-c" p="x-4 y-3" class="disclaimer rounded-lg border border-gray-200 dark:border-gray-700">
+        <div
+          m="t-10 x-auto"
+          max-w-150
+          text="sm light-c"
+          p="x-4 y-3"
+          class="disclaimer rounded-lg border border-gray-200 dark:border-[#3f3f46]"
+        >
           <p v-html="$t('landing.analytics_disclaimer')" />
         </div>
 

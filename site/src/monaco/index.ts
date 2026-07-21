@@ -88,10 +88,10 @@ export const setupMonacoEditor = async (container: HTMLDivElement) => {
     inherit: true,
     rules: [],
     colors: {
-      "editor.background": "#334155",
-      "editor.lineHighlightBorder": "#4b5563",
-      "dropdown.background": "#4b5563",
-      "menu.separatorBackground": "#6b7280"
+      "editor.background": "#1e1e1e",
+      "editor.lineHighlightBorder": "#2a2d2e",
+      "dropdown.background": "#252526",
+      "menu.separatorBackground": "#454545"
     }
   });
 

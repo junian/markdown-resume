@@ -200,7 +200,7 @@ onMounted(() => {
 }
 
 .brand-link {
-  @apply flex-1 gap-2 px-1 py-1 overflow-hidden text-gray-900 dark:text-gray-100;
+  @apply flex-1 gap-2 px-1 py-1 overflow-hidden text-gray-900 dark:text-[#f0f0f0];
 }
 
 .brand-title {
@@ -284,7 +284,7 @@ a.router-link-active.sidebar-item {
   }
 
   .mobile-title {
-    @apply hstack min-w-0 gap-2 text-base text-gray-900 dark:text-gray-100;
+    @apply hstack min-w-0 gap-2 text-base text-gray-900 dark:text-[#f0f0f0];
   }
 
   .sidebar-panel {

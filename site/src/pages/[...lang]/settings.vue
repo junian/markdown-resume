@@ -8,8 +8,8 @@
           <span i-ic:outline-settings text-xl />
         </span>
         <div>
-          <h1 class="text-3xl font-bold">{{ $t('settings.title') }}</h1>
-          <p class="mt-1 text-sm text-light-c">{{ $t('settings.description') }}</p>
+          <h1 class="text-3xl font-bold">{{ $t("settings.title") }}</h1>
+          <p class="mt-1 text-sm text-light-c">{{ $t("settings.description") }}</p>
         </div>
       </div>
 
@@ -17,9 +17,11 @@
         <section class="settings-card">
           <div class="settings-card-heading">
             <span i-ic:round-translate text-xl />
-            <h2>{{ $t('settings.language') }}</h2>
+            <h2>{{ $t("settings.language") }}</h2>
           </div>
-          <label class="field-label" for="settings-language">{{ $t('settings.language_label') }}</label>
+          <label class="field-label" for="settings-language">{{
+            $t("settings.language_label")
+          }}</label>
           <select
             id="settings-language"
             class="settings-select"
@@ -35,9 +37,13 @@
         <section class="settings-card">
           <div class="settings-card-heading">
             <span i-ph:paint-brush-bold text-xl />
-            <h2>{{ $t('settings.appearance') }}</h2>
+            <h2>{{ $t("settings.appearance") }}</h2>
           </div>
-          <div class="grid grid-cols-3 gap-2" role="radiogroup" :aria-label="$t('settings.theme')">
+          <div
+            class="grid grid-cols-3 gap-2"
+            role="radiogroup"
+            :aria-label="$t('settings.theme')"
+          >
             <button
               v-for="mode in themeModes"
               :key="mode.value"
@@ -57,10 +63,13 @@
         <section class="settings-card md:col-span-2">
           <div class="settings-card-heading">
             <span i-mdi:database-outline text-xl />
-            <h2>{{ $t('settings.storage') }}</h2>
+            <h2>{{ $t("settings.storage") }}</h2>
           </div>
 
-          <div v-if="storageSupported" class="flex flex-col items-center gap-8 sm:flex-row">
+          <div
+            v-if="storageSupported"
+            class="flex flex-col items-center gap-8 sm:flex-row"
+          >
             <div
               class="storage-ring"
               :style="{ '--storage-percent': `${storagePercent}%` }"
@@ -72,22 +81,24 @@
             >
               <div class="storage-ring-center">
                 <strong>{{ displayPercent }}</strong>
-                <span>{{ $t('settings.used') }}</span>
+                <span>{{ $t("settings.used") }}</span>
               </div>
             </div>
 
             <dl class="grid flex-1 w-full grid-cols-2 gap-4">
               <div class="storage-stat">
-                <dt>{{ $t('settings.usage') }}</dt>
+                <dt>{{ $t("settings.usage") }}</dt>
                 <dd>{{ formatBytes(storageUsage) }}</dd>
               </div>
               <div class="storage-stat">
-                <dt>{{ $t('settings.quota') }}</dt>
+                <dt>{{ $t("settings.quota") }}</dt>
                 <dd>{{ formatBytes(storageQuota) }}</dd>
               </div>
             </dl>
           </div>
-          <p v-else class="text-sm text-light-c">{{ $t('settings.storage_unavailable') }}</p>
+          <p v-else class="text-sm text-light-c">
+            {{ $t("settings.storage_unavailable") }}
+          </p>
         </section>
       </div>
     </main>
@@ -160,7 +171,7 @@ useHead({ title: () => `${t("settings.title")} — Markdown Resume` });
 }
 
 .settings-select {
-  @apply w-full rounded-lg border border-c bg-c px-3 py-2.5 outline-none focus:border-purple-400;
+  @apply w-full rounded-lg border border-c bg-c px-3 py-2.5 outline-none focus:border-purple-400 dark:focus:border-[#007acc];
 }
 
 .theme-option {
@@ -168,13 +179,17 @@ useHead({ title: () => `${t("settings.title")} — Markdown Resume` });
 }
 
 .theme-option--active {
-  @apply border-purple-400 bg-purple-50 text-purple-700 dark:(border-rose-400 bg-slate-600 text-rose-300);
+  @apply border-purple-400 bg-purple-50 text-purple-700 dark:(border-[#007acc] bg-[#37373d] text-[#ffffff]);
 }
 
 .storage-ring {
   --storage-percent: 0%;
   @apply circle flex-none size-32;
   background: conic-gradient(rgb(168 85 247) var(--storage-percent), rgb(229 231 235) 0);
+}
+
+:global(.dark) .storage-ring {
+  background: conic-gradient(#007acc var(--storage-percent), #3f3f46 0);
 }
 
 .storage-ring-center {

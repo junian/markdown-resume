@@ -9,12 +9,16 @@
           v-bind="api.inputProps"
           class="min-w-0 w-full text-center outline-none px-1 bg-transparent"
         />
-        <div v-bind="api.previewProps" class="block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap" text-center />
+        <div
+          v-bind="api.previewProps"
+          class="block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap"
+          text-center
+        />
       </div>
     </div>
     <button
       v-bind="api.editTriggerProps"
-      class="cursor-pointer p-1 rounded transition-colors hover:bg-gray-200 dark:hover:bg-gray-700"
+      class="cursor-pointer p-1 rounded transition-colors hover:bg-gray-200 dark:hover:bg-[#2a2d2e]"
       :title="$t ? $t('resumes.rename') : 'Rename'"
     >
       <span i-mdi:pencil text-sm />

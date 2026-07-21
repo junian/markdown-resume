@@ -1,5 +1,9 @@
 <template>
-  <nuxt-link class="hstack cursor-pointer p-1.5 rounded transition-colors hover:bg-gray-200 dark:hover:bg-gray-700" :to="link" :title="label">
+  <nuxt-link
+    class="hstack cursor-pointer p-1.5 rounded transition-colors hover:bg-gray-200 dark:hover:bg-[#2a2d2e]"
+    :to="link"
+    :title="label"
+  >
     <span v-if="icon" :class="icon" md:text-lg />
     <span class="sidebar-label truncate max-w-xs">
       {{ label }}
