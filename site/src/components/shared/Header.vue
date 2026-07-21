@@ -62,46 +62,48 @@
           <span class="sidebar-label">{{ $t('nav.privacy') }}</span>
         </nuxt-link>
       </div>
+
+      <div class="sidebar-link-group">
+        <div class="sidebar-section-label sidebar-label">{{ $t('nav.links') }}</div>
+        <a
+          class="sidebar-item coffee-link"
+          href="https://www.junian.dev/coffee/"
+          target="_blank"
+          rel="nofollow noopener"
+          :title="isCollapsed ? $t('nav.coffee') : undefined"
+        >
+          <span i-twemoji:hot-beverage />
+          <span class="sidebar-label">{{ $t('nav.coffee') }}</span>
+        </a>
+        <a
+          class="sidebar-item"
+          href="https://github.com/junian/markdown-resume/"
+          target="_blank"
+          rel="nofollow noopener"
+          title="GitHub"
+        >
+          <span i-tabler:brand-github text-lg />
+          <span class="sidebar-label">GitHub</span>
+        </a>
+        <a
+          class="sidebar-item"
+          href="https://www.junian.dev/"
+          target="_blank"
+          rel="dofollow"
+          title="Junian.dev"
+        >
+          <span i-tabler:world text-lg />
+          <span class="sidebar-label">Junian.dev</span>
+        </a>
+      </div>
     </nav>
 
     <div class="sidebar-footer">
-      <a
-        class="sidebar-item coffee-link"
-        href="https://www.junian.dev/coffee/"
-        target="_blank"
-        rel="nofollow noopener"
-        :title="isCollapsed ? $t('nav.coffee') : undefined"
-      >
-        <span i-twemoji:hot-beverage />
-        <span class="sidebar-label">{{ $t('nav.coffee') }}</span>
-      </a>
-
       <div class="sidebar-item sidebar-language">
         <ToggleLang />
       </div>
 
       <slot name="tail" />
-
-      <a
-        class="sidebar-item"
-        href="https://github.com/junian/markdown-resume/"
-        target="_blank"
-        rel="nofollow noopener"
-        title="GitHub"
-      >
-        <span i-tabler:brand-github text-lg />
-        <span class="sidebar-label">GitHub</span>
-      </a>
-      <a
-        class="sidebar-item"
-        href="https://www.junian.dev/"
-        target="_blank"
-        rel="dofollow"
-        title="Junian.dev"
-      >
-        <span i-tabler:world text-lg />
-        <span class="sidebar-label">Junian.dev</span>
-      </a>
     </div>
   </header>
 </template>
@@ -164,10 +166,11 @@ onMounted(() => {
 }
 
 .sidebar-nav {
-  @apply flex flex-col gap-1 mt-7;
+  @apply flex flex-col min-h-0 gap-1 mt-7 overflow-y-auto;
 }
 
-.sidebar-info-group {
+.sidebar-info-group,
+.sidebar-link-group {
   @apply flex flex-col gap-1 mt-4 pt-3 border-t border-c;
 }
 
