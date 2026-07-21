@@ -69,8 +69,11 @@ const route = useRoute();
 (async () => await switchResume(route.params.id as string))();
 
 // Toogle toolbar
-const { width } = useWindowSize();
-const isToolbarOpen = ref(width.value > 1024);
+const isToolbarOpen = ref(false);
+
+onMounted(() => {
+  isToolbarOpen.value = window.innerWidth > 768;
+});
 
 const { exportPDF, exportMd, exportHtml, exportDocx } = useResumeExport();
 const { t } = useI18n();

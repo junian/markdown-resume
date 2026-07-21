@@ -28,15 +28,11 @@
 }
 
 .tools-pane {
-  @apply flex flex-col flex-none w-72 max-w-72 h-full overflow-hidden lt-lg:(fixed z-20 right-0 top-0 bg-dark-c shadow-xl);
+  @apply flex flex-col flex-none w-72 max-w-72 h-full overflow-hidden;
 }
 
 .tools-pane--collapsed {
-  @apply w-12 bg-c border-l border-c lt-lg:w-12;
-}
-
-.tools-pane .pane-container {
-  @apply lt-lg:bg-dark-c;
+  @apply w-12 bg-c border-l border-c;
 }
 
 #vue-smart-pages-preview .vue-smart-page-break {
