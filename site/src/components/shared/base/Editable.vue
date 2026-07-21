@@ -1,15 +1,15 @@
 <template>
   <div
-    class="border-1.5 rounded hstack space-x-1"
+    class="min-w-0 border-1.5 rounded hstack space-x-1"
     :class="api.isEditing ? 'border-dark-c' : 'border-transparent'"
   >
-    <div v-bind="api.rootProps" class="flex-1">
-      <div v-bind="api.areaProps">
+    <div v-bind="api.rootProps" class="min-w-0 flex-1 overflow-hidden">
+      <div v-bind="api.areaProps" class="min-w-0 overflow-hidden">
         <input
           v-bind="api.inputProps"
-          class="w-full text-center outline-none px-1 bg-transparent"
+          class="min-w-0 w-full text-center outline-none px-1 bg-transparent"
         />
-        <div v-bind="api.previewProps" text-center truncate />
+        <div v-bind="api.previewProps" class="block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap" text-center />
       </div>
     </div>
     <button

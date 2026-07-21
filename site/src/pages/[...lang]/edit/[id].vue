@@ -92,7 +92,7 @@ const exportActions = computed(() => [
 }
 
 .tools-pane-header {
-  @apply hstack flex-none gap-1 min-h-12 px-2 bg-c border-b border-c text-c;
+  @apply hstack flex-none min-w-0 w-full gap-1 min-h-12 px-2 overflow-hidden bg-c border-b border-c text-c;
 }
 
 .collapsed-tools {
