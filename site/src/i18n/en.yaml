@@ -46,6 +46,8 @@ import:
   from_url: Paste file URL
 
 toolbar:
+  open: Open formatting sidebar
+  close: Close formatting sidebar
   file:
     text: Import / Export
     import: Import Markdown

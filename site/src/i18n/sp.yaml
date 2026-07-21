@@ -46,6 +46,8 @@ import:
   from_url: Pegar desde URL
 
 toolbar:
+  open: Abrir barra lateral de formato
+  close: Cerrar barra lateral de formato
   file:
     text: Importar / Exportar
     import: Importar Markdown

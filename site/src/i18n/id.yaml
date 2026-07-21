@@ -46,6 +46,8 @@ import:
   from_url: Tempel URL file
 
 toolbar:
+  open: Buka bilah sisi pemformatan
+  close: Tutup bilah sisi pemformatan
   file:
     text: Impor / Ekspor
     import: Impor Markdown

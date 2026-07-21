@@ -1,83 +1,221 @@
 <template>
-  <header class="header hstack justify-between pl-4 pr-1 text-c">
-    <div class="hstack space-x-2">
-      <a
-        href="https://www.junian.dev/"
-        target="_blank"
-        rel="dofollow"
-        class="circle size-9 md:size-10 flex-shrink-0 bg-blue-600 hover:bg-blue-500 text-white transition-colors shadow-sm"
-        aria-label="Junian.dev"
-      >
-        <span class="i-ic:outline-home text-lg md:text-xl" />
-      </a>
-
+  <header
+    class="header text-c"
+    :class="{ 'header--collapsed': isCollapsed }"
+  >
+    <div class="header-brand">
       <nuxt-link
-        class="hstack space-x-2 cursor-pointer text-gray-900 dark:text-gray-100"
+        class="brand-link"
         :to="$nuxt.$localePath('/')"
+        :title="isCollapsed ? $t('head.title') : undefined"
       >
-        <Logo hide-on-mobile text="sm md:base" />
-        <div text="base md:lg"><BrandName /></div>
+        <Logo class="flex-shrink-0" text="base" />
+        <div class="brand-title sidebar-label"><BrandName /></div>
       </nuxt-link>
+
+      <button
+        class="collapse-button"
+        type="button"
+        :aria-label="isCollapsed ? 'Expand navigation' : 'Collapse navigation'"
+        :aria-expanded="!isCollapsed"
+        @click="toggleSidebar"
+      >
+        <span
+          :class="isCollapsed ? 'i-tabler:layout-sidebar-left-expand' : 'i-tabler:layout-sidebar-left-collapse'"
+          text-xl
+        />
+      </button>
     </div>
 
-    <slot name="middle" />
+    <div v-if="$slots.middle" class="sidebar-context">
+      <slot name="middle" />
+    </div>
 
-    <div hstack>
+    <nav class="sidebar-nav" aria-label="Main navigation">
       <NavItem
-        mr-1
         :link="$nuxt.$localePath('/')"
         :label="$t('resumes.my_resumes')"
         icon="i-ep:document"
       />
       <NavItem
-        mr-3
         :link="$nuxt.$localePath('/images')"
         :label="$t('images.my_images')"
         icon="i-ic:outline-photo-library"
       />
+      <nuxt-link
+        class="sidebar-item"
+        :to="$nuxt.$localePath('/about')"
+        :title="isCollapsed ? $t('nav.about') : undefined"
+      >
+        <span i-ic:outline-info text-lg />
+        <span class="sidebar-label">{{ $t('nav.about') }}</span>
+      </nuxt-link>
+    </nav>
+
+    <div class="sidebar-footer">
       <a
-        class="hstack space-x-1.5 mr-3 px-3 py-1.5 rounded-full text-sm font-bold bg-yellow-400 hover:bg-yellow-300 text-gray-900 transition-colors"
+        class="sidebar-item coffee-link"
         href="https://www.junian.dev/coffee/"
         target="_blank"
         rel="nofollow noopener"
+        :title="isCollapsed ? $t('nav.coffee') : undefined"
       >
         <span i-twemoji:hot-beverage />
-        <span class="hide-on-mobile">{{ $t('nav.coffee') }}</span>
+        <span class="sidebar-label">{{ $t('nav.coffee') }}</span>
       </a>
-      <ToggleLang mr-1.5 />
+
+      <div class="sidebar-item sidebar-language">
+        <ToggleLang />
+      </div>
 
       <slot name="tail" />
 
-      <!--
-      <ToggleDark />
-      -->
-      <nuxt-link
-        class="round-btn"
-        :to="$nuxt.$localePath('/about')"
-        :aria-label="$t('nav.about')"
-      >
-        <span i-ic:outline-info md:text-lg />
-      </nuxt-link>
       <a
-        class="round-btn"
+        class="sidebar-item"
         href="https://github.com/junian/markdown-resume/"
         target="_blank"
         rel="nofollow noopener"
+        title="GitHub"
       >
-        <span i-tabler:brand-github md:text-lg />
+        <span i-tabler:brand-github text-lg />
+        <span class="sidebar-label">GitHub</span>
+      </a>
+      <a
+        class="sidebar-item"
+        href="https://www.junian.dev/"
+        target="_blank"
+        rel="dofollow"
+        title="Junian.dev"
+      >
+        <span i-tabler:world text-lg />
+        <span class="sidebar-label">Junian.dev</span>
       </a>
     </div>
   </header>
 </template>
 
+<script lang="ts" setup>
+const props = withDefaults(defineProps<{
+  defaultCollapsed?: boolean;
+}>(), {
+  defaultCollapsed: false
+});
+
+const isCollapsed = ref(props.defaultCollapsed);
+
+const toggleSidebar = () => {
+  isCollapsed.value = !isCollapsed.value;
+  localStorage.setItem("navigation-collapsed", String(isCollapsed.value));
+};
+
+onMounted(() => {
+  if (props.defaultCollapsed) {
+    isCollapsed.value = true;
+    return;
+  }
+
+  const savedState = localStorage.getItem("navigation-collapsed");
+  isCollapsed.value = savedState
+    ? savedState === "true"
+    : window.innerWidth < 769;
+});
+</script>
+
 <style scoped>
-a.router-link-active.round-btn,
-a.router-link-exact-active.round-btn {
-  background-color: rgb(229 231 235); /* gray-200 */
+.header {
+  @apply fixed inset-y-0 left-0 z-30 flex flex-col w-60 p-3 bg-c border-r border-c transition-all duration-200;
 }
 
-:global(.dark) a.router-link-active.round-btn,
-:global(.dark) a.router-link-exact-active.round-btn {
-  background-color: rgb(55 65 81); /* gray-700 */
+.header--collapsed {
+  @apply w-16;
+}
+
+.header-brand {
+  @apply hstack min-h-10 gap-1;
+}
+
+.brand-link,
+.sidebar-item {
+  @apply hstack min-w-0 gap-3 rounded-lg transition-colors hover:bg-darker-c;
+}
+
+.brand-link {
+  @apply flex-1 gap-2 px-1 py-1 overflow-hidden text-gray-900 dark:text-gray-100;
+}
+
+.brand-title {
+  @apply min-w-0 truncate text-base;
+}
+
+.collapse-button {
+  @apply circle flex-shrink-0 size-8 hover:bg-darker-c;
+}
+
+.sidebar-nav {
+  @apply flex flex-col gap-1 mt-7;
+}
+
+.sidebar-nav :deep(a),
+.sidebar-item {
+  @apply min-h-10 px-3;
+}
+
+.sidebar-nav :deep(a) {
+  @apply gap-3 rounded-lg;
+}
+
+.sidebar-footer {
+  @apply flex flex-col gap-1 mt-auto;
+}
+
+.sidebar-context {
+  @apply mt-4 overflow-hidden;
+}
+
+.sidebar-language {
+  @apply p-0;
+}
+
+.sidebar-language :deep(button) {
+  @apply w-full min-h-10 px-3 gap-3;
+}
+
+.coffee-link {
+  @apply text-gray-900 bg-yellow-400 hover:bg-yellow-300;
+}
+
+.sidebar-label {
+  @apply whitespace-nowrap transition-opacity duration-150;
+}
+
+.header--collapsed :deep(.sidebar-label),
+.header--collapsed :deep(.hide-on-mobile) {
+  @apply hidden;
+}
+
+.header--collapsed .brand-link,
+.header--collapsed .sidebar-item,
+.header--collapsed .sidebar-nav :deep(a),
+.header--collapsed .sidebar-language :deep(button) {
+  @apply justify-center px-0;
+}
+
+.header--collapsed .header-brand {
+  @apply flex-col;
+}
+
+.header--collapsed .collapse-button {
+  @apply order-first mb-1;
+}
+
+.sidebar-nav :deep(a.router-link-active),
+a.router-link-active.sidebar-item {
+  @apply bg-darker-c font-bold;
+}
+
+@media (max-width: 768px) {
+  .header:not(.header--collapsed) {
+    @apply shadow-xl;
+  }
 }
 </style>

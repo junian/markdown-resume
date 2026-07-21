@@ -1,7 +1,7 @@
 <template>
   <Editable
     id="edit-rename"
-    class="w-100 mx-2 text-sm md:text-base"
+    class="min-w-0 flex-1 px-2 text-sm md:text-base"
     :default="data.curResumeName"
     :on-value-commit="rename"
   />

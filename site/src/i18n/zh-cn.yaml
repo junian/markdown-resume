@@ -41,6 +41,8 @@ import:
   from_url: 粘贴文件 URL
 
 toolbar:
+  open: 打开格式侧边栏
+  close: 关闭格式侧边栏
   file:
     text: 导入 / 导出
     import: 导入 Markdown

@@ -1,5 +1,5 @@
 <template>
-  <div flex text-c w-72 h-full>
+  <div flex text-c w-72 h-full min-h-0>
     <Tools />
     <Navbar />
   </div>

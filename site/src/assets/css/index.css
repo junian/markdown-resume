@@ -5,8 +5,20 @@ body {
   @apply bg-dark-c;
 }
 
-.header {
-  @apply h-12;  /* 48px */
+.header ~ * {
+  margin-left: 15rem;
+  transition: margin-left 200ms ease;
+}
+
+.header.header--collapsed ~ * {
+  margin-left: 4rem;
+}
+
+@media (max-width: 768px) {
+  .header ~ *,
+  .header.header--collapsed ~ * {
+    margin-left: 4rem;
+  }
 }
 
 svg.iconify {
