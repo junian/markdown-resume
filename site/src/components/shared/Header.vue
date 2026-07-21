@@ -22,6 +22,14 @@
       </nuxt-link>
     </div>
 
+    <button
+      v-if="isMobileOpen"
+      class="sidebar-backdrop"
+      type="button"
+      aria-label="Close navigation"
+      @click="isMobileOpen = false"
+    />
+
     <aside class="sidebar-panel">
       <div class="header-brand">
         <nuxt-link
@@ -178,6 +186,10 @@ onMounted(() => {
   @apply hidden;
 }
 
+.sidebar-backdrop {
+  @apply hidden;
+}
+
 .header-brand {
   @apply hstack min-h-10 gap-1;
 }
@@ -277,6 +289,10 @@ a.router-link-active.sidebar-item {
 
   .sidebar-panel {
     @apply hidden fixed left-0 top-14 bottom-0 w-60 h-auto shadow-xl;
+  }
+
+  .sidebar-backdrop {
+    @apply block fixed inset-x-0 top-14 bottom-0 w-full bg-black/20;
   }
 
   .sidebar-panel .header-brand {
