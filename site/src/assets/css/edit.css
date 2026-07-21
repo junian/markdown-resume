@@ -28,7 +28,7 @@
 }
 
 .tools-pane {
-  @apply flex flex-col flex-none w-72 max-w-72 h-full overflow-hidden;
+  @apply flex flex-col flex-none w-72 max-w-72 h-full overflow-hidden transition-all duration-200;
 }
 
 .tools-pane--collapsed {
