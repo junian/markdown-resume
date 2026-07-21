@@ -22,16 +22,39 @@
           <label class="field-label" for="settings-language">{{
             $t("settings.language_label")
           }}</label>
-          <select
-            id="settings-language"
-            class="settings-select"
-            :value="locale"
-            @change="changeLanguage"
-          >
-            <option v-for="item in locales" :key="item.code" :value="item.code">
-              {{ item.name }}
-            </option>
-          </select>
+          <div class="language-menu">
+            <button
+              id="settings-language"
+              v-bind="languageApi.triggerProps"
+              class="language-menu-trigger"
+              type="button"
+            >
+              <span :class="currentLocale?.icon" text-lg />
+              <span class="min-w-0 flex-1 truncate text-left">
+                {{ currentLocale?.name }}
+              </span>
+              <span
+                i-tabler:chevron-down
+                class="language-menu-chevron"
+                :class="{ 'rotate-180': languageApi.open }"
+              />
+            </button>
+
+            <div v-bind="languageApi.positionerProps" class="z-50">
+              <ul v-bind="languageApi.contentProps" class="language-menu-content">
+                <li
+                  v-for="item in locales"
+                  :key="item.code"
+                  v-bind="languageApi.getItemProps({ value: item.code })"
+                  class="language-menu-item"
+                >
+                  <span :class="item.icon" text-base />
+                  <span class="min-w-0 flex-1 truncate">{{ item.name }}</span>
+                  <span v-if="item.code === locale" i-tabler:check text-base />
+                </li>
+              </ul>
+            </div>
+          </div>
         </section>
 
         <section class="settings-card">
@@ -106,20 +129,35 @@
 </template>
 
 <script lang="ts" setup>
+import * as menu from "@zag-js/menu";
+import { normalizeProps, useMachine } from "@zag-js/vue";
+
 const colorMode = useColorMode();
 const { t, locale, locales } = useI18n();
 const switchLocalePath = useSwitchLocalePath();
+
+const currentLocale = computed(() =>
+  locales.value.find((item) => item.code === locale.value)
+);
+
+const [languageState, languageSend] = useMachine(
+  menu.machine({
+    id: "settings-language-menu",
+    "aria-label": t("settings.language_label"),
+    positioning: { placement: "bottom-start", sameWidth: true, gutter: 6 },
+    onSelect: ({ value }) => navigateTo(switchLocalePath(value))
+  })
+);
+
+const languageApi = computed(() =>
+  menu.connect(languageState.value, languageSend, normalizeProps)
+);
 
 const themeModes = computed(() => [
   { value: "light", label: t("settings.light"), icon: "i-ph:sun-bold" },
   { value: "dark", label: t("settings.dark"), icon: "i-ph:moon-bold" },
   { value: "system", label: t("settings.auto"), icon: "i-ph:desktop-bold" }
 ]);
-
-const changeLanguage = async (event: Event) => {
-  const target = event.target as HTMLSelectElement;
-  await navigateTo(switchLocalePath(target.value));
-};
 
 const storageSupported = ref(true);
 const storageUsage = ref(0);
@@ -170,8 +208,51 @@ useHead({ title: () => `${t("settings.title")} — Markdown Resume` });
   @apply block mb-2 text-sm font-bold text-c;
 }
 
-.settings-select {
-  @apply w-full rounded-lg border border-c bg-c px-3 py-2.5 outline-none focus:border-purple-400 dark:focus:border-[#007acc];
+.language-menu {
+  @apply relative;
+}
+
+.language-menu-trigger {
+  @apply hstack w-full h-11 gap-3 rounded-lg border border-c bg-c px-3 text-sm text-dark-c outline-none transition-colors hover:bg-dark-c focus:(border-purple-400 ring-2 ring-purple-400/25) dark:focus:(border-[#007acc] ring-[#007acc]/35);
+}
+
+.language-menu-chevron {
+  @apply flex-none text-light-c transition-transform duration-150;
+}
+
+.language-menu-content {
+  @apply min-w-28 w-full overflow-hidden rounded-md border border-c bg-c p-1 text-sm text-c shadow-c outline-none;
+  transform-origin: var(--transform-origin);
+}
+
+.language-menu-content[data-state="open"] {
+  animation: language-menu-in 150ms ease-out;
+}
+
+.language-menu-content[data-state="closed"] {
+  animation: language-menu-out 100ms ease-in;
+}
+
+.language-menu-item {
+  @apply hstack min-h-9 gap-2 cursor-pointer select-none rounded-sm px-2 py-1.5 outline-none transition-colors hover:bg-darker-c;
+}
+
+.language-menu-item[data-highlighted] {
+  @apply bg-darker-c text-dark-c;
+}
+
+@keyframes language-menu-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-0.25rem);
+  }
+}
+
+@keyframes language-menu-out {
+  to {
+    opacity: 0;
+    transform: scale(0.95) translateY(-0.25rem);
+  }
 }
 
 .theme-option {
