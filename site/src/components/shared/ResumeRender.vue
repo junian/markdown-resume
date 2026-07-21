@@ -10,6 +10,7 @@
     :left="styles.marginH"
     :right="styles.marginH"
     :before-break-page="() => onFontLoaded(styles)"
+    :after-break-page="() => emit('rendered')"
     :watch="[styles.lineHeight, styles.paragraphSpace, styles.fontSize, css]"
     :watch-delay="[styles.fontCJK, styles.fontEN]"
   />
@@ -27,6 +28,10 @@ defineProps<{
 }>();
 
 const smart = ref();
+
+const emit = defineEmits<{
+  (e: "rendered"): void;
+}>();
 
 const forceUpdate = () => {
   smart.value.resolvePages(100);
