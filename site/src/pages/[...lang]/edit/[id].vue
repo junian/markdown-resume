@@ -15,18 +15,8 @@
         </div>
       </div>
 
-      <button
-        v-if="!isToolbarOpen"
-        class="tools-pane-open shadow-c"
-        type="button"
-        :aria-label="$t('toolbar.open')"
-        @click="isToolbarOpen = true"
-      >
-        <span i-tabler:layout-sidebar-right-expand text-xl />
-      </button>
-
-      <div v-if="isToolbarOpen" class="tools-pane">
-        <div class="tools-pane-header">
+      <div class="tools-pane" :class="{ 'tools-pane--collapsed': !isToolbarOpen }">
+        <div v-if="isToolbarOpen" class="tools-pane-header">
           <span i-ep:document flex-shrink-0 text-lg />
           <RenameResume />
           <SaveResume />
@@ -36,7 +26,24 @@
           />
         </div>
         <div class="min-h-0 flex-1">
-          <Toolbar />
+          <Toolbar v-if="isToolbarOpen" />
+          <div v-else class="collapsed-tools">
+            <ToggleToolbar
+              :is-toolbar-open="isToolbarOpen"
+              @toggle-toolbar="isToolbarOpen = true"
+            />
+            <SaveResume />
+            <button
+              v-for="action in exportActions"
+              :key="action.label"
+              class="round-btn"
+              :aria-label="action.label"
+              :title="action.label"
+              @click="action.run"
+            >
+              <span :class="action.icon" text-lg />
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -64,6 +71,15 @@ const route = useRoute();
 // Toogle toolbar
 const { width } = useWindowSize();
 const isToolbarOpen = ref(width.value > 1024);
+
+const { exportPDF, exportMd, exportHtml, exportDocx } = useResumeExport();
+const { t } = useI18n();
+const exportActions = computed(() => [
+  { label: t("toolbar.file.export_pdf"), icon: "i-mdi:file-pdf", run: exportPDF },
+  { label: t("toolbar.file.export_md"), icon: "i-ri:markdown-fill", run: exportMd },
+  { label: t("toolbar.file.export_html"), icon: "i-mdi:language-html5", run: exportHtml },
+  { label: t("toolbar.file.export_docx"), icon: "i-mdi:file-word", run: exportDocx }
+]);
 </script>
 
 <style scoped>
@@ -79,7 +95,7 @@ const isToolbarOpen = ref(width.value > 1024);
   @apply hstack flex-none gap-1 min-h-12 px-2 bg-c border-b border-c text-c;
 }
 
-.tools-pane-open {
-  @apply fixed z-20 right-3 top-3 circle size-10 bg-c text-c hover:bg-darker-c;
+.collapsed-tools {
+  @apply flex flex-col items-center gap-2 py-2;
 }
 </style>
