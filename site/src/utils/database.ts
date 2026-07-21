@@ -63,14 +63,39 @@ export const setResume = (id: string, resume: ResumeStorageItem) => {
  * @param id resume id
  * @param resume resume data
  */
-export const saveResume = async (id: string, resume: ResumeStorageItem) => {
+export const saveResume = async (
+  id: string,
+  resume: ResumeStorageItem,
+  showToast = true
+) => {
   const storage = (await getStorage()) || {};
   storage[id] = resume;
 
   await localForage.setItem(MARKDOWN_RESUME_KEY, storage);
 
-  const toast = useToast();
-  toast.save();
+  if (showToast) {
+    const toast = useToast();
+    toast.save();
+  }
+};
+
+export const saveCurrentResume = (showToast = true) => {
+  const { data } = useDataStore();
+  const { styles } = useStyleStore();
+
+  if (!data.curResumeId) return;
+
+  return saveResume(
+    data.curResumeId,
+    {
+      name: data.curResumeName,
+      markdown: data.mdContent,
+      css: data.cssContent,
+      styles: toRaw(styles),
+      update: new Date().getTime().toString()
+    },
+    showToast
+  );
 };
 
 /**

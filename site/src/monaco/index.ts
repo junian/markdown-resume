@@ -141,6 +141,30 @@ export const setupMonacoEditor = async (container: HTMLDivElement) => {
   );
   disposables.push(css);
 
+  // Preserve Enter's normal editor behavior, then save the updated models once
+  // Monaco has applied the newline.
+  let saveAfterEnter = false;
+  disposables.push(
+    editor.onKeyDown((event) => {
+      if (event.keyCode !== monaco.KeyCode.Enter) return;
+
+      saveAfterEnter = true;
+      window.setTimeout(() => {
+        saveAfterEnter = false;
+      });
+    })
+  );
+  disposables.push(
+    editor.onDidChangeModelContent(() => {
+      if (!saveAfterEnter) return;
+
+      saveAfterEnter = false;
+      setData("mdContent", markdown.getModel().getValue());
+      setData("cssContent", css.getModel().getValue());
+      void saveCurrentResume(false);
+    })
+  );
+
   return {
     editor,
     models: {
