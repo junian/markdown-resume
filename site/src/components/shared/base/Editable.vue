@@ -6,10 +6,12 @@
     <div v-bind="api.rootProps" class="min-w-0 flex-1 overflow-hidden">
       <div v-bind="api.areaProps" class="min-w-0 overflow-hidden">
         <input
+          v-show="api.isEditing"
           v-bind="api.inputProps"
           class="min-w-0 w-full text-center outline-none px-1 bg-transparent"
         />
         <div
+          v-show="!api.isEditing"
           v-bind="api.previewProps"
           class="block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap"
           text-center
