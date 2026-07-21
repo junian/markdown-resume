@@ -17,7 +17,8 @@ body {
 @media (max-width: 768px) {
   .header ~ *,
   .header.header--collapsed ~ * {
-    margin-left: 4rem;
+    margin-left: 0;
+    padding-top: 3.5rem;
   }
 }
 

@@ -107,6 +107,6 @@
 @media (max-width: 768px) {
   .edit-page > .header ~ .workspace,
   .edit-page > .header.header--collapsed ~ .workspace {
-    width: calc(100% - 4rem);
+    width: 100%;
   }
 }
