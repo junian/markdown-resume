@@ -24,6 +24,7 @@ settings:
   used: digunakan
   usage: Penggunaan
   quota: Kuota
+  storage_estimate_note: Kuota penyimpanan adalah perkiraan dan dapat berbeda tergantung perangkat dan browser.
   storage_unavailable: Perkiraan penyimpanan tidak tersedia di browser ini.
 
 disqus:
@@ -78,8 +79,8 @@ toolbar:
     export_docx: Ekspor DOCX
   correct_case:
     text: Perbaiki Huruf Besar/Kecil
-    desc: "Contoh: \"Github\" → \"GitHub\" <br> Catatan: kata-kata yang hanya berisi huruf besar atau kecil (\"GITHUB\" atau \"github\") tidak akan diubah"
-    btn : Perbaiki!
+    desc: 'Contoh: "Github" → "GitHub" <br> Catatan: kata-kata yang hanya berisi huruf besar atau kecil ("GITHUB" atau "github") tidak akan diubah'
+    btn: Perbaiki!
   paper: Ukuran Kertas
   font_family: Jenis Font
   font_size: Ukuran Font
@@ -114,7 +115,7 @@ notification:
   duplicate: Duplikat resume "{old}" dibuat "{new}"
   correct:
     yes: Memperbaiki {num} kata
-    no : Semua huruf sudah benar!
+    no: Semua huruf sudah benar!
   import:
     yes: Data berhasil diimpor!
-    no : Format data tidak valid.
+    no: Format data tidak valid.

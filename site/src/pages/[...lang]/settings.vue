@@ -14,7 +14,10 @@
       </div>
 
       <div class="grid gap-5 md:grid-cols-2">
-        <section class="settings-card">
+        <section
+          class="settings-card"
+          :class="{ 'settings-card--menu-open': languageApi.open }"
+        >
           <div class="settings-card-heading">
             <span i-ic:round-translate text-xl />
             <h2>{{ $t("settings.language") }}</h2>
@@ -88,6 +91,9 @@
             <span i-mdi:database-outline text-xl />
             <h2>{{ $t("settings.storage") }}</h2>
           </div>
+          <p class="storage-description">
+            {{ $t("settings.storage_estimate_note") }}
+          </p>
 
           <div
             v-if="storageSupported"
@@ -200,6 +206,10 @@ useHead({ title: () => `${t("settings.title")} — Markdown Resume` });
   @apply rounded-xl border border-c bg-c p-5 shadow-sm;
 }
 
+.settings-card--menu-open {
+  @apply relative z-20;
+}
+
 .settings-card-heading {
   @apply hstack gap-2 mb-5 text-lg font-bold;
 }
@@ -267,6 +277,10 @@ useHead({ title: () => `${t("settings.title")} — Markdown Resume` });
   --storage-percent: 0%;
   @apply circle flex-none size-32;
   background: conic-gradient(rgb(168 85 247) var(--storage-percent), rgb(229 231 235) 0);
+}
+
+.storage-description {
+  @apply -mt-3 mb-5 text-sm leading-5 text-light-c;
 }
 
 :global(.dark) .storage-ring {

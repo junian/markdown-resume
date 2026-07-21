@@ -24,6 +24,7 @@ settings:
   used: used
   usage: Usage
   quota: Quota
+  storage_estimate_note: Storage quota is an estimate and may vary by device and browser.
   storage_unavailable: Storage estimates are not available in this browser.
 
 disqus:
@@ -78,8 +79,8 @@ toolbar:
     export_docx: Export DOCX
   correct_case:
     text: Correct Case
-    desc: "Example: \"Github\" → \"GitHub\" <br> Note: the words only including uppercase or lowercase (\"GITHUB\" or \"github\") will be left untouched"
-    btn : Correct it!
+    desc: 'Example: "Github" → "GitHub" <br> Note: the words only including uppercase or lowercase ("GITHUB" or "github") will be left untouched'
+    btn: Correct it!
   paper: Paper Size
   font_family: Font Family
   font_size: Font Size
@@ -114,7 +115,7 @@ notification:
   duplicate: Created resume "{old}"'s duplication "{new}"
   correct:
     yes: Corrected {num} words
-    no : All case are correct!
+    no: All case are correct!
   import:
     yes: Data has been successfully imported!
-    no : Data format is invalid.
+    no: Data format is invalid.
