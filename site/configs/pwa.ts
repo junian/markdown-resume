@@ -2,11 +2,16 @@ import { siteConfig } from "./siteConfig";
 import type { ModuleOptions } from "@vite-pwa/nuxt";
 
 const scope = siteConfig.baseURL;
+const escapedScope = scope.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 export const pwa: ModuleOptions = {
   registerType: "autoUpdate",
   devOptions: {
-    enabled: true
+    enabled: true,
+    // Let Nuxt handle direct navigation to development deep links. The dev
+    // worker's fallback document is the Home page, so it must only handle the
+    // exact application root.
+    navigateFallbackAllowlist: [new RegExp(`^${escapedScope}$`)]
   },
   scope,
   base: scope,
@@ -36,6 +41,9 @@ export const pwa: ModuleOptions = {
   },
   workbox: {
     importScripts: ["sw-images.js"],
+    // Use Nuxt's route-neutral SPA shell instead of the Home document when a
+    // static host needs the service worker to resolve a deep link.
+    navigateFallback: `${scope}200`,
     globPatterns: ["**/*.{js,css,html,otf,ttf,woff2,png,svg}"],
     maximumFileSizeToCacheInBytes: 16000000,
     cleanupOutdatedCaches: true,
