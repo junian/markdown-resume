@@ -86,7 +86,7 @@
           </div>
         </section>
 
-        <section class="settings-card md:col-span-2">
+        <section class="settings-card">
           <div class="settings-card-heading">
             <span i-mdi:database-outline text-xl />
             <h2>{{ $t("settings.storage") }}</h2>
@@ -129,6 +129,60 @@
             {{ $t("settings.storage_unavailable") }}
           </p>
         </section>
+
+        <section class="settings-card danger-card">
+          <div class="settings-card-heading danger-heading">
+            <span i-mdi:alert-outline text-xl />
+            <h2>{{ $t("settings.danger_zone") }}</h2>
+          </div>
+          <p class="danger-description">
+            {{ $t("settings.danger_description") }}
+          </p>
+
+          <Dialog
+            id="erase-all-data"
+            :title="$t('settings.erase_all_data')"
+            icon="i-mdi:alert-outline"
+            box-class="w-11/12 max-w-110"
+          >
+            <template #button>
+              <button
+                class="danger-button"
+                type="button"
+                @click="deleteConfirmation = ''"
+              >
+                <span i-mdi:delete-forever-outline text-lg />
+                <span>{{ $t("settings.erase_all_data") }}</span>
+              </button>
+            </template>
+
+            <template #content>
+              <div class="danger-dialog-content">
+                <p>{{ $t("settings.erase_warning") }}</p>
+                <label for="delete-confirmation" class="field-label mb-0">
+                  {{ $t("settings.type_delete") }}
+                </label>
+                <input
+                  id="delete-confirmation"
+                  v-model="deleteConfirmation"
+                  class="danger-confirmation-input"
+                  type="text"
+                  autocomplete="off"
+                  spellcheck="false"
+                  placeholder="DELETE"
+                />
+                <button
+                  class="danger-confirm-button"
+                  type="button"
+                  :disabled="deleteConfirmation !== 'DELETE' || isErasing"
+                  @click="eraseAllData"
+                >
+                  {{ $t("settings.confirm") }}
+                </button>
+              </div>
+            </template>
+          </Dialog>
+        </section>
       </div>
     </main>
   </div>
@@ -141,6 +195,7 @@ import { normalizeProps, useMachine } from "@zag-js/vue";
 const colorMode = useColorMode();
 const { t, locale, locales } = useI18n();
 const switchLocalePath = useSwitchLocalePath();
+const localePath = useLocalePath();
 
 const currentLocale = computed(() =>
   locales.value.find((item) => item.code === locale.value)
@@ -171,6 +226,18 @@ const storageQuota = ref(0);
 const storagePercent = computed(() =>
   storageQuota.value ? Math.min(100, (storageUsage.value / storageQuota.value) * 100) : 0
 );
+const deleteConfirmation = ref("");
+const isErasing = ref(false);
+
+const eraseAllData = async () => {
+  if (deleteConfirmation.value !== "DELETE" || isErasing.value) return;
+
+  isErasing.value = true;
+  await Promise.all([clearResumeStorage(), clearImageStorage()]);
+  localStorage.removeItem("navigation-collapsed");
+  localStorage.removeItem("nuxt-color-mode");
+  window.location.assign(localePath("/"));
+};
 const displayPercent = computed(() => {
   if (storagePercent.value > 0 && storagePercent.value < 0.1) return "<0.1%";
   return `${storagePercent.value.toFixed(1)}%`;
@@ -306,5 +373,34 @@ useHead({ title: () => `${t("settings.title")} — Markdown Resume` });
 
 .storage-stat dd {
   @apply mt-1 text-lg font-bold;
+}
+
+.danger-card {
+  @apply border-red-300 dark:border-red-900/80;
+}
+
+.danger-heading {
+  @apply text-red-600 dark:text-red-400;
+}
+
+.danger-description {
+  @apply -mt-3 mb-5 text-sm leading-5 text-light-c;
+}
+
+.danger-button,
+.danger-confirm-button {
+  @apply hstack justify-center gap-2 rounded-lg border border-red-500 px-3 py-2 text-sm font-bold text-red-600 transition-colors hover:(bg-red-600 text-white) dark:(border-red-500 text-red-400) dark:hover:(bg-red-600 text-white);
+}
+
+.danger-dialog-content {
+  @apply flex flex-col gap-4 border-t border-c bg-dark-c p-5 text-sm;
+}
+
+.danger-confirmation-input {
+  @apply h-10 rounded-md border border-c bg-c px-3 font-mono outline-none focus:(border-red-500 ring-2 ring-red-500/20);
+}
+
+.danger-confirm-button {
+  @apply self-end min-w-24 bg-red-600 text-white disabled:(cursor-not-allowed border-red-400 bg-red-400 opacity-60) dark:disabled:(border-red-900 bg-red-900 text-red-300);
 }
 </style>

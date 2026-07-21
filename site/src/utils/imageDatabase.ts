@@ -5,6 +5,8 @@ import type { ImageStorage, ImageStorageItem, ImageListItem } from "~/types";
 
 const IMAGE_GALLERY_KEY = "MARKDOWN_RESUME_images";
 
+export const clearImageStorage = () => localForage.removeItem(IMAGE_GALLERY_KEY);
+
 /** Base path must match nuxt.config baseURL */
 const IMAGE_URL_BASE = `${siteConfig.baseURL}images/`;
 
@@ -84,7 +86,10 @@ export const inlineImagesInHtml = async (html: string): Promise<string> => {
     })
   );
 
-  return html.replace(pattern, (_, id) => replacements[id] ?? `/markdown-resume/images/${id}`);
+  return html.replace(
+    pattern,
+    (_, id) => replacements[id] ?? `/markdown-resume/images/${id}`
+  );
 };
 
 const blobToDataUrl = (blob: Blob): Promise<string> =>

@@ -5,6 +5,8 @@ import type { ResumeStorage, ResumeStorageItem, ResumeStyles } from "~/types";
 
 const MARKDOWN_RESUME_KEY = "MARKDOWN_RESUME_data";
 
+export const clearResumeStorage = () => localForage.removeItem(MARKDOWN_RESUME_KEY);
+
 export const getStorage = async () =>
   isClient ? localForage.getItem<ResumeStorage>(MARKDOWN_RESUME_KEY) : null;
 

@@ -26,6 +26,12 @@ settings:
   quota: Quota
   storage_estimate_note: Storage quota is an estimate and may vary by device and browser.
   storage_unavailable: Storage estimates are not available in this browser.
+  danger_zone: Danger Zone
+  danger_description: Permanently erase every resume, image, and app setting stored on this device.
+  erase_all_data: Erase All Content and Data
+  erase_warning: This action will remove all data and return this app to its factory state. This cannot be undone.
+  type_delete: Type DELETE to confirm.
+  confirm: Confirm
 
 disqus:
   leave_a_comment: Leave a Comment
