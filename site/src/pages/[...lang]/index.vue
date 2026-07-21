@@ -34,3 +34,23 @@ const loadResumes = async () => {
 
 onMounted(loadResumes);
 </script>
+
+<style scoped>
+.resumes-page :deep(.resume-card) {
+  border-color: #d1d5db !important;
+  color-scheme: light;
+}
+
+.resumes-page :deep(.resume-card .vue-smart-pages) {
+  background-color: white !important;
+  color: black !important;
+}
+
+.resumes-page :deep(button.resume-card) {
+  background-color: #e5e7eb !important;
+}
+
+.resumes-page :deep(button.resume-card:hover) {
+  background-color: white !important;
+}
+</style>
