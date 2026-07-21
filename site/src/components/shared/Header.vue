@@ -74,12 +74,6 @@
           :label="$t('images.my_images')"
           icon="i-ic:outline-photo-library"
         />
-        <NavItem
-          :link="$nuxt.$localePath('/settings')"
-          :label="$t('nav.settings')"
-          icon="i-ic:outline-settings"
-        />
-
         <div class="sidebar-info-group">
           <div class="sidebar-section-label sidebar-label">
             {{ $t("nav.information") }}
@@ -134,6 +128,14 @@
             <span i-tabler:world text-lg />
             <span class="sidebar-label">Junian.dev</span>
           </a>
+        </div>
+
+        <div class="sidebar-settings">
+          <NavItem
+            :link="$nuxt.$localePath('/settings')"
+            :label="$t('nav.settings')"
+            icon="i-ic:outline-settings"
+          />
         </div>
       </nav>
     </aside>
@@ -212,12 +214,16 @@ onMounted(() => {
 }
 
 .sidebar-nav {
-  @apply flex flex-col min-h-0 gap-1 mt-7 overflow-y-auto;
+  @apply flex flex-1 flex-col min-h-0 gap-1 mt-7 overflow-y-auto;
 }
 
 .sidebar-info-group,
 .sidebar-link-group {
   @apply flex flex-col gap-1 mt-4 pt-3 border-t border-c;
+}
+
+.sidebar-settings {
+  @apply mt-auto pt-3 border-t border-c;
 }
 
 .sidebar-section-label {
