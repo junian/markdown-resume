@@ -23,6 +23,7 @@ settings:
   minimap: Minimap
   minimap_description: Tampilkan minimap kode di editor Markdown dan CSS.
   storage: Penyimpanan
+  refresh_storage: Perbarui perkiraan penyimpanan
   storage_used: Penyimpanan browser yang digunakan
   used: digunakan
   usage: Penggunaan

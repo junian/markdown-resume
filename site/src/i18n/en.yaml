@@ -23,6 +23,7 @@ settings:
   minimap: Minimap
   minimap_description: Show the code minimap in the Markdown and CSS editors.
   storage: Storage
+  refresh_storage: Refresh storage estimate
   storage_used: Browser storage used
   used: used
   usage: Usage

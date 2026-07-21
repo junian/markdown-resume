@@ -112,6 +112,20 @@
           <div class="settings-card-heading">
             <span i-mdi:database-outline text-xl />
             <h2>{{ $t("settings.storage") }}</h2>
+            <button
+              class="storage-refresh-button"
+              type="button"
+              :title="$t('settings.refresh_storage')"
+              :aria-label="$t('settings.refresh_storage')"
+              :disabled="!storageSupported || isRefreshingStorage"
+              @click="refreshStorageEstimate"
+            >
+              <span
+                i-mdi:refresh
+                text-lg
+                :class="{ 'animate-spin': isRefreshingStorage }"
+              />
+            </button>
           </div>
           <p class="storage-description">
             {{ $t("settings.storage_estimate_note") }}
@@ -217,7 +231,7 @@ import { normalizeProps, useMachine } from "@zag-js/vue";
 const colorMode = useColorMode();
 const { t, locale, locales } = useI18n();
 const switchLocalePath = useSwitchLocalePath();
-const localePath = useLocalePath();
+const appBaseURL = useRuntimeConfig().app.baseURL;
 
 const currentLocale = computed(() =>
   locales.value.find((item) => item.code === locale.value)
@@ -245,6 +259,7 @@ const themeModes = computed(() => [
 const storageSupported = ref(true);
 const storageUsage = ref(0);
 const storageQuota = ref(0);
+const isRefreshingStorage = ref(false);
 const storagePercent = computed(() =>
   storageQuota.value ? Math.min(100, (storageUsage.value / storageQuota.value) * 100) : 0
 );
@@ -262,7 +277,7 @@ const eraseAllData = async () => {
   localStorage.removeItem("navigation-collapsed");
   localStorage.removeItem("nuxt-color-mode");
   localStorage.removeItem(EDITOR_MINIMAP_STORAGE_KEY);
-  window.location.assign(localePath("/"));
+  window.location.assign(appBaseURL);
 };
 const displayPercent = computed(() => {
   if (storagePercent.value > 0 && storagePercent.value < 0.1) return "<0.1%";
@@ -276,21 +291,28 @@ const formatBytes = (bytes: number) => {
   return `${(bytes / 1024 ** unit).toFixed(unit ? 1 : 0)} ${units[unit]}`;
 };
 
-onMounted(async () => {
-  minimapEnabled.value = getEditorMinimapEnabled();
-
-  if (!navigator.storage?.estimate) {
+const refreshStorageEstimate = async () => {
+  if (!navigator.storage?.estimate || isRefreshingStorage.value) {
     storageSupported.value = false;
     return;
   }
 
+  isRefreshingStorage.value = true;
   try {
     const estimate = await navigator.storage.estimate();
     storageUsage.value = estimate.usage || 0;
     storageQuota.value = estimate.quota || 0;
+    storageSupported.value = true;
   } catch {
     storageSupported.value = false;
+  } finally {
+    isRefreshingStorage.value = false;
   }
+};
+
+onMounted(async () => {
+  minimapEnabled.value = getEditorMinimapEnabled();
+  await refreshStorageEstimate();
 });
 
 useHead({ title: () => `${t("settings.title")} — Markdown Resume` });
@@ -384,6 +406,10 @@ useHead({ title: () => `${t("settings.title")} — Markdown Resume` });
 
 .storage-description {
   @apply -mt-3 mb-5 text-sm leading-5 text-light-c;
+}
+
+.storage-refresh-button {
+  @apply circle ml-auto size-8 text-light-c transition-colors hover:(bg-darker-c text-dark-c) disabled:(cursor-not-allowed opacity-50);
 }
 
 :global(.dark) .storage-ring {
