@@ -77,10 +77,21 @@ export const setupMonacoEditor = async (container: HTMLDivElement) => {
     fontSize: 13,
     fontFamily: `Menlo, Monaco, "Courier New", monospace`,
     lineHeight: 1.5,
-    automaticLayout: true
+    automaticLayout: true,
+    minimap: { enabled: getEditorMinimapEnabled() }
   }) as Monaco.editor.IStandaloneCodeEditor;
 
   disposables.push(editor);
+
+  const updateMinimap = (event: Event) => {
+    editor.updateOptions({
+      minimap: { enabled: (event as CustomEvent<boolean>).detail }
+    });
+  };
+  window.addEventListener(EDITOR_MINIMAP_CHANGE_EVENT, updateMinimap);
+  disposables.push({
+    dispose: () => window.removeEventListener(EDITOR_MINIMAP_CHANGE_EVENT, updateMinimap)
+  });
 
   // Theme
   monaco.editor.defineTheme("vs-dark-dimmed", {

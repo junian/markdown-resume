@@ -19,6 +19,9 @@ settings:
   light: Terang
   dark: Gelap
   auto: Otomatis
+  editor: Editor
+  minimap: Minimap
+  minimap_description: Tampilkan minimap kode di editor Markdown dan CSS.
   storage: Penyimpanan
   storage_used: Penyimpanan browser yang digunakan
   used: digunakan
@@ -28,7 +31,7 @@ settings:
   storage_unavailable: Perkiraan penyimpanan tidak tersedia di browser ini.
   danger_zone: Zona Berbahaya
   danger_description: Hapus permanen semua resume, gambar, dan pengaturan aplikasi yang tersimpan di perangkat ini.
-  erase_all_data: Hapus Semua Konten dan Data
+  erase_all_data: Hapus Semua Konten dan Pengaturan
   erase_warning: Tindakan ini akan menghapus semua data dan mengembalikan aplikasi ke keadaan awal. Tindakan ini tidak dapat dibatalkan.
   type_delete: Ketik DELETE untuk mengonfirmasi.
   confirm: Konfirmasi

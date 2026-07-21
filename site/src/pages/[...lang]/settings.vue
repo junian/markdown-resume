@@ -86,6 +86,28 @@
           </div>
         </section>
 
+        <section class="settings-card md:col-span-2">
+          <div class="settings-card-heading">
+            <span i-mdi:code-braces text-xl />
+            <h2>{{ $t("settings.editor") }}</h2>
+          </div>
+          <label class="editor-setting" for="editor-minimap">
+            <input
+              id="editor-minimap"
+              v-model="minimapEnabled"
+              class="editor-checkbox"
+              type="checkbox"
+              @change="saveMinimapSetting"
+            />
+            <span>
+              <span class="block font-bold">{{ $t("settings.minimap") }}</span>
+              <span class="mt-1 block text-sm text-light-c">
+                {{ $t("settings.minimap_description") }}
+              </span>
+            </span>
+          </label>
+        </section>
+
         <section class="settings-card">
           <div class="settings-card-heading">
             <span i-mdi:database-outline text-xl />
@@ -228,6 +250,9 @@ const storagePercent = computed(() =>
 );
 const deleteConfirmation = ref("");
 const isErasing = ref(false);
+const minimapEnabled = ref(true);
+
+const saveMinimapSetting = () => setEditorMinimapEnabled(minimapEnabled.value);
 
 const eraseAllData = async () => {
   if (deleteConfirmation.value !== "DELETE" || isErasing.value) return;
@@ -236,6 +261,7 @@ const eraseAllData = async () => {
   await Promise.all([clearResumeStorage(), clearImageStorage()]);
   localStorage.removeItem("navigation-collapsed");
   localStorage.removeItem("nuxt-color-mode");
+  localStorage.removeItem(EDITOR_MINIMAP_STORAGE_KEY);
   window.location.assign(localePath("/"));
 };
 const displayPercent = computed(() => {
@@ -251,6 +277,8 @@ const formatBytes = (bytes: number) => {
 };
 
 onMounted(async () => {
+  minimapEnabled.value = getEditorMinimapEnabled();
+
   if (!navigator.storage?.estimate) {
     storageSupported.value = false;
     return;
@@ -338,6 +366,14 @@ useHead({ title: () => `${t("settings.title")} — Markdown Resume` });
 
 .theme-option--active {
   @apply border-purple-400 bg-purple-50 text-purple-700 dark:(border-[#007acc] bg-[#37373d] text-[#ffffff]);
+}
+
+.editor-setting {
+  @apply flex cursor-pointer items-start gap-3 rounded-lg border border-c bg-dark-c p-4 transition-colors hover:bg-darker-c;
+}
+
+.editor-checkbox {
+  @apply mt-0.5 size-4 flex-none cursor-pointer accent-purple-500 dark:accent-[#007acc];
 }
 
 .storage-ring {

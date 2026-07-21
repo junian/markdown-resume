@@ -19,6 +19,9 @@ settings:
   light: Light
   dark: Dark
   auto: Auto
+  editor: Editor
+  minimap: Minimap
+  minimap_description: Show the code minimap in the Markdown and CSS editors.
   storage: Storage
   storage_used: Browser storage used
   used: used
@@ -28,7 +31,7 @@ settings:
   storage_unavailable: Storage estimates are not available in this browser.
   danger_zone: Danger Zone
   danger_description: Permanently erase every resume, image, and app setting stored on this device.
-  erase_all_data: Erase All Content and Data
+  erase_all_data: Erase All Content and Settings
   erase_warning: This action will remove all data and return this app to its factory state. This cannot be undone.
   type_delete: Type DELETE to confirm.
   confirm: Confirm
