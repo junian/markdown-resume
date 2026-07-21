@@ -5,6 +5,9 @@ const scope = siteConfig.baseURL;
 
 export const pwa: ModuleOptions = {
   registerType: "autoUpdate",
+  devOptions: {
+    enabled: true
+  },
   scope,
   base: scope,
   manifest: {

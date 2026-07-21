@@ -1,4 +1,3 @@
-import { siteConfig } from "~~/configs/siteConfig";
 import * as localForage from "localforage";
 import { isClient } from "@renovamen/utils";
 import type { ImageStorage, ImageStorageItem, ImageListItem } from "~/types";
@@ -7,8 +6,7 @@ const IMAGE_GALLERY_KEY = "MARKDOWN_RESUME_images";
 
 export const clearImageStorage = () => localForage.removeItem(IMAGE_GALLERY_KEY);
 
-/** Base path must match nuxt.config baseURL */
-const IMAGE_URL_BASE = `${siteConfig.baseURL}images/`;
+const IMAGE_URL_BASE = "./images/";
 
 /** Stable URL served by the image Service Worker */
 export const getImageUrl = (id: string) => `${IMAGE_URL_BASE}${id}`;
@@ -62,7 +60,7 @@ export const saveImage = async (
 };
 
 /**
- * Replace all /markdown-resume/images/<id> src references in an HTML string
+ * Replace all ./images/<id> src references in an HTML string
  * with inline base64 data URLs read from IndexedDB.
  *
  * Call this before exporting to HTML or DOCX so the output is self-contained.
@@ -71,7 +69,7 @@ export const inlineImagesInHtml = async (html: string): Promise<string> => {
   const storage = (await getImageStorage()) || {};
 
   // Match both quoted src attributes and markdown-rendered img tags
-  const pattern = /\/markdown-resume\/images\/([\w-]+)/g;
+  const pattern = /\.\/images\/([\w-]+)/g;
 
   const matches = [...new Set([...html.matchAll(pattern)].map((m) => m[1]))];
   if (matches.length === 0) return html;
@@ -86,10 +84,7 @@ export const inlineImagesInHtml = async (html: string): Promise<string> => {
     })
   );
 
-  return html.replace(
-    pattern,
-    (_, id) => replacements[id] ?? `/markdown-resume/images/${id}`
-  );
+  return html.replace(pattern, (match, id) => replacements[id] ?? match);
 };
 
 const blobToDataUrl = (blob: Blob): Promise<string> =>

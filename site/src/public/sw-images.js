@@ -1,7 +1,7 @@
 /**
  * Service Worker for serving images stored in IndexedDB.
  *
- * Intercepts GET requests matching /markdown-resume/images/<id> and
+ * Intercepts GET requests ending in ./images/<id> within the worker scope and
  * responds with the corresponding Blob retrieved from IndexedDB via
  * the localForage store key "MARKDOWN_RESUME_images".
  *
@@ -10,7 +10,7 @@
  */
 
 const IMAGE_GALLERY_KEY = "MARKDOWN_RESUME_images";
-const IMAGE_URL_PREFIX = "/markdown-resume/images/";
+const IMAGE_URL_SEGMENT = "/images/";
 
 // ── IndexedDB helpers (no localForage in SW — raw IDB) ─────────────────────
 
@@ -48,28 +48,30 @@ async function getImageFromDb(id) {
 self.addEventListener("fetch", (event) => {
   const url = new URL(event.request.url);
 
-  if (
-    event.request.method !== "GET" ||
-    !url.pathname.startsWith(IMAGE_URL_PREFIX)
-  ) {
+  if (event.request.method !== "GET") {
     return; // let everything else pass through
   }
 
-  const id = url.pathname.slice(IMAGE_URL_PREFIX.length);
-  if (!id) return;
+  const segmentIndex = url.pathname.lastIndexOf(IMAGE_URL_SEGMENT);
+  if (segmentIndex === -1) return;
+
+  const id = url.pathname.slice(segmentIndex + IMAGE_URL_SEGMENT.length);
+  if (!/^\d+_[a-z0-9]+$/i.test(id)) return;
 
   event.respondWith(
-    getImageFromDb(id).then((item) => {
-      if (!item) {
-        return new Response("Image not found", { status: 404 });
-      }
-      return new Response(item.blob, {
-        status: 200,
-        headers: {
-          "Content-Type": item.mimeType || "image/png",
-          "Cache-Control": "no-store"
+    getImageFromDb(id)
+      .then((item) => {
+        if (!item) {
+          return new Response("Image not found", { status: 404 });
         }
-      });
-    }).catch(() => new Response("Error reading image", { status: 500 }))
+        return new Response(item.blob, {
+          status: 200,
+          headers: {
+            "Content-Type": item.mimeType || "image/png",
+            "Cache-Control": "no-store"
+          }
+        });
+      })
+      .catch(() => new Response("Error reading image", { status: 500 }))
   );
 });

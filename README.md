@@ -56,16 +56,16 @@ Highly recommend using Chromium-based browsers, e.g., [Chrome][chrome] or [Micro
 
 The Image Gallery screen lets you upload images and use them directly in your resume.
 
-Once uploaded, each image gets a stable URL in the format `/markdown-resume/images/<id>` served by a [Service Worker][sw] — no external hosting needed. You can copy the URL from the gallery and paste it into your Markdown:
+Once uploaded, each image gets a stable URL in the format `./images/<id>` served by a [Service Worker][sw] — no external hosting needed. You can copy the URL from the gallery and paste it into your Markdown:
 
 ```markdown
-![My photo](/markdown-resume/images/1234567890_abc123)
+![My photo](./images/1234567890_abc123)
 ```
 
 Or as an HTML tag:
 
 ```html
-<img src="/markdown-resume/images/1234567890_abc123" alt="My photo" />
+<img src="./images/1234567890_abc123" alt="My photo" />
 ```
 
 When exporting to **HTML** or **DOCX**, image references are automatically replaced with inline base64 data URLs so the exported file is fully self-contained.
