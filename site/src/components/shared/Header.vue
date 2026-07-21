@@ -288,7 +288,15 @@ a.router-link-active.sidebar-item {
   }
 
   .sidebar-panel {
-    @apply hidden fixed left-0 top-14 bottom-0 w-60 h-auto shadow-xl;
+    @apply flex fixed left-0 top-14 bottom-0 w-60 h-auto shadow-xl;
+    transform: translateX(-100%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      transform 200ms ease,
+      opacity 200ms ease,
+      visibility 0s linear 200ms;
   }
 
   .sidebar-backdrop {
@@ -300,7 +308,11 @@ a.router-link-active.sidebar-item {
   }
 
   .header--mobile-open .sidebar-panel {
-    @apply flex;
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition-delay: 0s;
   }
 
   .header--collapsed .sidebar-panel :deep(.sidebar-label) {
