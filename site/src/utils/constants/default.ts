@@ -24,13 +24,13 @@ export const DEFAULT_MD_CONTENT = `---
 
 # Bruce Wayne
 
-<span class="iconify" data-icon="charm:person"></span> [example.com](https://example.com/)
-  : <span class="iconify" data-icon="tabler:brand-github"></span> [github.com/example](https://github.com/example)
-  : <span class="iconify" data-icon="tabler:phone"></span> [(+1) 123-456-7890](https://wa.me/11234567890)
+<iconify-icon icon="eva:people-outline"></iconify-icon> [example.com](https://example.com/)
+  : <iconify-icon icon="tabler:brand-github"></iconify-icon> [github.com/example](https://github.com/example)
+  : <iconify-icon icon="tabler:phone"></iconify-icon> [(+1) 123-456-7890](https://wa.me/11234567890)
 
-<span class="iconify" data-icon="ic:outline-location-on"></span> 1234 Abc Street, Example, EX 01234
-  : <span class="iconify" data-icon="tabler:brand-linkedin"></span> [linkedin.com/in/example](https://linkedin.com/in/example/)
-  : <span class="iconify" data-icon="tabler:mail"></span> [email@example.com](mailto:mail@example.com)
+<iconify-icon icon="ic:outline-location-on"></iconify-icon> 1234 Abc Street, Example, EX 01234
+  : <iconify-icon icon="tabler:brand-linkedin"></iconify-icon> [linkedin.com/in/example](https://linkedin.com/in/example/)
+  : <iconify-icon icon="tabler:mail"></iconify-icon> [email@example.com](mailto:mail@example.com)
 
 ## Experience
 
@@ -86,7 +86,7 @@ Huangdu Institute of Technology
 
 ## Skills
 
-**Programming Languages:** <span class="iconify" data-icon="vscode-icons:file-type-python"></span> Python, <span class="iconify" data-icon="vscode-icons:file-type-js-official"></span> JavaScript / <span class="iconify" data-icon="vscode-icons:file-type-typescript-official"></span> TypeScript, <span class="iconify" data-icon="vscode-icons:file-type-html"></span> HTML / <span class="iconify" data-icon="vscode-icons:file-type-css"></span> CSS, <span class="iconify" data-icon="logos:java" data-inline="false"></span> Java
+**Programming Languages:** <iconify-icon icon="vscode-icons:file-type-python"></iconify-icon> Python, <iconify-icon icon="vscode-icons:file-type-js-official"></iconify-icon> JavaScript / <iconify-icon icon="vscode-icons:file-type-typescript-official"></iconify-icon> TypeScript, <iconify-icon icon="vscode-icons:file-type-html"></iconify-icon> HTML / <iconify-icon icon="vscode-icons:file-type-css"></iconify-icon> CSS, <iconify-icon icon="logos:java"></iconify-icon> Java
 
 **Tools and Frameworks:** Git, PyTorch, Keras, scikit-learn, Linux, Vue, React, Django, $\\LaTeX$
 
@@ -202,6 +202,7 @@ ${PREVIEW_SELECTOR} :not(span.katex-display) > span.katex {
 
 /* SVG & Images */
 
+${PREVIEW_SELECTOR} iconify-icon,
 ${PREVIEW_SELECTOR} svg.iconify {
   vertical-align: -0.2em;
 }

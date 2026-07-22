@@ -36,7 +36,7 @@ useHead({
   ],
   script: [
     {
-      src: "https://code.iconify.design/2/2.2.1/iconify.min.js",
+      src: "https://code.iconify.design/iconify-icon/3.0.2/iconify-icon.min.js",
       type: "module",
       tagPosition: "bodyClose"
     }

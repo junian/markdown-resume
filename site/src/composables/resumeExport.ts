@@ -48,7 +48,7 @@ export const useResumeExport = () => {
       }
     `;
 
-    const scriptTag = '<script src="https://code.iconify.design/3/3.1.0/iconify.min.js"><\/script>';
+    const scriptTag = '<script src="https://code.iconify.design/iconify-icon/3.0.2/iconify-icon.min.js"></script>';
     return `<!DOCTYPE html>
 <html lang="en">
 <head>
