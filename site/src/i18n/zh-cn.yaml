@@ -19,6 +19,11 @@ settings:
   light: 浅色
   dark: 深色
   auto: 自动
+  editor: 编辑器
+  minimap: 小地图
+  minimap_description: 在 Markdown 和 CSS 编辑器中显示代码小地图。
+  line_numbers: 行号
+  line_numbers_description: 在 Markdown 和 CSS 编辑器中显示行号。
   storage: 存储
   storage_used: 已使用的浏览器存储
   used: 已使用

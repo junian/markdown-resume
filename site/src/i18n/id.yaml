@@ -22,6 +22,8 @@ settings:
   editor: Editor
   minimap: Minimap
   minimap_description: Tampilkan minimap kode di editor Markdown dan CSS.
+  line_numbers: Nomor baris
+  line_numbers_description: Tampilkan nomor baris di editor Markdown dan CSS.
   storage: Penyimpanan
   refresh_storage: Perbarui perkiraan penyimpanan
   storage_used: Penyimpanan browser yang digunakan

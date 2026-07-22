@@ -78,6 +78,7 @@ export const setupMonacoEditor = async (container: HTMLDivElement) => {
     fontFamily: `Menlo, Monaco, "Courier New", monospace`,
     lineHeight: 1.5,
     automaticLayout: true,
+    lineNumbers: getEditorLineNumbersEnabled() ? "on" : "off",
     minimap: { enabled: getEditorMinimapEnabled() }
   }) as Monaco.editor.IStandaloneCodeEditor;
 
@@ -91,6 +92,17 @@ export const setupMonacoEditor = async (container: HTMLDivElement) => {
   window.addEventListener(EDITOR_MINIMAP_CHANGE_EVENT, updateMinimap);
   disposables.push({
     dispose: () => window.removeEventListener(EDITOR_MINIMAP_CHANGE_EVENT, updateMinimap)
+  });
+
+  const updateLineNumbers = (event: Event) => {
+    editor.updateOptions({
+      lineNumbers: (event as CustomEvent<boolean>).detail ? "on" : "off"
+    });
+  };
+  window.addEventListener(EDITOR_LINE_NUMBERS_CHANGE_EVENT, updateLineNumbers);
+  disposables.push({
+    dispose: () =>
+      window.removeEventListener(EDITOR_LINE_NUMBERS_CHANGE_EVENT, updateLineNumbers)
   });
 
   // Theme

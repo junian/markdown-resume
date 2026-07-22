@@ -22,6 +22,8 @@ settings:
   editor: Editor
   minimap: Minimap
   minimap_description: Show the code minimap in the Markdown and CSS editors.
+  line_numbers: Line numbers
+  line_numbers_description: Show line numbers in the Markdown and CSS editors.
   storage: Storage
   refresh_storage: Refresh storage estimate
   storage_used: Browser storage used

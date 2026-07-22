@@ -19,6 +19,11 @@ settings:
   light: Claro
   dark: Oscuro
   auto: Automático
+  editor: Editor
+  minimap: Minimapa
+  minimap_description: Muestra el minimapa de código en los editores Markdown y CSS.
+  line_numbers: Números de línea
+  line_numbers_description: Muestra los números de línea en los editores Markdown y CSS.
   storage: Almacenamiento
   storage_used: Almacenamiento del navegador utilizado
   used: usado

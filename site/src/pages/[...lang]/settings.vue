@@ -91,21 +91,38 @@
             <span i-mdi:code-braces text-xl />
             <h2>{{ $t("settings.editor") }}</h2>
           </div>
-          <label class="editor-setting" for="editor-minimap">
-            <input
-              id="editor-minimap"
-              v-model="minimapEnabled"
-              class="editor-checkbox"
-              type="checkbox"
-              @change="saveMinimapSetting"
-            />
-            <span>
-              <span class="block font-bold">{{ $t("settings.minimap") }}</span>
-              <span class="mt-1 block text-sm text-light-c">
-                {{ $t("settings.minimap_description") }}
+          <div class="editor-settings">
+            <label class="editor-setting" for="editor-minimap">
+              <input
+                id="editor-minimap"
+                v-model="minimapEnabled"
+                class="editor-checkbox"
+                type="checkbox"
+                @change="saveMinimapSetting"
+              />
+              <span>
+                <span class="block font-bold">{{ $t("settings.minimap") }}</span>
+                <span class="mt-1 block text-sm text-light-c">
+                  {{ $t("settings.minimap_description") }}
+                </span>
               </span>
-            </span>
-          </label>
+            </label>
+            <label class="editor-setting" for="editor-line-numbers">
+              <input
+                id="editor-line-numbers"
+                v-model="lineNumbersEnabled"
+                class="editor-checkbox"
+                type="checkbox"
+                @change="saveLineNumbersSetting"
+              />
+              <span>
+                <span class="block font-bold">{{ $t("settings.line_numbers") }}</span>
+                <span class="mt-1 block text-sm text-light-c">
+                  {{ $t("settings.line_numbers_description") }}
+                </span>
+              </span>
+            </label>
+          </div>
         </section>
 
         <section class="settings-card">
@@ -266,8 +283,11 @@ const storagePercent = computed(() =>
 const deleteConfirmation = ref("");
 const isErasing = ref(false);
 const minimapEnabled = ref(true);
+const lineNumbersEnabled = ref(true);
 
 const saveMinimapSetting = () => setEditorMinimapEnabled(minimapEnabled.value);
+const saveLineNumbersSetting = () =>
+  setEditorLineNumbersEnabled(lineNumbersEnabled.value);
 
 const eraseAllData = async () => {
   if (deleteConfirmation.value !== "DELETE" || isErasing.value) return;
@@ -277,6 +297,7 @@ const eraseAllData = async () => {
   localStorage.removeItem("navigation-collapsed");
   localStorage.removeItem("nuxt-color-mode");
   localStorage.removeItem(EDITOR_MINIMAP_STORAGE_KEY);
+  localStorage.removeItem(EDITOR_LINE_NUMBERS_STORAGE_KEY);
   window.location.assign(appBaseURL);
 };
 const displayPercent = computed(() => {
@@ -312,6 +333,7 @@ const refreshStorageEstimate = async () => {
 
 onMounted(async () => {
   minimapEnabled.value = getEditorMinimapEnabled();
+  lineNumbersEnabled.value = getEditorLineNumbersEnabled();
   await refreshStorageEstimate();
 });
 
@@ -392,6 +414,10 @@ useHead({ title: () => `${t("settings.title")} — Markdown Resume` });
 
 .editor-setting {
   @apply flex cursor-pointer items-start gap-3 rounded-lg border border-c bg-dark-c p-4 transition-colors hover:bg-darker-c;
+}
+
+.editor-settings {
+  @apply grid gap-3;
 }
 
 .editor-checkbox {
