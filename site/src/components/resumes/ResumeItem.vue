@@ -37,7 +37,7 @@
               transform: `scale(${1 / MM_TO_PX})`
             }"
             class="origin-top-left"
-            @rendered="isRendered = true"
+            @rendered="revealThumbnail"
           />
         </nuxt-link>
         <ResumeOptions
@@ -68,6 +68,22 @@ const height = PAPER[props.resume.styles.paper].h;
 
 const render = ref();
 const isRendered = ref(false);
+const MINIMUM_PLACEHOLDER_DURATION = 800;
+const placeholderStartedAt = Date.now();
+let revealTimer: ReturnType<typeof setTimeout> | undefined;
+
+const revealThumbnail = () => {
+  if (isRendered.value || revealTimer) return;
+
+  const remaining = Math.max(
+    0,
+    MINIMUM_PLACEHOLDER_DURATION - (Date.now() - placeholderStartedAt)
+  );
+  revealTimer = setTimeout(() => {
+    isRendered.value = true;
+    revealTimer = undefined;
+  }, remaining);
+};
 
 const updateResumeItem = async () => {
   // set resume backbone styles
@@ -83,12 +99,13 @@ const updateResumeItem = async () => {
 
 onMounted(updateResumeItem);
 onUpdated(updateResumeItem);
+onBeforeUnmount(() => clearTimeout(revealTimer));
 </script>
 
 <style scoped>
 .resume-preview {
   @apply block size-full opacity-0;
-  transition: opacity 240ms ease;
+  transition: opacity 280ms ease;
 }
 
 .resume-preview--ready {
