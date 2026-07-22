@@ -153,6 +153,12 @@
             class="flex flex-col items-center gap-8 sm:flex-row"
           >
             <div
+              v-if="isRefreshingStorage"
+              class="storage-ring storage-ring--loading"
+              aria-hidden="true"
+            />
+            <div
+              v-else
               class="storage-ring"
               :style="{ '--storage-percent': `${storagePercent}%` }"
               role="progressbar"
@@ -169,12 +175,24 @@
 
             <dl class="grid flex-1 w-full grid-cols-2 gap-4">
               <div class="storage-stat">
-                <dt>{{ $t("settings.usage") }}</dt>
-                <dd>{{ formatBytes(storageUsage) }}</dd>
+                <template v-if="isRefreshingStorage">
+                  <dt class="storage-skeleton storage-skeleton--label" />
+                  <dd class="storage-skeleton storage-skeleton--value" />
+                </template>
+                <template v-else>
+                  <dt>{{ $t("settings.usage") }}</dt>
+                  <dd>{{ formatBytes(storageUsage) }}</dd>
+                </template>
               </div>
               <div class="storage-stat">
-                <dt>{{ $t("settings.quota") }}</dt>
-                <dd>{{ formatBytes(storageQuota) }}</dd>
+                <template v-if="isRefreshingStorage">
+                  <dt class="storage-skeleton storage-skeleton--label" />
+                  <dd class="storage-skeleton storage-skeleton--value" />
+                </template>
+                <template v-else>
+                  <dt>{{ $t("settings.quota") }}</dt>
+                  <dd>{{ formatBytes(storageQuota) }}</dd>
+                </template>
               </div>
             </dl>
           </div>
@@ -356,20 +374,22 @@ const formatBytes = (bytes: number) => {
 };
 
 const refreshStorageEstimate = async () => {
-  if (!navigator.storage?.estimate || isRefreshingStorage.value) {
-    storageSupported.value = false;
-    return;
-  }
+  if (isRefreshingStorage.value) return;
 
   isRefreshingStorage.value = true;
+  const minimumDelay = new Promise((resolve) => window.setTimeout(resolve, 800));
+  let estimate: StorageEstimate | undefined;
+  let isSupported = Boolean(navigator.storage?.estimate);
+
   try {
-    const estimate = await navigator.storage.estimate();
-    storageUsage.value = estimate.usage || 0;
-    storageQuota.value = estimate.quota || 0;
-    storageSupported.value = true;
+    if (isSupported) estimate = await navigator.storage.estimate();
   } catch {
-    storageSupported.value = false;
+    isSupported = false;
   } finally {
+    await minimumDelay;
+    storageUsage.value = estimate?.usage || 0;
+    storageQuota.value = estimate?.quota || 0;
+    storageSupported.value = isSupported;
     isRefreshingStorage.value = false;
   }
 };
@@ -471,6 +491,27 @@ useHead({ title: () => `${t("settings.title")} — Markdown Resume` });
   --storage-percent: 0%;
   @apply circle flex-none size-32;
   background: conic-gradient(rgb(168 85 247) var(--storage-percent), rgb(229 231 235) 0);
+}
+
+.storage-ring--loading,
+.storage-skeleton {
+  @apply animate-pulse bg-gray-200 dark:bg-zinc-700;
+}
+
+.storage-ring--loading {
+  background-image: none;
+}
+
+.storage-skeleton {
+  @apply block rounded;
+}
+
+.storage-skeleton--label {
+  @apply h-3 w-12;
+}
+
+.storage-skeleton--value {
+  @apply mt-2 h-6 w-20;
 }
 
 .storage-description {
