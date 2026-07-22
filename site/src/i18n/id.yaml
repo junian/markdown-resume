@@ -62,6 +62,7 @@ landing:
 
 resumes:
   my_resumes: Resume Saya
+  description: Buat, atur, impor, dan cadangkan resume Anda.
   created: "Dibuat: "
   updated: "Diperbarui: "
   new: Baru
@@ -109,6 +110,7 @@ toolbar:
 
 images:
   my_images: Gambar Saya
+  description: Kelola gambar lokal untuk digunakan dalam resume Anda.
   upload: Unggah Gambar
   sort_asc: Terlama Dulu
   sort_desc: Terbaru Dulu

@@ -21,8 +21,12 @@ body {
     padding-left: 0;
   }
 
-  .sidebar-layout > .header ~ * {
-    padding-top: 3.5rem;
+  .sidebar-layout:not(.edit-page) > .header ~ * {
+    margin-top: 3.5rem;
+  }
+
+  .edit-page > .header ~ .workspace {
+    padding-top: 4rem;
   }
 }
 

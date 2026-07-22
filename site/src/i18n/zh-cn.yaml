@@ -46,6 +46,7 @@ landing:
 
 resumes:
   my_resumes: 我的简历
+  description: 创建、整理、导入和备份您的简历。
   created: 创建于：
   updated: 更新于：
   new: 新建
@@ -88,6 +89,7 @@ toolbar:
 
 images:
   my_images: 我的图片
+  description: 管理本地图片并在简历中使用。
   upload: 上传图片
   sort_asc: 最早优先
   sort_desc: 最新优先

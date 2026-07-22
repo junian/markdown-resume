@@ -62,6 +62,7 @@ landing:
 
 resumes:
   my_resumes: My Resumes
+  description: Create, organize, import, and back up your resumes.
   created: "Created: "
   updated: "Updated: "
   new: New
@@ -109,6 +110,7 @@ toolbar:
 
 images:
   my_images: My Images
+  description: Manage images stored locally for use in your resumes.
   upload: Upload Image
   sort_asc: Oldest First
   sort_desc: Newest First

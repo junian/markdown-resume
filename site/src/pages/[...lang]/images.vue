@@ -2,10 +2,20 @@
   <div class="images-page sidebar-layout">
     <Header />
 
-    <div class="max-w-306 mx-auto px-5 py-16 text-dark-c">
+    <main class="max-w-306 mx-auto px-5 py-12 md:px-10 md:py-16 text-dark-c">
       <!-- Page header row -->
-      <div class="space-y-2 md:(hstack justify-between)">
-        <h1 font-bold text-3xl>{{ $t("images.my_images") }}</h1>
+      <div
+        class="flex flex-col gap-4 mb-10 sm:flex-row sm:items-center sm:justify-between"
+      >
+        <div class="hstack gap-3">
+          <span class="circle size-10 flex-shrink-0 bg-brand text-white">
+            <span i-ic:outline-photo-library text-xl />
+          </span>
+          <div>
+            <h1 class="text-3xl font-bold">{{ $t("images.my_images") }}</h1>
+            <p class="mt-1 text-sm text-light-c">{{ $t("images.description") }}</p>
+          </div>
+        </div>
 
         <div class="hstack space-x-2">
           <!-- Sort toggle -->
@@ -14,7 +24,10 @@
             :aria-label="sortAsc ? $t('images.sort_desc') : $t('images.sort_asc')"
             @click="toggleSort"
           >
-            <span :class="sortAsc ? 'i-ic:round-arrow-upward' : 'i-ic:round-arrow-downward'" text-lg />
+            <span
+              :class="sortAsc ? 'i-ic:round-arrow-upward' : 'i-ic:round-arrow-downward'"
+              text-lg
+            />
             <span>{{ sortAsc ? $t("images.sort_asc") : $t("images.sort_desc") }}</span>
           </button>
 
@@ -53,7 +66,7 @@
         <span i-ic:outline-photo-library text-5xl />
         <p text-sm>{{ $t("images.empty") }}</p>
       </div>
-    </div>
+    </main>
   </div>
 </template>
 

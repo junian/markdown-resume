@@ -51,6 +51,7 @@ landing:
 
 resumes:
   my_resumes: Mis CVs
+  description: Crea, organiza, importa y respalda tus currículums.
   created: "Creado: "
   updated: "Actualizado: "
   new: Nuevo
@@ -94,6 +95,7 @@ toolbar:
 
 images:
   my_images: Mis Imágenes
+  description: Administra imágenes locales para usarlas en tus currículums.
   upload: Subir Imagen
   sort_asc: Más Antiguo Primero
   sort_desc: Más Reciente Primero
