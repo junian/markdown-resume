@@ -29,6 +29,8 @@ settings:
   used: 已使用
   usage: 使用量
   quota: 配额
+  resumes: 简历
+  images: 图片
   storage_unavailable: 此浏览器不支持存储空间估算。
 
 disqus:

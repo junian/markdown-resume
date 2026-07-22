@@ -29,6 +29,8 @@ settings:
   used: usado
   usage: Uso
   quota: Cuota
+  resumes: Currículums
+  images: Imágenes
   storage_unavailable: Las estimaciones de almacenamiento no están disponibles.
 
 disqus:

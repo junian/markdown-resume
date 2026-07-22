@@ -9,12 +9,19 @@ This changelog summarizes the project from its initial commit through the latest
 - Fixed image paths and service-worker behavior for installations hosted at `/` or in a subdirectory.
 - Enabled development service-worker updates and corrected deep-link navigation fallbacks so refreshes and manually entered editor URLs retain their route.
 - Added a storage-estimate refresh control.
+- Added loading indicators and skeleton states while browser storage usage is refreshed.
 - Moved Settings to the bottom of the main sidebar.
 - Added animated resume-thumbnail placeholders, a minimum display duration, and a smooth final-preview reveal.
+- Kept resume thumbnails immediately clickable while their loading placeholders are visible, and ensured hover actions stay above the placeholder.
 - Fixed duplicate text while renaming a resume.
 - Added silent autosave when Enter inserts a new line in the Markdown or CSS editor, and centralized the save flow.
+- Added a persistent setting for toggling editor line numbers.
 - Made the editor/preview splitter responsive: side-by-side on desktop and vertically stacked on tablet and mobile.
 - Fixed mobile splitter initialization after a direct page refresh.
+- Unified sidebar-aware layouts across the editor, resume list, images, settings, About, and Privacy pages.
+- Improved the resume-list and image-gallery headings with localized descriptions and responsive layouts.
+- Added a system CJK font option and updated the default CJK typography.
+- Added app-scoped service-worker cache naming and cleared related caches when erasing all local data.
 - Migrated default resume icons from legacy Iconify span markup to Iconify 3 web components.
 - Centralized the Iconify runtime URL for the app and exported HTML.
 - Added the **Fix Icons** tool to migrate and save legacy Iconify markup in existing resumes.

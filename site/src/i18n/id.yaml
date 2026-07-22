@@ -30,6 +30,8 @@ settings:
   used: digunakan
   usage: Penggunaan
   quota: Kuota
+  resumes: Resume
+  images: Gambar
   storage_estimate_note: Kuota penyimpanan adalah perkiraan dan dapat berbeda tergantung perangkat dan browser.
   storage_unavailable: Perkiraan penyimpanan tidak tersedia di browser ini.
   danger_zone: Zona Berbahaya

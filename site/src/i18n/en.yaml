@@ -30,6 +30,8 @@ settings:
   used: used
   usage: Usage
   quota: Quota
+  resumes: Resumes
+  images: Images
   storage_estimate_note: Storage quota is an estimate and may vary by device and browser.
   storage_unavailable: Storage estimates are not available in this browser.
   danger_zone: Danger Zone

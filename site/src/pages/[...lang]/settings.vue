@@ -134,7 +134,7 @@
               type="button"
               :title="$t('settings.refresh_storage')"
               :aria-label="$t('settings.refresh_storage')"
-              :disabled="!storageSupported || isRefreshingStorage"
+              :disabled="isRefreshingStorage"
               @click="refreshStorageEstimate"
             >
               <span
@@ -199,6 +199,29 @@
           <p v-else class="text-sm text-light-c">
             {{ $t("settings.storage_unavailable") }}
           </p>
+
+          <dl class="grid grid-cols-2 gap-4 mt-4">
+            <div class="storage-stat">
+              <template v-if="isRefreshingStorage">
+                <dt class="storage-skeleton storage-skeleton--label" />
+                <dd class="storage-skeleton storage-skeleton--value" />
+              </template>
+              <template v-else>
+                <dt>{{ $t("settings.resumes") }}</dt>
+                <dd>{{ resumeCount }}</dd>
+              </template>
+            </div>
+            <div class="storage-stat">
+              <template v-if="isRefreshingStorage">
+                <dt class="storage-skeleton storage-skeleton--label" />
+                <dd class="storage-skeleton storage-skeleton--value" />
+              </template>
+              <template v-else>
+                <dt>{{ $t("settings.images") }}</dt>
+                <dd>{{ imageCount }}</dd>
+              </template>
+            </div>
+          </dl>
         </section>
 
         <section class="settings-card danger-card">
@@ -295,6 +318,8 @@ const themeModes = computed(() => [
 const storageSupported = ref(true);
 const storageUsage = ref(0);
 const storageQuota = ref(0);
+const resumeCount = ref(0);
+const imageCount = ref(0);
 const isRefreshingStorage = ref(false);
 const storagePercent = computed(() =>
   storageQuota.value ? Math.min(100, (storageUsage.value / storageQuota.value) * 100) : 0
@@ -379,16 +404,27 @@ const refreshStorageEstimate = async () => {
   isRefreshingStorage.value = true;
   const minimumDelay = new Promise((resolve) => window.setTimeout(resolve, 800));
   let estimate: StorageEstimate | undefined;
+  let resumes: Awaited<ReturnType<typeof getResumeList>> = [];
+  let images: Awaited<ReturnType<typeof getImageList>> = [];
   let isSupported = Boolean(navigator.storage?.estimate);
 
   try {
-    if (isSupported) estimate = await navigator.storage.estimate();
-  } catch {
-    isSupported = false;
+    [estimate, resumes, images] = await Promise.all([
+      isSupported
+        ? navigator.storage.estimate().catch(() => {
+            isSupported = false;
+            return undefined;
+          })
+        : Promise.resolve(undefined),
+      getResumeList().catch(() => []),
+      getImageList().catch(() => [])
+    ]);
   } finally {
     await minimumDelay;
     storageUsage.value = estimate?.usage || 0;
     storageQuota.value = estimate?.quota || 0;
+    resumeCount.value = resumes.length;
+    imageCount.value = images.length;
     storageSupported.value = isSupported;
     isRefreshingStorage.value = false;
   }
