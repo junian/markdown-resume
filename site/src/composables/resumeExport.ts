@@ -1,4 +1,5 @@
 import { downloadFile } from "@renovamen/utils";
+import { siteConfig } from "~~/configs/siteConfig";
 
 export const useResumeExport = () => {
   const { data } = useDataStore();
@@ -48,7 +49,7 @@ export const useResumeExport = () => {
       }
     `;
 
-    const scriptTag = '<script src="https://code.iconify.design/iconify-icon/3.0.2/iconify-icon.min.js"></script>';
+    const scriptTag = `<script src="${siteConfig.iconifyScriptURL}"></script>`;
     return `<!DOCTYPE html>
 <html lang="en">
 <head>
