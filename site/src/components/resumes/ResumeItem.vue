@@ -113,7 +113,7 @@ onBeforeUnmount(() => clearTimeout(revealTimer));
 }
 
 .resume-placeholder {
-  @apply absolute inset-0 z-10 flex flex-col gap-3 bg-white p-6 overflow-hidden;
+  @apply pointer-events-none absolute inset-0 z-10 flex flex-col gap-3 bg-white p-6 overflow-hidden;
 }
 
 .resume-placeholder::after {
