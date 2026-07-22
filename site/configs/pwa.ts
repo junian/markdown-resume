@@ -40,6 +40,7 @@ export const pwa: ModuleOptions = {
     ]
   },
   workbox: {
+    cacheId: siteConfig.cacheId,
     importScripts: ["sw-images.js"],
     // Use Nuxt's route-neutral SPA shell instead of the Home document when a
     // static host needs the service worker to resolve a deep link.
