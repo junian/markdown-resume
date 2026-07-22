@@ -354,7 +354,6 @@ const clearServiceWorkerData = async () => {
     );
   };
 
-  /*
   const serviceWorkerCleanup = async () => {
     if (!("serviceWorker" in navigator)) return;
 
@@ -367,7 +366,6 @@ const clearServiceWorkerData = async () => {
   };
 
   await Promise.allSettled([serviceWorkerCleanup()]);
-  */
   await Promise.allSettled([cacheCleanup()]);
 };
 
@@ -377,8 +375,7 @@ const eraseAllData = async () => {
   isErasing.value = true;
   await Promise.all([
     clearResumeStorage(),
-    clearImageStorage(),
-    clearServiceWorkerData()
+    clearImageStorage()
   ]);
   localStorage.removeItem("navigation-collapsed");
   localStorage.removeItem("nuxt-color-mode");
