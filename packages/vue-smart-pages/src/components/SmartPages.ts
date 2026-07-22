@@ -136,6 +136,10 @@ export default defineComponent({
       h("div", {
         class: "vue-smart-pages",
         id: id,
+        style: {
+          backgroundColor: "white",
+          minHeight: `${props.height}px`
+        },
         innerHTML: props.content
       });
   }
