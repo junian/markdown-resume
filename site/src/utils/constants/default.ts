@@ -1,4 +1,5 @@
 import type { ResumeStyles } from "~/types";
+import { SYSTEM_CJK_FONT_FAMILY } from "./data";
 
 export const DEFAULT_NAME = "My Resume";
 
@@ -9,8 +10,8 @@ export const DEFAULT_STYLES = {
   paragraphSpace: 5,
   themeColor: "#000000",
   fontCJK: {
-    name: "华康宋体",
-    fontFamily: "HKST"
+    name: "System CJK",
+    fontFamily: SYSTEM_CJK_FONT_FAMILY
   },
   fontEN: {
     name: "Verdana"
@@ -90,7 +91,15 @@ Huangdu Institute of Technology
 
 **Tools and Frameworks:** Git, PyTorch, Keras, scikit-learn, Linux, Vue, React, Django, $\\LaTeX$
 
-**Languages:** English (proficient), Indonesia (native)
+## Language Skills・语言能力・語学・언어 능력
+
+**English:** Proficient in professional communication and writing
+
+**中文：** 母语，具备流利的听说读写能力
+
+**日本語：** 日常会話レベル
+
+**한국어:** 초급, 간단한 일상 대화 가능
 
 ## Awards and Honors
 

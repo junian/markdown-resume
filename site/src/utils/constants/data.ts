@@ -42,7 +42,7 @@ export const EN_FONTS: Font[] = [
   },
   {
     name: "Verdana"
-  },
+  }
   /*
   {
     name: "Adobe Garamond Pro"
@@ -65,7 +65,15 @@ export const EN_FONTS: Font[] = [
   */
 ];
 
+export const SYSTEM_CJK_FONT_FAMILY =
+  'system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Microsoft JhengHei", "Yu Gothic", "Meiryo", "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans CJK SC", "Noto Sans CJK TC", "Noto Sans CJK JP", "Noto Sans CJK KR", "Noto Sans SC", "Noto Sans TC", "Noto Sans JP", "Noto Sans KR", "WenQuanYi Micro Hei", "Droid Sans Fallback", sans-serif';
+
 export const CJK_FONTS: Font[] = [
+  {
+    name: "System CJK",
+    fontFamily: SYSTEM_CJK_FONT_FAMILY
+  }
+  /*
   {
     name: "华康宋体",
     fontFamily: "HKST"
@@ -74,6 +82,7 @@ export const CJK_FONTS: Font[] = [
     name: "霞鹜文楷",
     fontFamily: "LXGW WenKai"
   }
+  */
 ];
 
 export const CJK_SUBSETS = [

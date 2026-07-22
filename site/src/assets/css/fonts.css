@@ -1,5 +1,6 @@
 /* English */
 
+/*
 @font-face {
   font-family: "CMU Sans Serif";
   font-style: normal;
@@ -167,9 +168,11 @@
   font-weight: bold;
   src: url("~/assets/fonts/euclid/bolditalic.ttf") format("opentype");
 }
+*/
 
 /* Chinese */
 
+/*
 @font-face {
   font-family: "LXGW WenKai";
   font-style: normal;
@@ -197,3 +200,4 @@
   font-weight: bold;
   src: url("~/assets/fonts/hkst/w9.ttf") format("opentype");
 }
+*/
