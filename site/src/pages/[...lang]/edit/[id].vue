@@ -3,7 +3,8 @@
     <Header default-collapsed />
 
     <div class="workspace size-full overflow-hidden" flex="~ 1" pb-2>
-      <div v-bind="api.rootProps" px-3>
+      <div v-if="!isSplitterReady" class="min-w-0 flex-1" />
+      <div v-else v-bind="api.rootProps" px-3>
         <div class="editor-pane" v-bind="api.getPanelProps({ id: 'editor' })">
           <Editor />
         </div>
@@ -54,12 +55,24 @@
 import * as splitter from "@zag-js/splitter";
 import { normalizeProps, useMachine } from "@zag-js/vue";
 
-// Horizontal splitpane
+const isStackedLayout = ref(false);
+const isSplitterReady = ref(false);
+let layoutMediaQuery: MediaQueryList | undefined;
+const updateLayout = () => {
+  if (layoutMediaQuery) isStackedLayout.value = layoutMediaQuery.matches;
+};
+
+const splitterContext = computed(() => ({
+  orientation: isStackedLayout.value ? ("vertical" as const) : ("horizontal" as const)
+}));
+
+// Side-by-side on desktop, stacked on tablet and mobile.
 const [state, send] = useMachine(
   splitter.machine({
     id: "h",
     size: [{ id: "editor" }, { id: "preview" }]
-  })
+  }),
+  { context: splitterContext }
 );
 
 const api = computed(() => splitter.connect(state.value, send, normalizeProps));
@@ -71,8 +84,17 @@ const route = useRoute();
 // Toogle toolbar
 const isToolbarOpen = ref(false);
 
-onMounted(() => {
-  isToolbarOpen.value = window.innerWidth > 768;
+onMounted(async () => {
+  layoutMediaQuery = window.matchMedia("(max-width: 768px)");
+  updateLayout();
+  layoutMediaQuery.addEventListener("change", updateLayout);
+  isToolbarOpen.value = !isStackedLayout.value;
+  await nextTick();
+  isSplitterReady.value = true;
+});
+
+onBeforeUnmount(() => {
+  layoutMediaQuery?.removeEventListener("change", updateLayout);
 });
 
 const { exportPDF, exportMd, exportHtml, exportDocx } = useResumeExport();
@@ -92,6 +114,14 @@ const exportActions = computed(() => [
 
 [data-scope="splitter"][data-part="resize-trigger"]::after {
   @apply content-[""] absolute bg-gray-400/40 w-1 h-10 rounded-full inset-0 m-auto;
+}
+
+[data-scope="splitter"][data-part="resize-trigger"][data-orientation="vertical"] {
+  @apply w-auto h-3;
+}
+
+[data-scope="splitter"][data-part="resize-trigger"][data-orientation="vertical"]::after {
+  @apply w-10 h-1;
 }
 
 .tools-pane-header {
