@@ -50,7 +50,6 @@ Highly recommend using Chromium-based browsers, e.g., [Chrome][chrome] or [Micro
 - Responsive editing layout for desktop, tablet, and mobile
 - Optional Monaco editor minimap
 - Light document previews in every color theme
-- Animated resume thumbnail placeholders while previews render
 - Light, dark, and system appearance modes
 - English and Indonesian interface languages
 - Local storage usage estimates, refresh controls, and a protected factory-reset action

@@ -11,8 +11,7 @@ This changelog summarizes the project from its initial commit through the latest
 - Added a storage-estimate refresh control.
 - Added loading indicators and skeleton states while browser storage usage is refreshed.
 - Moved Settings to the bottom of the main sidebar.
-- Added animated resume-thumbnail placeholders, a minimum display duration, and a smooth final-preview reveal.
-- Kept resume thumbnails immediately clickable while their loading placeholders are visible, and ensured hover actions stay above the placeholder.
+- Removed resume-thumbnail placeholders so previews appear directly as they render.
 - Fixed duplicate text while renaming a resume.
 - Added silent autosave when Enter inserts a new line in the Markdown or CSS editor, and centralized the save flow.
 - Added a persistent setting for toggling editor line numbers.
