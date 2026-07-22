@@ -9,7 +9,7 @@
         }"
       >
         <div
-          v-if="!isRendered"
+          v-if="isPlaceholderEnabled && !isRendered"
           class="resume-placeholder"
           role="status"
           aria-label="Rendering resume preview"
@@ -54,6 +54,7 @@
 
 <script lang="ts" setup>
 import type { ResumeListItem } from "~/types";
+import { siteConfig } from "~~/configs/siteConfig";
 
 const props = defineProps<{
   resume: ResumeListItem;
@@ -67,7 +68,8 @@ const width = PAPER[props.resume.styles.paper].w;
 const height = PAPER[props.resume.styles.paper].h;
 
 const render = ref();
-const isRendered = ref(false);
+const isPlaceholderEnabled = siteConfig.featureFlags.resumeItemPlaceholder;
+const isRendered = ref(!isPlaceholderEnabled);
 const MINIMUM_PLACEHOLDER_DURATION = 800;
 const placeholderStartedAt = Date.now();
 let revealTimer: ReturnType<typeof setTimeout> | undefined;
