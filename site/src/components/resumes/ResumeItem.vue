@@ -41,7 +41,7 @@
           />
         </nuxt-link>
         <ResumeOptions
-          class="group-hover:block hidden"
+          class="z-20 group-hover:block hidden"
           :resume="resume"
           @update="emit('update')"
         />
