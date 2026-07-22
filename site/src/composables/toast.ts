@@ -56,6 +56,18 @@ export const useToast = () => {
     }
   };
 
+  const migrateIconify = (count: number) => {
+    $toast.value.create({
+      description: nuxtApp.$i18n.t(
+        count > 0
+          ? "notification.iconify_migration.yes"
+          : "notification.iconify_migration.no",
+        { count }
+      ),
+      type: count > 0 ? "success" : "info"
+    });
+  };
+
   const importResume = (msg: boolean) => {
     if (msg) {
       $toast.value.create({
@@ -98,6 +110,7 @@ export const useToast = () => {
     new: newResume,
     duplicate,
     correct,
+    migrateIconify,
     import: importResume,
     uploadImage,
     deleteImage,

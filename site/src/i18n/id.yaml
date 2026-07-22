@@ -91,6 +91,10 @@ toolbar:
     text: Perbaiki Huruf Besar/Kecil
     desc: 'Contoh: "Github" → "GitHub" <br> Catatan: kata-kata yang hanya berisi huruf besar atau kecil ("GITHUB" atau "github") tidak akan diubah'
     btn: Perbaiki!
+  migrate_iconify:
+    text: Perbaiki Ikon
+    desc: Ubah markup span Iconify lama di resume ini ke format komponen web Iconify.
+    btn: Migrasikan dan Simpan
   paper: Ukuran Kertas
   font_family: Jenis Font
   font_size: Ukuran Font
@@ -126,6 +130,9 @@ notification:
   correct:
     yes: Memperbaiki {num} kata
     no: Semua huruf sudah benar!
+  iconify_migration:
+    yes: Berhasil memigrasikan dan menyimpan {count} ikon Iconify
+    no: Tidak ada ikon Iconify lama yang ditemukan
   import:
     yes: Data berhasil diimpor!
     no: Format data tidak valid.

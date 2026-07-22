@@ -51,6 +51,11 @@ const sections = [
     name: "correct-case",
     icon: "i-icon-park-outline:check-correct",
     component: <CorrectCase id="toolbar-correct-case" />
+  },
+  {
+    name: "migrate-iconify",
+    icon: "i-tabler:replace",
+    component: <MigrateIconify id="toolbar-migrate-iconify" />
   }
 ];
 

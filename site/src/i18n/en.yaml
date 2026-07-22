@@ -91,6 +91,10 @@ toolbar:
     text: Correct Case
     desc: 'Example: "Github" → "GitHub" <br> Note: the words only including uppercase or lowercase ("GITHUB" or "github") will be left untouched'
     btn: Correct it!
+  migrate_iconify:
+    text: Fix Icons
+    desc: Convert legacy Iconify span markup in this resume to the Iconify web component format.
+    btn: Migrate and Save
   paper: Paper Size
   font_family: Font Family
   font_size: Font Size
@@ -126,6 +130,9 @@ notification:
   correct:
     yes: Corrected {num} words
     no: All case are correct!
+  iconify_migration:
+    yes: Migrated and saved {count} Iconify icon(s)
+    no: No legacy Iconify icons were found
   import:
     yes: Data has been successfully imported!
     no: Data format is invalid.
