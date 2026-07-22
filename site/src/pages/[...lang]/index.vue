@@ -1,5 +1,5 @@
 <template>
-  <div class="resumes-page">
+  <div class="resumes-page sidebar-layout">
     <Header />
 
     <div class="max-w-306 mx-auto px-5 py-16 text-dark-c">

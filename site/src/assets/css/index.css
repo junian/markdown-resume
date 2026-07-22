@@ -5,19 +5,23 @@ body {
   @apply bg-dark-c;
 }
 
-.header ~ * {
-  margin-left: 15rem;
-  transition: margin-left 200ms ease;
+.sidebar-layout {
+  box-sizing: border-box;
+  padding-left: 15rem;
+  transition: padding-left 200ms ease;
 }
 
-.header.header--collapsed ~ * {
-  margin-left: 4rem;
+.sidebar-layout:has(> .header.header--collapsed) {
+  padding-left: 4rem;
 }
 
 @media (max-width: 768px) {
-  .header ~ *,
-  .header.header--collapsed ~ * {
-    margin-left: 0;
+  .sidebar-layout,
+  .sidebar-layout:has(> .header.header--collapsed) {
+    padding-left: 0;
+  }
+
+  .sidebar-layout > .header ~ * {
     padding-top: 3.5rem;
   }
 }

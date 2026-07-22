@@ -1,5 +1,5 @@
 <template>
-  <div class="images-page">
+  <div class="images-page sidebar-layout">
     <Header />
 
     <div class="max-w-306 mx-auto px-5 py-16 text-dark-c">

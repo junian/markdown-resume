@@ -1,5 +1,5 @@
 <template>
-  <div class="settings-page">
+  <div class="settings-page sidebar-layout">
     <Header />
 
     <main class="max-w-240 mx-auto px-5 py-12 md:px-10 md:py-16 text-dark-c">

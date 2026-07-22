@@ -1,5 +1,5 @@
 <template>
-  <div class="edit-page flex flex-col">
+  <div class="edit-page sidebar-layout flex flex-col">
     <Header default-collapsed />
 
     <div class="workspace size-full overflow-hidden" flex="~ 1" pb-2>

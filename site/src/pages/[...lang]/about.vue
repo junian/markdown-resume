@@ -1,5 +1,5 @@
 <template>
-  <div class="landing-page">
+  <div class="landing-page sidebar-layout">
     <Header />
 
     <div class="workspace">

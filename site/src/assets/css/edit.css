@@ -2,14 +2,6 @@
   @apply h-screen;
 }
 
-.edit-page > .header ~ .workspace {
-  width: calc(100% - 15rem);
-}
-
-.edit-page > .header.header--collapsed ~ .workspace {
-  width: calc(100% - 4rem);
-}
-
 .pane-container {
   @apply h-full rounded-xl overflow-scroll;
 }
@@ -66,6 +58,7 @@
 
   .edit-page {
     height: auto;
+    padding-left: 0 !important;
   }
 
   .workspace,
@@ -75,10 +68,9 @@
     padding: 0 !important;
   }
 
-  .edit-page > .header ~ .workspace,
-  .edit-page > .header.header--collapsed ~ .workspace {
+  .edit-page > .workspace {
     width: 100% !important;
-    margin-left: 0 !important;
+    padding-top: 0 !important;
   }
 
   .header,
@@ -111,12 +103,5 @@
     page-break-before: always;
     margin-top: 0 !important;
     border: none;
-  }
-}
-
-@media (max-width: 768px) {
-  .edit-page > .header ~ .workspace,
-  .edit-page > .header.header--collapsed ~ .workspace {
-    width: 100%;
   }
 }
