@@ -15,21 +15,16 @@ Write an ATS-friendly resume in Markdown. Available for everyone, optimized for 
 
 ## About
 
-This repo is a fork of [Oh My CV!](https://ohmycv.app/), which is beautifully made — go check out their work.
+Markdown Resume is a local-first editor for creating clean, ATS-friendly resumes with Markdown. It combines a code editor with a paginated live preview, practical formatting controls, and self-contained export options.
 
-Changes I made from the original:
+The default template is based on [CareerCup's resume template][careercup], using a restrained layout, web-safe fonts, and readable content structure so a resume works well for both applicant tracking systems and people.
 
-- The default template is now as close as possible to [CareerCup's][careercup] resume template.
-- The default color is all black.
-- Uses web-safe fonts for easier and safer ATS parsing.
-- Export as HTML and DOCX.
-- And many more...
-
-I'm passionate about helping anyone get a job, which is why I made this fork.
-Most of the modifications ensure your resume is readable by both ATS systems and humans, so you don’t have to worry about the design.
+Your resumes, images, and settings stay in your browser. No account is required, and your resume content is not uploaded to an application server.
 
 I can’t guarantee that using this will improve your job search success rate.
 But I hope it helps.
+
+See the [Changelog](CHANGELOG.md) for the complete project history and latest changes.
 
 ## Notice
 
@@ -39,16 +34,26 @@ Highly recommend using Chromium-based browsers, e.g., [Chrome][chrome] or [Micro
 
 - Write your resume in Markdown and preview it in real time — smooth experience!
 - Works offline ([PWA][pwa])
-- Export to A4 and US Letter PDFs
+- Export to PDF, Markdown, self-contained HTML, and DOCX
+- Export to A4 and US Letter paper sizes
 - Customize page margins, theme colors, line heights, fonts, etc.
 - Add icons easily via [Iconify](https://github.com/iconify/iconify) (search icons on [Icônes](https://icones.js.org/))
+- Fix legacy Iconify markup from older resumes and save the migrated content
 - TeX support ([KaTeX](https://github.com/KaTeX/KaTeX))
 - Cross-referencing (useful for academic CVs)
 - Case correction (e.g., `Github` → `GitHub`)
 - Add line breaks (`\\[10px]`) or start a new page (`\newpage`) like in LaTeX
 - Automatic page breaking
 - Custom CSS support
-- Manage multiple resumes
+- Manage, rename, duplicate, import, back up, and delete multiple resumes
+- Automatically save editor changes when adding a new line, with Ctrl/Cmd+S support
+- Responsive editing layout for desktop, tablet, and mobile
+- Optional Monaco editor minimap
+- Light document previews in every color theme
+- Animated resume thumbnail placeholders while previews render
+- Light, dark, and system appearance modes
+- English and Indonesian interface languages
+- Local storage usage estimates, refresh controls, and a protected factory-reset action
 - Data is saved locally in your browser using IndexedDB browser feature (see [`localForage` repo](https://localforage.github.io/localForage/) for details)
 - [**Image Gallery**](https://www.junian.dev/markdown-resume/images/) — upload images and reference them in your resume using Markdown or HTML (see below)
 
