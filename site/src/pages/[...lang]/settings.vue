@@ -125,7 +125,7 @@
           </div>
         </section>
 
-        <section class="settings-card">
+        <section class="settings-card md:col-span-2">
           <div class="settings-card-heading">
             <span i-mdi:database-outline text-xl />
             <h2>{{ $t("settings.storage") }}</h2>
@@ -148,17 +148,14 @@
             {{ $t("settings.storage_estimate_note") }}
           </p>
 
-          <div
-            v-if="storageSupported"
-            class="flex flex-col items-center gap-8 sm:flex-row"
-          >
+          <div class="storage-overview">
             <div
-              v-if="isRefreshingStorage"
+              v-if="storageSupported && isRefreshingStorage"
               class="storage-ring storage-ring--loading"
               aria-hidden="true"
             />
             <div
-              v-else
+              v-else-if="storageSupported"
               class="storage-ring"
               :style="{ '--storage-percent': `${storagePercent}%` }"
               role="progressbar"
@@ -172,9 +169,12 @@
                 <span>{{ $t("settings.used") }}</span>
               </div>
             </div>
+            <p v-else class="storage-unavailable">
+              {{ $t("settings.storage_unavailable") }}
+            </p>
 
-            <dl class="grid flex-1 w-full grid-cols-2 gap-4">
-              <div class="storage-stat">
+            <dl class="storage-stats">
+              <div v-if="storageSupported" class="storage-stat">
                 <template v-if="isRefreshingStorage">
                   <dt class="storage-skeleton storage-skeleton--label" />
                   <dd class="storage-skeleton storage-skeleton--value" />
@@ -184,7 +184,7 @@
                   <dd>{{ formatBytes(storageUsage) }}</dd>
                 </template>
               </div>
-              <div class="storage-stat">
+              <div v-if="storageSupported" class="storage-stat">
                 <template v-if="isRefreshingStorage">
                   <dt class="storage-skeleton storage-skeleton--label" />
                   <dd class="storage-skeleton storage-skeleton--value" />
@@ -194,37 +194,31 @@
                   <dd>{{ formatBytes(storageQuota) }}</dd>
                 </template>
               </div>
+              <div class="storage-stat">
+                <template v-if="isRefreshingStorage">
+                  <dt class="storage-skeleton storage-skeleton--label" />
+                  <dd class="storage-skeleton storage-skeleton--value" />
+                </template>
+                <template v-else>
+                  <dt>{{ $t("settings.resumes") }}</dt>
+                  <dd>{{ resumeCount }}</dd>
+                </template>
+              </div>
+              <div class="storage-stat">
+                <template v-if="isRefreshingStorage">
+                  <dt class="storage-skeleton storage-skeleton--label" />
+                  <dd class="storage-skeleton storage-skeleton--value" />
+                </template>
+                <template v-else>
+                  <dt>{{ $t("settings.images") }}</dt>
+                  <dd>{{ imageCount }}</dd>
+                </template>
+              </div>
             </dl>
           </div>
-          <p v-else class="text-sm text-light-c">
-            {{ $t("settings.storage_unavailable") }}
-          </p>
-
-          <dl class="grid grid-cols-2 gap-4 mt-4">
-            <div class="storage-stat">
-              <template v-if="isRefreshingStorage">
-                <dt class="storage-skeleton storage-skeleton--label" />
-                <dd class="storage-skeleton storage-skeleton--value" />
-              </template>
-              <template v-else>
-                <dt>{{ $t("settings.resumes") }}</dt>
-                <dd>{{ resumeCount }}</dd>
-              </template>
-            </div>
-            <div class="storage-stat">
-              <template v-if="isRefreshingStorage">
-                <dt class="storage-skeleton storage-skeleton--label" />
-                <dd class="storage-skeleton storage-skeleton--value" />
-              </template>
-              <template v-else>
-                <dt>{{ $t("settings.images") }}</dt>
-                <dd>{{ imageCount }}</dd>
-              </template>
-            </div>
-          </dl>
         </section>
 
-        <section class="settings-card danger-card">
+        <section class="settings-card danger-card md:col-span-2">
           <div class="settings-card-heading danger-heading">
             <span i-mdi:alert-outline text-xl />
             <h2>{{ $t("settings.danger_zone") }}</h2>
@@ -549,6 +543,18 @@ useHead({ title: () => `${t("settings.title")} — Markdown Resume` });
 
 .storage-description {
   @apply -mt-3 mb-5 text-sm leading-5 text-light-c;
+}
+
+.storage-overview {
+  @apply flex flex-col items-center gap-6 sm:flex-row sm:items-stretch;
+}
+
+.storage-stats {
+  @apply grid flex-1 w-full grid-cols-2 gap-4 lg:grid-cols-4;
+}
+
+.storage-unavailable {
+  @apply flex max-w-40 items-center text-sm leading-5 text-light-c;
 }
 
 .storage-refresh-button {
