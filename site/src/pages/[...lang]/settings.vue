@@ -14,6 +14,60 @@
       </div>
 
       <div class="grid gap-5 md:grid-cols-2">
+        <section class="settings-card md:col-span-2">
+          <div class="settings-card-heading">
+            <span i-mdi:tune text-xl />
+            <h2>Defaults</h2>
+          </div>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label class="field-label" for="default-full-name">
+                Full Name
+              </label>
+              <input
+                id="default-full-name"
+                v-model="defaultFullName"
+                @input="setDefaultFullName(defaultFullName)"
+                class="language-menu-trigger"
+                type="text"
+                placeholder="e.g., Bruce Wayne"
+              />
+            </div>
+            <div class="relative" :class="{ 'settings-card--menu-open': paperMenuApi.open }">
+              <label class="field-label" for="default-paper-size">
+                Paper Size
+              </label>
+              <button
+                id="default-paper-size"
+                v-bind="paperMenuApi.triggerProps"
+                class="language-menu-trigger"
+                type="button"
+              >
+                <span class="min-w-0 flex-1 truncate text-left">
+                  {{ defaultPaperSize }}
+                </span>
+                <span
+                  i-tabler:chevron-down
+                  class="language-menu-chevron"
+                  :class="{ 'rotate-180': paperMenuApi.open }"
+                />
+              </button>
+              <div v-bind="paperMenuApi.positionerProps" class="z-50">
+                <ul v-bind="paperMenuApi.contentProps" class="language-menu-content">
+                  <li
+                    v-for="item in paperItems"
+                    :key="item.value"
+                    v-bind="paperMenuApi.getItemProps({ value: item.value })"
+                    class="language-menu-item"
+                  >
+                    <span class="min-w-0 flex-1 truncate">{{ item.label }}</span>
+                    <span v-if="item.value === defaultPaperSize" i-tabler:check text-base />
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
         <section
           class="settings-card"
           :class="{ 'settings-card--menu-open': languageApi.open }"
@@ -280,6 +334,14 @@
 import * as menu from "@zag-js/menu";
 import { normalizeProps, useMachine } from "@zag-js/vue";
 import { siteConfig } from "~~/configs/siteConfig";
+import {
+  getDefaultFullName,
+  setDefaultFullName,
+  getDefaultPaperSize,
+  setDefaultPaperSize,
+} from "~/utils/defaultSettings";
+import { PAPER } from "~/utils/constants/data";
+import type { PaperType } from "~/types";
 
 const colorMode = useColorMode();
 const { t, locale, locales } = useI18n();
@@ -322,10 +384,32 @@ const deleteConfirmation = ref("");
 const isErasing = ref(false);
 const minimapEnabled = ref(true);
 const lineNumbersEnabled = ref(true);
+const defaultFullName = ref("");
+const defaultPaperSize = ref<PaperType>("A4");
+const paperItems = Object.keys(PAPER).map((paper) => ({
+  label: paper,
+  value: paper,
+}));
 
 const saveMinimapSetting = () => setEditorMinimapEnabled(minimapEnabled.value);
 const saveLineNumbersSetting = () =>
   setEditorLineNumbersEnabled(lineNumbersEnabled.value);
+
+const [paperMenuState, paperMenuSend] = useMachine(
+  menu.machine({
+    id: "settings-paper-size-menu",
+    "aria-label": "Paper Size",
+    positioning: { placement: "bottom-start", sameWidth: true, gutter: 6 },
+    onSelect: ({ value }) => {
+      defaultPaperSize.value = value as PaperType;
+      setDefaultPaperSize(value);
+    },
+  })
+);
+
+const paperMenuApi = computed(() =>
+  menu.connect(paperMenuState.value, paperMenuSend, normalizeProps)
+);
 
 const clearServiceWorkerData = async () => {
   const appUrl = new URL(appBaseURL, window.location.origin);
@@ -375,6 +459,8 @@ const eraseAllData = async () => {
   localStorage.removeItem("nuxt-color-mode");
   localStorage.removeItem(EDITOR_MINIMAP_STORAGE_KEY);
   localStorage.removeItem(EDITOR_LINE_NUMBERS_STORAGE_KEY);
+  localStorage.removeItem("default-full-name");
+  localStorage.removeItem("default-paper-size");
   window.location.reload();
 };
 const displayPercent = computed(() => {
@@ -424,6 +510,8 @@ const refreshStorageEstimate = async () => {
 onMounted(async () => {
   minimapEnabled.value = getEditorMinimapEnabled();
   lineNumbersEnabled.value = getEditorLineNumbersEnabled();
+  defaultFullName.value = getDefaultFullName();
+  defaultPaperSize.value = getDefaultPaperSize() as PaperType;
   await refreshStorageEstimate();
 });
 

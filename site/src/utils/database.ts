@@ -1,6 +1,11 @@
 import * as localForage from "localforage";
 import { downloadFile, uploadFile, copy, isClient } from "@renovamen/utils";
 import { DEFAULT_STYLES, DEFAULT_NAME, DEFAULT_MD_CONTENT, DEFAULT_CSS_CONTENT } from ".";
+import {
+  getDefaultFullName,
+  getDefaultPaperSize,
+  DEFAULT_FULL_NAME,
+} from "./defaultSettings";
 import type { ResumeStorage, ResumeStorageItem, ResumeStyles } from "~/types";
 
 const MARKDOWN_RESUME_KEY = "MARKDOWN_RESUME_data";
@@ -103,11 +108,21 @@ export const saveCurrentResume = (showToast = true) => {
  */
 export const newResume = async () => {
   const id = new Date().getTime().toString(); // generate a new id
+  const defaultFullName = getDefaultFullName();
+  // Determine resume name and markdown name
+  const resumeName = defaultFullName.trim() 
+    ? `${defaultFullName.trim()} Resume` 
+    : DEFAULT_NAME;
+  const markdownNameToUse = defaultFullName.trim() || "Firstname Lastname";
+  // Replace the default name in markdown
+  const markdown = DEFAULT_MD_CONTENT.replace("# Firstname Lastname", `# ${markdownNameToUse}`);
+  const styles = { ...DEFAULT_STYLES, paper: getDefaultPaperSize() as any };
+
   const resume = {
-    name: DEFAULT_NAME,
-    markdown: DEFAULT_MD_CONTENT,
+    name: resumeName,
+    markdown,
     css: DEFAULT_CSS_CONTENT,
-    styles: DEFAULT_STYLES,
+    styles,
     update: id
   } as ResumeStorageItem;
 
@@ -221,14 +236,32 @@ export const duplicateResume = async (id: string) => {
     // Generate an id and name for duplicated resume
     const resume = copy(storage[id]);
     const newId = new Date().getTime().toString();
-    const oldName = resume.name;
+    const originalName = resume.name;
 
-    resume.name = oldName + " Copy";
+    // Strip any existing "copy X" suffix to get the base name
+    const baseName = originalName.replace(/ copy \d+$/i, "");
+
+    // Check for existing copies of the base name
+    const copyRegex = new RegExp(`^${baseName} copy (\\d+)$`, "i");
+    let maxCopyNumber = 0;
+
+    Object.values(storage).forEach((item) => {
+      const match = item.name.match(copyRegex);
+      if (match) {
+        const num = parseInt(match[1], 10);
+        if (num > maxCopyNumber) {
+          maxCopyNumber = num;
+        }
+      }
+    });
+
+    const newCopyNumber = maxCopyNumber + 1;
+    resume.name = `${baseName} copy ${newCopyNumber}`;
     resume.update = newId;
     storage[newId] = resume;
 
     await localForage.setItem(MARKDOWN_RESUME_KEY, storage);
-    toast.duplicate(oldName);
+    toast.duplicate(originalName);
   }
 };
 

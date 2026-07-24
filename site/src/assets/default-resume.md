@@ -1,7 +1,7 @@
 ---
 ---
 
-# Bruce Wayne
+# Firstname Lastname
 
 <iconify-icon icon="eva:people-outline"></iconify-icon> [example.com](https://example.com/)
   : <iconify-icon icon="tabler:brand-github"></iconify-icon> [github.com/example](https://github.com/example)
