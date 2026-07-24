@@ -37,7 +37,7 @@
           :to="$nuxt.$localePath('/')"
           :title="isCollapsed ? $t('head.title') : undefined"
         >
-          <Logo class="flex-shrink-0" text="base" />
+          <Logo class="flex-shrink-0" text="base" v-show="!isCollapsed" />
           <div class="brand-title sidebar-label"><BrandName /></div>
         </nuxt-link>
 
