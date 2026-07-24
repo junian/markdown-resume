@@ -2,6 +2,7 @@ lang: Idioma
 toggle_dark: Cambiar tema claro/oscuro
 
 nav:
+  home: Inicio
   about: Acerca de
   settings: Configuración
   privacy: Política de Privacidad

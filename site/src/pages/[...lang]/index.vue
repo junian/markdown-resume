@@ -16,27 +16,26 @@
               <p class="mt-0.5 text-sm text-light-c">{{ $t("resumes.description") }}</p>
             </div>
           </div>
-          <div class="hstack gap-3">
-            <FileOptions @update="loadResumes" />
-            <nuxt-link
-              class="hstack gap-1.5 px-4 py-2 rounded-lg border border-c text-sm font-medium hover:bg-darker-c transition-colors"
-              :to="$nuxt.$localePath('/resumes')"
-            >
-              <span>{{ $t("nav.see_more") }}</span>
-              <span i-tabler:arrow-right text-base />
-            </nuxt-link>
-          </div>
+          <nuxt-link
+            class="hstack gap-1.5 px-4 py-2 rounded-lg border border-c text-sm font-medium hover:bg-darker-c transition-colors"
+            :to="$nuxt.$localePath('/resumes')"
+          >
+            <span>{{ $t("nav.see_more") }}</span>
+            <span i-tabler:arrow-right text-base />
+          </nuxt-link>
         </div>
 
-        <div class="flex flex-nowrap gap-x-4 gap-y-8 overflow-x-auto pb-2 resumes-row">
-          <NewResume />
-          <ResumeItem
-            v-for="resume in recentResumes"
-            :key="resume.id"
-            class="resume-item flex-shrink-0"
-            :resume="resume"
-            @update="loadResumes"
-          />
+        <div class="resumes-row-wrap">
+          <div class="resumes-row">
+            <NewResume />
+            <ResumeItem
+              v-for="resume in recentResumes"
+              :key="resume.id"
+              class="resume-item flex-shrink-0"
+              :resume="resume"
+              @update="loadResumes"
+            />
+          </div>
         </div>
       </section>
 
@@ -61,17 +60,16 @@
           </nuxt-link>
         </div>
 
-        <div
-          v-if="recentImages && recentImages.length > 0"
-          class="flex flex-nowrap gap-x-6 gap-y-8 overflow-x-auto pb-2"
-        >
-          <ImageItem
-            v-for="image in recentImages"
-            :key="image.id"
-            class="flex-shrink-0"
-            :image="image"
-            @update="loadImages"
-          />
+        <div v-if="recentImages && recentImages.length > 0" class="images-row-wrap">
+          <div class="images-row">
+            <ImageItem
+              v-for="image in recentImages"
+              :key="image.id"
+              class="flex-shrink-0"
+              :image="image"
+              @update="loadImages"
+            />
+          </div>
         </div>
 
         <div
@@ -137,7 +135,18 @@ onMounted(async () => {
   background-color: white !important;
 }
 
+/* Wrapper allows horizontal scroll while keeping overflow-y visible so
+   the translate-up hover and drop-shadow on cards are not clipped */
+.resumes-row-wrap,
+.images-row-wrap {
+  @apply overflow-x-auto overflow-y-visible pt-3 -mt-3 pb-3 pr-3 [scrollbar-width:thin];
+}
+
 .resumes-row {
-  scrollbar-width: thin;
+  @apply flex flex-nowrap gap-4 pr-3;
+}
+
+.images-row {
+  @apply flex flex-nowrap gap-6 pr-3;
 }
 </style>

@@ -2,6 +2,7 @@ lang: 语言
 toggle_dark: 切换深色模式
 
 nav:
+  home: 首页
   about: 关于
   settings: 设置
   privacy: 隐私政策

@@ -65,6 +65,11 @@
 
       <nav class="sidebar-nav" aria-label="Main navigation" @click="isMobileOpen = false">
         <NavItem
+          :link="$nuxt.$localePath('/')"
+          :label="$t('nav.home')"
+          icon="i-ic:outline-home"
+        />
+        <NavItem
           :link="$nuxt.$localePath('/resumes')"
           :label="$t('resumes.my_resumes')"
           icon="i-ep:document"
@@ -270,6 +275,10 @@ onMounted(() => {
   @apply order-first mb-1;
 }
 
+.header--collapsed .brand-title {
+  @apply hidden;
+}
+
 .sidebar-nav :deep(a.router-link-active),
 a.router-link-active.sidebar-item {
   @apply bg-darker-c font-bold;
@@ -294,11 +303,7 @@ a.router-link-active.sidebar-item {
   }
 
   .sidebar-panel {
-    @apply flex fixed left-0 top-14 bottom-0 w-60 h-auto shadow-xl;
-    transform: translateX(-100%);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
+    @apply flex fixed left-0 top-14 bottom-0 w-60 h-auto shadow-xl -translate-x-full opacity-0 invisible pointer-events-none;
     transition:
       transform 200ms ease,
       opacity 200ms ease,
@@ -314,11 +319,7 @@ a.router-link-active.sidebar-item {
   }
 
   .header--mobile-open .sidebar-panel {
-    transform: translateX(0);
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transition-delay: 0s;
+    @apply translate-x-0 opacity-100 visible pointer-events-auto [transition-delay:0s];
   }
 
   .header--collapsed .sidebar-panel :deep(.sidebar-label) {

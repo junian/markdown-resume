@@ -2,6 +2,7 @@ lang: Language
 toggle_dark: Toggle dark mode
 
 nav:
+  home: Home
   about: About
   settings: Settings
   privacy: Privacy Policy
