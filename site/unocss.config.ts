@@ -34,7 +34,7 @@ export default defineConfig({
     ],
     ["dropdown-li", "hstack px-3 h-8 truncate cursor-pointer hover:bg-dark-c"],
     ["circle", "rounded-full flex-center"],
-    ["round-btn", "circle size-7 md:size-8 hover:bg-darker-c"],
+    ["round-btn", "circle size-7 md:size-8 hover:bg-darker-c text-c"],
     ["rect-btn", "hstack space-x-1.5 px-2.5 py-1.5 rounded"],
     [
       "resume-card",
