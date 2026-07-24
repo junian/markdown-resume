@@ -33,38 +33,11 @@
                 placeholder="e.g., Bruce Wayne"
               />
             </div>
-            <div class="relative" :class="{ 'settings-card--menu-open': paperMenuApi.open }">
+            <div>
               <label class="field-label" for="default-paper-size">
                 Paper Size
               </label>
-              <button
-                id="default-paper-size"
-                v-bind="paperMenuApi.triggerProps"
-                class="language-menu-trigger"
-                type="button"
-              >
-                <span class="min-w-0 flex-1 truncate text-left">
-                  {{ defaultPaperSize }}
-                </span>
-                <span
-                  i-tabler:chevron-down
-                  class="language-menu-chevron"
-                  :class="{ 'rotate-180': paperMenuApi.open }"
-                />
-              </button>
-              <div v-bind="paperMenuApi.positionerProps" class="z-50">
-                <ul v-bind="paperMenuApi.contentProps" class="language-menu-content">
-                  <li
-                    v-for="item in paperItems"
-                    :key="item.value"
-                    v-bind="paperMenuApi.getItemProps({ value: item.value })"
-                    class="language-menu-item"
-                  >
-                    <span class="min-w-0 flex-1 truncate">{{ item.label }}</span>
-                    <span v-if="item.value === defaultPaperSize" i-tabler:check text-base />
-                  </li>
-                </ul>
-              </div>
+              <Combobox id="default-paper-size" :items="paperItems" :default="defaultPaperSize" capitalize />
             </div>
           </div>
         </section>
@@ -389,27 +362,15 @@ const defaultPaperSize = ref<PaperType>("A4");
 const paperItems = Object.keys(PAPER).map((paper) => ({
   label: paper,
   value: paper,
+  onSelect: () => {
+    defaultPaperSize.value = paper as PaperType;
+    setDefaultPaperSize(paper);
+  },
 }));
 
 const saveMinimapSetting = () => setEditorMinimapEnabled(minimapEnabled.value);
 const saveLineNumbersSetting = () =>
   setEditorLineNumbersEnabled(lineNumbersEnabled.value);
-
-const [paperMenuState, paperMenuSend] = useMachine(
-  menu.machine({
-    id: "settings-paper-size-menu",
-    "aria-label": "Paper Size",
-    positioning: { placement: "bottom-start", sameWidth: true, gutter: 6 },
-    onSelect: ({ value }) => {
-      defaultPaperSize.value = value as PaperType;
-      setDefaultPaperSize(value);
-    },
-  })
-);
-
-const paperMenuApi = computed(() =>
-  menu.connect(paperMenuState.value, paperMenuSend, normalizeProps)
-);
 
 const clearServiceWorkerData = async () => {
   const appUrl = new URL(appBaseURL, window.location.origin);
