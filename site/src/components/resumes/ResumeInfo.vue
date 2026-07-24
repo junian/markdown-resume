@@ -1,15 +1,19 @@
 <template>
-  <div text-center>
+  <div text-left class="w-56">
     <Editable
       :id="`resumes-rename-${resume.id}`"
-      class="w-53 mx-auto"
+      class="w-full"
       :default="resume.name"
       :on-value-commit="rename"
     />
-    <div v-if="updated" text-xs text-light-c mt-1.5>
-      {{ $t("resumes.updated") }}{{ updated }}
+    <div v-if="updated" class="hstack gap-1.5 text-xs text-light-c mt-1.5">
+      <span i-ic:round-update />
+      {{ updated }}
     </div>
-    <div text-xs text-light-c mt-0.5>{{ $t("resumes.created") }}{{ created }}</div>
+    <div class="hstack gap-1.5 text-xs text-light-c mt-0.5">
+      <span i-ic:round-add-circle-outline />
+      {{ created }}
+    </div>
   </div>
 </template>
 
@@ -30,14 +34,14 @@ const rename = async (text: string) => {
 };
 
 const formatDate = (date?: string) => {
-  return (
-    date &&
-    new Date(parseInt(date))
-      .toISOString()
-      .substring(0, 19)
-      .replace("T", " ")
-      .replaceAll("-", "/")
-  );
+  if (!date) return;
+  const d = new Date(parseInt(date));
+  const month = d.toLocaleDateString(undefined, { month: "short" });
+  const day = d.getDate();
+  const year = d.getFullYear();
+  const hours = String(d.getHours()).padStart(2, "0");
+  const minutes = String(d.getMinutes()).padStart(2, "0");
+  return `${month} ${day}, ${year} ${hours}:${minutes}`;
 };
 
 const created = computed(() => formatDate(props.resume.id));
