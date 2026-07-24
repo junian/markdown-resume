@@ -452,7 +452,7 @@ useHead({ title: () => `${t("settings.title")} — Markdown Resume` });
 }
 
 .language-menu-trigger {
-  @apply hstack w-full h-11 gap-3 rounded-lg border border-c bg-c px-3 text-sm text-dark-c outline-none transition-colors hover:bg-dark-c focus:(border-purple-400 ring-2 ring-purple-400/25) dark:focus:(border-[#007acc] ring-[#007acc]/35);
+  @apply hstack w-full h-11 gap-3 rounded-lg border border-c bg-c px-3 text-sm text-dark-c outline-none transition-colors hover:bg-dark-c focus:(border-blue-400 ring-2 ring-blue-400/25) dark:focus:(border-[#007acc] ring-[#007acc]/35);
 }
 
 .language-menu-chevron {
@@ -499,7 +499,7 @@ useHead({ title: () => `${t("settings.title")} — Markdown Resume` });
 }
 
 .theme-option--active {
-  @apply border-purple-400 bg-purple-50 text-purple-700 dark:(border-[#007acc] bg-[#37373d] text-[#ffffff]);
+  @apply border-blue-400 bg-blue-50 text-blue-700 dark:(border-[#007acc] bg-[#37373d] text-[#ffffff]);
 }
 
 .editor-setting {
@@ -511,7 +511,7 @@ useHead({ title: () => `${t("settings.title")} — Markdown Resume` });
 }
 
 .editor-checkbox {
-  @apply mt-0.5 size-4 flex-none cursor-pointer accent-purple-500 dark:accent-[#007acc];
+  @apply mt-0.5 size-4 flex-none cursor-pointer accent-blue-500 dark:accent-[#007acc];
 }
 
 .storage-ring {

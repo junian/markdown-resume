@@ -65,7 +65,7 @@
 
       <nav class="sidebar-nav" aria-label="Main navigation" @click="isMobileOpen = false">
         <NavItem
-          :link="$nuxt.$localePath('/')"
+          :link="$nuxt.$localePath('/resumes')"
           :label="$t('resumes.my_resumes')"
           icon="i-ep:document"
         />
@@ -244,7 +244,7 @@ onMounted(() => {
 }
 
 .coffee-link {
-  @apply text-gray-900 bg-yellow-400 hover:bg-yellow-300;
+  @apply text-gray-900 bg-yellow-400 hover:bg-yellow-300 dark:hover:bg-yellow-300;
 }
 
 .sidebar-label {
