@@ -3,22 +3,35 @@
     class="min-w-0 border-1.5 rounded hstack space-x-1"
     :class="api.isEditing ? 'border-dark-c' : 'border-transparent'"
   >
+    <div v-if="iconPosition === 'left'">
+      <button
+        v-bind="api.editTriggerProps"
+        class="cursor-pointer p-1 rounded transition-colors hover:bg-gray-200 dark:hover:bg-[#2a2d2e]"
+        :title="$t ? $t('resumes.rename') : 'Rename'"
+      >
+        <span i-mdi:pencil text-sm />
+      </button>
+    </div>
     <div v-bind="api.rootProps" class="min-w-0 flex-1 overflow-hidden">
       <div v-bind="api.areaProps" class="min-w-0 overflow-hidden">
         <input
           v-show="api.isEditing"
           v-bind="api.inputProps"
-          class="min-w-0 w-full text-center outline-none px-1 bg-transparent"
+          :class="[
+            'min-w-0 w-full outline-none px-1 bg-transparent',
+            textAlignClass
+          ]"
         />
         <div
           v-show="!api.isEditing"
           v-bind="api.previewProps"
           class="block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap"
-          text-center
+          :class="textAlignClass"
         />
       </div>
     </div>
     <button
+      v-if="iconPosition === 'right'"
       v-bind="api.editTriggerProps"
       class="cursor-pointer p-1 rounded transition-colors hover:bg-gray-200 dark:hover:bg-[#2a2d2e]"
       :title="$t ? $t('resumes.rename') : 'Rename'"
@@ -32,11 +45,30 @@
 import * as editable from "@zag-js/editable";
 import { normalizeProps, useMachine } from "@zag-js/vue";
 
-const props = defineProps<{
-  id: string;
-  default: string;
-  onValueCommit: (text: string) => void;
-}>();
+const props = withDefaults(
+  defineProps<{
+    id: string;
+    default: string;
+    onValueCommit: (text: string) => void;
+    textAlign?: "left" | "center" | "right";
+    iconPosition?: "left" | "right";
+  }>(),
+  {
+    textAlign: "center",
+    iconPosition: "right"
+  }
+);
+
+const textAlignClass = computed(() => {
+  switch (props.textAlign) {
+    case "left":
+      return "text-left";
+    case "right":
+      return "text-right";
+    default:
+      return "text-center";
+  }
+});
 
 const [state, send] = useMachine(
   editable.machine({

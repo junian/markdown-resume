@@ -1,16 +1,18 @@
 <template>
-  <div text-left class="w-56">
+  <div class="mt-2 w-44 space-y-0.5">
     <Editable
       :id="`resumes-rename-${resume.id}`"
-      class="w-full"
+      class="w-full text-sm text-dark-c"
       :default="resume.name"
       :on-value-commit="rename"
+      text-align="left"
+      icon-position="left"
     />
-    <div v-if="updated" class="hstack gap-1.5 text-xs text-light-c mt-1.5">
+    <div v-if="updated" class="hstack gap-1.5 text-xs text-lighter-c">
       <span i-ic:round-update />
       {{ updated }}
     </div>
-    <div class="hstack gap-1.5 text-xs text-light-c mt-0.5">
+    <div class="hstack gap-1.5 text-xs text-lighter-c">
       <span i-ic:round-add-circle-outline />
       {{ created }}
     </div>
