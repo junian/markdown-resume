@@ -4,6 +4,16 @@
 
     <main class="max-w-306 mx-auto px-5 py-12 md:px-10 md:py-16 text-dark-c">
 
+      <!-- Hero Section -->
+      <section class="mb-14 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">
+          <span class="text-brand">Markdown</span> Resume
+        </h1>
+        <p class="text-lg text-light-c max-w-3xl mx-auto">
+          Free online resume maker, allows you to create your resume in minutes with Markdown!
+        </p>
+      </section>
+
       <!-- Recent Resumes Section -->
       <section class="mb-14">
         <div class="flex items-center justify-between mb-6">
