@@ -20,6 +20,8 @@ export const pwa: ModuleOptions = {
     scope,
     name: siteConfig.name,
     short_name: siteConfig.shortName,
+    theme_color: "#222",
+    background_color: "#fff",
     icons: [
       {
         src: `${siteConfig.baseURL}pwa-192x192.png`,
