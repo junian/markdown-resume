@@ -60,7 +60,7 @@ This changelog summarizes the project from its initial commit through the latest
 
 ### June — Analytics, SEO, licensing, and acknowledgments
 
-- Added Google Analytics 4 and Microsoft Clarity integrations with environment-based configuration.
+- Added Google Analytics 4 integration with environment-based configuration.
 - Improved SEO metadata, canonical URLs, and site configuration.
 - Added acknowledgments for adapted and third-party open-source work.
 - Changed the project license to AGPL-3.0 and improved attribution documentation.

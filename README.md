@@ -111,9 +111,10 @@ cp site/.env.example site/.env
 
 | Variable | Description |
 |---|---|
+| `NUXT_PUBLIC_SITE_URL` | Site origin URL (e.g. `https://example.com`). Defaults to `https://www.junian.dev`. |
+| `NUXT_PUBLIC_SITE_BASE_URL` | Site base URL (e.g. `/` for root or `/my-app/` for a subpath). Defaults to `/markdown-resume/`. |
 | `NUXT_PUBLIC_GOOGLE_FONTS_KEY` | [Google Fonts Developer API Key](https://developers.google.com/fonts/docs/developer_api#APIKey). Required to enable the font picker that lists fonts from Google Fonts. Without this key the font selection will only show locally available fonts. |
 | `NUXT_PUBLIC_GTAG_ID` | [Google Analytics 4](https://analytics.google.com/) Measurement ID (e.g. `G-XXXXXXXXXX`). Enables GA4 page-view and event tracking. Leave empty to disable analytics. |
-| `NUXT_CLARITY_ID` | [Microsoft Clarity](https://clarity.microsoft.com/) Project ID. Enables session recording and heatmap analytics. Leave empty to disable Clarity. |
 | `NUXT_PUBLIC_DISQUS_SHORTNAME` | [Disqus](https://disqus.com/) shortname for your site. Enables the Disqus comment section. Leave empty to hide comments. |
 
 ## Development
