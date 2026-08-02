@@ -87,7 +87,10 @@ export default defineNuxtConfig({
   pwa,
 
   nitro: {
-    runtimeConfig: {}
+    runtimeConfig: {},
+    prerender: {
+      routes: ["/robots.txt"]
+    }
   },
 
   devtools: {
