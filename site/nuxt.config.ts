@@ -90,6 +90,10 @@ export default defineNuxtConfig({
     runtimeConfig: {}
   },
 
+  devtools: {
+    enabled: process.env.NODE_ENV === "development"
+  },
+
   gtag: {
     id: process.env.NUXT_PUBLIC_GTAG_ID || ""
   }
