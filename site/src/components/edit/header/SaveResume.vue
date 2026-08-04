@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useShortcuts } from "@renovamen/vue-shortcuts";
+import { useShortcuts } from "~/libs/vue-shortcuts";
 const save = () => saveCurrentResume();
 
 useShortcuts("ctrl+s", save);

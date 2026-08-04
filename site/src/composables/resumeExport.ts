@@ -1,4 +1,4 @@
-import { downloadFile } from "@renovamen/utils";
+import { downloadFile } from "~/libs/utils";
 import { siteConfig } from "~~/configs/siteConfig";
 
 export const useResumeExport = () => {

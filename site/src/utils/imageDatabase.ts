@@ -1,5 +1,5 @@
 import * as localForage from "localforage";
-import { isClient } from "@renovamen/utils";
+import { isClient } from "~/libs/utils";
 import type { ImageStorage, ImageStorageItem, ImageListItem } from "~/types";
 
 const IMAGE_GALLERY_KEY = "MARKDOWN_RESUME_images";

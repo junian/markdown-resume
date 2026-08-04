@@ -3,7 +3,7 @@
 // Adapted from https://github.com/jxson/front-matter
 
 import * as yaml from "js-yaml";
-import { FrontMatterResults } from "./types";
+import type { FrontMatterResults } from "./types";
 
 const optionalByteOrderMark = "\\ufeff?";
 const platform = typeof process !== "undefined" ? process.platform : "";

@@ -1,4 +1,4 @@
-import { Font, Variant, Subset } from "./types";
+import type { Font, Variant, Subset } from "./types";
 import { hasStylesheet, createStylesheet } from "./stylesheets";
 
 const GOOGLE_FONTS_API = "https://www.googleapis.com/webfonts/v1/webfonts";

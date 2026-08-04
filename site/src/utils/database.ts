@@ -1,5 +1,5 @@
 import * as localForage from "localforage";
-import { downloadFile, uploadFile, copy, isClient } from "@renovamen/utils";
+import { downloadFile, uploadFile, copy, isClient } from "~/libs/utils";
 import { DEFAULT_STYLES, DEFAULT_NAME, DEFAULT_MD_CONTENT, DEFAULT_CSS_CONTENT } from ".";
 import {
   getDefaultFullName,

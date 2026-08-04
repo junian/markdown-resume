@@ -5,26 +5,18 @@
   "type": "module",
   "scripts": {
     "build": "pnpm --filter=site build",
-    "build:pkg": "pnpm -r --stream build:pkg",
-    "build-fast:pkg": "pnpm -r --stream build-fast:pkg",
     "dev": "pnpm --filter=site dev",
     "lint": "eslint .",
-    "release": "pnpm build:pkg && pnpm build",
-    "release:pkg": "pnpm release:pkg:check && pnpm release:pkg:version && pnpm -r publish",
-    "release:pkg:check": "pnpm lint && pnpm build:pkg",
-    "release:pkg:version": "bumpp package.json packages/*/package.json --commit \"build: publish v%s\" --all --tag --push",
+    "release": "pnpm build",
     "serve": "pnpm --filter=site serve"
   },
   "prettier": "@renovamen/prettier-config",
   "devDependencies": {
     "@renovamen/eslint-config": "^0.1.6",
     "@renovamen/prettier-config": "^0.1.6",
-    "bumpp": "^9.4.0",
     "eslint": "^9.0.0",
     "pnpm": "^8.15.6",
     "prettier": "^3.2.5",
-    "taze": "^0.13.3",
-    "tsup": "^8.0.2",
     "typescript": "^5.4.5"
   },
   "version": "0.1.1"

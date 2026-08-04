@@ -1,5 +1,5 @@
 import { acceptHMRUpdate, defineStore } from "pinia";
-import { copy } from "@renovamen/utils";
+import { copy } from "~/libs/utils";
 import type { ResumeStyles, Font } from "~/types";
 
 export const useStyleStore = defineStore("style", () => {

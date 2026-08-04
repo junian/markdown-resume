@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts" setup>
-import { correctCase } from "correct-case";
+import { correctCase } from "~/libs/correct-case";
 
 const { data } = useDataStore();
 const toast = useToast();

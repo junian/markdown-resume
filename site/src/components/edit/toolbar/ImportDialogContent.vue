@@ -42,7 +42,7 @@
 <script lang="ts" setup>
 import * as fileUpload from "@zag-js/file-upload";
 import { normalizeProps, useMachine } from "@zag-js/vue";
-import { fetchFile } from "@renovamen/utils";
+import { fetchFile } from "~/libs/utils";
 
 // File component component
 const localFile = ref<string | null>(null);

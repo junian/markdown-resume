@@ -2,10 +2,10 @@ import MarkdownIt from "markdown-it";
 // @ts-expect-error missing types
 import MarkdownItDeflist from "markdown-it-deflist";
 import LinkAttributes from "markdown-it-link-attributes";
-import MarkdownItKatex from "@renovamen/markdown-it-katex";
-import MarkdownItCite from "markdown-it-cross-ref";
-import MarkdownItLatexCmds from "markdown-it-latex-cmds";
-import frontmatter from "@renovamen/front-matter";
+import MarkdownItKatex from "~/libs/markdown-it-katex";
+import MarkdownItCite from "~/libs/markdown-it-cross-ref";
+import MarkdownItLatexCmds from "~/libs/markdown-it-latex-cmds";
+import frontmatter from "~/libs/front-matter";
 import type { ResumeFrontMatter } from "~/types";
 
 const markdown = (() => {
