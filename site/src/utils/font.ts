@@ -1,4 +1,7 @@
-import GoogleFontsLoader, { type Font as GoogleFont, Subset } from "gfonts-loader";
+import GoogleFontsLoader, {
+  type Font as GoogleFont,
+  type Subset
+} from "~/libs/gfonts-loader";
 import type { ResumeStyles, Font } from "~/types";
 
 let gLoader: GoogleFontsLoader | undefined;

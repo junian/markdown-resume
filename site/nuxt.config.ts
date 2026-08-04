@@ -97,6 +97,19 @@ export default defineNuxtConfig({
     enabled: process.env.NODE_ENV === "development"
   },
 
+  typescript: {
+    tsConfig: {
+      compilerOptions: {
+        paths: {
+          // Use the CJS type definitions of markdown-it, which expose the
+          // namespace members (Renderer, ParserBlock, Token, etc.) that the
+          // ESM entry from @types/markdown-it omits.
+          "markdown-it": ["../node_modules/@types/markdown-it/dist/index.cjs.d.ts"]
+        }
+      }
+    }
+  },
+
   gtag: {
     id: process.env.NUXT_PUBLIC_GTAG_ID || ""
   }

@@ -1,3 +1,5 @@
+/// <reference types="user-agent-data-types" />
+
 export const isClient = typeof window !== "undefined";
 
 export const isMac = isClient

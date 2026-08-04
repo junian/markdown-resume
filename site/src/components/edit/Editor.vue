@@ -26,7 +26,7 @@
 import type * as Monaco from "monaco-editor";
 import * as tabs from "@zag-js/tabs";
 import { normalizeProps, useMachine } from "@zag-js/vue";
-import { isClient } from "@renovamen/utils";
+import { isClient } from "~/libs/utils";
 import { setupMonacoEditor } from "~/monaco";
 
 const editorRef = ref<HTMLDivElement>();

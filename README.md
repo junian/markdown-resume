@@ -125,12 +125,6 @@ Clone the repo and install dependencies:
 pnpm install
 ```
 
-Build the [packages](packages):
-
-```bash
-pnpm run build:pkg
-```
-
 Start developing / building the site:
 
 ```bash
