@@ -88,7 +88,7 @@ When exporting to **HTML** or **DOCX**, image references are automatically repla
 2. (Optional) Set up your environment variables. Copy the example file and fill in the values you need:
 
     ```bash
-    cp site/.env.example site/.env
+    cp .env.example .env
     ```
 
     See the [Environment Variables](#environment-variables) section for details on each variable.
@@ -103,10 +103,10 @@ When exporting to **HTML** or **DOCX**, image references are automatically repla
 
 ## Environment Variables
 
-Configuration is done via a `.env` file inside the [`site`](site/) folder. You can copy [`site/.env.example`](site/.env.example) as a starting point:
+Configuration is done via a `.env` file in the project root. You can copy [`.env.example`](.env.example) as a starting point:
 
 ```bash
-cp site/.env.example site/.env
+cp .env.example .env
 ```
 
 | Variable | Description |
