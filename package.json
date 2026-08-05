@@ -18,8 +18,6 @@
     "@nuxtjs/color-mode": "^3.3.3",
     "@nuxtjs/i18n": "^8.3.0",
     "@pinia/nuxt": "^0.5.1",
-    "@renovamen/eslint-config": "^0.1.6",
-    "@renovamen/prettier-config": "^0.1.6",
     "@types/js-yaml": "^4.0.9",
     "@types/katex": "^0.16.7",
     "@types/markdown-it": "^14.0.0",
