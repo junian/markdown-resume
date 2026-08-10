@@ -41,9 +41,8 @@ export class GoogleFontsLoader {
     const fonts = await loadFontList(this.apiKey);
 
     // Save desired fonts in the font map
-    for (let i = 0; i < fonts.length; i++) {
-      const font = fonts[i];
-
+    for (const font of fonts) {
+      
       // Exit once specified limit of number of fonts is reached
       if (this.options.limit! >= 0 && this.fontMap.size >= this.options.limit!) break;
 
