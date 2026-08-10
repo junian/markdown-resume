@@ -13,8 +13,8 @@ export default defineNuxtConfig({
     "@nuxtjs/i18n",
     "@nuxtjs/color-mode",
     "@vite-pwa/nuxt",
-    "nuxt-gtag",
-    "@nuxtjs/sitemap"
+    "@nuxtjs/sitemap",
+    "@nuxt/scripts"
   ],
 
   css: [
@@ -80,6 +80,8 @@ export default defineNuxtConfig({
     }
   },
 
+  compatibilityDate: '2026-08-10',
+
   site: {
     url: siteConfig.url
   },
@@ -97,6 +99,16 @@ export default defineNuxtConfig({
     enabled: process.env.NODE_ENV === "development"
   },
 
+  sitemap: {
+    zeroRuntime: true
+  },
+
+  scripts: {
+    registry: {
+      googleAnalytics: { trigger: 'onNuxtReady' },
+    }
+  },
+
   typescript: {
     tsConfig: {
       compilerOptions: {
@@ -109,9 +121,5 @@ export default defineNuxtConfig({
       }
     }
   },
-
-  gtag: {
-    id: process.env.NUXT_PUBLIC_GTAG_ID || ""
-  }
 
 });

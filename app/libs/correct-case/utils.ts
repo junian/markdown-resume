@@ -1,10 +1,10 @@
 // Adapted from https://github.com/antfu/case-police/blob/main/src/utils.ts
 
-import abbrs from "case-police/dict/abbreviates.json" assert { type: "json" };
-import brands from "case-police/dict/brands.json" assert { type: "json" };
-import general from "case-police/dict/general.json" assert { type: "json" };
-import products from "case-police/dict/products.json" assert { type: "json" };
-import softwares from "case-police/dict/softwares.json" assert { type: "json" };
+import abbrs from "case-police/dict/abbreviates.json" with { type: "json" };
+import brands from "case-police/dict/brands.json" with { type: "json" };
+import general from "case-police/dict/general.json" with { type: "json" };
+import products from "case-police/dict/products.json" with { type: "json" };
+import softwares from "case-police/dict/softwares.json" with { type: "json" };
 
 const dict: Record<string, string> = {
   ...abbrs,

@@ -1,6 +1,8 @@
 import type { NuxtI18nOptions } from "@nuxtjs/i18n";
+import { siteConfig } from "./siteConfig";
 
 export const i18n: NuxtI18nOptions = {
+  baseUrl: siteConfig.url,
   defaultLocale: "en",
   strategy: "prefix_and_default",
   locales: [
@@ -31,7 +33,7 @@ export const i18n: NuxtI18nOptions = {
     }
     */
   ],
-  langDir: "i18n",
+  langDir: "../app/i18n",
   compilation: {
     strictMessage: false
   }
