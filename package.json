@@ -13,7 +13,6 @@
   },
   "devDependencies": {
     "@iconify/json": "^2.2.512",
-    "@nuxt/devtools": "^3.4.1",
     "@nuxt/scripts": "^1.3.3",
     "@nuxtjs/color-mode": "^4.0.1",
     "@nuxtjs/i18n": "^10.6.0",
