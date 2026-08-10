@@ -6,11 +6,11 @@ const UNESCAPE_RE = /\\([ \\!"#$%&'()*+,.\/:;<=>?@[\]^_`{|}~-])/g;
 const renderNewPage: Renderer.RenderRule = () => `<div class="md-it-newpage"></div>`;
 
 const renderLineBreak: Renderer.RenderRule = (tokens, idx) =>
-  `<div class="md-it-line-break" style="margin-top:${tokens[idx].meta.h};"></div>`;
+  `<div class="md-it-line-break" style="margin-top:${tokens[idx]!.meta.h};"></div>`;
 
 const newPage: ParserBlock.RuleBlock = (state, start, end, silent) => {
-  const pos = state.bMarks[start] + state.tShift[start];
-  const max = state.eMarks[start];
+  const pos = state.bMarks[start]! + state.tShift[start]!;
+  const max = state.eMarks[start]!;
 
   if (silent) return false; // don't run any pairs in validation mode
   if (pos + 8 > max || state.src.slice(pos, pos + 8) !== "\\newpage") return false; // should be "\newpage"
@@ -28,8 +28,8 @@ const newPage: ParserBlock.RuleBlock = (state, start, end, silent) => {
 };
 
 const lineBreak: ParserBlock.RuleBlock = (state, start, end, silent) => {
-  const pos = state.bMarks[start] + state.tShift[start];
-  const max = state.eMarks[start];
+  const pos = state.bMarks[start]! + state.tShift[start]!;
+  const max = state.eMarks[start]!;
 
   if (silent) return false; // don't run any pairs in validation mode
 

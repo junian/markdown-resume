@@ -10,9 +10,9 @@ import type {
 } from "markdown-it";
 
 const getAnchorName = (tokens: Token[], idx: number) =>
-  Number(tokens[idx].meta.id + 1).toString();
+  Number(tokens[idx]!.meta.id + 1).toString();
 
-const getAnchorCaption = (tokens: Token[], idx: number) => tokens[idx].meta.label;
+const getAnchorCaption = (tokens: Token[], idx: number) => tokens[idx]!.meta.label;
 
 const renderReference: Renderer.RenderRule = (tokens, idx) => {
   const id = getAnchorName(tokens, idx);
@@ -30,8 +30,8 @@ const renderCloseTag: Renderer.RenderRule = () => "</li>\n</ul>\n";
 
 // Process crossref block definition
 const crossrefDef: ParserBlock.RuleBlock = (state, startLine, endLine, silent) => {
-  const start = state.bMarks[startLine] + state.tShift[startLine];
-  const max = state.eMarks[startLine];
+  const start = state.bMarks[startLine]! + state.tShift[startLine]!;
+  const max = state.eMarks[startLine]!;
 
   // line should be at least 5 chars - "[~x]:"
   if (start + 4 > max) return false;
@@ -64,13 +64,13 @@ const crossrefDef: ParserBlock.RuleBlock = (state, startLine, endLine, silent) =
   openToken.level = state.level++;
   state.tokens.push(openToken);
 
-  const oldBMark = state.bMarks[startLine];
-  const oldTShift = state.tShift[startLine];
-  const oldSCount = state.sCount[startLine];
+  const oldBMark = state.bMarks[startLine]!;
+  const oldTShift = state.tShift[startLine]!;
+  const oldSCount = state.sCount[startLine]!;
 
   const posAfterColon = pos;
   const initial = (offset =
-    state.sCount[startLine] + pos - (state.bMarks[startLine] + state.tShift[startLine]));
+    state.sCount[startLine]! + pos - (state.bMarks[startLine]! + state.tShift[startLine]!));
 
   let ch;
   while (pos < max) {
@@ -167,15 +167,15 @@ const crossrefCore: Core.RuleCore = (state) => {
   const list = state.env.crossrefs?.list as string[] | undefined;
 
   for (let i = 0; i < state.tokens.length; i++) {
-    if (state.tokens[i].type === "crossref_reference_open") {
-      const currentLabel = state.tokens[i].meta.label;
+    if (state.tokens[i]!.type === "crossref_reference_open") {
+      const currentLabel = state.tokens[i]!.meta.label;
       const id = list ? list.findIndex((item: string) => item === currentLabel) : -1;
 
       const openToken = new state.Token("renderOpenTag", "", 1);
       openToken.meta = { id: id, label: currentLabel };
 
       state.tokens[i] = openToken;
-    } else if (state.tokens[i].type === "crossref_reference_close") {
+    } else if (state.tokens[i]!.type === "crossref_reference_close") {
       const closeToken = new state.Token("renderCloseTag", "", -1);
       state.tokens[i] = closeToken;
     }

@@ -117,8 +117,8 @@ const mathBlock: ParserBlock.RuleBlock = (state, start, end, silent) => {
   let next;
   let lastPos;
   let found = false;
-  let pos = state.bMarks[start] + state.tShift[start];
-  let max = state.eMarks[start];
+  let pos = state.bMarks[start]! + state.tShift[start]!;
+  let max = state.eMarks[start]!;
 
   if (pos + 2 > max) return false;
   if (state.src.slice(pos, pos + 2) !== "$$") return false;
@@ -139,10 +139,10 @@ const mathBlock: ParserBlock.RuleBlock = (state, start, end, silent) => {
 
     if (next >= end) break;
 
-    pos = state.bMarks[next] + state.tShift[next];
-    max = state.eMarks[next];
+    pos = state.bMarks[next]! + state.tShift[next]!;
+    max = state.eMarks[next]!;
 
-    if (pos < max && state.tShift[next] < state.blkIndent)
+    if (pos < max && state.tShift[next]! < state.blkIndent)
       // non-empty line with negative indent should stop the list:
       break;
 
@@ -160,7 +160,7 @@ const mathBlock: ParserBlock.RuleBlock = (state, start, end, silent) => {
   token.block = true;
   token.content =
     (firstLine?.trim() ? `${firstLine}\n` : "") +
-    state.getLines(start + 1, next, state.tShift[start], true) +
+    state.getLines(start + 1, next, state.tShift[start]!, true) +
     (lastLine?.trim() ? lastLine : "");
   token.map = [start, state.line];
   token.markup = "$$";
@@ -208,9 +208,9 @@ export const MarkdownItKatex: PluginWithOptions<KatexOptions> = (
   });
 
   md.renderer.rules.mathInline = (tokens, idx): string =>
-    katexInline(tokens[idx].content, options);
+    katexInline(tokens[idx]!.content, options);
   md.renderer.rules.mathBlock = (tokens, idx): string =>
-    katexBlock(tokens[idx].content, options);
+    katexBlock(tokens[idx]!.content, options);
 };
 
 export default MarkdownItKatex;
