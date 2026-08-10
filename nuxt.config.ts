@@ -14,7 +14,7 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
     "@vite-pwa/nuxt",
     "nuxt-gtag",
-    "nuxt-simple-sitemap"
+    "@nuxtjs/sitemap"
   ],
 
   css: [
