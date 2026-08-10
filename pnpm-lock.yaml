@@ -89,9 +89,6 @@ importers:
       case-police:
         specifier: ^0.6.1
         version: 0.6.1
-      eslint:
-        specifier: ^9.0.0
-        version: 9.39.5(jiti@2.7.0)(supports-color@10.2.2)
       file-saver:
         specifier: ^2.0.5
         version: 2.0.5
