@@ -267,7 +267,7 @@ export const duplicateResume = async (id: string) => {
 
 export const renameResume = async (id: string, name: string) => {
   const storage = (await getStorage()) || {};
-  storage[id].name = name;
+  storage[id]!.name = name;
 
   await localForage.setItem(MARKDOWN_RESUME_KEY, storage);
 

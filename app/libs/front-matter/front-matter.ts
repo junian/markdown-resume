@@ -48,7 +48,7 @@ const parse = (string: string): FrontMatterResults<any> => {
     };
   }
 
-  const yamlString = match[match.length - 1].replace(/^\s+|\s+$/g, "");
+  const yamlString = match[match.length - 1]!.replace(/^\s+|\s+$/g, "");
   const body = string.replace(match[0], "");
   const line = computeLocation(match, string);
 

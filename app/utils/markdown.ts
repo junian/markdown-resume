@@ -56,7 +56,7 @@ const resolveHeader = (html: string, frontmatter: ResumeFrontMatter) => {
       header += item.newLine ? "<br>\n" : "";
 
       header += `<span class="resume-header-item${
-        i === n - 1 || frontmatter.header[i + 1].newLine ? " no-separator" : ""
+        i === n - 1 || frontmatter.header[i + 1]!.newLine ? " no-separator" : ""
       }">`;
 
       if (item.link)
