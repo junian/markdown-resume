@@ -248,7 +248,7 @@ export const duplicateResume = async (id: string) => {
     Object.values(storage).forEach((item) => {
       const match = item.name.match(copyRegex);
       if (match) {
-        const num = parseInt(match[1], 10);
+        const num = parseInt(match[1]!, 10);
         if (num > maxCopyNumber) {
           maxCopyNumber = num;
         }
