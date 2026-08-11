@@ -42,6 +42,11 @@ settings:
   erase_warning: This action will remove all data and return this app to its factory state. This cannot be undone.
   type_delete: Type DELETE to confirm.
   confirm: Confirm
+  defaults:
+    title: Defaults
+    name: Full Name
+    name_placeholder: e.g., Bruce Wayne
+    paper_size: Paper Size
 
 disqus:
   leave_a_comment: Leave a Comment
@@ -53,7 +58,7 @@ head:
 
 landing:
   hero: Write your <span text-brand>resume</span> in Markdown!
-  desc: is a free and open source tool created to build and manage your resumes as easy as possible, without losing the privacy of your data.
+  desc: is a free and open source tool created to build and manage your resumes as easily as possible, without losing the privacy of your data.
   start: Create My Resume
   feats:
     - title: Simple and Powerful
@@ -134,10 +139,10 @@ notification:
   switch: Switched to resume "{msg}"
   delete: Resume "{msg}" has been deleted
   new: New resume created
-  duplicate: Created resume "{old}"'s duplication "{new}"
+  duplicate: Created copy "{new}" of resume "{old}"
   correct:
     yes: Corrected {num} words
-    no: All case are correct!
+    no: All cases are correct!
   iconify_migration:
     yes: Migrated and saved {count} Iconify icon(s)
     no: No legacy Iconify icons were found

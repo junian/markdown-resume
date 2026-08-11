@@ -17,12 +17,12 @@
         <section class="settings-card md:col-span-2">
           <div class="settings-card-heading">
             <span i-mdi:tune text-xl />
-            <h2>Defaults</h2>
+            <h2>{{ $t("settings.defaults.title") }}</h2>
           </div>
           <div class="grid gap-4 sm:grid-cols-2">
             <div>
               <label class="field-label" for="default-full-name">
-                Full Name
+                {{ $t("settings.defaults.name") }}
               </label>
               <input
                 id="default-full-name"
@@ -30,12 +30,12 @@
                 @input="setDefaultFullName(defaultFullName)"
                 class="language-menu-trigger"
                 type="text"
-                placeholder="e.g., Bruce Wayne"
+                :placeholder="$t('settings.defaults.name_placeholder')"
               />
             </div>
             <div>
               <label class="field-label" for="default-paper-size">
-                Paper Size
+                {{ $t("settings.defaults.paper_size") }}
               </label>
               <Combobox id="default-paper-size" :items="paperItems" :default="defaultPaperSize" capitalize />
             </div>

@@ -27,54 +27,67 @@ settings:
   line_numbers: Números de línea
   line_numbers_description: Muestra los números de línea en los editores Markdown y CSS.
   storage: Almacenamiento
+  refresh_storage: Actualizar estimación de almacenamiento
   storage_used: Almacenamiento del navegador utilizado
   used: usado
   usage: Uso
   quota: Cuota
   resumes: Currículums
   images: Imágenes
-  storage_unavailable: Las estimaciones de almacenamiento no están disponibles.
+  storage_estimate_note: La cuota de almacenamiento es una estimación y puede variar según el dispositivo y el navegador.
+  storage_unavailable: Las estimaciones de almacenamiento no están disponibles en este navegador.
+  danger_zone: Zona de riesgo
+  danger_description: Borra permanentemente todas las currículums, imágenes y ajustes de la app guardados en este dispositivo.
+  erase_all_data: Borrar Todo el Contenido y los Ajustes
+  erase_warning: Esta acción eliminará todos los datos y restaurará la app a su estado de fábrica. Esta acción no se puede deshacer.
+  type_delete: Escribe DELETE para confirmar.
+  confirm: Confirmar
+  defaults:
+    title: Predeterminados
+    name: Nombre Completo
+    name_placeholder: p. ej., Bruce Wayne
+    paper_size: Tamaño de hoja
 
 disqus:
-  leave_a_comment: Dejar un Comentario
+  leave_a_comment: Deja un Comentario
 
 head:
-  title: Markdown Resume - Generador de CV online GRATUITO!!
-  desc: El creador de currículums vitae en línea gratuito le permite crear su currículum en minutos con Markdown!
-  keywords: generador curriculum, generador cv, generador curriculum vitae, curriculum markdown, markdown cv
+  title: Markdown Resume - Creador de Currículums Online Gratuito
+  desc: Creador de currículums vitae en línea gratuito, te permite crear tu currículum en minutos con Markdown!
+  keywords: creador de currículum, creador de cv, creador de curriculum vitae, currículum markdown, resume.md
 
 landing:
-  hero: Escribe tu <span text-brand>curriculum vitae</span> en Markdown!
-  desc: es una herramienta gratuita y de código abierto creada para crear y administrar sus currículums de la manera más fácil posible, sin perder la privacidad de sus datos.
-  start: Crear My Resumen
+  hero: Escribe tu <span text-brand>currículum</span> en Markdown!
+  desc: es una herramienta gratuita y de código abierto creada para construir y gestionar tus currículums lo más fácilmente posible, sin perder la privacidad de tus datos.
+  start: Crear Mi Currículum
   feats:
     - title: Simple y poderoso
-      items: Administra multiples curriculums con <br>Vista previa en tiempo real<br>Exportar a PDF format<br>Exportar a HTML<br>Exportar a MS Word (beta)<br>Galería de imágenes<br>Completamente configurable<br>Elige fuentes y agrega íconos<br>Y <a href="https://github.com/junian/markdown-resume#features" target="_blank">más funciones</a>
+      items: Gestiona múltiples currículums<br>Vista previa en tiempo real<br>Exportar a PDF<br>Exportar a HTML<br>Exportar a MS Word (beta)<br>Galería de imágenes<br>Totalmente personalizable<br>Elige fuentes y agrega íconos<br>Y <a href="https://github.com/junian/markdown-resume#features" target="_blank">más funciones</a>
     - title: Seguridad Primero
-      items: Open source, libre y gratuito<br>Información guardada en tu equipo<br>No necesita que te registres<br>Tus datos nunca salen de tu dispositivo<br>Sin almacenamiento ni procesamiento en servidores<br>Tus datos son siempre tuyos
+      items: Open source y gratuito<br>Los datos se guardan en local<br>No se requiere inicio de sesión ni registro<br>Tus datos nunca salen de tu dispositivo<br>Sin almacenamiento ni procesamiento en el servidor<br>Tus datos son siempre tuyos
   analytics_disclaimer: >
-    Al acceder desde <a href="https://junian.dev/markdown-resume/" target="_blank" class="underline">junian.dev/markdown-resume/</a>,
+    Cuando se accede desde <a href="https://junian.dev/markdown-resume/" target="_blank" class="underline">junian.dev/markdown-resume/</a>,
     esta aplicación utiliza <strong>Google Analytics</strong> y <strong>Cloudflare Web Analytics</strong> para medir
-    métricas de uso como vistas de página y usuarios activos. El contenido de tu currículum e imágenes nunca son recopilados ni transmitidos.
+    métricas de uso agregadas como visitas a páginas y usuarios activos. Tu currículum y tus imágenes nunca se recopilan ni se transmiten.
     Al usar esta aplicación, aceptas la <a href="https://junian.dev/privacy-policy/" target="_blank" class="underline">Política de Privacidad</a>.
 
 resumes:
-  my_resumes: Mis CVs
+  my_resumes: Mis Currículums
   description: Crea, organiza, importa y respalda tus currículums.
   created: "Creado: "
   updated: "Actualizado: "
   new: Nuevo
   save: Guardar
-  saveas: Guardar como...
-  import: Importar desde...
+  saveas: Respaldar BD ...
+  import: Restaurar BD ...
   rename: Renombrar
   duplicate: Duplicar
   delete: Eliminar
 
 import:
   title: Importar un archivo Markdown
-  from_local: Subir archivo
-  from_url: Pegar desde URL
+  from_local: Arrastra tu archivo aquí, o haz clic aquí para elegir un archivo
+  from_url: Pegar la URL del archivo
 
 toolbar:
   open: Abrir barra lateral de formato
@@ -87,20 +100,24 @@ toolbar:
     export_html: Exportar HTML
     export_docx: Exportar DOCX
   correct_case:
-    text: Corregir Mayusculas
-    desc: "Ejemplo: \"Github\" → \"GitHub\" <br> Nota: No se modificarán las palabras que sólo contengan mayúsculas o minúsculas (\"GITHUB\" or \"github\")"
-    btn : Corrígelo!
+    text: Corregir Mayúsculas
+    desc: "Ejemplo: \"Github\" → \"GitHub\" <br> Nota: las palabras que solo contengan mayúsculas o minúsculas (\"GITHUB\" o \"github\") no se modificarán"
+    btn: Corrígelo!
+  migrate_iconify:
+    text: Corregir Iconos
+    desc: Convierte el marcado de span de Iconify heredado en este currículum al formato de componente web de Iconify.
+    btn: Migrar y guardar
   paper: Tamaño de hoja
   font_family: Fuente
   font_size: Tamaño de Fuente
   cjk: CJK
   en: Inglés
-  theme_color: Color y tema
+  theme_color: Color de tema
   paragraph: Espaciado de párrafo
   line: Espaciado de línea
-  margin: Margenes
-  vertical: Arriba & Abajo
-  horizontal: Izquierdo & Derecho
+  margin: Márgenes
+  vertical: Arriba y abajo
+  horizontal: Izquierda y derecha
 
 images:
   my_images: Mis Imágenes
@@ -114,18 +131,21 @@ images:
   upload_title: Subir una Imagen
   from_local: Arrastra tu imagen aquí, o haz clic para elegir un archivo
   copied: URL copiada al portapapeles
-  deleted: Imagen "{msg}" ha sido eliminada
-  uploaded: Imagen "{msg}" subida correctamente
+  deleted: La imagen "{msg}" ha sido eliminada
+  uploaded: La imagen "{msg}" se ha subido correctamente
 
 notification:
-  save: Cambios Guardados
-  switch: Cambiando a curriculum "{msg}"
-  delete: Curriculum "{msg}" has been deleted
-  new: Creado nuevo resumen
-  duplicate: Created resume "{old}"'s duplication "{new}"
+  save: Tus cambios han sido guardados
+  switch: Cambiado al currículum "{msg}"
+  delete: El currículum "{msg}" ha sido eliminado
+  new: Nuevo currículum creado
+  duplicate: Se ha creado la copia "{new}" del currículum "{old}"
   correct:
-    yes: Corregidos {num} palabras
-    no : Buen trabajo, no hubo nada que corregir!
+    yes: Se han corregido {num} palabras
+    no: ¡Todo el texto ya estaba correcto!
+  iconify_migration:
+    yes: Se han migrado y guardado {count} ícono(s) de Iconify
+    no: No se encontraron íconos heredados de Iconify
   import:
-    yes: Datos importados correctamente!
-    no : Formato de datos inválido.
+    yes: ¡Los datos se han importado correctamente!
+    no: El formato de datos no es válido.

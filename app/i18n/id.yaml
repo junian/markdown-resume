@@ -42,6 +42,11 @@ settings:
   erase_warning: Tindakan ini akan menghapus semua data dan mengembalikan aplikasi ke keadaan awal. Tindakan ini tidak dapat dibatalkan.
   type_delete: Ketik DELETE untuk mengonfirmasi.
   confirm: Konfirmasi
+  defaults:
+    title: Default
+    name: Nama Lengkap
+    name_placeholder: cth., Bruce Wayne
+    paper_size: Ukuran Kertas
 
 disqus:
   leave_a_comment: Tinggalkan Komentar
@@ -134,7 +139,7 @@ notification:
   switch: Beralih ke resume "{msg}"
   delete: Resume "{msg}" telah dihapus
   new: Resume baru dibuat
-  duplicate: Duplikat resume "{old}" dibuat "{new}"
+  duplicate: Salinan resume "{old}" dibuat "{new}"
   correct:
     yes: Memperbaiki {num} kata
     no: Semua huruf sudah benar!
