@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts" setup>
-const { styles, setStyle } = useStyleStore();
+const { styles, setStyle } = useStyleStore()
 
-const setParagraphSpace = (value: number) => setStyle("paragraphSpace", value);
+const setParagraphSpace = (value: number) => setStyle('paragraphSpace', value)
 </script>

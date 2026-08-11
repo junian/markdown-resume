@@ -17,27 +17,27 @@
 </template>
 
 <script lang="ts" setup>
-import SmartPages from "~/libs/vue-smart-pages";
-import type { ResumeStyles } from "~/types";
+import SmartPages from '~/libs/vue-smart-pages'
+import type { ResumeStyles } from '~/types'
 
 defineProps<{
-  id: string;
-  markdown: string;
-  css?: string;
-  styles: ResumeStyles;
-}>();
+  id: string
+  markdown: string
+  css?: string
+  styles: ResumeStyles
+}>()
 
-const smart = ref();
+const smart = ref()
 
 const emit = defineEmits<{
-  (e: "rendered"): void;
-}>();
+  (e: 'rendered'): void
+}>()
 
 const forceUpdate = () => {
-  smart.value.resolvePages(100);
-};
+  smart.value.resolvePages(100)
+}
 
 defineExpose({
-  forceUpdate
-});
+  forceUpdate,
+})
 </script>

@@ -1,81 +1,81 @@
-import MarkdownIt from "markdown-it";
+import MarkdownIt from 'markdown-it'
 // @ts-expect-error missing types
-import MarkdownItDeflist from "markdown-it-deflist";
-import LinkAttributes from "markdown-it-link-attributes";
-import MarkdownItKatex from "~/libs/markdown-it-katex";
-import MarkdownItCite from "~/libs/markdown-it-cross-ref";
-import MarkdownItLatexCmds from "~/libs/markdown-it-latex-cmds";
-import frontmatter from "~/libs/front-matter";
-import type { ResumeFrontMatter } from "~/types";
+import MarkdownItDeflist from 'markdown-it-deflist'
+import LinkAttributes from 'markdown-it-link-attributes'
+import MarkdownItKatex from '~/libs/markdown-it-katex'
+import MarkdownItCite from '~/libs/markdown-it-cross-ref'
+import MarkdownItLatexCmds from '~/libs/markdown-it-latex-cmds'
+import frontmatter from '~/libs/front-matter'
+import type { ResumeFrontMatter } from '~/types'
 
 const markdown = (() => {
-  const md = new MarkdownIt({ html: true });
+  const md = new MarkdownIt({ html: true })
 
-  md.use(MarkdownItDeflist);
-  md.use(MarkdownItKatex);
-  md.use(MarkdownItCite);
-  md.use(MarkdownItLatexCmds);
+  md.use(MarkdownItDeflist)
+  md.use(MarkdownItKatex)
+  md.use(MarkdownItCite)
+  md.use(MarkdownItLatexCmds)
 
   md.use(LinkAttributes, {
     matcher: (link: string) => /^https?:\/\//.test(link),
     attrs: {
-      target: "_blank",
-      rel: "noopener"
-    }
-  });
+      target: '_blank',
+      rel: 'noopener',
+    },
+  })
 
-  return md;
-})();
+  return md
+})()
 
 const resolveDeflist = (html: string) => {
-  const dlReg = /<dl>([\s\S]*?)<\/dl>/g;
-  const dlList = html.match(dlReg);
+  const dlReg = /<dl>([\s\S]*?)<\/dl>/g
+  const dlList = html.match(dlReg)
 
-  if (dlList === null) return html;
+  if (dlList === null) return html
 
   for (const dl of dlList) {
-    const newDl = dl.replace(/<\/dd>\n<dt>/g, "</dd>\n</dl>\n<dl>\n<dt>");
-    html = html.replace(dl, newDl);
+    const newDl = dl.replace(/<\/dd>\n<dt>/g, '</dd>\n</dl>\n<dl>\n<dt>')
+    html = html.replace(dl, newDl)
   }
 
-  return html;
-};
+  return html
+}
 
 const resolveHeader = (html: string, frontmatter: ResumeFrontMatter) => {
-  let header = "";
+  let header = ''
 
-  if (frontmatter.name) header += `<h1>${frontmatter.name}</h1>\n`;
+  if (frontmatter.name) header += `<h1>${frontmatter.name}</h1>\n`
 
   if (frontmatter.header) {
-    const n = frontmatter.header.length;
+    const n = frontmatter.header.length
 
     for (let i = 0; i < n; i++) {
-      const item = frontmatter.header[i];
-      if (!item) continue;
+      const item = frontmatter.header[i]
+      if (!item) continue
 
-      header += item.newLine ? "<br>\n" : "";
+      header += item.newLine ? '<br>\n' : ''
 
       header += `<span class="resume-header-item${
-        i === n - 1 || frontmatter.header[i + 1]!.newLine ? " no-separator" : ""
-      }">`;
+        i === n - 1 || frontmatter.header[i + 1]!.newLine ? ' no-separator' : ''
+      }">`
 
       if (item.link)
-        header += `<a href="${item.link}" target="_blank" rel="noopener noreferrer">${item.text}</a>`;
-      else header += item.text;
+        header += `<a href="${item.link}" target="_blank" rel="noopener noreferrer">${item.text}</a>`
+      else header += item.text
 
-      header += `</span>\n`;
+      header += `</span>\n`
     }
   }
 
-  return `<div class="resume-header">${header}</div>` + html;
-};
+  return `<div class="resume-header">${header}</div>` + html
+}
 
 export const renderMarkdown = (md: string) => {
-  const { body, attributes } = frontmatter(md);
+  const { body, attributes } = frontmatter(md)
 
-  let html = markdown.render(body);
-  html = resolveDeflist(html);
-  html = resolveHeader(html, attributes);
+  let html = markdown.render(body)
+  html = resolveDeflist(html)
+  html = resolveHeader(html, attributes)
 
-  return html;
-};
+  return html
+}

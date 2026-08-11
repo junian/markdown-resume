@@ -8,7 +8,10 @@
       text-align="left"
       icon-position="left"
     />
-    <div v-if="updated" class="hstack gap-1.5 text-xs text-lighter-c">
+    <div
+      v-if="updated"
+      class="hstack gap-1.5 text-xs text-lighter-c"
+    >
       <span i-ic:round-update />
       {{ updated }}
     </div>
@@ -20,32 +23,32 @@
 </template>
 
 <script lang="ts" setup>
-import type { ResumeListItem } from "~/types";
+import type { ResumeListItem } from '~/types'
 
 const props = defineProps<{
-  resume: ResumeListItem;
-}>();
+  resume: ResumeListItem
+}>()
 
 const emit = defineEmits<{
-  (e: "update"): void;
-}>();
+  (e: 'update'): void
+}>()
 
 const rename = async (text: string) => {
-  await renameResume(props.resume.id, text);
-  emit("update");
-};
+  await renameResume(props.resume.id, text)
+  emit('update')
+}
 
 const formatDate = (date?: string) => {
-  if (!date) return;
-  const d = new Date(parseInt(date));
-  const month = d.toLocaleDateString(undefined, { month: "short" });
-  const day = d.getDate();
-  const year = d.getFullYear();
-  const hours = String(d.getHours()).padStart(2, "0");
-  const minutes = String(d.getMinutes()).padStart(2, "0");
-  return `${month} ${day}, ${year} ${hours}:${minutes}`;
-};
+  if (!date) return
+  const d = new Date(parseInt(date))
+  const month = d.toLocaleDateString(undefined, { month: 'short' })
+  const day = d.getDate()
+  const year = d.getFullYear()
+  const hours = String(d.getHours()).padStart(2, '0')
+  const minutes = String(d.getMinutes()).padStart(2, '0')
+  return `${month} ${day}, ${year} ${hours}:${minutes}`
+}
 
-const created = computed(() => formatDate(props.resume.id));
-const updated = computed(() => formatDate(props.resume.update));
+const created = computed(() => formatDate(props.resume.id))
+const updated = computed(() => formatDate(props.resume.update))
 </script>

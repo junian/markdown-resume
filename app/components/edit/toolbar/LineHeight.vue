@@ -1,5 +1,8 @@
 <template>
-  <ToolItem :text="$t('toolbar.line')" icon="i-ic:round-format-line-spacing">
+  <ToolItem
+    :text="$t('toolbar.line')"
+    icon="i-ic:round-format-line-spacing"
+  >
     <Slider
       id="line-height"
       :default="styles.lineHeight"
@@ -12,7 +15,7 @@
 </template>
 
 <script lang="ts" setup>
-const { styles, setStyle } = useStyleStore();
+const { styles, setStyle } = useStyleStore()
 
-const setLineHeight = (value: number) => setStyle("lineHeight", value);
+const setLineHeight = (value: number) => setStyle('lineHeight', value)
 </script>

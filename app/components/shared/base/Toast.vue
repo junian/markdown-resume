@@ -4,42 +4,65 @@
     class="hstack space-x-5 min-w-80 text-white rounded-md shadow-c px-4 py-3"
     :class="bgColor"
   >
-    <div flex-1 hstack space-x-2>
-      <div size-6 flex-center>
-        <span v-if="api.type === 'success'" i-ep:success-filled />
-        <span v-else-if="api.type === 'info'" i-material-symbols:info-rounded text-lg />
-        <span v-else-if="api.type === 'error'" i-bx:bxs-error />
+    <div
+      flex-1
+      hstack
+      space-x-2
+    >
+      <div
+        size-6
+        flex-center
+      >
+        <span
+          v-if="api.type === 'success'"
+          i-ep:success-filled
+        />
+        <span
+          v-else-if="api.type === 'info'"
+          i-material-symbols:info-rounded
+          text-lg
+        />
+        <span
+          v-else-if="api.type === 'error'"
+          i-bx:bxs-error
+        />
       </div>
-      <p v-bind="api.descriptionProps">{{ api.description }}</p>
+      <p v-bind="api.descriptionProps">
+        {{ api.description }}
+      </p>
     </div>
 
-    <button size-6 flex-center @click="api.dismiss()">
+    <button
+      size-6
+      flex-center
+      @click="api.dismiss()"
+    >
       <span class="i-ep:close-bold duration-200 opacity-50 hover:opacity-100" />
     </button>
   </div>
 </template>
 
 <script lang="ts" setup>
-import * as toast from "@zag-js/toast";
-import { normalizeProps, useActor } from "@zag-js/vue";
+import * as toast from '@zag-js/toast'
+import { normalizeProps, useActor } from '@zag-js/vue'
 
-const props = defineProps<{ actor: toast.Service }>();
+const props = defineProps<{ actor: toast.Service }>()
 
-const [state, send] = useActor(props.actor);
-const api = computed(() => toast.connect(state.value, send, normalizeProps));
+const [state, send] = useActor(props.actor)
+const api = computed(() => toast.connect(state.value, send, normalizeProps))
 
 const bgColor = computed(() => {
   switch (api.value.type) {
-    case "success":
-      return "bg-emerald-500";
-    case "info":
-      return "bg-blue-500";
-    case "error":
-      return "bg-red-500";
+    case 'success':
+      return 'bg-emerald-500'
+    case 'info':
+      return 'bg-blue-500'
+    case 'error':
+      return 'bg-red-500'
     default:
-      return "bg-blue-500";
+      return 'bg-blue-500'
   }
-});
+})
 </script>
 
 <style scoped>

@@ -8,11 +8,18 @@
       >
         <div class="hstack gap-3">
           <span class="circle size-10 flex-shrink-0 bg-brand text-white">
-            <span i-ep:document text-xl />
+            <span
+              i-ep:document
+              text-xl
+            />
           </span>
           <div>
-            <h1 class="text-3xl font-bold">{{ $t("resumes.my_resumes") }}</h1>
-            <p class="mt-1 text-sm text-light-c">{{ $t("resumes.description") }}</p>
+            <h1 class="text-3xl font-bold">
+              {{ $t("resumes.my_resumes") }}
+            </h1>
+            <p class="mt-1 text-sm text-light-c">
+              {{ $t("resumes.description") }}
+            </p>
           </div>
         </div>
         <FileOptions @update="loadResumes" />
@@ -33,16 +40,16 @@
 </template>
 
 <script lang="ts" setup>
-import type { ResumeListItem } from "~/types";
+import type { ResumeListItem } from '~/types'
 
 // Load resumes from storage
-const list = ref<ResumeListItem[]>();
+const list = ref<ResumeListItem[]>()
 
 const loadResumes = async () => {
-  list.value = await getResumeList();
-};
+  list.value = await getResumeList()
+}
 
-onMounted(loadResumes);
+onMounted(loadResumes)
 </script>
 
 <style scoped>

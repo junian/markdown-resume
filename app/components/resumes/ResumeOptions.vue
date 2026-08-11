@@ -10,25 +10,25 @@
 </template>
 
 <script lang="ts" setup>
-import type { ResumeListItem } from "~/types";
+import type { ResumeListItem } from '~/types'
 
 const props = defineProps<{
-  resume: ResumeListItem;
-}>();
+  resume: ResumeListItem
+}>()
 
 const emit = defineEmits<{
-  (e: "update"): void;
-}>();
+  (e: 'update'): void
+}>()
 
 const duplicate = async () => {
-  await duplicateResume(props.resume.id);
-  emit("update");
-};
+  await duplicateResume(props.resume.id)
+  emit('update')
+}
 
 const remove = async () => {
-  await deleteResume(props.resume.id);
-  emit("update");
-};
+  await deleteResume(props.resume.id)
+  emit('update')
+}
 </script>
 
 <style scoped>

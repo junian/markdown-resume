@@ -5,17 +5,25 @@
     :title="isToolbarOpen ? $t('toolbar.close') : $t('toolbar.open')"
     @click="$emit('toggleToolbar')"
   >
-    <span v-show="isToolbarOpen" i-tabler:layout-sidebar-right-collapse md:text-lg />
-    <span v-show="!isToolbarOpen" i-tabler:layout-sidebar-right-expand md:text-lg />
+    <span
+      v-show="isToolbarOpen"
+      i-tabler:layout-sidebar-right-collapse
+      md:text-lg
+    />
+    <span
+      v-show="!isToolbarOpen"
+      i-tabler:layout-sidebar-right-expand
+      md:text-lg
+    />
   </button>
 </template>
 
 <script lang="ts" setup>
 defineProps<{
-  isToolbarOpen: boolean;
-}>();
+  isToolbarOpen: boolean
+}>()
 
 defineEmits<{
-  (e: "toggleToolbar"): void;
-}>();
+  (e: 'toggleToolbar'): void
+}>()
 </script>

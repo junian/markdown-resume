@@ -1,83 +1,84 @@
 import GoogleFontsLoader, {
   type Font as GoogleFont,
-  type Subset
-} from "~/libs/gfonts-loader";
-import type { ResumeStyles, Font } from "~/types";
+  type Subset,
+} from '~/libs/gfonts-loader'
+import type { ResumeStyles, Font } from '~/types'
 
-let gLoader: GoogleFontsLoader | undefined;
+let gLoader: GoogleFontsLoader | undefined
 
 const isGoogleFont = (font: Font) => {
   const check = (list: Font[]) =>
     list.some(
-      (item) => (item.fontFamily || item.name) === (font.fontFamily || font.name)
-    );
-  return !check(EN_FONTS) && !check(CJK_FONTS);
-};
+      item => (item.fontFamily || item.name) === (font.fontFamily || font.name),
+    )
+  return !check(EN_FONTS) && !check(CJK_FONTS)
+}
 
 export const googleFontsLoader = async () => {
-  const config = useRuntimeConfig();
-  const key = config.public.googleFontsKey;
+  const config = useRuntimeConfig()
+  const key = config.public.googleFontsKey
 
-  if (!gLoader && key !== "") {
+  if (!gLoader && key !== '') {
     gLoader = new GoogleFontsLoader(key, {
-      variants: ["regular", "700"],
-      filter: (font: GoogleFont) => !IGNORE_FONTS.includes(font.family)
-    });
-    await gLoader.init();
+      variants: ['regular', '700'],
+      filter: (font: GoogleFont) => !IGNORE_FONTS.includes(font.family),
+    })
+    await gLoader.init()
   }
 
-  return gLoader;
-};
+  return gLoader
+}
 
 export const resolveGoogleFont = async (font: Font) => {
   if (isGoogleFont(font)) {
-    const loader = await googleFontsLoader();
+    const loader = await googleFontsLoader()
     if (loader) {
-      await loader.setActiveFont(font.fontFamily || font.name);
+      await loader.setActiveFont(font.fontFamily || font.name)
     }
   }
-};
+}
 
 export const getGoogleFonts = async () => {
-  const loader = await googleFontsLoader();
+  const loader = await googleFontsLoader()
 
   if (!loader)
     return {
       gfonts_en: [],
-      gfonts_cjk: []
-    };
+      gfonts_cjk: [],
+    }
 
-  const gfonts = loader.getFontMap();
+  const gfonts = loader.getFontMap()
   const gfonts_en = [] as GoogleFont[],
-    gfonts_cjk = [] as GoogleFont[];
+    gfonts_cjk = [] as GoogleFont[]
 
   for (const k of gfonts.keys()) {
-    const font = gfonts.get(k)!;
+    const font = gfonts.get(k)!
 
     if (CJK_SUBSETS.some((subset: Subset) => font.subsets.includes(subset))) {
-      gfonts_cjk.push(font);
-    } else {
-      gfonts_en.push(font);
+      gfonts_cjk.push(font)
+    }
+    else {
+      gfonts_en.push(font)
     }
   }
 
   return {
     gfonts_en,
-    gfonts_cjk
-  };
-};
+    gfonts_cjk,
+  }
+}
 
 const fontLoader = (fonts: string | Array<string>) => {
-  const observers = [];
+  const observers = []
 
-  for (const font of typeof fonts === "string" ? [fonts] : fonts)
-    observers.push(document.fonts.load(`12px ${font}`));
+  for (const font of typeof fonts === 'string' ? [fonts] : fonts)
+    observers.push(document.fonts.load(`12px ${font}`))
 
-  return Promise.all(observers);
-};
+  return Promise.all(observers)
+}
 
 export const onFontLoaded = (styles: ResumeStyles) =>
   fontLoader([
     styles.fontEN.fontFamily || styles.fontEN.name,
-    styles.fontCJK.fontFamily || styles.fontCJK.name
-  ]);
+    styles.fontCJK.fontFamily || styles.fontCJK.name,
+  ])

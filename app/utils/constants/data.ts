@@ -1,48 +1,48 @@
-import type { Subset } from "~/libs/gfonts-loader";
-import type { Font } from "~/types";
+import type { Subset } from '~/libs/gfonts-loader'
+import type { Font } from '~/types'
 
-export const CHROME_PRINT_BOTTOM = 10;
+export const CHROME_PRINT_BOTTOM = 10
 
 export const THEME_COLORS = [
-  "#000000",
-  "#377bb5",
-  "#ca3832",
-  "#ee8732",
-  "#9c5bde",
-  "#43912b"
-];
+  '#000000',
+  '#377bb5',
+  '#ca3832',
+  '#ee8732',
+  '#9c5bde',
+  '#43912b',
+]
 
 export const EN_FONTS: Font[] = [
   {
-    name: "Arial"
+    name: 'Arial',
   },
   {
-    name: "Arial Black"
+    name: 'Arial Black',
   },
   {
-    name: "Arial Narrow"
+    name: 'Arial Narrow',
   },
   {
-    name: "Courier New"
+    name: 'Courier New',
   },
   {
-    name: "Georgia"
+    name: 'Georgia',
   },
   {
-    name: "Palatino"
+    name: 'Palatino',
   },
   {
-    name: "Tahoma"
+    name: 'Tahoma',
   },
   {
-    name: "Times New Roman"
+    name: 'Times New Roman',
   },
   {
-    name: "Trebuchet MS"
+    name: 'Trebuchet MS',
   },
   {
-    name: "Verdana"
-  }
+    name: 'Verdana',
+  },
   /*
   {
     name: "Adobe Garamond Pro"
@@ -63,16 +63,16 @@ export const EN_FONTS: Font[] = [
     name: "Times Newer Roman"
   }
   */
-];
+]
 
-export const SYSTEM_CJK_FONT_FAMILY =
-  'system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Microsoft JhengHei", "Yu Gothic", "Meiryo", "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans CJK SC", "Noto Sans CJK TC", "Noto Sans CJK JP", "Noto Sans CJK KR", "Noto Sans SC", "Noto Sans TC", "Noto Sans JP", "Noto Sans KR", "WenQuanYi Micro Hei", "Droid Sans Fallback", sans-serif';
+export const SYSTEM_CJK_FONT_FAMILY
+  = 'system-ui, -apple-system, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Microsoft JhengHei", "Yu Gothic", "Meiryo", "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans CJK SC", "Noto Sans CJK TC", "Noto Sans CJK JP", "Noto Sans CJK KR", "Noto Sans SC", "Noto Sans TC", "Noto Sans JP", "Noto Sans KR", "WenQuanYi Micro Hei", "Droid Sans Fallback", sans-serif'
 
 export const CJK_FONTS: Font[] = [
   {
-    name: "System CJK",
-    fontFamily: SYSTEM_CJK_FONT_FAMILY
-  }
+    name: 'System CJK',
+    fontFamily: SYSTEM_CJK_FONT_FAMILY,
+  },
   /*
   {
     name: "华康宋体",
@@ -83,64 +83,64 @@ export const CJK_FONTS: Font[] = [
     fontFamily: "LXGW WenKai"
   }
   */
-];
+]
 
 export const CJK_SUBSETS = [
-  "chinese-simplified",
-  "chinese-traditional",
-  "japanese",
-  "korean"
-] as Subset[];
+  'chinese-simplified',
+  'chinese-traditional',
+  'japanese',
+  'korean',
+] as Subset[]
 
 export const CJK_NAME_MAP = {
-  "Noto Sans SC": "思源黑体（简）",
-  "Noto Sans TC": "思源黑体（繁）",
-  "Noto Serif SC": "思源宋体（简）",
-  "Noto Serif TC": "思源宋体（繁）"
-} as Record<string, string>;
+  'Noto Sans SC': '思源黑体（简）',
+  'Noto Sans TC': '思源黑体（繁）',
+  'Noto Serif SC': '思源宋体（简）',
+  'Noto Serif TC': '思源宋体（繁）',
+} as Record<string, string>
 
 export const CJK_FIRST = [
-  "思源黑体（简）",
-  "思源黑体（繁）",
-  "思源宋体（简）",
-  "思源宋体（繁）"
-];
+  '思源黑体（简）',
+  '思源黑体（繁）',
+  '思源宋体（简）',
+  '思源宋体（繁）',
+]
 
 export const IGNORE_FONTS = [
-  "Baloo 2",
-  "Baloo Bhai 2",
-  "Baloo Bhaijaan 2",
-  "Baloo Bhaina 2",
-  "Baloo Chettan 2",
-  "Baloo Da 2",
-  "Baloo Paaji 2",
-  "Baloo Tamma 2",
-  "Baloo Tammudu 2",
-  "Baloo Thambi 2",
-  "Brygada 1918",
-  "Exo 2",
-  "M PLUS 1",
-  "M PLUS 1 Code",
-  "M PLUS 1p",
-  "M PLUS 2",
-  "M PLUS Rounded 1c",
-  "Shippori Mincho",
-  "Source Sans 3",
-  "Source Serif 4"
-];
+  'Baloo 2',
+  'Baloo Bhai 2',
+  'Baloo Bhaijaan 2',
+  'Baloo Bhaina 2',
+  'Baloo Chettan 2',
+  'Baloo Da 2',
+  'Baloo Paaji 2',
+  'Baloo Tamma 2',
+  'Baloo Tammudu 2',
+  'Baloo Thambi 2',
+  'Brygada 1918',
+  'Exo 2',
+  'M PLUS 1',
+  'M PLUS 1 Code',
+  'M PLUS 1p',
+  'M PLUS 2',
+  'M PLUS Rounded 1c',
+  'Shippori Mincho',
+  'Source Sans 3',
+  'Source Serif 4',
+]
 
 export const PAPER = {
   A4: {
     h: 297 + 2,
-    w: 210
+    w: 210,
   },
   letter: {
     h: 279.4 + 3,
-    w: 215.9
-  }
-};
+    w: 215.9,
+  },
+}
 
-export const MM_TO_PX = 3.78;
+export const MM_TO_PX = 3.78
 
-export const getPaperPx = (paper: keyof typeof PAPER, v: "h" | "w") =>
-  ~~(PAPER[paper][v] * MM_TO_PX);
+export const getPaperPx = (paper: keyof typeof PAPER, v: 'h' | 'w') =>
+  ~~(PAPER[paper][v] * MM_TO_PX)

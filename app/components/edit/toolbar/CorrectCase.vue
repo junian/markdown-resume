@@ -3,7 +3,12 @@
     :text="$t('toolbar.correct_case.text')"
     icon="i-icon-park-outline:check-correct"
   >
-    <div bg="c lg:dark-c" p="y-2 x-3" rounded v-html="$t('toolbar.correct_case.desc')" />
+    <div
+      bg="c lg:dark-c"
+      p="y-2 x-3"
+      rounded
+      v-html="$t('toolbar.correct_case.desc')"
+    />
 
     <button
       class="rect-btn mt-3 ml-auto text-white"
@@ -17,18 +22,18 @@
 </template>
 
 <script lang="ts" setup>
-import { correctCase } from "~/libs/correct-case";
+import { correctCase } from '~/libs/correct-case'
 
-const { data } = useDataStore();
-const toast = useToast();
+const { data } = useDataStore()
+const toast = useToast()
 
 const correct = async () => {
-  const md = data.mdContent;
-  const result = await correctCase(md);
+  const md = data.mdContent
+  const result = await correctCase(md)
 
-  setResumeMd(result.text);
+  setResumeMd(result.text)
 
-  const corrected = result.correctedWords ? result.correctedWords.length : true;
-  toast.correct(corrected);
-};
+  const corrected = result.correctedWords ? result.correctedWords.length : true
+  toast.correct(corrected)
+}
 </script>

@@ -6,11 +6,18 @@
       <div class="mb-10">
         <div class="hstack gap-3 mb-3">
           <span class="circle size-10 bg-brand text-white">
-            <span i-mdi:information-outline text-xl />
+            <span
+              i-mdi:information-outline
+              text-xl
+            />
           </span>
-          <h1 class="text-3xl font-bold">About</h1>
+          <h1 class="text-3xl font-bold">
+            About
+          </h1>
         </div>
-        <p class="text-sm text-light-c">Last updated: July 24, 2026</p>
+        <p class="text-sm text-light-c">
+          Last updated: July 24, 2026
+        </p>
       </div>
 
       <div class="about-content">
@@ -81,87 +88,189 @@
             </thead>
             <tbody>
               <tr>
-                <td><a href="https://github.com/Renovamen/oh-my-cv" target="_blank" rel="nofollow noopener noreferrer">ohmycv</a></td>
+                <td>
+                  <a
+                    href="https://github.com/Renovamen/oh-my-cv"
+                    target="_blank"
+                    rel="nofollow noopener noreferrer"
+                  >ohmycv</a>
+                </td>
                 <td>Original project this was forked from</td>
                 <td>MIT License</td>
               </tr>
               <tr>
-                <td><a href="https://nuxt.com" target="_blank" rel="nofollow noopener noreferrer">Nuxt 3</a></td>
+                <td>
+                  <a
+                    href="https://nuxt.com"
+                    target="_blank"
+                    rel="nofollow noopener noreferrer"
+                  >Nuxt 3</a>
+                </td>
                 <td>Web framework</td>
                 <td>MIT License</td>
               </tr>
               <tr>
-                <td><a href="https://github.com/vuejs/vue-next" target="_blank" rel="nofollow noopener noreferrer">Vue 3</a></td>
+                <td>
+                  <a
+                    href="https://github.com/vuejs/vue-next"
+                    target="_blank"
+                    rel="nofollow noopener noreferrer"
+                  >Vue 3</a>
+                </td>
                 <td>UI framework</td>
                 <td>MIT License</td>
               </tr>
               <tr>
-                <td><a href="https://github.com/vitejs/vite" target="_blank" rel="nofollow noopener noreferrer">Vite</a></td>
+                <td>
+                  <a
+                    href="https://github.com/vitejs/vite"
+                    target="_blank"
+                    rel="nofollow noopener noreferrer"
+                  >Vite</a>
+                </td>
                 <td>Build tool</td>
                 <td>MIT License</td>
               </tr>
               <tr>
-                <td><a href="https://zagjs.com/" target="_blank" rel="nofollow noopener noreferrer">Zag</a></td>
+                <td>
+                  <a
+                    href="https://zagjs.com/"
+                    target="_blank"
+                    rel="nofollow noopener noreferrer"
+                  >Zag</a>
+                </td>
                 <td>UI component primitives</td>
                 <td>MIT License</td>
               </tr>
               <tr>
-                <td><a href="https://github.com/antfu/unocss" target="_blank" rel="nofollow noopener noreferrer">UnoCSS</a></td>
+                <td>
+                  <a
+                    href="https://github.com/antfu/unocss"
+                    target="_blank"
+                    rel="nofollow noopener noreferrer"
+                  >UnoCSS</a>
+                </td>
                 <td>Atomic CSS engine</td>
                 <td>MIT License</td>
               </tr>
               <tr>
-                <td><a href="https://github.com/microsoft/monaco-editor" target="_blank" rel="nofollow noopener noreferrer">Monaco Editor</a></td>
+                <td>
+                  <a
+                    href="https://github.com/microsoft/monaco-editor"
+                    target="_blank"
+                    rel="nofollow noopener noreferrer"
+                  >Monaco Editor</a>
+                </td>
                 <td>Code editor</td>
                 <td>MIT License</td>
               </tr>
               <tr>
-                <td><a href="https://github.com/KaTeX/KaTeX" target="_blank" rel="nofollow noopener noreferrer">KaTeX</a></td>
+                <td>
+                  <a
+                    href="https://github.com/KaTeX/KaTeX"
+                    target="_blank"
+                    rel="nofollow noopener noreferrer"
+                  >KaTeX</a>
+                </td>
                 <td>Math rendering</td>
                 <td>MIT License</td>
               </tr>
               <tr>
-                <td><a href="https://pinia.vuejs.org/" target="_blank" rel="nofollow noopener noreferrer">Pinia</a></td>
+                <td>
+                  <a
+                    href="https://pinia.vuejs.org/"
+                    target="_blank"
+                    rel="nofollow noopener noreferrer"
+                  >Pinia</a>
+                </td>
                 <td>State management</td>
                 <td>MIT License</td>
               </tr>
               <tr>
-                <td><a href="https://vueuse.org/" target="_blank" rel="nofollow noopener noreferrer">VueUse</a></td>
+                <td>
+                  <a
+                    href="https://vueuse.org/"
+                    target="_blank"
+                    rel="nofollow noopener noreferrer"
+                  >VueUse</a>
+                </td>
                 <td>Vue composition utilities</td>
                 <td>MIT License</td>
               </tr>
               <tr>
-                <td><a href="https://github.com/eligrey/FileSaver.js" target="_blank" rel="nofollow noopener noreferrer">file-saver</a></td>
+                <td>
+                  <a
+                    href="https://github.com/eligrey/FileSaver.js"
+                    target="_blank"
+                    rel="nofollow noopener noreferrer"
+                  >file-saver</a>
+                </td>
                 <td>File saving</td>
                 <td>MIT License</td>
               </tr>
               <tr>
-                <td><a href="https://github.com/lalalic/html-docx-js" target="_blank" rel="nofollow noopener noreferrer">html-docx-js-typescript</a></td>
+                <td>
+                  <a
+                    href="https://github.com/lalalic/html-docx-js"
+                    target="_blank"
+                    rel="nofollow noopener noreferrer"
+                  >html-docx-js-typescript</a>
+                </td>
                 <td>DOCX export</td>
                 <td>MIT License</td>
               </tr>
               <tr>
-                <td><a href="https://github.com/localForage/localForage" target="_blank" rel="nofollow noopener noreferrer">localforage</a></td>
+                <td>
+                  <a
+                    href="https://github.com/localForage/localForage"
+                    target="_blank"
+                    rel="nofollow noopener noreferrer"
+                  >localforage</a>
+                </td>
                 <td>Offline storage</td>
                 <td>Apache License 2.0</td>
               </tr>
               <tr>
-                <td><a href="https://github.com/markdown-it/markdown-it" target="_blank" rel="nofollow noopener noreferrer">markdown-it</a></td>
+                <td>
+                  <a
+                    href="https://github.com/markdown-it/markdown-it"
+                    target="_blank"
+                    rel="nofollow noopener noreferrer"
+                  >markdown-it</a>
+                </td>
                 <td>Markdown parsing</td>
                 <td>MIT License</td>
               </tr>
               <tr>
-                <td><a href="https://i18n.nuxtjs.org/" target="_blank" rel="nofollow noopener noreferrer">@nuxtjs/i18n</a></td>
+                <td>
+                  <a
+                    href="https://i18n.nuxtjs.org/"
+                    target="_blank"
+                    rel="nofollow noopener noreferrer"
+                  >@nuxtjs/i18n</a>
+                </td>
                 <td>Internationalization</td>
                 <td>MIT License</td>
               </tr>
               <tr>
-                <td><a href="https://color-mode.nuxtjs.org/" target="_blank" rel="nofollow noopener noreferrer">@nuxtjs/color-mode</a></td>
+                <td>
+                  <a
+                    href="https://color-mode.nuxtjs.org/"
+                    target="_blank"
+                    rel="nofollow noopener noreferrer"
+                  >@nuxtjs/color-mode</a>
+                </td>
                 <td>Dark mode support</td>
                 <td>MIT License</td>
               </tr>
               <tr>
-                <td><a href="https://vite-pwa-org.netlify.app/" target="_blank" rel="nofollow noopener noreferrer">@vite-pwa/nuxt</a></td>
+                <td>
+                  <a
+                    href="https://vite-pwa-org.netlify.app/"
+                    target="_blank"
+                    rel="nofollow noopener noreferrer"
+                  >@vite-pwa/nuxt</a>
+                </td>
                 <td>PWA support</td>
                 <td>MIT License</td>
               </tr>
@@ -172,7 +281,11 @@
         <section>
           <h2>Analytics</h2>
           <p>
-            When you use the hosted version at <a href="https://junian.dev/markdown-resume/" target="_blank" rel="nofollow noopener noreferrer">junian.dev/markdown-resume/</a>,
+            When you use the hosted version at <a
+              href="https://junian.dev/markdown-resume/"
+              target="_blank"
+              rel="nofollow noopener noreferrer"
+            >junian.dev/markdown-resume/</a>,
             we use <strong>Google Analytics</strong> and <strong>Cloudflare Web Analytics</strong> to understand aggregate usage patterns.
             These help us improve the application by showing us things like page views and active users.
           </p>
@@ -180,7 +293,11 @@
             <strong>Important:</strong> Your resume content, document settings, and uploaded images are <em>never</em> included
             in analytics events. We only collect pseudonymous technical information to help us make the app better.
             Google Analytics is used in a pseudonymous manner, and no resume content is transmitted to analytics providers.
-            By using the hosted version, you agree to our <a href="./privacy-policy/" target="_blank" rel="nofollow noopener noreferrer">Privacy Policy</a>.
+            By using the hosted version, you agree to our <a
+              href="./privacy-policy/"
+              target="_blank"
+              rel="nofollow noopener noreferrer"
+            >Privacy Policy</a>.
           </p>
         </section>
 
@@ -188,7 +305,11 @@
           <h2>Get in Touch</h2>
           <p>
             Have questions, feedback, or want to contribute? We'd love to hear from you!
-            Visit <a href="https://www.junian.dev/" target="_blank" rel="nofollow noopener noreferrer">Junian.dev</a> or check out the
+            Visit <a
+              href="https://www.junian.dev/"
+              target="_blank"
+              rel="nofollow noopener noreferrer"
+            >Junian.dev</a> or check out the
             repository to get involved.
           </p>
         </section>
@@ -198,7 +319,7 @@
 </template>
 
 <script lang="ts" setup>
-useHead({ title: "About — Markdown Resume" });
+useHead({ title: 'About — Markdown Resume' })
 </script>
 
 <style scoped>

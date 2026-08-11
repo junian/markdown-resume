@@ -9,19 +9,28 @@
         class="cursor-pointer p-1 rounded transition-colors hover:bg-gray-200 dark:hover:bg-[#2a2d2e]"
         :title="$t ? $t('resumes.rename') : 'Rename'"
       >
-        <span i-mdi:pencil text-sm />
+        <span
+          i-mdi:pencil
+          text-sm
+        />
       </button>
     </div>
-    <div v-bind="api.rootProps" class="min-w-0 flex-1 overflow-hidden">
-      <div v-bind="api.areaProps" class="min-w-0 overflow-hidden">
+    <div
+      v-bind="api.rootProps"
+      class="min-w-0 flex-1 overflow-hidden"
+    >
+      <div
+        v-bind="api.areaProps"
+        class="min-w-0 overflow-hidden"
+      >
         <input
           v-show="api.isEditing"
           v-bind="api.inputProps"
           :class="[
             'min-w-0 w-full outline-none px-1 bg-transparent',
-            textAlignClass
+            textAlignClass,
           ]"
-        />
+        >
         <div
           v-show="!api.isEditing"
           v-bind="api.previewProps"
@@ -36,64 +45,68 @@
       class="cursor-pointer p-1 rounded transition-colors hover:bg-gray-200 dark:hover:bg-[#2a2d2e]"
       :title="$t ? $t('resumes.rename') : 'Rename'"
     >
-      <span i-mdi:pencil text-sm />
+      <span
+        i-mdi:pencil
+        text-sm
+      />
     </button>
   </div>
 </template>
 
 <script lang="ts" setup>
-import * as editable from "@zag-js/editable";
-import { normalizeProps, useMachine } from "@zag-js/vue";
+import * as editable from '@zag-js/editable'
+import { normalizeProps, useMachine } from '@zag-js/vue'
 
 const props = withDefaults(
   defineProps<{
-    id: string;
-    default: string;
-    onValueCommit: (text: string) => void;
-    textAlign?: "left" | "center" | "right";
-    iconPosition?: "left" | "right";
+    id: string
+    default: string
+    onValueCommit: (text: string) => void
+    textAlign?: 'left' | 'center' | 'right'
+    iconPosition?: 'left' | 'right'
   }>(),
   {
-    textAlign: "center",
-    iconPosition: "right"
-  }
-);
+    textAlign: 'center',
+    iconPosition: 'right',
+  },
+)
 
 const textAlignClass = computed(() => {
   switch (props.textAlign) {
-    case "left":
-      return "text-left";
-    case "right":
-      return "text-right";
+    case 'left':
+      return 'text-left'
+    case 'right':
+      return 'text-right'
     default:
-      return "text-center";
+      return 'text-center'
   }
-});
+})
 
 const [state, send] = useMachine(
   editable.machine({
     id: props.id,
     selectOnFocus: false,
-    submitMode: "both",
+    submitMode: 'both',
     onValueCommit: (details) => {
-      const newValue = details.value.trim();
+      const newValue = details.value.trim()
       // Only commit if the value is not empty and different from default
       if (newValue && newValue !== props.default) {
-        console.log("Value submitted", newValue);
-        props.onValueCommit(newValue);
-      } else {
-        // Revert to default if empty or unchanged
-        api.value.setValue(props.default);
+        console.log('Value submitted', newValue)
+        props.onValueCommit(newValue)
       }
-    }
-  })
-);
-const api = computed(() => editable.connect(state.value, send, normalizeProps));
+      else {
+        // Revert to default if empty or unchanged
+        api.value.setValue(props.default)
+      }
+    },
+  }),
+)
+const api = computed(() => editable.connect(state.value, send, normalizeProps))
 
-onMounted(() => api.value.setValue(props.default));
+onMounted(() => api.value.setValue(props.default))
 
 watch(
   () => props.default,
-  () => api.value.setValue(props.default)
-);
+  () => api.value.setValue(props.default),
+)
 </script>

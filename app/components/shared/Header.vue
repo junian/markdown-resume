@@ -3,7 +3,7 @@
     class="header text-c"
     :class="{
       'header--collapsed': isCollapsed,
-      'header--mobile-open': isMobileOpen
+      'header--mobile-open': isMobileOpen,
     }"
   >
     <div class="mobile-header">
@@ -14,10 +14,19 @@
         :aria-expanded="isMobileOpen"
         @click="isMobileOpen = !isMobileOpen"
       >
-        <span i-tabler:menu-2 text-xl />
+        <span
+          i-tabler:menu-2
+          text-xl
+        />
       </button>
-      <nuxt-link class="mobile-title" :to="$nuxt.$localePath('/')">
-        <Logo flex-shrink-0 text-base />
+      <nuxt-link
+        class="mobile-title"
+        :to="$nuxt.$localePath('/')"
+      >
+        <Logo
+          flex-shrink-0
+          text-base
+        />
         <BrandName />
       </nuxt-link>
     </div>
@@ -37,7 +46,11 @@
           :to="$nuxt.$localePath('/')"
           :title="isCollapsed ? $t('head.title') : undefined"
         >
-          <Logo class="flex-shrink-0" text="base" v-show="!isCollapsed" />
+          <Logo
+            v-show="!isCollapsed"
+            class="flex-shrink-0"
+            text="base"
+          />
           <div class="brand-title sidebar-label"><BrandName /></div>
         </nuxt-link>
 
@@ -59,11 +72,18 @@
         </button>
       </div>
 
-      <div v-if="$slots.middle" class="sidebar-context">
+      <div
+        v-if="$slots.middle"
+        class="sidebar-context"
+      >
         <slot name="middle" />
       </div>
 
-      <nav class="sidebar-nav" aria-label="Main navigation" @click="isMobileOpen = false">
+      <nav
+        class="sidebar-nav"
+        aria-label="Main navigation"
+        @click="isMobileOpen = false"
+      >
         <NavItem
           :link="$nuxt.$localePath('/')"
           :label="$t('nav.home')"
@@ -88,7 +108,10 @@
             :to="$nuxt.$localePath('/about')"
             :title="isCollapsed ? $t('nav.about') : undefined"
           >
-            <span i-ic:outline-info text-lg />
+            <span
+              i-ic:outline-info
+              text-lg
+            />
             <span class="sidebar-label">{{ $t("nav.about") }}</span>
           </nuxt-link>
           <nuxt-link
@@ -96,13 +119,18 @@
             :to="$nuxt.$localePath('/privacy')"
             :title="isCollapsed ? $t('nav.privacy') : undefined"
           >
-            <span i-mdi:shield-lock-outline text-lg />
+            <span
+              i-mdi:shield-lock-outline
+              text-lg
+            />
             <span class="sidebar-label">{{ $t("nav.privacy") }}</span>
           </nuxt-link>
         </div>
 
         <div class="sidebar-link-group">
-          <div class="sidebar-section-label sidebar-label">{{ $t("nav.links") }}</div>
+          <div class="sidebar-section-label sidebar-label">
+            {{ $t("nav.links") }}
+          </div>
           <a
             class="sidebar-item coffee-link"
             href="https://www.junian.dev/coffee/"
@@ -120,7 +148,10 @@
             rel="nofollow noopener"
             title="GitHub"
           >
-            <span i-tabler:brand-github text-lg />
+            <span
+              i-tabler:brand-github
+              text-lg
+            />
             <span class="sidebar-label">GitHub</span>
           </a>
           <a
@@ -130,7 +161,10 @@
             rel="dofollow"
             title="Junian.dev"
           >
-            <span i-tabler:world text-lg />
+            <span
+              i-tabler:world
+              text-lg
+            />
             <span class="sidebar-label">Junian.dev</span>
           </a>
         </div>
@@ -150,30 +184,30 @@
 <script lang="ts" setup>
 const props = withDefaults(
   defineProps<{
-    defaultCollapsed?: boolean;
+    defaultCollapsed?: boolean
   }>(),
   {
-    defaultCollapsed: false
-  }
-);
+    defaultCollapsed: false,
+  },
+)
 
-const isCollapsed = ref(props.defaultCollapsed);
-const isMobileOpen = ref(false);
+const isCollapsed = ref(props.defaultCollapsed)
+const isMobileOpen = ref(false)
 
 const toggleSidebar = () => {
-  isCollapsed.value = !isCollapsed.value;
-  localStorage.setItem("navigation-collapsed", String(isCollapsed.value));
-};
+  isCollapsed.value = !isCollapsed.value
+  localStorage.setItem('navigation-collapsed', String(isCollapsed.value))
+}
 
 onMounted(() => {
   if (props.defaultCollapsed) {
-    isCollapsed.value = true;
-    return;
+    isCollapsed.value = true
+    return
   }
 
-  const savedState = localStorage.getItem("navigation-collapsed");
-  isCollapsed.value = savedState ? savedState === "true" : window.innerWidth < 769;
-});
+  const savedState = localStorage.getItem('navigation-collapsed')
+  isCollapsed.value = savedState ? savedState === 'true' : window.innerWidth < 769
+})
 </script>
 
 <style scoped>

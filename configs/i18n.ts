@@ -1,38 +1,38 @@
-import type { NuxtI18nOptions } from "@nuxtjs/i18n";
-import { siteConfig } from "./siteConfig";
+import type { NuxtI18nOptions } from '@nuxtjs/i18n'
+import { siteConfig } from './siteConfig'
 
 export const i18n: NuxtI18nOptions = {
   baseUrl: siteConfig.url,
-  defaultLocale: "en",
-  strategy: "prefix_and_default",
+  defaultLocale: 'en',
+  strategy: 'prefix_and_default',
   locales: [
     {
-      code: "en",
-      name: "English",
-      icon: "i-icon-park-outline:english",
-      file: "en.yaml"
+      code: 'en',
+      name: 'English',
+      icon: 'i-icon-park-outline:english',
+      file: 'en.yaml',
     },
     {
-      code: "id",
-      name: "Bahasa Indonesia",
-      icon: "i-circle-flags:id",
-      file: "id.yaml"
+      code: 'id',
+      name: 'Bahasa Indonesia',
+      icon: 'i-circle-flags:id',
+      file: 'id.yaml',
     },
     {
-      code: "sp",
-      name: "Spanish",
-      icon: "i-material-symbols:language-spanish",
-      file: "sp.yaml"
+      code: 'sp',
+      name: 'Spanish',
+      icon: 'i-material-symbols:language-spanish',
+      file: 'sp.yaml',
     },
     {
-      code: "zh-cn",
-      name: "简体中文",
-      icon: "i-icon-park-outline:chinese",
-      file: "zh-cn.yaml"
-    }
+      code: 'zh-cn',
+      name: '简体中文',
+      icon: 'i-icon-park-outline:chinese',
+      file: 'zh-cn.yaml',
+    },
   ],
-  langDir: "../app/i18n",
+  langDir: '../app/i18n',
   compilation: {
-    strictMessage: false
-  }
-};
+    strictMessage: false,
+  },
+}

@@ -1,107 +1,109 @@
-import * as toast from "@zag-js/toast";
+import type * as toast from '@zag-js/toast'
 
 export const useToast = () => {
-  const nuxtApp = useNuxtApp();
-  const $toast = computed(() => (nuxtApp.$toast as ComputedRef<toast.GroupApi>).value);
+  const nuxtApp = useNuxtApp()
+  const $toast = computed(() => (nuxtApp.$toast as ComputedRef<toast.GroupApi>).value)
 
   const save = () => {
     $toast.value.create({
-      description: nuxtApp.$i18n.t("notification.save"),
-      type: "success"
-    });
-  };
+      description: nuxtApp.$i18n.t('notification.save'),
+      type: 'success',
+    })
+  }
 
   const switchResume = (msg: string) => {
     $toast.value.create({
-      description: nuxtApp.$i18n.t("notification.switch", { msg }),
-      type: "info"
-    });
-  };
+      description: nuxtApp.$i18n.t('notification.switch', { msg }),
+      type: 'info',
+    })
+  }
 
   const deleteResume = (msg: string) => {
     $toast.value.create({
-      description: nuxtApp.$i18n.t("notification.delete", { msg }),
-      type: "error"
-    });
-  };
+      description: nuxtApp.$i18n.t('notification.delete', { msg }),
+      type: 'error',
+    })
+  }
 
   const newResume = () => {
     $toast.value.create({
-      description: nuxtApp.$i18n.t("notification.new"),
-      type: "success"
-    });
-  };
+      description: nuxtApp.$i18n.t('notification.new'),
+      type: 'success',
+    })
+  }
 
   const duplicate = (msg: string) => {
     $toast.value.create({
-      description: nuxtApp.$i18n.t("notification.duplicate", {
+      description: nuxtApp.$i18n.t('notification.duplicate', {
         old: msg,
-        new: msg + " Copy"
+        new: msg + ' Copy',
       }),
-      type: "success"
-    });
-  };
+      type: 'success',
+    })
+  }
 
   const correct = (msg: true | number) => {
     if (msg === true) {
       $toast.value.create({
-        description: nuxtApp.$i18n.t("notification.correct.no"),
-        type: "info"
-      });
-    } else {
-      $toast.value.create({
-        description: nuxtApp.$i18n.t("notification.correct.yes", { num: msg }),
-        type: "success"
-      });
+        description: nuxtApp.$i18n.t('notification.correct.no'),
+        type: 'info',
+      })
     }
-  };
+    else {
+      $toast.value.create({
+        description: nuxtApp.$i18n.t('notification.correct.yes', { num: msg }),
+        type: 'success',
+      })
+    }
+  }
 
   const migrateIconify = (count: number) => {
     $toast.value.create({
       description: nuxtApp.$i18n.t(
         count > 0
-          ? "notification.iconify_migration.yes"
-          : "notification.iconify_migration.no",
-        { count }
+          ? 'notification.iconify_migration.yes'
+          : 'notification.iconify_migration.no',
+        { count },
       ),
-      type: count > 0 ? "success" : "info"
-    });
-  };
+      type: count > 0 ? 'success' : 'info',
+    })
+  }
 
   const importResume = (msg: boolean) => {
     if (msg) {
       $toast.value.create({
-        description: nuxtApp.$i18n.t("notification.import.yes"),
-        type: "success"
-      });
-    } else {
-      $toast.value.create({
-        description: nuxtApp.$i18n.t("notification.import.no"),
-        type: "error"
-      });
+        description: nuxtApp.$i18n.t('notification.import.yes'),
+        type: 'success',
+      })
     }
-  };
+    else {
+      $toast.value.create({
+        description: nuxtApp.$i18n.t('notification.import.no'),
+        type: 'error',
+      })
+    }
+  }
 
   const uploadImage = (msg: string) => {
     $toast.value.create({
-      description: nuxtApp.$i18n.t("images.uploaded", { msg }),
-      type: "success"
-    });
-  };
+      description: nuxtApp.$i18n.t('images.uploaded', { msg }),
+      type: 'success',
+    })
+  }
 
   const deleteImage = (msg: string) => {
     $toast.value.create({
-      description: nuxtApp.$i18n.t("images.deleted", { msg }),
-      type: "error"
-    });
-  };
+      description: nuxtApp.$i18n.t('images.deleted', { msg }),
+      type: 'error',
+    })
+  }
 
   const copyImageUrl = () => {
     $toast.value.create({
-      description: nuxtApp.$i18n.t("images.copied"),
-      type: "success"
-    });
-  };
+      description: nuxtApp.$i18n.t('images.copied'),
+      type: 'success',
+    })
+  }
 
   return {
     save,
@@ -114,6 +116,6 @@ export const useToast = () => {
     import: importResume,
     uploadImage,
     deleteImage,
-    copyImageUrl
-  };
-};
+    copyImageUrl,
+  }
+}

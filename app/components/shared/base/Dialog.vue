@@ -1,6 +1,8 @@
 <template>
   <div v-bind="api.triggerProps">
-    <slot name="button">Open dialog</slot>
+    <slot name="button">
+      Open dialog
+    </slot>
   </div>
 
   <Teleport to="body">
@@ -13,10 +15,22 @@
           :class="boxClass"
           border="1 gray-400 dark:neutral-700 rounded-md"
         >
-          <div hstack justify-between pl-4 pr-3 py-2.5>
-            <div hstack text-sm>
+          <div
+            hstack
+            justify-between
+            pl-4
+            pr-3
+            py-2.5
+          >
+            <div
+              hstack
+              text-sm
+            >
               <span :class="icon" />
-              <span mx-2 text-light-c>/</span>
+              <span
+                mx-2
+                text-light-c
+              >/</span>
               <span v-bind="api.titleProps">{{ title }}</span>
             </div>
 
@@ -36,16 +50,16 @@
 </template>
 
 <script lang="ts" setup>
-import * as dialog from "@zag-js/dialog";
-import { normalizeProps, useMachine } from "@zag-js/vue";
+import * as dialog from '@zag-js/dialog'
+import { normalizeProps, useMachine } from '@zag-js/vue'
 
 const props = defineProps<{
-  id: string;
-  title: string;
-  icon: string;
-  boxClass?: string;
-}>();
+  id: string
+  title: string
+  icon: string
+  boxClass?: string
+}>()
 
-const [state, send] = useMachine(dialog.machine({ id: props.id }));
-const api = computed(() => dialog.connect(state.value, send, normalizeProps));
+const [state, send] = useMachine(dialog.machine({ id: props.id }))
+const api = computed(() => dialog.connect(state.value, send, normalizeProps))
 </script>

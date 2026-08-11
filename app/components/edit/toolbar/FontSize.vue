@@ -1,5 +1,8 @@
 <template>
-  <ToolItem :text="$t('toolbar.font_size')" icon="i-ri:font-size-2">
+  <ToolItem
+    :text="$t('toolbar.font_size')"
+    icon="i-ri:font-size-2"
+  >
     <Slider
       id="font-size"
       unit="px"
@@ -12,7 +15,7 @@
 </template>
 
 <script lang="ts" setup>
-const { styles, setStyle } = useStyleStore();
+const { styles, setStyle } = useStyleStore()
 
-const setFontSize = (value: number) => setStyle("fontSize", value);
+const setFontSize = (value: number) => setStyle('fontSize', value)
 </script>

@@ -1,1 +1,3 @@
-<template><span text-brand>Markdown</span> Resume</template>
+<template>
+  <span text-brand>Markdown</span> Resume
+</template>

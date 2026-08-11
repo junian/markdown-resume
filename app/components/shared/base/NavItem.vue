@@ -4,7 +4,11 @@
     :to="link"
     :title="label"
   >
-    <span v-if="icon" :class="icon" md:text-lg />
+    <span
+      v-if="icon"
+      :class="icon"
+      md:text-lg
+    />
     <span class="sidebar-label truncate max-w-xs">
       {{ label }}
     </span>
@@ -13,10 +17,10 @@
 
 <script lang="ts" setup>
 defineProps<{
-  label: string;
-  link: string;
-  icon?: string;
-}>();
+  label: string
+  link: string
+  icon?: string
+}>()
 </script>
 
 <style scoped>

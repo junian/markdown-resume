@@ -1,7 +1,17 @@
 <template>
-  <ToolItem :text="$t('toolbar.margin')" icon="i-radix-icons:margin">
-    <div mb-4 text-light-c>
-      <div hstack space-x-1 justify-end>
+  <ToolItem
+    :text="$t('toolbar.margin')"
+    icon="i-radix-icons:margin"
+  >
+    <div
+      mb-4
+      text-light-c
+    >
+      <div
+        hstack
+        space-x-1
+        justify-end
+      >
         <span i-icon-park-outline:margin-one />
         <span>{{ $t("toolbar.vertical") }}</span>
       </div>
@@ -15,7 +25,11 @@
     </div>
 
     <div text-light-c>
-      <div hstack space-x-1 justify-end>
+      <div
+        hstack
+        space-x-1
+        justify-end
+      >
         <span i-icon-park-outline:margin />
         <span>{{ $t("toolbar.horizontal") }}</span>
       </div>
@@ -31,8 +45,8 @@
 </template>
 
 <script lang="ts" setup>
-const { styles, setStyle } = useStyleStore();
+const { styles, setStyle } = useStyleStore()
 
-const setMarginV = (value: number) => setStyle("marginV", value);
-const setMarginH = (value: number) => setStyle("marginH", value);
+const setMarginV = (value: number) => setStyle('marginV', value)
+const setMarginH = (value: number) => setStyle('marginH', value)
 </script>

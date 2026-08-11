@@ -9,11 +9,18 @@
       >
         <div class="hstack gap-3">
           <span class="circle size-10 flex-shrink-0 bg-brand text-white">
-            <span i-ic:outline-photo-library text-xl />
+            <span
+              i-ic:outline-photo-library
+              text-xl
+            />
           </span>
           <div>
-            <h1 class="text-3xl font-bold">{{ $t("images.my_images") }}</h1>
-            <p class="mt-1 text-sm text-light-c">{{ $t("images.description") }}</p>
+            <h1 class="text-3xl font-bold">
+              {{ $t("images.my_images") }}
+            </h1>
+            <p class="mt-1 text-sm text-light-c">
+              {{ $t("images.description") }}
+            </p>
           </div>
         </div>
 
@@ -37,19 +44,28 @@
             :aria-label="$t('images.upload')"
             @click="showUpload = !showUpload"
           >
-            <span i-ic:round-upload-file text-lg />
+            <span
+              i-ic:round-upload-file
+              text-lg
+            />
             <span>{{ $t("images.upload") }}</span>
           </button>
         </div>
       </div>
 
       <!-- Inline upload dropzone (collapsible) -->
-      <div v-if="showUpload" class="mt-4">
+      <div
+        v-if="showUpload"
+        class="mt-4"
+      >
         <ImageUpload @uploaded="onUploaded" />
       </div>
 
       <!-- Gallery grid -->
-      <div v-if="list && list.length > 0" class="flex flex-wrap gap-x-6 gap-y-8 mt-8">
+      <div
+        v-if="list && list.length > 0"
+        class="flex flex-wrap gap-x-6 gap-y-8 mt-8"
+      >
         <ImageItem
           v-for="image in list"
           :key="image.id"
@@ -63,33 +79,38 @@
         v-else-if="list && list.length === 0"
         class="mt-16 flex-center flex-col gap-3 text-lighter-c"
       >
-        <span i-ic:outline-photo-library text-5xl />
-        <p text-sm>{{ $t("images.empty") }}</p>
+        <span
+          i-ic:outline-photo-library
+          text-5xl
+        />
+        <p text-sm>
+          {{ $t("images.empty") }}
+        </p>
       </div>
     </main>
   </div>
 </template>
 
 <script lang="ts" setup>
-import type { ImageListItem } from "~/types";
+import type { ImageListItem } from '~/types'
 
-const list = ref<ImageListItem[]>();
-const sortAsc = ref(false);
-const showUpload = ref(false);
+const list = ref<ImageListItem[]>()
+const sortAsc = ref(false)
+const showUpload = ref(false)
 
 const loadImages = async () => {
-  list.value = await getImageList(sortAsc.value);
-};
+  list.value = await getImageList(sortAsc.value)
+}
 
 const toggleSort = async () => {
-  sortAsc.value = !sortAsc.value;
-  await loadImages();
-};
+  sortAsc.value = !sortAsc.value
+  await loadImages()
+}
 
 const onUploaded = async () => {
-  await loadImages();
-  showUpload.value = false;
-};
+  await loadImages()
+  showUpload.value = false
+}
 
-onMounted(loadImages);
+onMounted(loadImages)
 </script>

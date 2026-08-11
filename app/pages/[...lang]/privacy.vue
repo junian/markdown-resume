@@ -6,11 +6,18 @@
       <div class="mb-10">
         <div class="hstack gap-3 mb-3">
           <span class="circle size-10 bg-brand text-white">
-            <span i-mdi:shield-lock-outline text-xl />
+            <span
+              i-mdi:shield-lock-outline
+              text-xl
+            />
           </span>
-          <h1 class="text-3xl font-bold">Privacy Policy</h1>
+          <h1 class="text-3xl font-bold">
+            Privacy Policy
+          </h1>
         </div>
-        <p class="text-sm text-light-c">Last updated: July 21, 2026</p>
+        <p class="text-sm text-light-c">
+          Last updated: July 21, 2026
+        </p>
       </div>
 
       <div class="privacy-content">
@@ -40,7 +47,7 @@
           <h2>Analytics</h2>
           <p>
             When you use the hosted website, we use <strong>Cloudflare Web
-            Analytics</strong> and <strong>Google Analytics</strong> to understand
+              Analytics</strong> and <strong>Google Analytics</strong> to understand
             aggregate usage, including metrics such as page views, active users,
             device or browser categories, and general interaction patterns. These
             measurements help us understand how the application is used and improve it.
@@ -76,7 +83,11 @@
           <h2>Contact</h2>
           <p>
             For questions about this privacy policy, visit
-            <a href="https://www.junian.dev/" target="_blank" rel="noopener">Junian.dev</a>.
+            <a
+              href="https://www.junian.dev/"
+              target="_blank"
+              rel="noopener"
+            >Junian.dev</a>.
           </p>
         </section>
       </div>
@@ -85,7 +96,7 @@
 </template>
 
 <script lang="ts" setup>
-useHead({ title: "Privacy Policy — Markdown Resume" });
+useHead({ title: 'Privacy Policy — Markdown Resume' })
 </script>
 
 <style scoped>

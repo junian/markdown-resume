@@ -1,6 +1,9 @@
 <template>
   <div class="pane-container">
-    <Zoom ref="zoom" :scale="scale">
+    <Zoom
+      ref="zoom"
+      :scale="scale"
+    >
       <ResumeRender
         id="preview"
         :markdown="data.mdContent"
@@ -29,25 +32,25 @@
 </template>
 
 <script lang="ts" setup>
-import { debounce } from "ts-debounce";
-import Zoom from "~/libs/vue-zoom";
+import { debounce } from 'ts-debounce'
+import Zoom from '~/libs/vue-zoom'
 
-const scale = ref(1);
-const zoom = ref<InstanceType<typeof Zoom>>();
+const scale = ref(1)
+const zoom = ref<InstanceType<typeof Zoom>>()
 
-const { width, height } = useElementSize(zoom);
-const { styles } = useStyleStore();
-const { data } = useDataStore();
+const { width, height } = useElementSize(zoom)
+const { styles } = useStyleStore()
+const { data } = useDataStore()
 
 const fitWidth = () => {
-  scale.value = width.value / getPaperPx(styles.paper, "w");
-};
+  scale.value = width.value / getPaperPx(styles.paper, 'w')
+}
 
 const fitHeight = () => {
-  scale.value = height.value / getPaperPx(styles.paper, "h");
-};
+  scale.value = height.value / getPaperPx(styles.paper, 'h')
+}
 
-watch(width, () => debounce(fitWidth, 100)());
+watch(width, () => debounce(fitWidth, 100)())
 </script>
 
 <style scoped>

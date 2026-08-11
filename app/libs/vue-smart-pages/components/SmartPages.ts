@@ -1,74 +1,74 @@
-import { defineComponent, h, onMounted, watch } from "vue";
-import type { VNode } from "vue";
-import { debounce } from "ts-debounce";
-import { injectCSS } from "../../dynamic-css";
-import { breakPage } from "../utils";
+import { defineComponent, h, onMounted, watch } from 'vue'
+import type { VNode } from 'vue'
+import { debounce } from 'ts-debounce'
+import { injectCSS } from '../../dynamic-css'
+import { breakPage } from '../utils'
 
 export default defineComponent({
-  name: "SmartPages",
+  name: 'SmartPages',
 
   props: {
     id: {
       type: String,
-      required: true
+      required: true,
     },
     content: {
       type: String,
       required: false,
-      default: ""
+      default: '',
     },
     height: {
       type: Number,
-      required: true
+      required: true,
     },
     width: {
       type: Number,
-      required: true
+      required: true,
     },
     top: {
       type: Number,
       required: false,
-      default: 0
+      default: 0,
     },
     bottom: {
       type: Number,
       required: false,
-      default: 0
+      default: 0,
     },
     left: {
       type: Number,
       required: false,
-      default: 0
+      default: 0,
     },
     right: {
       type: Number,
       required: false,
-      default: 0
+      default: 0,
     },
     watch: {
       type: Array,
       required: false,
-      default: () => []
+      default: () => [],
     },
     watchDelay: {
       type: Array,
       required: false,
-      default: () => []
+      default: () => [],
     },
     beforeBreakPage: {
       type: Function,
       required: false,
-      default: () => undefined
+      default: () => undefined,
     },
     afterBreakPage: {
       type: Function,
       required: false,
-      default: () => undefined
-    }
+      default: () => undefined,
+    },
   },
 
   setup(props, { expose }) {
-    const id = `vue-smart-pages-${props.id}`;
+    const id = `vue-smart-pages-${props.id}`
 
     const updateCSS = () =>
       injectCSS(
@@ -76,31 +76,31 @@ export default defineComponent({
           padding: ${props.top}px ${props.right}px ${props.bottom}px ${props.left}px;
           width: ${props.width}mm;
         }`,
-        id
-      );
+        id,
+      )
 
     const resolvePages = (delay?: number) => {
-      updateCSS();
+      updateCSS()
 
       const resolveBreak = () => {
-        breakPage(id, props.height, props.top, props.bottom, props.left, props.right);
-        if (props.afterBreakPage) props.afterBreakPage();
-      };
+        breakPage(id, props.height, props.top, props.bottom, props.left, props.right)
+        if (props.afterBreakPage) props.afterBreakPage()
+      }
 
       if (props.beforeBreakPage) {
         // Resolve page break after beforeBreakPage() being excuted
-        const fn = props.beforeBreakPage();
+        const fn = props.beforeBreakPage()
 
-        if (fn && typeof fn.then === "function") {
-          if (delay) fn.then(() => setTimeout(resolveBreak, delay));
-          else fn.then(resolveBreak);
-          return;
+        if (fn && typeof fn.then === 'function') {
+          if (delay) fn.then(() => setTimeout(resolveBreak, delay))
+          else fn.then(resolveBreak)
+          return
         }
       }
 
-      if (delay) setTimeout(resolveBreak, delay);
-      else resolveBreak();
-    };
+      if (delay) setTimeout(resolveBreak, delay)
+      else resolveBreak()
+    }
 
     onMounted(() => {
       // Update styles
@@ -113,34 +113,34 @@ export default defineComponent({
           props.width,
           props.content,
           props.height,
-          ...props.watch
+          ...props.watch,
         ],
-        () => debounce(resolvePages, 200)()
-      );
+        () => debounce(resolvePages, 200)(),
+      )
 
       // Font update or something
       watch(
         () => props.watchDelay,
-        () => debounce(() => resolvePages(100), 200)()
-      );
+        () => debounce(() => resolvePages(100), 200)(),
+      )
 
       // Initialize styles
-      updateCSS();
-    });
+      updateCSS()
+    })
 
     expose({
-      resolvePages
-    });
+      resolvePages,
+    })
 
     return (): VNode =>
-      h("div", {
-        class: "vue-smart-pages",
+      h('div', {
+        class: 'vue-smart-pages',
         id: id,
         style: {
-          backgroundColor: "white",
-          minHeight: `${props.height}px`
+          backgroundColor: 'white',
+          minHeight: `${props.height}px`,
         },
-        innerHTML: props.content
-      });
-  }
-});
+        innerHTML: props.content,
+      })
+  },
+})

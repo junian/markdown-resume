@@ -1,31 +1,31 @@
-import * as localForage from "localforage";
-import { isClient } from "~/libs/utils";
-import type { ImageStorage, ImageStorageItem, ImageListItem } from "~/types";
+import * as localForage from 'localforage'
+import { isClient } from '~/libs/utils'
+import type { ImageStorage, ImageStorageItem, ImageListItem } from '~/types'
 
-const IMAGE_GALLERY_KEY = "MARKDOWN_RESUME_images";
+const IMAGE_GALLERY_KEY = 'MARKDOWN_RESUME_images'
 
-export const clearImageStorage = () => localForage.removeItem(IMAGE_GALLERY_KEY);
+export const clearImageStorage = () => localForage.removeItem(IMAGE_GALLERY_KEY)
 
-const IMAGE_URL_BASE = "./images/";
+const IMAGE_URL_BASE = './images/'
 
 /** Stable URL served by the image Service Worker */
-export const getImageUrl = (id: string) => `${IMAGE_URL_BASE}${id}`;
+export const getImageUrl = (id: string) => `${IMAGE_URL_BASE}${id}`
 
 export const getImageStorage = async () =>
-  isClient ? localForage.getItem<ImageStorage>(IMAGE_GALLERY_KEY) : null;
+  isClient ? localForage.getItem<ImageStorage>(IMAGE_GALLERY_KEY) : null
 
 export const getImageList = async (sortAsc = false) => {
-  const storage = (await getImageStorage()) || {};
-  const list = Object.keys(storage).map((id) => ({
+  const storage = (await getImageStorage()) || {}
+  const list = Object.keys(storage).map(id => ({
     id,
-    ...storage[id]!
-  }));
+    ...storage[id]!,
+  }))
 
   return list.sort((a, b) => {
-    const cmp = a.createdAt.localeCompare(b.createdAt);
-    return sortAsc ? cmp : -cmp;
-  });
-};
+    const cmp = a.createdAt.localeCompare(b.createdAt)
+    return sortAsc ? cmp : -cmp
+  })
+}
 
 /**
  * Save an image Blob to IndexedDB.
@@ -40,24 +40,24 @@ export const saveImage = async (
   name: string,
   blob: Blob,
   mimeType: string,
-  size: number
+  size: number,
 ): Promise<ImageListItem> => {
-  const storage = (await getImageStorage()) || {};
+  const storage = (await getImageStorage()) || {}
 
-  const id = `${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+  const id = `${Date.now()}_${Math.random().toString(36).slice(2, 8)}`
   const item: ImageStorageItem = {
     name,
     blob,
     mimeType,
     size,
-    createdAt: new Date().toISOString()
-  };
+    createdAt: new Date().toISOString(),
+  }
 
-  storage[id] = item;
-  await localForage.setItem(IMAGE_GALLERY_KEY, storage);
+  storage[id] = item
+  await localForage.setItem(IMAGE_GALLERY_KEY, storage)
 
-  return { id, ...item };
-};
+  return { id, ...item }
+}
 
 /**
  * Replace all ./images/<id> src references in an HTML string
@@ -66,34 +66,34 @@ export const saveImage = async (
  * Call this before exporting to HTML or DOCX so the output is self-contained.
  */
 export const inlineImagesInHtml = async (html: string): Promise<string> => {
-  const storage = (await getImageStorage()) || {};
+  const storage = (await getImageStorage()) || {}
 
   // Match both quoted src attributes and markdown-rendered img tags
-  const pattern = /\.\/images\/([\w-]+)/g;
+  const pattern = /\.\/images\/([\w-]+)/g
 
-  const matches = [...new Set([...html.matchAll(pattern)].map((m) => m[1]!))];
-  if (matches.length === 0) return html;
+  const matches = [...new Set([...html.matchAll(pattern)].map(m => m[1]!))]
+  if (matches.length === 0) return html
 
   // Build id → data URL map (only for ids that exist in storage)
-  const replacements: Record<string, string> = {};
+  const replacements: Record<string, string> = {}
   await Promise.all(
     matches.map(async (id) => {
-      const item = storage[id];
-      if (!item) return;
-      replacements[id] = await blobToDataUrl(item.blob);
-    })
-  );
+      const item = storage[id]
+      if (!item) return
+      replacements[id] = await blobToDataUrl(item.blob)
+    }),
+  )
 
-  return html.replace(pattern, (match, id) => replacements[id] ?? match);
-};
+  return html.replace(pattern, (match, id) => replacements[id] ?? match)
+}
 
 const blobToDataUrl = (blob: Blob): Promise<string> =>
   new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onloadend = () => resolve(reader.result as string);
-    reader.onerror = reject;
-    reader.readAsDataURL(blob);
-  });
+    const reader = new FileReader()
+    reader.onloadend = () => resolve(reader.result as string)
+    reader.onerror = reject
+    reader.readAsDataURL(blob)
+  })
 
 /**
  * Delete an image from IndexedDB by id.
@@ -102,14 +102,14 @@ const blobToDataUrl = (blob: Blob): Promise<string> =>
  * @returns the name of the deleted image, or null if not found
  */
 export const deleteImage = async (id: string): Promise<string | null> => {
-  const storage = await getImageStorage();
+  const storage = await getImageStorage()
 
   if (storage && storage[id]) {
-    const { name } = storage[id];
-    delete storage[id];
-    await localForage.setItem(IMAGE_GALLERY_KEY, storage);
-    return name;
+    const { name } = storage[id]
+    delete storage[id]
+    await localForage.setItem(IMAGE_GALLERY_KEY, storage)
+    return name
   }
 
-  return null;
-};
+  return null
+}
