@@ -14,7 +14,8 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
     "@vite-pwa/nuxt",
     "@nuxtjs/sitemap",
-    "@nuxt/scripts"
+    "@nuxt/scripts",
+    "@nuxt/eslint"
   ],
 
   css: [
@@ -106,6 +107,12 @@ export default defineNuxtConfig({
   scripts: {
     registry: {
       googleAnalytics: { trigger: 'onNuxtReady' },
+    }
+  },
+
+  eslint: {
+    config: {
+      stylistic: true // <---
     }
   },
 
