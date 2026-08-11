@@ -18,7 +18,7 @@ export const uploadFile = (callback: (content: string) => void, accept?: string)
     )
       return;
 
-    const file: File = (e.target as HTMLInputElement).files![0];
+    const file: File = (e.target as HTMLInputElement).files![0]!;
     let fileReader: FileReader | null = null;
 
     const handleFileRead = () => {

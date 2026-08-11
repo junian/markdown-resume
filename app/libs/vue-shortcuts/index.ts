@@ -33,6 +33,7 @@ export const useShortcuts = (keys: string, cb: () => void) => {
   });
 
   const shortcuts = magic[newKeys];
+  if (!shortcuts) return;
   const { current } = magic;
 
   watch(shortcuts, (v) => {

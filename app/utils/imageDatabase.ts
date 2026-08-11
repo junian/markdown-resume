@@ -18,7 +18,7 @@ export const getImageList = async (sortAsc = false) => {
   const storage = (await getImageStorage()) || {};
   const list = Object.keys(storage).map((id) => ({
     id,
-    ...storage[id]
+    ...storage[id]!
   }));
 
   return list.sort((a, b) => {
@@ -71,7 +71,7 @@ export const inlineImagesInHtml = async (html: string): Promise<string> => {
   // Match both quoted src attributes and markdown-rendered img tags
   const pattern = /\.\/images\/([\w-]+)/g;
 
-  const matches = [...new Set([...html.matchAll(pattern)].map((m) => m[1]))];
+  const matches = [...new Set([...html.matchAll(pattern)].map((m) => m[1]!))];
   if (matches.length === 0) return html;
 
   // Build id → data URL map (only for ids that exist in storage)

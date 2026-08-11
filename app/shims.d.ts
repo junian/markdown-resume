@@ -2,10 +2,12 @@
 
 import type { AttributifyAttributes } from "@unocss/preset-attributify";
 
-declare interface Window {
-  // extend the window
-  monaco: typeof m | undefined;
-  MonacoEnvironment: Environment;
+declare global {
+  interface Window {
+    // extend the window
+    monaco: typeof import("monaco-editor") | undefined;
+    MonacoEnvironment: import("monaco-editor").Environment;
+  }
 }
 
 declare module "*.vue" {

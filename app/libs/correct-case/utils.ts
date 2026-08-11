@@ -42,7 +42,7 @@ export const replace = (
   const ignore = _ignore.slice();
 
   Array.from(text.matchAll(IGNORE_REGEX)).forEach((match) => {
-    const [, key] = match;
+    const key = match[1]!;
     ignore.push(
       ...key
         .split(",")
