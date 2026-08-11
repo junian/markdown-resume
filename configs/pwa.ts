@@ -46,7 +46,7 @@ export const pwa: ModuleOptions = {
     importScripts: ["sw-images.js"],
     // Use Nuxt's route-neutral SPA shell instead of the Home document when a
     // static host needs the service worker to resolve a deep link.
-    navigateFallback: `${scope}200`,
+    navigateFallback: `${scope}`,
     globPatterns: ["**/*.{js,css,html,otf,ttf,woff2,png,svg}"],
     maximumFileSizeToCacheInBytes: 16000000,
     cleanupOutdatedCaches: true,
