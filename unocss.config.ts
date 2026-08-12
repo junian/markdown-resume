@@ -42,6 +42,8 @@ export default defineConfig({
     ],
     ['zoom-bar-button', 'flex-center size-10 text-lg hover:bg-blue-600'],
     ['action-btn', 'circle size-8 text-white bg-gray-500/80 hover:bg-gray-500'],
+    ['tools-pane-header', 'hstack flex-none min-w-0 w-full gap-1 min-h-12 px-2 overflow-hidden bg-c border-b border-c text-c'],
+    ['collapsed-tools', 'flex flex-col items-center gap-2 py-2'],
     // settings.vue
     ['settings-card', 'rounded-xl border border-c bg-c p-5 shadow-sm'],
     ['settings-card--menu-open', 'relative z-20'],

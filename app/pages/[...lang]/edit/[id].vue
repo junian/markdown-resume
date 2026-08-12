@@ -157,11 +157,4 @@ const exportActions = computed(() => [
   @apply w-10 h-1;
 }
 
-.tools-pane-header {
-  @apply hstack flex-none min-w-0 w-full gap-1 min-h-12 px-2 overflow-hidden bg-c border-b border-c text-c;
-}
-
-.collapsed-tools {
-  @apply flex flex-col items-center gap-2 py-2;
-}
 </style>
