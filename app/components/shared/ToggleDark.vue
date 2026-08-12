@@ -4,15 +4,15 @@
     :title="$t('toggle_dark')"
     @click="$colorMode.preference = $colorMode.preference === 'dark' ? 'light' : 'dark'"
   >
-    <span
+    <UIcon
       v-show="$colorMode.preference === 'dark'"
-      i-ph:moon-bold
-      md:text-lg
+      name="i-ph:moon-bold"
+      class="text-lg"
     />
-    <span
+    <UIcon
       v-show="$colorMode.preference !== 'dark'"
-      i-ph:sun-bold
-      md:text-lg
+      name="i-ph:sun-bold"
+      class="text-lg"
     />
   </button>
 </template>

@@ -5,9 +5,9 @@
       :aria-label="$t('resumes.saveas')"
       @click="saveResumesToLocal"
     >
-      <span
-        i-ic:baseline-save-as
-        text-lg
+      <UIcon
+        name="i-ic:baseline-save-as"
+        class="text-lg"
       />
       <span>{{ $t("resumes.saveas") }}</span>
     </button>
@@ -16,9 +16,9 @@
       :aria-label="$t('resumes.import')"
       @click="() => importResumesFromLocal(() => $emit('update'))"
     >
-      <span
-        i-ic:round-upload-file
-        text-lg
+      <UIcon
+        name="i-ic:round-upload-file"
+        class="text-lg"
       />
       <span>{{ $t("resumes.import") }}</span>
     </button>

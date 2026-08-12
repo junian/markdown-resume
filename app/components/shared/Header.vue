@@ -14,7 +14,10 @@
         :aria-expanded="isMobileOpen"
         @click="isMobileOpen = !isMobileOpen"
       >
-        <span class="i-tabler:menu-2 text-xl" />
+        <UIcon
+          name="i-tabler:menu-2"
+          class="text-xl"
+        />
       </button>
       <nuxt-link
         class="mobile-title"
@@ -56,13 +59,9 @@
           :aria-expanded="!isCollapsed"
           @click="toggleSidebar"
         >
-          <span
-            :class="[
-              isCollapsed
-                ? 'i-tabler:layout-sidebar-left-expand'
-                : 'i-tabler:layout-sidebar-left-collapse',
-              'text-xl',
-            ]"
+          <UIcon
+            :name="isCollapsed ? 'i-tabler:layout-sidebar-left-expand' : 'i-tabler:layout-sidebar-left-collapse'"
+            class="text-xl"
           />
         </button>
       </div>

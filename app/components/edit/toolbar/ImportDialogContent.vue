@@ -42,7 +42,7 @@
         class="flex-center w-8 h-7 bg-blue-500 hover:bg-blue-600 text-white rounded-sm"
         @click="uploadFileFromURL"
       >
-        <span class="i-line-md:confirm" />
+        <UIcon name="i-line-md:confirm" />
       </button>
     </div>
   </div>

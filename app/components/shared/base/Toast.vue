@@ -6,17 +6,18 @@
   >
     <div class="flex-1 hstack space-x-2">
       <div class="size-6 flex-center">
-        <span
+        <UIcon
           v-if="api.type === 'success'"
-          class="i-ep:success-filled"
+          name="i-ep:success-filled"
         />
-        <span
+        <UIcon
           v-else-if="api.type === 'info'"
-          class="i-material-symbols:info-rounded text-lg"
+          name="i-material-symbols:info-rounded"
+          class="text-lg"
         />
-        <span
+        <UIcon
           v-else-if="api.type === 'error'"
-          class="i-bx:bxs-error"
+          name="i-bx:bxs-error"
         />
       </div>
       <p v-bind="api.descriptionProps">
@@ -28,7 +29,10 @@
       class="size-6 flex-center"
       @click="api.dismiss()"
     >
-      <span class="i-ep:close-bold duration-200 opacity-50 hover:opacity-100" />
+      <UIcon
+        name="i-ep:close-bold"
+        class="duration-200 opacity-50 hover:opacity-100"
+      />
     </button>
   </div>
 </template>

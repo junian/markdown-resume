@@ -18,7 +18,10 @@
         <div class="flex items-center justify-between mb-6">
           <div class="hstack gap-3">
             <span class="circle size-9 flex-shrink-0 bg-brand text-white">
-              <span class="i-ep:document text-lg" />
+              <UIcon
+                name="i-ep:document"
+                class="text-lg"
+              />
             </span>
             <div>
               <h2 class="text-2xl font-bold">
@@ -34,7 +37,10 @@
             :to="$nuxt.$localePath('/resumes')"
           >
             <span>{{ $t("nav.see_more") }}</span>
-            <span class="i-tabler:arrow-right text-base" />
+            <UIcon
+              name="i-tabler:arrow-right"
+              class="text-base"
+            />
           </nuxt-link>
         </div>
 
@@ -57,7 +63,10 @@
         <div class="flex items-center justify-between mb-6">
           <div class="hstack gap-3">
             <span class="circle size-9 flex-shrink-0 bg-brand text-white">
-              <span class="i-ic:outline-photo-library text-lg" />
+              <UIcon
+                name="i-ic:outline-photo-library"
+                class="text-lg"
+              />
             </span>
             <div>
               <h2 class="text-2xl font-bold">
@@ -73,7 +82,10 @@
             :to="$nuxt.$localePath('/images')"
           >
             <span>{{ $t("nav.see_more") }}</span>
-            <span class="i-tabler:arrow-right text-base" />
+            <UIcon
+              name="i-tabler:arrow-right"
+              class="text-base"
+            />
           </nuxt-link>
         </div>
 
@@ -96,7 +108,10 @@
           v-else-if="recentImages && recentImages.length === 0"
           class="mt-8 flex-center flex-col gap-3 text-lighter-c py-12 rounded-xl border border-dashed border-c"
         >
-          <span class="i-ic:outline-photo-library text-5xl" />
+          <UIcon
+            name="i-ic:outline-photo-library"
+            class="text-5xl"
+          />
           <p class="text-sm">
             {{ $t("images.empty") }}
           </p>
@@ -104,7 +119,10 @@
             class="hstack gap-1.5 px-4 py-1.5 rounded-lg bg-brand text-white text-sm hover:opacity-90 transition-opacity"
             :to="$nuxt.$localePath('/images')"
           >
-            <span class="i-ic:round-upload-file" />
+            <UIcon
+              name="i-ic:round-upload-file"
+              class="text-lg"
+            />
             <span>{{ $t("images.upload") }}</span>
           </nuxt-link>
         </div>

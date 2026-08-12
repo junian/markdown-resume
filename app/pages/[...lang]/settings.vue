@@ -5,7 +5,10 @@
     <main class="max-w-[60rem] mx-auto px-5 py-12 md:px-10 md:py-16 text-dark-c">
       <div class="hstack gap-3 mb-10">
         <span class="circle size-10 bg-brand text-white">
-          <span class="i-ic:outline-settings text-xl" />
+          <UIcon
+            name="i-ic:outline-settings"
+            class="text-xl"
+          />
         </span>
         <div>
           <h1 class="text-3xl font-bold">
@@ -20,7 +23,10 @@
       <div class="grid gap-5 md:grid-cols-2">
         <section class="settings-card md:col-span-2">
           <div class="settings-card-heading">
-            <span class="i-mdi:tune text-xl" />
+            <UIcon
+              name="i-mdi:tune"
+              class="text-xl"
+            />
             <h2>{{ $t("settings.defaults.title") }}</h2>
           </div>
           <div class="grid gap-4 sm:grid-cols-2">
@@ -61,7 +67,10 @@
           :class="{ 'settings-card--menu-open': languageApi.open }"
         >
           <div class="settings-card-heading">
-            <span class="i-ic:round-translate text-xl" />
+            <UIcon
+              name="i-ic:round-translate"
+              class="text-xl"
+            />
             <h2>{{ $t("settings.language") }}</h2>
           </div>
           <label
@@ -77,8 +86,9 @@
               class="language-menu-trigger"
               type="button"
             >
-              <span
-                :class="[currentLocale?.icon, 'text-lg']"
+              <UIcon
+                :name="currentLocale?.icon"
+                class="text-lg"
               />
               <span class="min-w-0 flex-1 truncate text-left">
                 {{ currentLocale?.name }}
@@ -103,7 +113,10 @@
                   v-bind="languageApi.getItemProps({ value: item.code })"
                   class="language-menu-item"
                 >
-                  <span :class="[item.icon, 'text-base']" />
+                  <UIcon
+                    :name="item.icon"
+                    class="text-base"
+                  />
                   <span class="min-w-0 flex-1 truncate">{{ item.name }}</span>
                   <span
                     v-if="item.code === locale"
@@ -117,7 +130,10 @@
 
         <section class="settings-card">
           <div class="settings-card-heading">
-            <span class="i-ph:paint-brush-bold text-xl" />
+            <UIcon
+              name="i-ph:paint-brush-bold"
+              class="text-xl"
+            />
             <h2>{{ $t("settings.appearance") }}</h2>
           </div>
           <div
@@ -135,7 +151,10 @@
               :aria-checked="colorMode.preference === mode.value"
               @click="colorMode.preference = mode.value"
             >
-              <span :class="[mode.icon, 'text-xl']" />
+              <UIcon
+                :name="mode.icon"
+                class="text-xl"
+              />
               <span>{{ mode.label }}</span>
             </button>
           </div>
@@ -143,7 +162,10 @@
 
         <section class="settings-card md:col-span-2">
           <div class="settings-card-heading">
-            <span class="i-mdi:code-braces text-xl" />
+            <UIcon
+              name="i-mdi:code-braces"
+              class="text-xl"
+            />
             <h2>{{ $t("settings.editor") }}</h2>
           </div>
           <div class="editor-settings">
@@ -188,7 +210,10 @@
 
         <section class="settings-card md:col-span-2">
           <div class="settings-card-heading">
-            <span class="i-mdi:database-outline text-xl" />
+            <UIcon
+              name="i-mdi:database-outline"
+              class="text-xl"
+            />
             <h2>{{ $t("settings.storage") }}</h2>
             <button
               class="storage-refresh-button"
@@ -198,8 +223,9 @@
               :disabled="isRefreshingStorage"
               @click="refreshStorageEstimate"
             >
-              <span
-                class="i-mdi:refresh text-lg"
+              <UIcon
+                name="i-mdi:refresh"
+                class="text-lg"
                 :class="{ 'animate-spin': isRefreshingStorage }"
               />
             </button>
@@ -289,7 +315,10 @@
 
         <section class="settings-card danger-card md:col-span-2">
           <div class="settings-card-heading danger-heading">
-            <span class="i-mdi:alert-outline text-xl" />
+            <UIcon
+              name="i-mdi:alert-outline"
+              class="text-xl"
+            />
             <h2>{{ $t("settings.danger_zone") }}</h2>
           </div>
           <p class="danger-description">
@@ -308,7 +337,10 @@
                 type="button"
                 @click="deleteConfirmation = ''"
               >
-                <span class="i-mdi:delete-forever-outline text-lg" />
+                <UIcon
+                  name="i-mdi:delete-forever-outline"
+                  class="text-lg"
+                />
                 <span>{{ $t("settings.erase_all_data") }}</span>
               </button>
             </template>

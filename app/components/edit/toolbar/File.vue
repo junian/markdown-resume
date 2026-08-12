@@ -14,9 +14,9 @@
           class="dropdown-li space-x-1.5 rounded"
           role="button"
         >
-          <span
-            i-mdi:upload
-            text-base
+          <UIcon
+            name="i-mdi:upload"
+            class="text-base"
           />
           <span>{{ $t("toolbar.file.import") }}</span>
         </li>
@@ -38,9 +38,9 @@
       role="button"
       @click="exportPDF"
     >
-      <span
-        i-mdi:file-pdf
-        text-base
+      <UIcon
+        name="i-mdi:file-pdf"
+        class="text-base"
       />
       <span>{{ $t("toolbar.file.export_pdf") }}</span>
     </li>
@@ -50,9 +50,9 @@
       role="button"
       @click="exportMd"
     >
-      <span
-        i-ri:markdown-fill
-        text-base
+      <UIcon
+        name="i-ri:markdown-fill"
+        class="text-base"
       />
       <span>{{ $t("toolbar.file.export_md") }}</span>
     </li>
@@ -62,9 +62,9 @@
       role="button"
       @click="exportHtml"
     >
-      <span
-        i-mdi:language-html5
-        text-base
+      <UIcon
+        name="i-mdi:language-html5"
+        class="text-base"
       />
       <span>{{ $t("toolbar.file.export_html") }}</span>
     </li>
@@ -74,9 +74,9 @@
       role="button"
       @click="exportDocx"
     >
-      <span
-        i-mdi:file-word
-        text-base
+      <UIcon
+        name="i-mdi:file-word"
+        class="text-base"
       />
       <span>{{ $t("toolbar.file.export_docx") }}</span>
     </li>

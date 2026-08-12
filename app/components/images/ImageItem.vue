@@ -18,7 +18,7 @@
           :aria-label="$t('images.copy_url')"
           @click.stop="copyUrl"
         >
-          <span class="i-ic:baseline-content-copy" />
+          <UIcon name="i-ic:baseline-content-copy" />
         </button>
         <button
           class="action-btn"
@@ -26,7 +26,7 @@
           :aria-label="$t('images.delete')"
           @click.stop="remove"
         >
-          <span class="i-material-symbols:delete-outline-rounded" />
+          <UIcon name="i-material-symbols:delete-outline-rounded" />
         </button>
       </div>
     </div>

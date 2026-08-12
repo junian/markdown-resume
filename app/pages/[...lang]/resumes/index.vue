@@ -8,7 +8,10 @@
       >
         <div class="hstack gap-3">
           <span class="circle size-10 flex-shrink-0 bg-brand text-white">
-            <span class="i-ep:document text-xl" />
+            <UIcon
+              name="i-ep:document"
+              class="text-xl"
+            />
           </span>
           <div>
             <h1 class="text-3xl font-bold">

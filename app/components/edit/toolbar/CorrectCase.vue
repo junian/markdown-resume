@@ -12,7 +12,7 @@
       class="rect-btn mt-3 ml-auto text-white bg-blue-500 hover:bg-blue-600 dark:hover:bg-blue-400"
       @click="correct"
     >
-      <span class="i-carbon:rocket" />
+      <UIcon name="i-carbon:rocket" />
       <span>{{ $t("toolbar.correct_case.btn") }}</span>
     </button>
   </ToolItem>

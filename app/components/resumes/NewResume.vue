@@ -5,7 +5,10 @@
       :aria-label="$t('resumes.new')"
       @click="newAndSwitch"
     >
-      <UIcon name="i-ic:round-plus" class="text-5xl text-light-c group-hover:text-brand" />
+      <UIcon
+        name="i-ic:round-plus"
+        class="text-5xl text-light-c group-hover:text-brand"
+      />
     </button>
   </div>
 </template>

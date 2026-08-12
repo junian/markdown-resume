@@ -9,7 +9,10 @@
     >
       <input v-bind="api.hiddenInputProps">
       <div class="flex-center flex-col gap-2 text-sm text-light-c">
-        <span class="i-ic:round-upload-file text-3xl" />
+        <UIcon
+          name="i-ic:round-upload-file"
+          class="text-3xl"
+        />
         <span>{{ $t("images.from_local") }}</span>
       </div>
     </div>

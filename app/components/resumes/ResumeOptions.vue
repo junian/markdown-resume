@@ -4,13 +4,13 @@
       class="action-btn"
       @click="duplicate"
     >
-      <span i-ion:duplicate />
+      <UIcon name="i-ion:duplicate" />
     </button>
     <button
       class="action-btn"
       @click="remove"
     >
-      <span i-material-symbols:delete-outline-rounded />
+      <UIcon name="i-material-symbols:delete-outline-rounded" />
     </button>
   </div>
 </template>

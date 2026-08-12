@@ -5,15 +5,15 @@
     :title="isToolbarOpen ? $t('toolbar.close') : $t('toolbar.open')"
     @click="$emit('toggleToolbar')"
   >
-    <span
+    <UIcon
       v-show="isToolbarOpen"
-      i-tabler:layout-sidebar-right-collapse
-      md:text-lg
+      name="i-tabler:layout-sidebar-right-collapse"
+      class="md:text-lg"
     />
-    <span
+    <UIcon
       v-show="!isToolbarOpen"
-      i-tabler:layout-sidebar-right-expand
-      md:text-lg
+      name="i-tabler:layout-sidebar-right-expand"
+      class="md:text-lg"
     />
   </button>
 </template>

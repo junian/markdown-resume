@@ -9,7 +9,7 @@
         p="x-4 y-3"
         @click="load"
       >
-        <span i-ic:outline-comment />
+        <UIcon name="i-ic:outline-comment" />
         <span>{{ $t('disqus.leave_a_comment') }}</span>
       </button>
     </div>

@@ -14,13 +14,15 @@
         @focus="api.open"
       >
       <div class="size-5 flex-center">
-        <span
+        <UIcon
           v-show="api.isOpen"
-          class="i-ic:sharp-arrow-drop-up text-lg"
+          name="i-ic:sharp-arrow-drop-up"
+          class="text-lg"
         />
-        <span
+        <UIcon
           v-show="!api.isOpen"
-          class="i-ic:sharp-arrow-drop-down text-lg"
+          name="i-ic:sharp-arrow-drop-down"
+          class="text-lg"
         />
       </div>
     </div>

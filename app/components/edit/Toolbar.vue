@@ -80,7 +80,7 @@ const Navbar = () => (
   <div class="flex-center flex-col flex-none space-y-1 w-9 md:w-10 border-l border-c border-dashed lg:border-none">
     {sections.map(item => (
       <button class="round-btn" onClick={() => scrollTo(item.name)}>
-        <span class={[item.icon, 'text-sm md:text-base']} />
+        <UIcon name={item.icon} class="text-sm md:text-base" />
       </button>
     ))}
   </div>

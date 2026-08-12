@@ -9,7 +9,10 @@
       >
         <div class="hstack gap-3">
           <span class="circle size-10 flex-shrink-0 bg-brand text-white">
-            <span class="i-ic:outline-photo-library text-xl" />
+            <UIcon
+              name="i-ic:outline-photo-library"
+              class="text-xl"
+            />
           </span>
           <div>
             <h1 class="text-3xl font-bold">
@@ -28,8 +31,9 @@
             :aria-label="sortAsc ? $t('images.sort_desc') : $t('images.sort_asc')"
             @click="toggleSort"
           >
-            <span
-              :class="[sortAsc ? 'i-ic:round-arrow-upward' : 'i-ic:round-arrow-downward', 'text-lg']"
+            <UIcon
+              :name="sortAsc ? 'i-ic:round-arrow-upward' : 'i-ic:round-arrow-downward'"
+              class="text-lg"
             />
             <span>{{ sortAsc ? $t("images.sort_asc") : $t("images.sort_desc") }}</span>
           </button>
@@ -40,7 +44,10 @@
             :aria-label="$t('images.upload')"
             @click="showUpload = !showUpload"
           >
-            <span class="i-ic:round-upload-file text-lg" />
+            <UIcon
+              name="i-ic:round-upload-file"
+              class="text-lg"
+            />
             <span>{{ $t("images.upload") }}</span>
           </button>
         </div>
@@ -72,7 +79,10 @@
         v-else-if="list && list.length === 0"
         class="mt-16 flex-center flex-col gap-3 text-lighter-c"
       >
-        <span class="i-ic:outline-photo-library text-5xl" />
+        <UIcon
+          name="i-ic:outline-photo-library"
+          class="text-5xl"
+        />
         <p class="text-sm">
           {{ $t("images.empty") }}
         </p>

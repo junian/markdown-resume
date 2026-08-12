@@ -9,7 +9,10 @@
         class="cursor-pointer p-1 rounded transition-colors hover:bg-gray-200 dark:hover:bg-[#2a2d2e]"
         :title="$t ? $t('resumes.rename') : 'Rename'"
       >
-        <span class="i-mdi:pencil text-sm" />
+        <UIcon
+          name="i-mdi:pencil"
+          class="text-sm"
+        />
       </button>
     </div>
     <div
@@ -42,7 +45,10 @@
       class="cursor-pointer p-1 rounded transition-colors hover:bg-gray-200 dark:hover:bg-[#2a2d2e]"
       :title="$t ? $t('resumes.rename') : 'Rename'"
     >
-      <span class="i-mdi:pencil text-sm" />
+      <UIcon
+        name="i-mdi:pencil"
+        class="text-sm"
+      />
     </button>
   </div>
 </template>

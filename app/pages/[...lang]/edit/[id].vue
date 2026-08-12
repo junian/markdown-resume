@@ -39,7 +39,10 @@
           v-if="isToolbarOpen"
           class="tools-pane-header"
         >
-          <span class="i-ep:document flex-shrink-0 text-lg" />
+          <UIcon
+            name="i-ep:document"
+            class="flex-shrink-0 text-lg"
+          />
           <RenameResume />
           <SaveResume />
           <ToggleToolbar
@@ -66,8 +69,9 @@
               :title="action.label"
               @click="action.run"
             >
-              <span
-                :class="[action.icon, 'text-lg']"
+              <UIcon
+                name="{action.icon}"
+                class="text-lg"
               />
             </button>
           </div>

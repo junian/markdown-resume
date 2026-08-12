@@ -12,9 +12,9 @@
         :style="{ backgroundColor: color }"
         @click="api.setValue(color)"
       >
-        <span
+        <UIcon
           v-show="getHexString(api.value) === color.toUpperCase()"
-          class="i-line-md:confirm"
+          name="i-line-md:confirm"
         />
       </button>
     </div>
@@ -69,7 +69,10 @@
               v-bind="api.eyeDropperTriggerProps"
               class="flex-center size-7 rounded hover:bg-dark-c"
             >
-              <span class="i-bx:bxs-eyedropper text-lg" />
+              <UIcon
+                name="i-bx:bxs-eyedropper"
+                class="text-lg"
+              />
             </button>
             <div
               v-bind="api.getChannelSliderProps({ channel: 'hue' })"

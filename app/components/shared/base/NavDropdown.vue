@@ -27,9 +27,10 @@
             :to="item.link"
             class="hstack space-x-1.5"
           >
-            <span
+            <UIcon
               v-if="item.icon"
-              :class="[item.icon, 'text-base']"
+              :name="item.icon"
+              class="text-base"
             />
             <span>{{ item.label }}</span>
           </nuxt-link>

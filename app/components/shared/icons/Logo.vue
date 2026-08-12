@@ -1,6 +1,6 @@
 <template>
   <UIcon
-    name="qlementine-icons:resume-16"
+    name="i-ri:markdown-fill"
     class="text-brand"
   />
 </template>

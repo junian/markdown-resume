@@ -5,7 +5,7 @@
   >
     <div class="mb-4 text-light-c">
       <div class="hstack space-x-1 justify-end">
-        <span class="i-icon-park-outline:margin-one" />
+        <UIcon name="i-icon-park-outline:margin-one" />
         <span>{{ $t("toolbar.vertical") }}</span>
       </div>
 
@@ -19,7 +19,7 @@
 
     <div class="text-light-c">
       <div class="hstack space-x-1 justify-end">
-        <span class="i-icon-park-outline:margin" />
+        <UIcon name="i-icon-park-outline:margin" />
         <span>{{ $t("toolbar.horizontal") }}</span>
       </div>
 

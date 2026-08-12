@@ -5,9 +5,9 @@
     :title="$t('resumes.save')"
     @click="save"
   >
-    <span
-      i-ic:baseline-save
-      md:text-lg
+    <UIcon
+      name="i-ic:baseline-save"
+      class="md:text-lg"
     />
   </button>
 </template>

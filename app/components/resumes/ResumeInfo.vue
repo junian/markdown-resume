@@ -12,11 +12,11 @@
       v-if="updated"
       class="hstack gap-1.5 text-xs text-lighter-c"
     >
-      <span i-ic:round-update />
+      <UIcon name="i-ic:round-update" />
       {{ updated }}
     </div>
     <div class="hstack gap-1.5 text-xs text-lighter-c">
-      <span i-ic:round-add-circle-outline />
+      <UIcon name="i-ic:round-add-circle-outline" />
       {{ created }}
     </div>
   </div>

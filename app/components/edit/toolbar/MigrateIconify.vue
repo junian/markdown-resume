@@ -11,7 +11,7 @@
       class="rect-btn mt-3 ml-auto text-white bg-blue-500 hover:bg-blue-600 dark:hover:bg-blue-400"
       @click="migrate"
     >
-      <span class="i-tabler:transform" />
+      <UIcon name="i-tabler:transform" />
       <span>{{ $t("toolbar.migrate_iconify.btn") }}</span>
     </button>
   </ToolItem>

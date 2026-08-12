@@ -31,7 +31,10 @@
 
       <template v-else>
         <div class="flex-center flex-col gap-3 py-24 text-center">
-          <span class="i-mdi:file-question-outline text-5xl text-lighter-c" />
+          <UIcon
+            name="i-mdi:file-question-outline"
+            class="text-5xl text-lighter-c"
+          />
           <p class="text-lg font-bold">
             Page not found
           </p>

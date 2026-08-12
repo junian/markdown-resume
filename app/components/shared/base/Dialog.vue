@@ -16,7 +16,7 @@
         >
           <div class="hstack justify-between pl-4 pr-3 py-2.5">
             <div class="hstack text-sm">
-              <span :class="icon" />
+              <UIcon :name="icon" />
               <span class="mx-2 text-light-c">/</span>
               <span v-bind="api.titleProps">{{ title }}</span>
             </div>
@@ -25,7 +25,7 @@
               class="circle p-1 duration-100 hover:bg-dark-c hover:rotate-90"
               v-bind="api.closeTriggerProps"
             >
-              <span class="i-ic:baseline-close" />
+              <UIcon name="i-ic:baseline-close" />
             </button>
           </div>
 

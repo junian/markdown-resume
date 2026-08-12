@@ -2,6 +2,13 @@
 @import "@nuxt/ui";
 @import "./index.css";
 
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
 /* ─── Custom theme overrides ─────────────────────────────── */
 @theme {
   --breakpoint-sm: 641px;
