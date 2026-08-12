@@ -15,16 +15,16 @@
     <div
       class="zoom-bar hstack fixed bottom-4 lg:(bottom-auto top-15) ml-2 shadow-c rounded-full overflow-hidden text-white bg-blue-500 lg:opacity-0 hover:opacity-100"
     >
-      <button @click="scale *= 1.1">
+      <button class="zoom-bar-button" @click="scale *= 1.1">
         <span i-lucide:zoom-in />
       </button>
-      <button @click="scale /= 1.1">
+      <button class="zoom-bar-button" @click="scale /= 1.1">
         <span i-lucide:zoom-out />
       </button>
-      <button @click="fitWidth">
+      <button class="zoom-bar-button" @click="fitWidth">
         <span i-fluent:arrow-autofit-width-20-filled />
       </button>
-      <button @click="fitHeight">
+      <button class="zoom-bar-button" @click="fitHeight">
         <span i-fluent:arrow-autofit-height-20-filled />
       </button>
     </div>
@@ -52,9 +52,3 @@ const fitHeight = () => {
 
 watch(width, () => debounce(fitWidth, 100)())
 </script>
-
-<style scoped>
-.zoom-bar button {
-  @apply flex-center size-10 text-lg hover:bg-blue-600;
-}
-</style>

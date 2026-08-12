@@ -40,6 +40,7 @@ export default defineConfig({
       'resume-card',
       'cursor-pointer mx-auto overflow-hidden rounded-md duration-150 hover:(-translate-y-3 drop-shadow-xl)',
     ],
+    ['zoom-bar-button', 'flex-center size-10 text-lg hover:bg-blue-600'],
   ],
   theme: {
     breakpoints: {
