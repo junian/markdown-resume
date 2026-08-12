@@ -2,17 +2,14 @@
   <div class="images-page sidebar-layout">
     <Header />
 
-    <main class="max-w-306 mx-auto px-5 py-12 md:px-10 md:py-16 text-dark-c">
+    <main class="max-w-[76.5rem] mx-auto px-5 py-12 md:px-10 md:py-16 text-dark-c">
       <!-- Page header row -->
       <div
         class="flex flex-col gap-4 mb-10 sm:flex-row sm:items-center sm:justify-between"
       >
         <div class="hstack gap-3">
           <span class="circle size-10 flex-shrink-0 bg-brand text-white">
-            <span
-              i-ic:outline-photo-library
-              text-xl
-            />
+            <span class="i-ic:outline-photo-library text-xl" />
           </span>
           <div>
             <h1 class="text-3xl font-bold">
@@ -32,8 +29,7 @@
             @click="toggleSort"
           >
             <span
-              :class="sortAsc ? 'i-ic:round-arrow-upward' : 'i-ic:round-arrow-downward'"
-              text-lg
+              :class="[sortAsc ? 'i-ic:round-arrow-upward' : 'i-ic:round-arrow-downward', 'text-lg']"
             />
             <span>{{ sortAsc ? $t("images.sort_asc") : $t("images.sort_desc") }}</span>
           </button>
@@ -44,10 +40,7 @@
             :aria-label="$t('images.upload')"
             @click="showUpload = !showUpload"
           >
-            <span
-              i-ic:round-upload-file
-              text-lg
-            />
+            <span class="i-ic:round-upload-file text-lg" />
             <span>{{ $t("images.upload") }}</span>
           </button>
         </div>
@@ -79,11 +72,8 @@
         v-else-if="list && list.length === 0"
         class="mt-16 flex-center flex-col gap-3 text-lighter-c"
       >
-        <span
-          i-ic:outline-photo-library
-          text-5xl
-        />
-        <p text-sm>
+        <span class="i-ic:outline-photo-library text-5xl" />
+        <p class="text-sm">
           {{ $t("images.empty") }}
         </p>
       </div>

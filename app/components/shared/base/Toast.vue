@@ -4,27 +4,19 @@
     class="hstack space-x-5 min-w-80 text-white rounded-md shadow-c px-4 py-3"
     :class="bgColor"
   >
-    <div
-      flex-1
-      hstack
-      space-x-2
-    >
-      <div
-        size-6
-        flex-center
-      >
+    <div class="flex-1 hstack space-x-2">
+      <div class="size-6 flex-center">
         <span
           v-if="api.type === 'success'"
-          i-ep:success-filled
+          class="i-ep:success-filled"
         />
         <span
           v-else-if="api.type === 'info'"
-          i-material-symbols:info-rounded
-          text-lg
+          class="i-material-symbols:info-rounded text-lg"
         />
         <span
           v-else-if="api.type === 'error'"
-          i-bx:bxs-error
+          class="i-bx:bxs-error"
         />
       </div>
       <p v-bind="api.descriptionProps">
@@ -33,8 +25,7 @@
     </div>
 
     <button
-      size-6
-      flex-center
+      class="size-6 flex-center"
       @click="api.dismiss()"
     >
       <span class="i-ep:close-bold duration-200 opacity-50 hover:opacity-100" />
@@ -66,6 +57,8 @@ const bgColor = computed(() => {
 </script>
 
 <style scoped>
+@reference "~/assets/css/main.css";
+
 /* Borrowed from https://github.com/Maronato/vue-toastification/blob/next/src/scss/animations/_bounce.scss */
 
 [data-part="root"][data-state="open"] {

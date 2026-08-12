@@ -2,14 +2,14 @@
   <div class="content-page sidebar-layout">
     <Header />
 
-    <main class="max-w-210 mx-auto px-5 py-12 md:px-10 md:py-16 text-dark-c">
+    <main class="max-w-[52.5rem] mx-auto px-5 py-12 md:px-10 md:py-16 text-dark-c">
       <template v-if="page">
         <div class="mb-10">
           <div class="hstack gap-3 mb-3">
             <span class="circle size-10 bg-brand text-white">
-              <span
-                :class="iconClass"
-                text-xl
+              <UIcon
+                :name="iconClass"
+                class="text-xl"
               />
             </span>
             <h1 class="text-3xl font-bold">
@@ -31,11 +31,7 @@
 
       <template v-else>
         <div class="flex-center flex-col gap-3 py-24 text-center">
-          <span
-            i-mdi:file-question-outline
-            text-5xl
-            text-lighter-c
-          />
+          <span class="i-mdi:file-question-outline text-5xl text-lighter-c" />
           <p class="text-lg font-bold">
             Page not found
           </p>
@@ -104,6 +100,8 @@ useHead(() => ({
 </script>
 
 <style scoped>
+@reference "~/assets/css/main.css";
+
 .page-content {
   @apply space-y-8 leading-7 text-gray-700 dark:text-gray-200;
 }

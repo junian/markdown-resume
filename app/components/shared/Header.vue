@@ -14,19 +14,13 @@
         :aria-expanded="isMobileOpen"
         @click="isMobileOpen = !isMobileOpen"
       >
-        <span
-          i-tabler:menu-2
-          text-xl
-        />
+        <span class="i-tabler:menu-2 text-xl" />
       </button>
       <nuxt-link
         class="mobile-title"
         :to="$nuxt.$localePath('/')"
       >
-        <Logo
-          flex-shrink-0
-          text-base
-        />
+        <Logo class="flex-shrink-0 text-base" />
         <BrandName />
       </nuxt-link>
     </div>
@@ -48,10 +42,11 @@
         >
           <Logo
             v-show="!isCollapsed"
-            class="flex-shrink-0"
-            text="base"
+            class="flex-shrink-0 text-base"
           />
-          <div class="brand-title sidebar-label"><BrandName /></div>
+          <div class="brand-title sidebar-label">
+            <BrandName />
+          </div>
         </nuxt-link>
 
         <button
@@ -62,12 +57,12 @@
           @click="toggleSidebar"
         >
           <span
-            :class="
+            :class="[
               isCollapsed
                 ? 'i-tabler:layout-sidebar-left-expand'
-                : 'i-tabler:layout-sidebar-left-collapse'
-            "
-            text-xl
+                : 'i-tabler:layout-sidebar-left-collapse',
+              'text-xl',
+            ]"
           />
         </button>
       </div>
@@ -108,9 +103,9 @@
             :to="$nuxt.$localePath('/about')"
             :title="isCollapsed ? $t('nav.about') : undefined"
           >
-            <span
-              i-ic:outline-info
-              text-lg
+            <UIcon
+              name="i-ic:outline-info"
+              class="text-lg"
             />
             <span class="sidebar-label">{{ $t("nav.about") }}</span>
           </nuxt-link>
@@ -119,9 +114,9 @@
             :to="$nuxt.$localePath('/privacy')"
             :title="isCollapsed ? $t('nav.privacy') : undefined"
           >
-            <span
-              i-mdi:shield-lock-outline
-              text-lg
+            <UIcon
+              name="i-mdi:shield-lock-outline"
+              class="text-lg"
             />
             <span class="sidebar-label">{{ $t("nav.privacy") }}</span>
           </nuxt-link>
@@ -138,7 +133,10 @@
             rel="nofollow noopener"
             :title="isCollapsed ? $t('nav.coffee') : undefined"
           >
-            <span i-twemoji:hot-beverage />
+            <UIcon
+              name="i-twemoji:hot-beverage"
+              class="text-lg"
+            />
             <span class="sidebar-label">{{ $t("nav.coffee") }}</span>
           </a>
           <a
@@ -148,9 +146,9 @@
             rel="nofollow noopener"
             title="GitHub"
           >
-            <span
-              i-tabler:brand-github
-              text-lg
+            <UIcon
+              name="i-tabler:brand-github"
+              class="text-lg"
             />
             <span class="sidebar-label">GitHub</span>
           </a>
@@ -161,9 +159,9 @@
             rel="dofollow"
             title="Junian.dev"
           >
-            <span
-              i-tabler:world
-              text-lg
+            <UIcon
+              name="i-tabler:world"
+              class="text-lg"
             />
             <span class="sidebar-label">Junian.dev</span>
           </a>
@@ -211,6 +209,8 @@ onMounted(() => {
 </script>
 
 <style scoped>
+@reference "~/assets/css/main.css";
+
 .header {
   @apply fixed inset-y-0 left-0 z-30 w-60 transition-all duration-200;
 }

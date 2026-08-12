@@ -3,9 +3,7 @@
     <Header default-collapsed />
 
     <div
-      class="workspace size-full overflow-hidden"
-      flex="~ 1"
-      pb-2
+      class="workspace size-full overflow-hidden flex flex-1 pb-2"
     >
       <div
         v-if="!isSplitterReady"
@@ -14,7 +12,7 @@
       <div
         v-else
         v-bind="api.rootProps"
-        px-3
+        class="px-3"
       >
         <div
           class="editor-pane"
@@ -41,11 +39,7 @@
           v-if="isToolbarOpen"
           class="tools-pane-header"
         >
-          <span
-            i-ep:document
-            flex-shrink-0
-            text-lg
-          />
+          <span class="i-ep:document flex-shrink-0 text-lg" />
           <RenameResume />
           <SaveResume />
           <ToggleToolbar
@@ -73,8 +67,7 @@
               @click="action.run"
             >
               <span
-                :class="action.icon"
-                text-lg
+                :class="[action.icon, 'text-lg']"
               />
             </button>
           </div>
@@ -141,6 +134,8 @@ const exportActions = computed(() => [
 </script>
 
 <style scoped>
+@reference "~/assets/css/main.css";
+
 [data-scope="splitter"][data-part="resize-trigger"] {
   @apply relative w-3 outline-none;
 }
@@ -156,5 +151,4 @@ const exportActions = computed(() => [
 [data-scope="splitter"][data-part="resize-trigger"][data-orientation="vertical"]::after {
   @apply w-10 h-1;
 }
-
 </style>

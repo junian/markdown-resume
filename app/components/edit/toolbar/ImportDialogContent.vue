@@ -1,23 +1,15 @@
 <template>
-  <div
-    flex-1
-    px-4
-    py-6
-    space-y-6
-    bg-dark-c
-    text-sm
-  >
+  <div class="flex-1 px-4 py-6 space-y-6 bg-dark-c text-sm">
     <div
       v-bind="api.rootProps"
       class="w-full space-y-2"
     >
       <div
         v-bind="api.dropzoneProps"
-        class="py-12 hover:bg-darker-c cursor-pointer"
-        border="~ c dashed rounded"
+        class="py-12 hover:bg-darker-c cursor-pointer border border-c border-dashed rounded"
       >
         <input v-bind="api.hiddenInputProps">
-        <div text-center>
+        <div class="text-center">
           {{ $t("import.from_local") }}
         </div>
       </div>
@@ -30,18 +22,12 @@
       </div>
     </div>
 
-    <div hstack>
-      <div
-        flex-1
-        border="t c"
-      />
-      <div px-5>
+    <div class="hstack">
+      <div class="flex-1 border-t border-c" />
+      <div class="px-5">
         OR
       </div>
-      <div
-        flex-1
-        border="t c"
-      />
+      <div class="flex-1 border-t border-c" />
     </div>
 
     <div class="hstack w-full space-x-1.5">
@@ -56,7 +42,7 @@
         class="flex-center w-8 h-7 bg-blue-500 hover:bg-blue-600 text-white rounded-sm"
         @click="uploadFileFromURL"
       >
-        <span i-line-md:confirm />
+        <span class="i-line-md:confirm" />
       </button>
     </div>
   </div>

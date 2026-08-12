@@ -1,2 +1,247 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
+@import "./index.css";
+
+/* ─── Custom theme overrides ─────────────────────────────── */
+@theme {
+  --breakpoint-sm: 641px;
+  --breakpoint-md: 769px;
+  --breakpoint-lg: 1025px;
+  --font-ui: 'Lato', sans-serif;
+}
+
+/* ─── Utility shortcuts (converted from unocss.config.ts) ── */
+
+@utility flex-center {
+  @apply flex items-center justify-center;
+}
+
+@utility hstack {
+  @apply flex items-center;
+}
+
+@utility text-c {
+  @apply text-gray-600 dark:text-[#cccccc];
+}
+
+@utility text-light-c {
+  @apply text-gray-500 dark:text-[#a0a0a0];
+}
+
+@utility text-lighter-c {
+  @apply text-gray-400 dark:text-[#858585];
+}
+
+@utility text-dark-c {
+  @apply text-black dark:text-[#f0f0f0];
+}
+
+@utility text-brand {
+  @apply text-blue-500 dark:text-[#4daafc];
+}
+
+@utility bg-c {
+  @apply bg-white dark:bg-[#252526];
+}
+
+@utility bg-dark-c {
+  @apply bg-gray-100 dark:bg-[#1e1e1e];
+}
+
+@utility bg-darker-c {
+  @apply bg-gray-200 dark:bg-[#2d2d30];
+}
+
+@utility bg-brand {
+  @apply bg-blue-500 dark:bg-[#007acc];
+}
+
+@utility border-c {
+  @apply border-gray-300 dark:border-[#3f3f46];
+}
+
+@utility border-dark-c {
+  @apply border-gray-500 dark:border-[#555555];
+}
+
+@utility border-darker-c {
+  @apply border-black dark:border-[#6b6b6b];
+}
+
+@utility border-light-c {
+  @apply border-gray-200 dark:border-[#333337];
+}
+
+@utility hide-on-mobile {
+  @apply max-md:hidden;
+}
+
+@utility shadow-c {
+  @apply shadow shadow-slate-300 dark:shadow-black/50;
+}
+
+@utility dropdown-container {
+  @apply bg-c border border-c rounded shadow-c overflow-x-hidden overflow-y-scroll;
+}
+
+@utility dropdown-li {
+  @apply hstack px-3 h-8 truncate cursor-pointer hover:bg-dark-c;
+}
+
+@utility circle {
+  @apply rounded-full flex-center;
+}
+
+@utility round-btn {
+  @apply circle size-7 md:size-8 hover:bg-darker-c text-c;
+}
+
+@utility rect-btn {
+  @apply hstack space-x-1.5 px-2.5 py-1.5 rounded;
+}
+
+@utility resume-card {
+  @apply cursor-pointer mx-auto overflow-hidden rounded-md duration-150 hover:-translate-y-3 hover:drop-shadow-xl;
+}
+
+@utility zoom-bar-button {
+  @apply flex-center size-10 text-lg hover:bg-blue-600;
+}
+
+@utility action-btn {
+  @apply circle size-8 text-white bg-gray-500/80 hover:bg-gray-500;
+}
+
+@utility tools-pane-header {
+  @apply hstack flex-none min-w-0 w-full gap-1 min-h-12 px-2 overflow-hidden bg-c border-b border-c text-c;
+}
+
+@utility collapsed-tools {
+  @apply flex flex-col items-center gap-2 py-2;
+}
+
+/* settings.vue */
+
+@utility settings-card {
+  @apply rounded-xl border border-c bg-c p-5 shadow-sm;
+}
+
+@utility settings-card--menu-open {
+  @apply relative z-20;
+}
+
+@utility settings-card-heading {
+  @apply hstack gap-2 mb-5 text-lg font-bold;
+}
+
+@utility field-label {
+  @apply block mb-2 text-sm font-bold text-c;
+}
+
+@utility language-menu {
+  @apply relative;
+}
+
+@utility language-menu-trigger {
+  @apply hstack w-full h-11 gap-3 rounded-lg border border-c bg-c px-3 text-sm text-dark-c outline-none transition-colors hover:bg-dark-c focus:border-blue-400 focus:ring-2 focus:ring-blue-400/25 dark:focus:border-[#007acc] dark:focus:ring-[#007acc]/35;
+}
+
+@utility language-menu-chevron {
+  @apply flex-none text-light-c transition-transform duration-150;
+}
+
+@utility language-menu-content {
+  @apply min-w-28 w-full overflow-hidden rounded-md border border-c bg-c p-1 text-sm text-c shadow-c outline-none;
+}
+
+@utility language-menu-item {
+  @apply hstack min-h-9 gap-2 cursor-pointer select-none rounded-sm px-2 py-1.5 outline-none transition-colors hover:bg-darker-c;
+}
+
+@utility theme-option {
+  @apply flex-center flex-col gap-2 rounded-lg border border-c px-2 py-3 text-sm hover:bg-dark-c;
+}
+
+@utility theme-option--active {
+  @apply border-blue-400 bg-blue-50 text-blue-700 dark:border-[#007acc] dark:bg-[#37373d] dark:text-[#ffffff];
+}
+
+@utility editor-setting {
+  @apply flex cursor-pointer items-start gap-3 rounded-lg border border-c bg-dark-c p-4 transition-colors hover:bg-darker-c;
+}
+
+@utility editor-settings {
+  @apply grid gap-3;
+}
+
+@utility editor-checkbox {
+  @apply mt-0.5 size-4 flex-none cursor-pointer accent-blue-500 dark:accent-[#007acc];
+}
+
+@utility storage-skeleton {
+  @apply animate-pulse bg-gray-200 dark:bg-zinc-700 block rounded;
+}
+
+@utility storage-skeleton--label {
+  @apply h-3 w-12;
+}
+
+@utility storage-skeleton--value {
+  @apply mt-2 h-6 w-20;
+}
+
+@utility storage-description {
+  @apply -mt-3 mb-5 text-sm leading-5 text-light-c;
+}
+
+@utility storage-overview {
+  @apply flex flex-col items-center gap-6 sm:flex-row sm:items-stretch;
+}
+
+@utility storage-stats {
+  @apply grid flex-1 w-full grid-cols-2 gap-4 lg:grid-cols-4;
+}
+
+@utility storage-unavailable {
+  @apply flex max-w-40 items-center text-sm leading-5 text-light-c;
+}
+
+@utility storage-refresh-button {
+  @apply circle ml-auto size-8 text-light-c transition-colors hover:bg-darker-c hover:text-dark-c disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+@utility storage-ring-center {
+  @apply circle flex-col size-[6.25rem] bg-c;
+}
+
+@utility storage-stat {
+  @apply rounded-lg bg-dark-c p-4;
+}
+
+@utility danger-card {
+  @apply border-red-300 dark:border-red-900/80;
+}
+
+@utility danger-heading {
+  @apply text-red-600 dark:text-red-400;
+}
+
+@utility danger-description {
+  @apply -mt-3 mb-5 text-sm leading-5 text-light-c;
+}
+
+@utility danger-button {
+  @apply hstack justify-center gap-2 rounded-lg border border-red-500 px-3 py-2 text-sm font-bold text-red-600 transition-colors hover:bg-red-600 hover:text-white dark:border-red-500 dark:text-red-400 dark:hover:bg-red-600 dark:hover:text-white;
+}
+
+@utility danger-dialog-content {
+  @apply flex flex-col gap-4 border-t border-c bg-dark-c p-5 text-sm;
+}
+
+@utility danger-confirmation-input {
+  @apply h-10 rounded-md border border-c bg-c px-3 font-mono outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/20;
+}
+
+@utility danger-confirm-button {
+  @apply hstack justify-center gap-2 rounded-lg border border-red-500 px-3 py-2 text-sm font-bold text-red-600 transition-colors hover:bg-red-600 hover:text-white dark:border-red-500 dark:text-red-400 dark:hover:bg-red-600 dark:hover:text-white self-end min-w-24 bg-red-600 text-white disabled:cursor-not-allowed disabled:border-red-400 disabled:bg-red-400 disabled:opacity-60 dark:disabled:border-red-900 dark:disabled:bg-red-900 dark:disabled:text-red-300;
+}

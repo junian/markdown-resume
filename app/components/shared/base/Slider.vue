@@ -2,7 +2,7 @@
   <div v-bind="api.rootProps">
     <div
       v-bind="api.controlProps"
-      py-2
+      class="py-2"
     >
       <div
         v-bind="api.trackProps"
@@ -16,24 +16,18 @@
 
       <div
         v-bind="api.getThumbProps({ index: 0 })"
-        class="group size-4 rounded-full -mt-2.5"
-        bg="white dark:slate-300"
-        shadow="c slate-500"
+        class="group size-4 rounded-full -mt-2.5 bg-white dark:bg-slate-300 shadow shadow-slate-500"
       >
         <span
-          class="group-hover:block p-1 min-w-6 rounded bg-brand absolute -top-2 left-1/2 -translate-x-2/4 -translate-y-full"
+          class="group-hover:block p-1 min-w-6 rounded bg-brand absolute -top-2 left-1/2 -translate-x-2/4 -translate-y-full text-white text-xs text-center"
           :class="api.isDragging ? 'block' : 'hidden'"
-          text="white xs center"
         >
           {{ api.value.at(0) }}
         </span>
       </div>
     </div>
 
-    <div
-      flex
-      justify-between
-    >
+    <div class="flex justify-between">
       <span>{{ min }}{{ unit }}</span>
       <span>{{ middle }}{{ unit }}</span>
       <span>{{ max }}{{ unit }}</span>
@@ -81,7 +75,9 @@ const unit = computed(() => props.unit || '')
 </script>
 
 <style scoped>
+@reference "~/assets/css/main.css";
+
 [data-part="thumb"] span::after {
-  @apply absolute content-[""] size-0 border-5 border-transparent border-t-red-400 dark:border-t-rose-400 top-full inset-x-0 mx-auto;
+  @apply absolute content-[""] size-0 border-[5px] border-transparent border-t-red-400 dark:border-t-rose-400 top-full inset-x-0 mx-auto;
 }
 </style>

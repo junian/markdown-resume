@@ -1,9 +1,6 @@
 <template>
   <div>
-    <div
-      w-56
-      h-80
-    >
+    <div class="w-56 h-80">
       <div
         class="resume-card group relative overflow-hidden border border-c"
         :style="{

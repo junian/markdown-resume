@@ -1,6 +1,6 @@
 <template>
   <div
-    class="min-w-0 border-1.5 rounded hstack space-x-1"
+    class="min-w-0 border-[1.5px] rounded hstack space-x-1"
     :class="api.isEditing ? 'border-dark-c' : 'border-transparent'"
   >
     <div v-if="iconPosition === 'left'">
@@ -9,10 +9,7 @@
         class="cursor-pointer p-1 rounded transition-colors hover:bg-gray-200 dark:hover:bg-[#2a2d2e]"
         :title="$t ? $t('resumes.rename') : 'Rename'"
       >
-        <span
-          i-mdi:pencil
-          text-sm
-        />
+        <span class="i-mdi:pencil text-sm" />
       </button>
     </div>
     <div
@@ -45,10 +42,7 @@
       class="cursor-pointer p-1 rounded transition-colors hover:bg-gray-200 dark:hover:bg-[#2a2d2e]"
       :title="$t ? $t('resumes.rename') : 'Rename'"
     >
-      <span
-        i-mdi:pencil
-        text-sm
-      />
+      <span class="i-mdi:pencil text-sm" />
     </button>
   </div>
 </template>

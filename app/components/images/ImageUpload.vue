@@ -5,15 +5,11 @@
   >
     <div
       v-bind="api.dropzoneProps"
-      class="py-12 hover:bg-darker-c cursor-pointer transition-colors"
-      border="~ c dashed rounded"
+      class="py-12 hover:bg-darker-c cursor-pointer transition-colors border border-c border-dashed rounded"
     >
       <input v-bind="api.hiddenInputProps">
       <div class="flex-center flex-col gap-2 text-sm text-light-c">
-        <span
-          i-ic:round-upload-file
-          text-3xl
-        />
+        <span class="i-ic:round-upload-file text-3xl" />
         <span>{{ $t("images.from_local") }}</span>
       </div>
     </div>

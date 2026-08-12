@@ -3,16 +3,9 @@
     :text="$t('toolbar.margin')"
     icon="i-radix-icons:margin"
   >
-    <div
-      mb-4
-      text-light-c
-    >
-      <div
-        hstack
-        space-x-1
-        justify-end
-      >
-        <span i-icon-park-outline:margin-one />
+    <div class="mb-4 text-light-c">
+      <div class="hstack space-x-1 justify-end">
+        <span class="i-icon-park-outline:margin-one" />
         <span>{{ $t("toolbar.vertical") }}</span>
       </div>
 
@@ -24,13 +17,9 @@
       />
     </div>
 
-    <div text-light-c>
-      <div
-        hstack
-        space-x-1
-        justify-end
-      >
-        <span i-icon-park-outline:margin />
+    <div class="text-light-c">
+      <div class="hstack space-x-1 justify-end">
+        <span class="i-icon-park-outline:margin" />
         <span>{{ $t("toolbar.horizontal") }}</span>
       </div>
 

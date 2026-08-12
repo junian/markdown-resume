@@ -1,9 +1,15 @@
 <template>
   <div class="absolute right-3 top-3 space-y-2">
-    <button class="action-btn" @click="duplicate">
+    <button
+      class="action-btn"
+      @click="duplicate"
+    >
       <span i-ion:duplicate />
     </button>
-    <button class="action-btn" @click="remove">
+    <button
+      class="action-btn"
+      @click="remove"
+    >
       <span i-material-symbols:delete-outline-rounded />
     </button>
   </div>

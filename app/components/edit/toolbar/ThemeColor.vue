@@ -14,7 +14,7 @@
       >
         <span
           v-show="getHexString(api.value) === color.toUpperCase()"
-          i-line-md:confirm
+          class="i-line-md:confirm"
         />
       </button>
     </div>
@@ -22,8 +22,7 @@
     <!-- Color picker -->
     <div
       v-bind="api.rootProps"
-      relative
-      z-21
+      class="relative z-[21]"
     >
       <div
         v-bind="api.controlProps"
@@ -46,49 +45,35 @@
 
       <div
         v-bind="api.positionerProps"
-        w-full
-        ml-2
+        class="w-full ml-2"
       >
         <div
           v-bind="api.contentProps"
-          class="bg-c overflow-hidden shadow-md"
-          border="~ c rounded"
+          class="bg-c overflow-hidden shadow-md border border-c rounded"
         >
           <div v-bind="api.getAreaProps()">
             <div
               v-bind="api.getAreaBackgroundProps()"
-              class="w-full h-30"
+              class="w-full h-[7.5rem]"
             />
             <div
               v-bind="api.getAreaThumbProps()"
               class="size-4 rounded-full border-2 border-black"
             >
-              <span
-                absolute
-                size-3
-                border="2 white rounded-full"
-              />
+              <span class="absolute size-3 border-2 border-white rounded-full" />
             </div>
           </div>
 
-          <div
-            hstack
-            my-3
-            px-3
-            space-x-3
-          >
+          <div class="hstack my-3 px-3 space-x-3">
             <button
               v-bind="api.eyeDropperTriggerProps"
               class="flex-center size-7 rounded hover:bg-dark-c"
             >
-              <span
-                i-bx:bxs-eyedropper
-                text-lg
-              />
+              <span class="i-bx:bxs-eyedropper text-lg" />
             </button>
             <div
               v-bind="api.getChannelSliderProps({ channel: 'hue' })"
-              flex-1
+              class="flex-1"
             >
               <div
                 v-bind="api.getChannelSliderTrackProps({ channel: 'hue' })"
@@ -96,14 +81,9 @@
               />
               <div
                 v-bind="api.getChannelSliderThumbProps({ channel: 'hue' })"
-                class="size-4.5 -mt-2 -ml-2"
-                border="2 black rounded-full"
+                class="size-[1.125rem] -mt-2 -ml-2 border-2 border-black rounded-full"
               >
-                <span
-                  absolute
-                  size-3.5
-                  border="2 white rounded-full"
-                />
+                <span class="absolute size-3.5 border-2 border-white rounded-full" />
               </div>
             </div>
           </div>

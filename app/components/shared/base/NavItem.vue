@@ -4,10 +4,10 @@
     :to="link"
     :title="label"
   >
-    <span
+    <UIcon
       v-if="icon"
-      :class="icon"
-      md:text-lg
+      :name="icon"
+      class="text-lg"
     />
     <span class="sidebar-label truncate max-w-xs">
       {{ label }}
@@ -24,6 +24,8 @@ defineProps<{
 </script>
 
 <style scoped>
+@reference "~/assets/css/main.css";
+
 a.router-link-active {
   background-color: rgb(229 231 235); /* gray-200 */
   font-weight: 600;

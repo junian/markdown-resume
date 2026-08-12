@@ -2,16 +2,13 @@
   <div class="resumes-page sidebar-layout">
     <Header />
 
-    <main class="max-w-306 mx-auto px-5 py-12 md:px-10 md:py-16 text-dark-c">
+    <main class="max-w-[76.5rem] mx-auto px-5 py-12 md:px-10 md:py-16 text-dark-c">
       <div
         class="flex flex-col gap-4 mb-10 sm:flex-row sm:items-center sm:justify-between"
       >
         <div class="hstack gap-3">
           <span class="circle size-10 flex-shrink-0 bg-brand text-white">
-            <span
-              i-ep:document
-              text-xl
-            />
+            <span class="i-ep:document text-xl" />
           </span>
           <div>
             <h1 class="text-3xl font-bold">
@@ -53,6 +50,8 @@ onMounted(loadResumes)
 </script>
 
 <style scoped>
+@reference "~/assets/css/main.css";
+
 .resumes-page :deep(.resume-card) {
   border-color: #d1d5db !important;
   color-scheme: light;

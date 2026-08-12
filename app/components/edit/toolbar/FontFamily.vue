@@ -6,21 +6,21 @@
     <div class="w-full hstack space-x-2 mb-2">
       <Combobox
         id="font-cjk"
-        flex-1
+        class="flex-1"
         :items="cjkFonts"
         :default="styles.fontCJK.fontFamily || styles.fontCJK.name"
       />
-      <span w-13>{{ $t("toolbar.cjk") }}</span>
+      <span class="w-[3.25rem]">{{ $t("toolbar.cjk") }}</span>
     </div>
 
     <div class="hstack space-x-2 w-full">
       <Combobox
         id="font-en"
-        flex-1
+        class="flex-1"
         :items="enFonts"
         :default="styles.fontEN.fontFamily || styles.fontEN.name"
       />
-      <span w-13>{{ $t("toolbar.en") }}</span>
+      <span class="w-[3.25rem]">{{ $t("toolbar.en") }}</span>
     </div>
   </ToolItem>
 </template>

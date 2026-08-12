@@ -6,10 +6,9 @@
     >
       <span
         v-if="icon"
-        :class="icon"
-        md:text-lg
+        :class="[icon, 'md:text-lg']"
       />
-      <span class="truncate max-w-xs hide-on-mobile">
+      <span class="truncate max-w-xs max-md:hidden">
         {{ label }}
       </span>
     </button>
@@ -26,13 +25,11 @@
         >
           <nuxt-link
             :to="item.link"
-            space-x-1.5
-            hstack
+            class="hstack space-x-1.5"
           >
             <span
               v-if="item.icon"
-              :class="item.icon"
-              text-base
+              :class="[item.icon, 'text-base']"
             />
             <span>{{ item.label }}</span>
           </nuxt-link>

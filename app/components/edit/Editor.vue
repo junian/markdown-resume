@@ -5,7 +5,7 @@
   >
     <div
       v-bind="api.listProps"
-      class="hstack h-9 text-sm md:(h-10 text-base) w-full text-c bg-c border-b border-c px-4 space-x-2"
+      class="hstack h-9 md:h-10 text-sm md:text-base w-full text-c bg-c border-b border-c px-4 space-x-2"
     >
       <button
         v-for="tab in tabList"
@@ -16,14 +16,14 @@
         {{ tab.label }}
         <span
           v-show="api.value == tab.value"
-          class="absolute w-full h-0.4 bg-blue-500 dark:bg-blue-400 left-0 bottom-0 rounded"
+          class="absolute w-full h-[1.5px] bg-blue-500 dark:bg-blue-400 left-0 bottom-0 rounded"
         />
       </button>
     </div>
 
     <div
       ref="editorRef"
-      h-full
+      class="h-full"
     />
   </div>
 </template>

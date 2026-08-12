@@ -7,7 +7,6 @@ export default defineNuxtConfig({
 
   modules: [
     '@vueuse/nuxt',
-    '@unocss/nuxt',
     '@pinia/nuxt',
     '@nuxtjs/i18n',
     '@nuxtjs/color-mode',
@@ -117,6 +116,12 @@ export default defineNuxtConfig({
   },
 
   i18n,
+
+  icon: {
+    clientBundle: {
+      scan: true,
+    },
+  },
 
   pwa,
 

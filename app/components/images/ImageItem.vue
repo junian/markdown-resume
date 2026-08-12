@@ -2,7 +2,7 @@
   <div class="image-item group">
     <!-- Card thumbnail -->
     <div
-      class="relative w-44 h-44 overflow-hidden rounded-md border border-c cursor-pointer duration-150 hover:(-translate-y-2 drop-shadow-xl)"
+      class="relative w-44 h-44 overflow-hidden rounded-md border border-c cursor-pointer duration-150 hover:-translate-y-2 hover:drop-shadow-xl"
     >
       <img
         :src="imageUrl"
@@ -18,7 +18,7 @@
           :aria-label="$t('images.copy_url')"
           @click.stop="copyUrl"
         >
-          <span i-ic:baseline-content-copy />
+          <span class="i-ic:baseline-content-copy" />
         </button>
         <button
           class="action-btn"
@@ -26,7 +26,7 @@
           :aria-label="$t('images.delete')"
           @click.stop="remove"
         >
-          <span i-material-symbols:delete-outline-rounded />
+          <span class="i-material-symbols:delete-outline-rounded" />
         </button>
       </div>
     </div>

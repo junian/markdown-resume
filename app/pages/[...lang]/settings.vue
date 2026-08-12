@@ -2,13 +2,10 @@
   <div class="settings-page sidebar-layout">
     <Header />
 
-    <main class="max-w-240 mx-auto px-5 py-12 md:px-10 md:py-16 text-dark-c">
+    <main class="max-w-[60rem] mx-auto px-5 py-12 md:px-10 md:py-16 text-dark-c">
       <div class="hstack gap-3 mb-10">
         <span class="circle size-10 bg-brand text-white">
-          <span
-            i-ic:outline-settings
-            text-xl
-          />
+          <span class="i-ic:outline-settings text-xl" />
         </span>
         <div>
           <h1 class="text-3xl font-bold">
@@ -23,10 +20,7 @@
       <div class="grid gap-5 md:grid-cols-2">
         <section class="settings-card md:col-span-2">
           <div class="settings-card-heading">
-            <span
-              i-mdi:tune
-              text-xl
-            />
+            <span class="i-mdi:tune text-xl" />
             <h2>{{ $t("settings.defaults.title") }}</h2>
           </div>
           <div class="grid gap-4 sm:grid-cols-2">
@@ -67,10 +61,7 @@
           :class="{ 'settings-card--menu-open': languageApi.open }"
         >
           <div class="settings-card-heading">
-            <span
-              i-ic:round-translate
-              text-xl
-            />
+            <span class="i-ic:round-translate text-xl" />
             <h2>{{ $t("settings.language") }}</h2>
           </div>
           <label
@@ -87,15 +78,13 @@
               type="button"
             >
               <span
-                :class="currentLocale?.icon"
-                text-lg
+                :class="[currentLocale?.icon, 'text-lg']"
               />
               <span class="min-w-0 flex-1 truncate text-left">
                 {{ currentLocale?.name }}
               </span>
               <span
-                i-tabler:chevron-down
-                class="language-menu-chevron"
+                class="language-menu-chevron i-tabler:chevron-down"
                 :class="{ 'rotate-180': languageApi.open }"
               />
             </button>
@@ -114,15 +103,11 @@
                   v-bind="languageApi.getItemProps({ value: item.code })"
                   class="language-menu-item"
                 >
-                  <span
-                    :class="item.icon"
-                    text-base
-                  />
+                  <span :class="[item.icon, 'text-base']" />
                   <span class="min-w-0 flex-1 truncate">{{ item.name }}</span>
                   <span
                     v-if="item.code === locale"
-                    i-tabler:check
-                    text-base
+                    class="i-tabler:check text-base"
                   />
                 </li>
               </ul>
@@ -132,10 +117,7 @@
 
         <section class="settings-card">
           <div class="settings-card-heading">
-            <span
-              i-ph:paint-brush-bold
-              text-xl
-            />
+            <span class="i-ph:paint-brush-bold text-xl" />
             <h2>{{ $t("settings.appearance") }}</h2>
           </div>
           <div
@@ -153,10 +135,7 @@
               :aria-checked="colorMode.preference === mode.value"
               @click="colorMode.preference = mode.value"
             >
-              <span
-                :class="mode.icon"
-                text-xl
-              />
+              <span :class="[mode.icon, 'text-xl']" />
               <span>{{ mode.label }}</span>
             </button>
           </div>
@@ -164,10 +143,7 @@
 
         <section class="settings-card md:col-span-2">
           <div class="settings-card-heading">
-            <span
-              i-mdi:code-braces
-              text-xl
-            />
+            <span class="i-mdi:code-braces text-xl" />
             <h2>{{ $t("settings.editor") }}</h2>
           </div>
           <div class="editor-settings">
@@ -212,10 +188,7 @@
 
         <section class="settings-card md:col-span-2">
           <div class="settings-card-heading">
-            <span
-              i-mdi:database-outline
-              text-xl
-            />
+            <span class="i-mdi:database-outline text-xl" />
             <h2>{{ $t("settings.storage") }}</h2>
             <button
               class="storage-refresh-button"
@@ -226,8 +199,7 @@
               @click="refreshStorageEstimate"
             >
               <span
-                i-mdi:refresh
-                text-lg
+                class="i-mdi:refresh text-lg"
                 :class="{ 'animate-spin': isRefreshingStorage }"
               />
             </button>
@@ -317,10 +289,7 @@
 
         <section class="settings-card danger-card md:col-span-2">
           <div class="settings-card-heading danger-heading">
-            <span
-              i-mdi:alert-outline
-              text-xl
-            />
+            <span class="i-mdi:alert-outline text-xl" />
             <h2>{{ $t("settings.danger_zone") }}</h2>
           </div>
           <p class="danger-description">
@@ -331,7 +300,7 @@
             id="erase-all-data"
             :title="$t('settings.erase_all_data')"
             icon="i-mdi:alert-outline"
-            box-class="w-11/12 max-w-110"
+            box-class="w-11/12 max-w-[27.5rem]"
           >
             <template #button>
               <button
@@ -339,10 +308,7 @@
                 type="button"
                 @click="deleteConfirmation = ''"
               >
-                <span
-                  i-mdi:delete-forever-outline
-                  text-lg
-                />
+                <span class="i-mdi:delete-forever-outline text-lg" />
                 <span>{{ $t("settings.erase_all_data") }}</span>
               </button>
             </template>
@@ -522,6 +488,8 @@ useHead({ title: () => `${t('settings.title')} — Markdown Resume` })
 </script>
 
 <style scoped>
+@reference "~/assets/css/main.css";
+
 .language-menu-content {
   transform-origin: var(--transform-origin);
 }

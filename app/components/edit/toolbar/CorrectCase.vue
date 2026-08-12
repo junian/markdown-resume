@@ -3,21 +3,16 @@
     :text="$t('toolbar.correct_case.text')"
     icon="i-icon-park-outline:check-correct"
   >
-    <div
-      bg="c lg:dark-c"
-      p="y-2 x-3"
-      rounded
-    >
+    <div class="bg-c lg:bg-dark-c py-2 px-3 rounded">
       {{ $t('toolbar.correct_case.desc') }}<br>
       {{ $t('toolbar.correct_case.note') }}
     </div>
 
     <button
-      class="rect-btn mt-3 ml-auto text-white"
-      bg="blue-500 hover:(blue-600 dark:blue-400)"
+      class="rect-btn mt-3 ml-auto text-white bg-blue-500 hover:bg-blue-600 dark:hover:bg-blue-400"
       @click="correct"
     >
-      <span i-carbon:rocket />
+      <span class="i-carbon:rocket" />
       <span>{{ $t("toolbar.correct_case.btn") }}</span>
     </button>
   </ToolItem>

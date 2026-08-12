@@ -1,11 +1,5 @@
 <template>
-  <div
-    flex
-    text-c
-    w-72
-    h-full
-    min-h-0
-  >
+  <div class="flex text-c w-72 h-full min-h-0">
     <Tools />
     <Navbar />
   </div>
@@ -83,13 +77,10 @@ const Tools = () => (
 )
 
 const Navbar = () => (
-  <div
-    class="flex-center flex-col flex-none space-y-1 w-9 md:w-10"
-    border="l c dashed lg:none"
-  >
+  <div class="flex-center flex-col flex-none space-y-1 w-9 md:w-10 border-l border-c border-dashed lg:border-none">
     {sections.map(item => (
       <button class="round-btn" onClick={() => scrollTo(item.name)}>
-        <span text="sm md:base" class={item.icon} />
+        <span class={[item.icon, 'text-sm md:text-base']} />
       </button>
     ))}
   </div>
@@ -97,6 +88,8 @@ const Navbar = () => (
 </script>
 
 <style>
+@reference "~/assets/css/main.css";
+
 #toolbar .tool-item:not(:last-child) {
   @apply border-c border-b;
 }

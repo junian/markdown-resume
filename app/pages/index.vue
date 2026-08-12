@@ -2,7 +2,7 @@
   <div class="home-page sidebar-layout">
     <Header />
 
-    <main class="max-w-306 mx-auto px-5 py-12 md:px-10 md:py-16 text-dark-c">
+    <main class="max-w-[76.5rem] mx-auto px-5 py-12 md:px-10 md:py-16 text-dark-c">
       <!-- Hero Section -->
       <section class="mb-14 text-center">
         <h1 class="text-4xl md:text-5xl font-bold mb-4">
@@ -18,10 +18,7 @@
         <div class="flex items-center justify-between mb-6">
           <div class="hstack gap-3">
             <span class="circle size-9 flex-shrink-0 bg-brand text-white">
-              <span
-                i-ep:document
-                text-lg
-              />
+              <span class="i-ep:document text-lg" />
             </span>
             <div>
               <h2 class="text-2xl font-bold">
@@ -37,10 +34,7 @@
             :to="$nuxt.$localePath('/resumes')"
           >
             <span>{{ $t("nav.see_more") }}</span>
-            <span
-              i-tabler:arrow-right
-              text-base
-            />
+            <span class="i-tabler:arrow-right text-base" />
           </nuxt-link>
         </div>
 
@@ -63,10 +57,7 @@
         <div class="flex items-center justify-between mb-6">
           <div class="hstack gap-3">
             <span class="circle size-9 flex-shrink-0 bg-brand text-white">
-              <span
-                i-ic:outline-photo-library
-                text-lg
-              />
+              <span class="i-ic:outline-photo-library text-lg" />
             </span>
             <div>
               <h2 class="text-2xl font-bold">
@@ -82,10 +73,7 @@
             :to="$nuxt.$localePath('/images')"
           >
             <span>{{ $t("nav.see_more") }}</span>
-            <span
-              i-tabler:arrow-right
-              text-base
-            />
+            <span class="i-tabler:arrow-right text-base" />
           </nuxt-link>
         </div>
 
@@ -108,18 +96,15 @@
           v-else-if="recentImages && recentImages.length === 0"
           class="mt-8 flex-center flex-col gap-3 text-lighter-c py-12 rounded-xl border border-dashed border-c"
         >
-          <span
-            i-ic:outline-photo-library
-            text-5xl
-          />
-          <p text-sm>
+          <span class="i-ic:outline-photo-library text-5xl" />
+          <p class="text-sm">
             {{ $t("images.empty") }}
           </p>
           <nuxt-link
             class="hstack gap-1.5 px-4 py-1.5 rounded-lg bg-brand text-white text-sm hover:opacity-90 transition-opacity"
             :to="$nuxt.$localePath('/images')"
           >
-            <span i-ic:round-upload-file />
+            <span class="i-ic:round-upload-file" />
             <span>{{ $t("images.upload") }}</span>
           </nuxt-link>
         </div>
@@ -153,6 +138,8 @@ onMounted(async () => {
 </script>
 
 <style scoped>
+@reference "~/assets/css/main.css";
+
 .home-page :deep(.resume-card) {
   border-color: #d1d5db !important;
   color-scheme: light;

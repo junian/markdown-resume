@@ -13,19 +13,31 @@
     </Zoom>
 
     <div
-      class="zoom-bar hstack fixed bottom-4 lg:(bottom-auto top-15) ml-2 shadow-c rounded-full overflow-hidden text-white bg-blue-500 lg:opacity-0 hover:opacity-100"
+      class="zoom-bar hstack fixed bottom-4 lg:bottom-auto lg:top-[3.75rem] ml-2 shadow-c rounded-full overflow-hidden text-white bg-blue-500 lg:opacity-0 hover:opacity-100"
     >
-      <button class="zoom-bar-button" @click="scale *= 1.1">
-        <span i-lucide:zoom-in />
+      <button
+        class="zoom-bar-button"
+        @click="scale *= 1.1"
+      >
+        <span class="i-lucide:zoom-in" />
       </button>
-      <button class="zoom-bar-button" @click="scale /= 1.1">
-        <span i-lucide:zoom-out />
+      <button
+        class="zoom-bar-button"
+        @click="scale /= 1.1"
+      >
+        <span class="i-lucide:zoom-out" />
       </button>
-      <button class="zoom-bar-button" @click="fitWidth">
-        <span i-fluent:arrow-autofit-width-20-filled />
+      <button
+        class="zoom-bar-button"
+        @click="fitWidth"
+      >
+        <span class="i-fluent:arrow-autofit-width-20-filled" />
       </button>
-      <button class="zoom-bar-button" @click="fitHeight">
-        <span i-fluent:arrow-autofit-height-20-filled />
+      <button
+        class="zoom-bar-button"
+        @click="fitHeight"
+      >
+        <span class="i-fluent:arrow-autofit-height-20-filled" />
       </button>
     </div>
   </div>

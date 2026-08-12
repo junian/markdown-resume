@@ -26,7 +26,6 @@
     "@types/katex": "^0.16.7",
     "@types/markdown-it": "^14.0.0",
     "@types/markdown-it-link-attributes": "^3.0.5",
-    "@unocss/nuxt": "^66.7.5",
     "@vite-pwa/nuxt": "^1.1.1",
     "@vueuse/core": "^14.4.0",
     "@vueuse/nuxt": "^14.4.0",
@@ -58,7 +57,6 @@
     "tailwindcss": "^4.3.3",
     "ts-debounce": "^4.0.0",
     "typescript": "^6.0.3",
-    "unocss": "^66.7.5",
     "user-agent-data-types": "^0.4.2"
   },
   "version": "0.1.1"

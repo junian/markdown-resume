@@ -1,7 +1,7 @@
 <template>
   <div
     v-bind="api.rootProps"
-    relative
+    class="relative"
   >
     <div
       v-bind="api.controlProps"
@@ -13,19 +13,14 @@
         class="w-full outline-none bg-transparent capitalize"
         @focus="api.open"
       >
-      <div
-        size-5
-        flex-center
-      >
+      <div class="size-5 flex-center">
         <span
           v-show="api.isOpen"
-          i-ic:sharp-arrow-drop-up
-          text-lg
+          class="i-ic:sharp-arrow-drop-up text-lg"
         />
         <span
           v-show="!api.isOpen"
-          i-ic:sharp-arrow-drop-down
-          text-lg
+          class="i-ic:sharp-arrow-drop-down text-lg"
         />
       </div>
     </div>
@@ -107,6 +102,8 @@ watch(
 </script>
 
 <style scoped>
+@reference "~/assets/css/main.css";
+
 [data-part="item"][data-highlighted] {
   @apply bg-dark-c;
 }
