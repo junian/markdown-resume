@@ -41,6 +41,7 @@ export default defineConfig({
       'cursor-pointer mx-auto overflow-hidden rounded-md duration-150 hover:(-translate-y-3 drop-shadow-xl)',
     ],
     ['zoom-bar-button', 'flex-center size-10 text-lg hover:bg-blue-600'],
+    ['action-btn', 'circle size-8 text-white bg-gray-500/80 hover:bg-gray-500'],
     // settings.vue
     ['settings-card', 'rounded-xl border border-c bg-c p-5 shadow-sm'],
     ['settings-card--menu-open', 'relative z-20'],
@@ -56,8 +57,6 @@ export default defineConfig({
     ['editor-setting', 'flex cursor-pointer items-start gap-3 rounded-lg border border-c bg-dark-c p-4 transition-colors hover:bg-darker-c'],
     ['editor-settings', 'grid gap-3'],
     ['editor-checkbox', 'mt-0.5 size-4 flex-none cursor-pointer accent-blue-500 dark:accent-[#007acc]'],
-    ['storage-ring', 'circle flex-none size-32'],
-    ['storage-ring--loading', 'animate-pulse bg-gray-200 dark:bg-zinc-700'],
     ['storage-skeleton', 'animate-pulse bg-gray-200 dark:bg-zinc-700 block rounded'],
     ['storage-skeleton--label', 'h-3 w-12'],
     ['storage-skeleton--value', 'mt-2 h-6 w-20'],

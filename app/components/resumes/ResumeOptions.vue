@@ -1,9 +1,9 @@
 <template>
   <div class="absolute right-3 top-3 space-y-2">
-    <button @click="duplicate">
+    <button class="action-btn" @click="duplicate">
       <span i-ion:duplicate />
     </button>
-    <button @click="remove">
+    <button class="action-btn" @click="remove">
       <span i-material-symbols:delete-outline-rounded />
     </button>
   </div>
@@ -30,9 +30,3 @@ const remove = async () => {
   emit('update')
 }
 </script>
-
-<style scoped>
-button {
-  @apply circle size-8 text-white bg-gray-500/80 hover:bg-gray-500;
-}
-</style>

@@ -13,7 +13,7 @@
       <!-- Hover action buttons -->
       <div class="absolute right-2 top-2 hidden group-hover:flex flex-col gap-2">
         <button
-          class="image-action-btn"
+          class="action-btn"
           :title="$t('images.copy_url')"
           :aria-label="$t('images.copy_url')"
           @click.stop="copyUrl"
@@ -21,7 +21,7 @@
           <span i-ic:baseline-content-copy />
         </button>
         <button
-          class="image-action-btn"
+          class="action-btn"
           :title="$t('images.delete')"
           :aria-label="$t('images.delete')"
           @click.stop="remove"
@@ -82,9 +82,3 @@ const remove = async () => {
   emit('update')
 }
 </script>
-
-<style scoped>
-.image-action-btn {
-  @apply circle size-8 text-white bg-gray-500/80 hover:bg-gray-500;
-}
-</style>

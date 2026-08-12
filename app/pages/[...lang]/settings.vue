@@ -555,10 +555,11 @@ useHead({ title: () => `${t('settings.title')} — Markdown Resume` })
 .storage-ring {
   --storage-percent: 0%;
   background: conic-gradient(rgb(168 85 247) var(--storage-percent), rgb(229 231 235) 0);
+  @apply circle flex-none size-32;
 }
 
 .storage-ring--loading {
-  background-image: none;
+  @apply animate-pulse bg-gray-200 dark:bg-zinc-700;
 }
 
 :global(.dark) .storage-ring {
