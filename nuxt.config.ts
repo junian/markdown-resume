@@ -16,6 +16,7 @@ export default defineNuxtConfig({
     '@nuxt/scripts',
     '@nuxt/eslint',
     '@nuxt/content',
+    '@nuxt/ui',
   ],
 
   components: [
@@ -66,9 +67,8 @@ export default defineNuxtConfig({
   },
 
   css: [
-    '@unocss/reset/tailwind.css',
     'katex/dist/katex.min.css',
-    '~/assets/css/index.css',
+    '~/assets/css/main.css',
   ],
 
   site: {
