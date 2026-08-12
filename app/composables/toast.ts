@@ -1,6 +1,6 @@
 import type * as toast from '@zag-js/toast'
 
-export const useToast = () => {
+export const useAppToast = () => {
   const nuxtApp = useNuxtApp()
   const $toast = computed(() => (nuxtApp.$toast as ComputedRef<toast.GroupApi>).value)
 

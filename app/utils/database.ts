@@ -78,7 +78,7 @@ export const saveResume = async (
   await localForage.setItem(MARKDOWN_RESUME_KEY, storage)
 
   if (showToast) {
-    const toast = useToast()
+    const toast = useAppToast()
     toast.save()
   }
 }
@@ -127,7 +127,7 @@ export const newResume = async () => {
 
   await saveResume(id, resume)
 
-  const toast = useToast()
+  const toast = useAppToast()
   toast.new()
 
   return id
@@ -147,7 +147,7 @@ export const saveResumesToLocal = async () => {
  * @param callback A callback function to be excuted after importing finished
  */
 export const importResumesFromLocal = async (callback?: () => void) => {
-  const toast = useToast()
+  const toast = useAppToast()
 
   const check = (data: ResumeStorage) => {
     for (const resume of Object.values(data)) {
@@ -201,7 +201,7 @@ export const importResumesFromLocal = async (callback?: () => void) => {
 }
 
 export const deleteResume = async (id: string) => {
-  const toast = useToast()
+  const toast = useAppToast()
   const storage = await getStorage()
 
   if (storage && storage[id]) {
@@ -215,7 +215,7 @@ export const deleteResume = async (id: string) => {
 }
 
 export const switchResume = async (id: string) => {
-  const toast = useToast()
+  const toast = useAppToast()
   const storage = await getStorage()
 
   if (storage && storage[id]) {
@@ -228,7 +228,7 @@ export const switchResume = async (id: string) => {
 }
 
 export const duplicateResume = async (id: string) => {
-  const toast = useToast()
+  const toast = useAppToast()
   const storage = await getStorage()
 
   if (storage && storage[id]) {
@@ -270,6 +270,6 @@ export const renameResume = async (id: string, name: string) => {
 
   await localForage.setItem(MARKDOWN_RESUME_KEY, storage)
 
-  const toast = useToast()
+  const toast = useAppToast()
   toast.save()
 }

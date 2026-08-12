@@ -27,7 +27,7 @@ const emit = defineEmits<{
   (e: 'uploaded'): void
 }>()
 
-const toast = useToast()
+const toast = useAppToast()
 
 const [state, send] = useMachine(
   fileUpload.machine({

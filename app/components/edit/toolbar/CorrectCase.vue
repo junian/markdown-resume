@@ -22,7 +22,7 @@
 import { correctCase } from '~/libs/correct-case'
 
 const { data } = useDataStore()
-const toast = useToast()
+const toast = useAppToast()
 
 const correct = async () => {
   const md = data.mdContent

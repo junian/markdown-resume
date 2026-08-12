@@ -19,7 +19,7 @@
 
 <script lang="ts" setup>
 const { data } = useDataStore()
-const toast = useToast()
+const toast = useAppToast()
 
 const migrateLegacyIconify = (markdown: string) => {
   let count = 0

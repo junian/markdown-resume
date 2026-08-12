@@ -57,7 +57,7 @@ const emit = defineEmits<{
   (e: 'update'): void
 }>()
 
-const toast = useToast()
+const toast = useAppToast()
 
 // Stable URL served by the image Service Worker
 const imageUrl = computed(() => getImageUrl(props.image.id))
