@@ -101,7 +101,8 @@ toolbar:
     export_docx: Export DOCX
   correct_case:
     text: Correct Case
-    desc: 'Example: "Github" → "GitHub" <br> Note: the words only including uppercase or lowercase ("GITHUB" or "github") will be left untouched'
+    desc: 'Example: "Github" → "GitHub"'
+    note: 'Note: the words only including uppercase or lowercase ("GITHUB" or "github") will be left untouched'
     btn: Correct it!
   migrate_iconify:
     text: Fix Icons

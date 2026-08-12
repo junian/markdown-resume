@@ -7,8 +7,10 @@
       bg="c lg:dark-c"
       p="y-2 x-3"
       rounded
-      v-html="$t('toolbar.correct_case.desc')"
-    />
+    >
+      {{ $t('toolbar.correct_case.desc') }}<br>
+      {{ $t('toolbar.correct_case.note') }}
+    </div>
 
     <button
       class="rect-btn mt-3 ml-auto text-white"

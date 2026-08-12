@@ -101,7 +101,8 @@ toolbar:
     export_docx: Ekspor DOCX
   correct_case:
     text: Perbaiki Huruf Besar/Kecil
-    desc: 'Contoh: "Github" → "GitHub" <br> Catatan: kata-kata yang hanya berisi huruf besar atau kecil ("GITHUB" atau "github") tidak akan diubah'
+    desc: 'Contoh: "Github" → "GitHub"'
+    note: 'Catatan: kata-kata yang hanya berisi huruf besar atau kecil ("GITHUB" atau "github") tidak akan diubah'
     btn: Perbaiki!
   migrate_iconify:
     text: Perbaiki Ikon

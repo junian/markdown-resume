@@ -80,9 +80,9 @@ export const useResumeExport = () => {
     try {
       const htmlDocument = await generateHtmlDocument()
       const { asBlob } = await import('html-docx-js-typescript')
-      // @ts-ignore file-saver does not provide types
-      const { saveAs } = await import('file-saver')
-      asBlob(htmlDocument).then(blob => saveAs(blob, `${saveName.value}.docx`))
+      const { fileSave } = await import('browser-fs-access')
+      const blob = (await asBlob(htmlDocument)) as Blob
+      fileSave(blob, { fileName: `${saveName.value}.docx` })
     }
     catch (error) {
       console.error('Error exporting DOCX:', error)

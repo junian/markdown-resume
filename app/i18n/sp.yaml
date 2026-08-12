@@ -101,7 +101,8 @@ toolbar:
     export_docx: Exportar DOCX
   correct_case:
     text: Corregir Mayúsculas
-    desc: "Ejemplo: \"Github\" → \"GitHub\" <br> Nota: las palabras que solo contengan mayúsculas o minúsculas (\"GITHUB\" o \"github\") no se modificarán"
+    desc: "Ejemplo: \"Github\" → \"GitHub\""
+    note: "Nota: las palabras que solo contengan mayúsculas o minúsculas (\"GITHUB\" o \"github\") no se modificarán"
     btn: Corrígelo!
   migrate_iconify:
     text: Corregir Iconos

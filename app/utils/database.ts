@@ -4,9 +4,8 @@ import { DEFAULT_STYLES, DEFAULT_NAME, DEFAULT_MD_CONTENT, DEFAULT_CSS_CONTENT }
 import {
   getDefaultFullName,
   getDefaultPaperSize,
-  DEFAULT_FULL_NAME,
 } from './defaultSettings'
-import type { ResumeStorage, ResumeStorageItem, ResumeStyles } from '~/types'
+import type { ResumeStorage, ResumeStorageItem, ResumeStyles, PaperType } from '~/types'
 
 const MARKDOWN_RESUME_KEY = 'MARKDOWN_RESUME_data'
 
@@ -116,7 +115,7 @@ export const newResume = async () => {
   const markdownNameToUse = defaultFullName.trim() || 'Firstname Lastname'
   // Replace the default name in markdown
   const markdown = DEFAULT_MD_CONTENT.replace('# Firstname Lastname', `# ${markdownNameToUse}`)
-  const styles = { ...DEFAULT_STYLES, paper: getDefaultPaperSize() as any }
+  const styles = { ...DEFAULT_STYLES, paper: getDefaultPaperSize() as PaperType }
 
   const resume = {
     name: resumeName,
@@ -195,7 +194,7 @@ export const importResumesFromLocal = async (callback?: () => void) => {
     await localForage.setItem(MARKDOWN_RESUME_KEY, newStorage)
     toast.import(true)
 
-    callback && callback()
+    if (callback) callback()
   }
 
   uploadFile(merge, '.json')
@@ -207,9 +206,9 @@ export const deleteResume = async (id: string) => {
 
   if (storage && storage[id]) {
     const name = storage[id].name
-    delete storage[id]
+    const { [id]: _removed, ...remaining } = storage
 
-    await localForage.setItem(MARKDOWN_RESUME_KEY, storage)
+    await localForage.setItem(MARKDOWN_RESUME_KEY, remaining)
 
     toast.delete(name)
   }

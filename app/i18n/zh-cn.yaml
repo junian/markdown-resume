@@ -101,7 +101,8 @@ toolbar:
     export_docx: 导出为 DOCX
   correct_case:
     text: 专有名词大小写修正
-    desc: "例如：\"Github\" → \"GitHub\" <br> 注意：不会修正全为大写或全为小写的单词（如 \"GITHUB\" 或 \"github\"）"
+    desc: "例如：\"Github\" → \"GitHub\""
+    note: "注意：不会修正全为大写或全为小写的单词（如 \"GITHUB\" 或 \"github\"）"
     btn: 修正
   migrate_iconify:
     text: 修复图标

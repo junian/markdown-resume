@@ -106,8 +106,8 @@ export const deleteImage = async (id: string): Promise<string | null> => {
 
   if (storage && storage[id]) {
     const { name } = storage[id]
-    delete storage[id]
-    await localForage.setItem(IMAGE_GALLERY_KEY, storage)
+    const { [id]: _removed, ...remaining } = storage
+    await localForage.setItem(IMAGE_GALLERY_KEY, remaining)
     return name
   }
 

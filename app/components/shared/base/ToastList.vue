@@ -9,9 +9,9 @@
       v-bind="$toast.getGroupProps({ placement })"
     >
       <Toast
-        v-for="toast in toasts"
-        :key="toast.id"
-        :actor="toast"
+        v-for="item in toasts"
+        :key="item.id"
+        :actor="item"
       />
     </div>
   </div>

@@ -5,7 +5,9 @@ const supportsConstructedSheet = (() => {
     new CSSStyleSheet()
     return true
   }
-  catch (e) {}
+  catch {
+    // CSSStyleSheet is not available in this environment
+  }
   return false
 })()
 

@@ -63,7 +63,7 @@ const parse = (string: string): FrontMatterResults<any> => {
       frontmatter: yamlString,
     }
   }
-  catch (e) {
+  catch {
     // This may happen when users haven't completed the front matter.
     // So returns the last successfully parsed attributes.
     return {

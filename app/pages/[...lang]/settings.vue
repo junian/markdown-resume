@@ -385,7 +385,6 @@
 <script lang="ts" setup>
 import * as menu from '@zag-js/menu'
 import { normalizeProps, useMachine } from '@zag-js/vue'
-import { siteConfig } from '~~/configs/siteConfig'
 import {
   getDefaultFullName,
   setDefaultFullName,
@@ -398,7 +397,6 @@ import type { PaperType } from '~/types'
 const colorMode = useColorMode()
 const { t, locale, locales } = useI18n()
 const switchLocalePath = useSwitchLocalePath()
-const appBaseURL = useRuntimeConfig().app.baseURL
 
 const currentLocale = computed(() =>
   locales.value.find(item => item.code === locale.value),
@@ -450,42 +448,6 @@ const paperItems = Object.keys(PAPER).map(paper => ({
 const saveMinimapSetting = () => setEditorMinimapEnabled(minimapEnabled.value)
 const saveLineNumbersSetting = () =>
   setEditorLineNumbersEnabled(lineNumbersEnabled.value)
-
-const clearServiceWorkerData = async () => {
-  const appUrl = new URL(appBaseURL, window.location.origin)
-
-  const cacheCleanup = async () => {
-    if (!('caches' in window)) return
-
-    const cacheNames = await caches.keys()
-    const appPath = appUrl.pathname === '/' ? '/' : appUrl.pathname.replace(/\/$/, '')
-    await Promise.all(
-      cacheNames
-        .filter(
-          name =>
-            name.startsWith(`${siteConfig.cacheId}-`)
-            || name === 'google-fonts-cache'
-            || (name.startsWith('workbox-precache-')
-              && (appPath === '/' || name.includes(appPath))),
-        )
-        .map(name => caches.delete(name)),
-    )
-  }
-
-  const serviceWorkerCleanup = async () => {
-    if (!('serviceWorker' in navigator)) return
-
-    const registrations = await navigator.serviceWorker.getRegistrations()
-    await Promise.all(
-      registrations
-        .filter(registration => registration.scope.startsWith(appUrl.href))
-        .map(registration => registration.unregister()),
-    )
-  }
-
-  await Promise.allSettled([serviceWorkerCleanup()])
-  await Promise.allSettled([cacheCleanup()])
-}
 
 const eraseAllData = async () => {
   if (deleteConfirmation.value !== 'DELETE' || isErasing.value) return

@@ -31,7 +31,17 @@ function load() {
 
   nextTick(() => {
     // Set up Disqus config
-    (window as any).disqus_config = function (this: any) {
+    interface DisqusConfig {
+      page: {
+        url: string
+        identifier: string
+      }
+    }
+
+    const windowWithDisqus = window as unknown as {
+      disqus_config?: (this: DisqusConfig) => void
+    }
+    windowWithDisqus.disqus_config = function (this: DisqusConfig) {
       this.page.url = window.location.href
       this.page.identifier = window.location.pathname
     }
