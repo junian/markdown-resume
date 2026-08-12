@@ -1,9 +1,8 @@
 <template>
-  <div class="font-ui">
+  <UApp class="font-ui">
     <VitePwaManifest />
     <NuxtPage />
-    <ToastList />
-  </div>
+  </UApp>
 </template>
 
 <script setup lang="ts">

@@ -83,9 +83,6 @@ importers:
       '@zag-js/tabs':
         specifier: ^0.45.0
         version: 0.45.0
-      '@zag-js/toast':
-        specifier: ^0.45.0
-        version: 0.45.0
       '@zag-js/vue':
         specifier: ^0.45.0
         version: 0.45.0(vue@3.5.41(typescript@6.0.3))
@@ -3705,9 +3702,6 @@ packages:
 
   '@zag-js/text-selection@0.45.0':
     resolution: {integrity: sha512-k4gyzp/h53vUMA3ZSUwVk7PXdEG3qZ0cEi7LSLfl2+Ol9MFuQbSdupM8FvC1OGbNJD4opTO85yBWaOh8yli3gQ==}
-
-  '@zag-js/toast@0.45.0':
-    resolution: {integrity: sha512-5bHLSxFtWE1aj4ruC8KBuOtTGopL5aqLQ8h3q9Zj9JunVYtL3J6OPJFk0Ct9RPCmgPt6GxH4vLcGouEiBRCWhg==}
 
   '@zag-js/types@0.45.0':
     resolution: {integrity: sha512-E23L0pvy+Ky5stw1/BKjkVBOdx7Py0DPaM6UZPMAzkJMo1mMI6pehTFzk0Ks96svxxlZqTF6liR0tqtZYIwLFw==}
@@ -12357,15 +12351,6 @@ snapshots:
   '@zag-js/text-selection@0.45.0':
     dependencies:
       '@zag-js/dom-query': 0.45.0
-
-  '@zag-js/toast@0.45.0':
-    dependencies:
-      '@zag-js/anatomy': 0.45.0
-      '@zag-js/core': 0.45.0
-      '@zag-js/dom-event': 0.45.0
-      '@zag-js/dom-query': 0.45.0
-      '@zag-js/types': 0.45.0
-      '@zag-js/utils': 0.45.0
 
   '@zag-js/types@0.45.0':
     dependencies:
