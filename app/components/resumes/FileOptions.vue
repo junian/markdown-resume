@@ -1,6 +1,7 @@
 <template>
   <div class="file-options hstack space-x-2">
     <button
+      class="rect-btn border border-dark-c hover:bg-darker-c"
       :aria-label="$t('resumes.saveas')"
       @click="saveResumesToLocal"
     >
@@ -11,6 +12,7 @@
       <span>{{ $t("resumes.saveas") }}</span>
     </button>
     <button
+      class="rect-btn border border-dark-c hover:bg-darker-c"
       :aria-label="$t('resumes.import')"
       @click="() => importResumesFromLocal(() => $emit('update'))"
     >
@@ -32,9 +34,3 @@ defineEmits<{
 
 useShortcuts('shift+ctrl+s', saveResumesToLocal)
 </script>
-
-<style scoped>
-.file-options button {
-  @apply rect-btn border border-dark-c hover:bg-darker-c;
-}
-</style>
