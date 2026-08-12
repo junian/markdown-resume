@@ -19,11 +19,11 @@ export const slugify = (str: string) =>
       .toLowerCase()
       .replace(/\s+/g, '-') // Replace whitespace with -
       .replace(
-        /[\]\[\!\'\#\$\%\&\(\)\*\+\,\.\/\:\;\<\=\>\?\@\\\^\_\{\|\}\~\`。，、；：？！…—·ˉ¨‘’“”々～‖∶＂＇｀｜〃〔〕〈〉《》「」『』．〖〗【】（）［］｛｝]/g,
+        /[\][!'#$%&()*+,./:;<=>?@\\^_{|}~`。，、；：？！…—·ˉ¨‘’“”々～‖∶＂＇｀｜〃〔〕〈〉《》「」『』．〖〗【】（）［］｛｝]/g,
         '',
       ) // Remove known punctuators
-      .replace(/^\-+/, '') // Remove leading -
-      .replace(/\-+$/, ''), // Remove trailing -
+      .replace(/^-+/, '') // Remove leading -
+      .replace(/-+$/, ''), // Remove trailing -
   )
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

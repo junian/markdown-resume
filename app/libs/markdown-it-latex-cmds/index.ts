@@ -1,7 +1,7 @@
 import type { PluginSimple, Renderer, ParserBlock } from 'markdown-it'
 
 // same as UNESCAPE_MD_RE plus a space
-const UNESCAPE_RE = /\\([ \\!"#$%&'()*+,.\/:;<=>?@[\]^_`{|}~-])/g
+const UNESCAPE_RE = /\\([ \\!"#$%&'()*+,./:;<=>?@[\]^_`{|}~-])/g
 
 const renderNewPage: Renderer.RenderRule = () => `<div class="md-it-newpage"></div>`
 
