@@ -15,6 +15,7 @@ export default defineNuxtConfig({
     '@nuxtjs/sitemap',
     '@nuxt/scripts',
     '@nuxt/eslint',
+    '@nuxt/content',
   ],
 
   components: [
