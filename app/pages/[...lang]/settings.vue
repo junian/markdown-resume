@@ -86,14 +86,7 @@
               icon: 'i-lucide-search',
             }"
             class="w-full"
-          >
-            <template #leading="{ modelValue }">
-              <UIcon
-                :name="modelValue?.icon"
-                class="text-lg"
-              />
-            </template>
-          </USelectMenu>
+          />
         </section>
 
         <section class="settings-card">
