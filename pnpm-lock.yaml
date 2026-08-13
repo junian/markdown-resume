@@ -59,9 +59,6 @@ importers:
       '@zag-js/color-picker':
         specifier: ^0.45.0
         version: 0.45.0
-      '@zag-js/combobox':
-        specifier: ^0.45.0
-        version: 0.45.0
       '@zag-js/dialog':
         specifier: ^0.45.0
         version: 0.45.0
@@ -3613,17 +3610,11 @@ packages:
   '@zag-js/aria-hidden@0.45.0':
     resolution: {integrity: sha512-AA+6ksdMHkYSMsqoiDd3UP1FOYDWntdqiv/wZkJC9L5pj50zbH7w3Qu4inehjYVbw876dCpWgPiNK/B8HSR4nw==}
 
-  '@zag-js/collection@0.45.0':
-    resolution: {integrity: sha512-Hu7lCHQcWIRI2R55bLOhTJcb51VHVu5j2IEFP39DHcJDf6Wmxwk+Ds5F2PGEgn/A+6xcjIly5zLztAeJqkmaww==}
-
   '@zag-js/color-picker@0.45.0':
     resolution: {integrity: sha512-5xwz4gd9V71a3rM0TpS8EZ/VoZQjnDwNMWvEZ3WA0jP/Zg3ghvZ4uZ53/o4MkbJEzPcXk293Oqe+FqaIrDerYQ==}
 
   '@zag-js/color-utils@0.45.0':
     resolution: {integrity: sha512-oU73VX4INzqXUsaX2lojGctQf+T0o12tj7Z6CZUVaYLeo+BFAfiljYhhpnCoAMnqNSqNu83CmgyW61eYERqXuw==}
-
-  '@zag-js/combobox@0.45.0':
-    resolution: {integrity: sha512-Vuq9Y5vv+i2YPHFIBc5ON3cxFqYEgI5Fwn0nHoYsQTXkqdtH1G9BG6lYH5NshHQ11QkELx/984P1nQWADdhCbA==}
 
   '@zag-js/core@0.45.0':
     resolution: {integrity: sha512-GBmYX94Y5ViJKVbbPIZ/EFqR2vKyajpyJ7VhSsGoWo8hPvWuBQMP8XiFhH5NbCOAYm7F0GH5RLmmxHbTb3g9uA==}
@@ -12164,8 +12155,6 @@ snapshots:
     dependencies:
       '@zag-js/dom-query': 0.45.0
 
-  '@zag-js/collection@0.45.0': {}
-
   '@zag-js/color-picker@0.45.0':
     dependencies:
       '@zag-js/anatomy': 0.45.0
@@ -12185,20 +12174,6 @@ snapshots:
   '@zag-js/color-utils@0.45.0':
     dependencies:
       '@zag-js/numeric-range': 0.45.0
-
-  '@zag-js/combobox@0.45.0':
-    dependencies:
-      '@zag-js/anatomy': 0.45.0
-      '@zag-js/aria-hidden': 0.45.0
-      '@zag-js/collection': 0.45.0
-      '@zag-js/core': 0.45.0
-      '@zag-js/dismissable': 0.45.0
-      '@zag-js/dom-event': 0.45.0
-      '@zag-js/dom-query': 0.45.0
-      '@zag-js/mutation-observer': 0.45.0
-      '@zag-js/popper': 0.45.0
-      '@zag-js/types': 0.45.0
-      '@zag-js/utils': 0.45.0
 
   '@zag-js/core@0.45.0':
     dependencies:

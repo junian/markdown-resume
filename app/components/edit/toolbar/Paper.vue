@@ -3,11 +3,13 @@
     :text="$t('toolbar.paper')"
     icon="i-majesticons:paper-fold-line"
   >
-    <Combobox
+    <USelectMenu
       id="paper-size"
+      class="w-full capitalize"
       :items="items"
-      :default="styles.paper"
-      capitalize
+      :model-value="styles.paper"
+      value-key="value"
+      label-key="label"
     />
   </ToolItem>
 </template>

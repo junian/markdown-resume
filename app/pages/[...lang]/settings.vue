@@ -53,19 +53,18 @@
               >
                 {{ $t("settings.defaults.paper_size") }}
               </label>
-              <Combobox
+              <USelectMenu
                 id="default-paper-size"
+                class="w-full capitalize"
                 :items="paperItems"
-                :default="defaultPaperSize"
-                capitalize
+                :model-value="defaultPaperSize"
+                value-key="value"
+                label-key="label"
               />
             </div>
           </div>
         </section>
-        <section
-          class="settings-card"
-          :class="{ 'settings-card--menu-open': languageApi.open }"
-        >
+        <section class="settings-card">
           <div class="settings-card-heading">
             <UIcon
               name="i-ic:round-translate"
@@ -79,53 +78,22 @@
           >{{
             $t("settings.language_label")
           }}</label>
-          <div class="language-menu">
-            <button
-              id="settings-language"
-              v-bind="languageApi.triggerProps"
-              class="language-menu-trigger"
-              type="button"
-            >
+          <USelectMenu
+            id="settings-language"
+            :items="languageItems"
+            :model-value="locale"
+            class="w-full"
+            value-key="value"
+            label-key="label"
+            @update:model-value="onLocaleChange"
+          >
+            <template #leading="{ modelValue }">
               <UIcon
-                :name="currentLocale?.icon"
+                :name="getLocaleIcon(modelValue)"
                 class="text-lg"
               />
-              <span class="min-w-0 flex-1 truncate text-left">
-                {{ currentLocale?.name }}
-              </span>
-              <span
-                class="language-menu-chevron i-tabler:chevron-down"
-                :class="{ 'rotate-180': languageApi.open }"
-              />
-            </button>
-
-            <div
-              v-bind="languageApi.positionerProps"
-              class="z-50"
-            >
-              <ul
-                v-bind="languageApi.contentProps"
-                class="language-menu-content"
-              >
-                <li
-                  v-for="item in locales"
-                  :key="item.code"
-                  v-bind="languageApi.getItemProps({ value: item.code })"
-                  class="language-menu-item"
-                >
-                  <UIcon
-                    :name="item.icon"
-                    class="text-base"
-                  />
-                  <span class="min-w-0 flex-1 truncate">{{ item.name }}</span>
-                  <span
-                    v-if="item.code === locale"
-                    class="i-tabler:check text-base"
-                  />
-                </li>
-              </ul>
-            </div>
-          </div>
+            </template>
+          </USelectMenu>
         </section>
 
         <section class="settings-card">
@@ -381,8 +349,6 @@
 </template>
 
 <script lang="ts" setup>
-import * as menu from '@zag-js/menu'
-import { normalizeProps, useMachine } from '@zag-js/vue'
 import {
   getDefaultFullName,
   setDefaultFullName,
@@ -396,22 +362,20 @@ const colorMode = useColorMode()
 const { t, locale, locales } = useI18n()
 const switchLocalePath = useSwitchLocalePath()
 
-const currentLocale = computed(() =>
-  locales.value.find(item => item.code === locale.value),
+const languageItems = computed(() =>
+  locales.value.map(item => ({
+    label: item.name,
+    value: item.code,
+    icon: item.icon,
+  })),
 )
 
-const [languageState, languageSend] = useMachine(
-  menu.machine({
-    'id': 'settings-language-menu',
-    'aria-label': t('settings.language_label'),
-    'positioning': { placement: 'bottom-start', sameWidth: true, gutter: 6 },
-    'onSelect': ({ value }) => navigateTo(switchLocalePath(value)),
-  }),
-)
+const getLocaleIcon = (value: unknown) =>
+  locales.value.find(item => item.code === value)?.icon
 
-const languageApi = computed(() =>
-  menu.connect(languageState.value, languageSend, normalizeProps),
-)
+const onLocaleChange = (value: string) => {
+  navigateTo(switchLocalePath(value))
+}
 
 const themeModes = computed(() => [
   { value: 'system', label: t('settings.auto'), icon: 'i-ph:desktop-bold' },

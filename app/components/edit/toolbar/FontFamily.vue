@@ -4,21 +4,25 @@
     icon="i-material-symbols:font-download-outline"
   >
     <div class="w-full hstack space-x-2 mb-2">
-      <Combobox
+      <USelectMenu
         id="font-cjk"
         class="flex-1"
         :items="cjkFonts"
-        :default="styles.fontCJK.fontFamily || styles.fontCJK.name"
+        :model-value="styles.fontCJK.fontFamily || styles.fontCJK.name"
+        value-key="value"
+        label-key="label"
       />
       <span class="w-[3.25rem]">{{ $t("toolbar.cjk") }}</span>
     </div>
 
     <div class="hstack space-x-2 w-full">
-      <Combobox
+      <USelectMenu
         id="font-en"
         class="flex-1"
         :items="enFonts"
-        :default="styles.fontEN.fontFamily || styles.fontEN.name"
+        :model-value="styles.fontEN.fontFamily || styles.fontEN.name"
+        value-key="value"
+        label-key="label"
       />
       <span class="w-[3.25rem]">{{ $t("toolbar.en") }}</span>
     </div>

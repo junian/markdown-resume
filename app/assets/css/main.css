@@ -153,12 +153,6 @@ svg.iconify {
   background-color: rgb(55 65 81); /* gray-700 */
 }
 
-/* Combobox.vue */
-
-[data-scope="combobox"] [data-part="item"][data-highlighted] {
-  @apply bg-dark-c;
-}
-
 /* Slider.vue */
 
 [data-scope="slider"] [data-part="thumb"] span::after {
@@ -349,36 +343,6 @@ a.router-link-active.sidebar-item {
 }
 
 /* settings.vue (component rules) */
-
-.language-menu-content {
-  transform-origin: var(--transform-origin);
-}
-
-.language-menu-content[data-state="open"] {
-  animation: language-menu-in 150ms ease-out;
-}
-
-.language-menu-content[data-state="closed"] {
-  animation: language-menu-out 100ms ease-in;
-}
-
-.language-menu-item[data-highlighted] {
-  @apply bg-darker-c text-dark-c;
-}
-
-@keyframes language-menu-in {
-  from {
-    opacity: 0;
-    transform: scale(0.95) translateY(-0.25rem);
-  }
-}
-
-@keyframes language-menu-out {
-  to {
-    opacity: 0;
-    transform: scale(0.95) translateY(-0.25rem);
-  }
-}
 
 .storage-ring {
   --storage-percent: 0%;
@@ -640,10 +604,6 @@ a.router-link-active.sidebar-item {
   @apply rounded-xl border border-c bg-c p-5 shadow-sm;
 }
 
-@utility settings-card--menu-open {
-  @apply relative z-20;
-}
-
 @utility settings-card-heading {
   @apply hstack gap-2 mb-5 text-lg font-bold;
 }
@@ -652,24 +612,8 @@ a.router-link-active.sidebar-item {
   @apply block mb-2 text-sm font-bold text-c;
 }
 
-@utility language-menu {
-  @apply relative;
-}
-
 @utility language-menu-trigger {
   @apply hstack w-full h-11 gap-3 rounded-lg border border-c bg-c px-3 text-sm text-dark-c outline-none transition-colors hover:bg-dark-c focus:border-blue-400 focus:ring-2 focus:ring-blue-400/25 dark:focus:border-[#007acc] dark:focus:ring-[#007acc]/35;
-}
-
-@utility language-menu-chevron {
-  @apply flex-none text-light-c transition-transform duration-150;
-}
-
-@utility language-menu-content {
-  @apply min-w-28 w-full overflow-hidden rounded-md border border-c bg-c p-1 text-sm text-c shadow-c outline-none;
-}
-
-@utility language-menu-item {
-  @apply hstack min-h-9 gap-2 cursor-pointer select-none rounded-sm px-2 py-1.5 outline-none transition-colors hover:bg-darker-c;
 }
 
 @utility theme-option {

@@ -30,7 +30,6 @@
     "@vueuse/core": "^14.4.0",
     "@vueuse/nuxt": "^14.4.0",
     "@zag-js/color-picker": "^0.45.0",
-    "@zag-js/combobox": "^0.45.0",
     "@zag-js/dialog": "^0.45.0",
     "@zag-js/editable": "^0.45.0",
     "@zag-js/file-upload": "^0.45.0",
