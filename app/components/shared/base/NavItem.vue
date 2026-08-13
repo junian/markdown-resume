@@ -22,16 +22,3 @@ defineProps<{
   icon?: string
 }>()
 </script>
-
-<style scoped>
-@reference "~/assets/css/main.css";
-
-a.router-link-active {
-  background-color: rgb(229 231 235); /* gray-200 */
-  font-weight: 600;
-}
-
-:global(.dark) a.router-link-active {
-  background-color: rgb(55 65 81); /* gray-700 */
-}
-</style>
