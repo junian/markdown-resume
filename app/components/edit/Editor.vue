@@ -1,37 +1,27 @@
 <template>
-  <div
-    class="pane-container"
-    v-bind="api.rootProps"
-  >
-    <div
-      v-bind="api.listProps"
-      class="hstack h-9 md:h-10 text-sm md:text-base w-full text-c bg-c border-b border-c px-4 space-x-2"
-    >
-      <button
-        v-for="tab in tabList"
-        v-bind="api.getTriggerProps({ value: tab.value })"
-        :key="tab.value"
-        class="relative leading-9 md:leading-10 px-2"
-      >
-        {{ tab.label }}
-        <span
-          v-show="api.value == tab.value"
-          class="absolute w-full h-[1.5px] bg-blue-500 dark:bg-blue-400 left-0 bottom-0 rounded"
-        />
-      </button>
-    </div>
+  <div class="pane-container flex flex-col">
+    <UTabs
+      v-model="activeTab"
+      :items="tabList"
+      :content="false"
+      variant="link"
+      class="flex-none"
+      :ui="{
+        list: 'hstack h-9 md:h-10 text-sm md:text-base w-full text-c bg-c border-b border-c px-4 space-x-2',
+        trigger: 'relative leading-9 md:leading-10 px-2',
+        indicator: 'h-[1.5px] bg-blue-500 dark:bg-blue-400 rounded',
+      }"
+    />
 
     <div
       ref="editorRef"
-      class="h-full"
+      class="min-h-0 flex-1"
     />
   </div>
 </template>
 
 <script lang="ts" setup>
 import type * as Monaco from 'monaco-editor'
-import * as tabs from '@zag-js/tabs'
-import { normalizeProps, useMachine } from '@zag-js/vue'
 import { isClient } from '~/libs/utils'
 import { setupMonacoEditor } from '~/monaco'
 
@@ -95,14 +85,7 @@ const tabList = [
   { value: 'css', label: 'CSS' },
 ]
 
-const [state, send] = useMachine(
-  tabs.machine({
-    id: 'editor',
-    value: 'markdown',
-    onValueChange: (details) => {
-      activate(details.value as 'markdown' | 'css')
-    },
-  }),
-)
-const api = computed(() => tabs.connect(state.value, send, normalizeProps))
+const activeTab = ref<'markdown' | 'css'>('markdown')
+
+watch(activeTab, value => activate(value))
 </script>
