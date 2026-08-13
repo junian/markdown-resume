@@ -39,8 +39,8 @@
               </label>
               <UInput
                 id="default-full-name"
-                class="w-full"
                 v-model="defaultFullName"
+                class="w-full"
                 :placeholder="$t('settings.defaults.name_placeholder')"
                 @update:model-value="setDefaultFullName"
               />

@@ -1,47 +1,33 @@
 <template>
-  <div
-    v-bind="api.rootProps"
+  <UFileUpload
+    v-model="selectedFile"
+    icon="i-lucide-image"
+    :label="$t('images.from_local')"
+    description="SVG, PNG, JPG"
+    accept="image/*"
+    :preview="false"
     class="w-full"
-  >
-    <div
-      v-bind="api.dropzoneProps"
-      class="py-12 hover:bg-darker-c cursor-pointer transition-colors border border-c border-dashed rounded"
-    >
-      <input v-bind="api.hiddenInputProps">
-      <div class="flex-center flex-col gap-2 text-sm text-light-c">
-        <UIcon
-          name="i-ic:round-upload-file"
-          class="text-3xl"
-        />
-        <span>{{ $t("images.from_local") }}</span>
-      </div>
-    </div>
-  </div>
+    @change="onFilesSelected"
+  />
 </template>
 
 <script lang="ts" setup>
-import * as fileUpload from '@zag-js/file-upload'
-import { normalizeProps, useMachine } from '@zag-js/vue'
-
 const emit = defineEmits<{
   (e: 'uploaded'): void
 }>()
 
 const toast = useAppToast()
 
-const [state, send] = useMachine(
-  fileUpload.machine({
-    id: 'image-upload',
-    accept: 'image/*',
-    onFileAccept: async ({ files }) => {
-      for (const file of files) {
-        await saveImage(file.name, file, file.type, file.size)
-        toast.uploadImage(file.name)
-      }
-      emit('uploaded')
-    },
-  }),
-)
+const selectedFile = ref<File | null>(null)
 
-const api = computed(() => fileUpload.connect(state.value, send, normalizeProps))
+const onFilesSelected = async () => {
+  const file = selectedFile.value
+  if (!file) return
+
+  await saveImage(file.name, file, file.type, file.size)
+  toast.uploadImage(file.name)
+
+  selectedFile.value = null
+  emit('uploaded')
+}
 </script>
