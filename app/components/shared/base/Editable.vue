@@ -1,49 +1,50 @@
 <template>
   <div
     class="min-w-0 border-[1.5px] rounded hstack space-x-1"
-    :class="api.isEditing ? 'border-dark-c' : 'border-transparent'"
+    :class="isEditing ? 'border-dark-c' : 'border-transparent'"
   >
-    <div v-if="iconPosition === 'left'">
-      <button
-        v-bind="api.editTriggerProps"
-        class="cursor-pointer p-1 rounded transition-colors hover:bg-gray-200 dark:hover:bg-[#2a2d2e]"
-        :title="$t ? $t('resumes.rename') : 'Rename'"
-      >
-        <UIcon
-          name="i-mdi:pencil"
-          class="text-sm"
-        />
-      </button>
-    </div>
-    <div
-      v-bind="api.rootProps"
-      class="min-w-0 flex-1 overflow-hidden"
-    >
-      <div
-        v-bind="api.areaProps"
-        class="min-w-0 overflow-hidden"
-      >
-        <input
-          v-show="api.isEditing"
-          v-bind="api.inputProps"
-          :class="[
-            'min-w-0 w-full outline-none px-1 bg-transparent',
-            textAlignClass,
-          ]"
-        >
-        <div
-          v-show="!api.isEditing"
-          v-bind="api.previewProps"
-          class="block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap"
-          :class="textAlignClass"
-        />
-      </div>
-    </div>
     <button
-      v-if="iconPosition === 'right'"
-      v-bind="api.editTriggerProps"
+      v-if="iconPosition === 'left'"
+      type="button"
       class="cursor-pointer p-1 rounded transition-colors hover:bg-gray-200 dark:hover:bg-[#2a2d2e]"
       :title="$t ? $t('resumes.rename') : 'Rename'"
+      @click="startEdit"
+    >
+      <UIcon
+        name="i-mdi:pencil"
+        class="text-sm"
+      />
+    </button>
+
+    <div class="min-w-0 flex-1 overflow-hidden">
+      <UInput
+        v-if="isEditing"
+        :id="id"
+        ref="inputRef"
+        v-model="text"
+        variant="none"
+        size="sm"
+        class="min-w-0"
+        :class="textAlignClass"
+        @blur="commit"
+        @keydown.enter="commit"
+        @keydown.esc="cancel"
+      />
+      <div
+        v-else
+        class="block min-w-0 max-w-full overflow-hidden text-ellipsis whitespace-nowrap"
+        :class="textAlignClass"
+      >
+        {{ displayText }}
+      </div>
+    </div>
+
+    <button
+      v-if="iconPosition === 'right'"
+      type="button"
+      class="cursor-pointer p-1 rounded transition-colors hover:bg-gray-200 dark:hover:bg-[#2a2d2e]"
+      :title="$t ? $t('resumes.rename') : 'Rename'"
+      @click="startEdit"
     >
       <UIcon
         name="i-mdi:pencil"
@@ -54,9 +55,6 @@
 </template>
 
 <script lang="ts" setup>
-import * as editable from '@zag-js/editable'
-import { normalizeProps, useMachine } from '@zag-js/vue'
-
 const props = withDefaults(
   defineProps<{
     id: string
@@ -71,6 +69,10 @@ const props = withDefaults(
   },
 )
 
+const isEditing = ref(false)
+const text = ref(props.default)
+const inputRef = ref()
+
 const textAlignClass = computed(() => {
   switch (props.textAlign) {
     case 'left':
@@ -82,31 +84,48 @@ const textAlignClass = computed(() => {
   }
 })
 
-const [state, send] = useMachine(
-  editable.machine({
-    id: props.id,
-    selectOnFocus: false,
-    submitMode: 'both',
-    onValueCommit: (details) => {
-      const newValue = details.value.trim()
-      // Only commit if the value is not empty and different from default
-      if (newValue && newValue !== props.default) {
-        console.log('Value submitted', newValue)
-        props.onValueCommit(newValue)
-      }
-      else {
-        // Revert to default if empty or unchanged
-        api.value.setValue(props.default)
-      }
-    },
-  }),
-)
-const api = computed(() => editable.connect(state.value, send, normalizeProps))
+const displayText = computed(() => text.value || props.default)
 
-onMounted(() => api.value.setValue(props.default))
+const startEdit = () => {
+  text.value = props.default
+  isEditing.value = true
+  nextTick(() => {
+    inputRef.value?.inputRef?.focus()
+    inputRef.value?.inputRef?.select()
+  })
+}
+
+const stopEdit = () => {
+  isEditing.value = false
+}
+
+const commit = () => {
+  // Guard against re-entry (e.g. blur firing after Enter commit)
+  if (!isEditing.value) return
+
+  const newValue = text.value.trim()
+  // Only commit if the value is not empty and different from default
+  if (newValue && newValue !== props.default) {
+    props.onValueCommit(newValue)
+    text.value = newValue
+  }
+  else {
+    // Revert to default if empty or unchanged
+    text.value = props.default
+  }
+
+  stopEdit()
+}
+
+const cancel = () => {
+  text.value = props.default
+  stopEdit()
+}
 
 watch(
   () => props.default,
-  () => api.value.setValue(props.default),
+  (val) => {
+    text.value = val
+  },
 )
 </script>

@@ -62,9 +62,6 @@ importers:
       '@zag-js/dialog':
         specifier: ^0.45.0
         version: 0.45.0
-      '@zag-js/editable':
-        specifier: ^0.45.0
-        version: 0.45.0
       '@zag-js/file-upload':
         specifier: ^0.45.0
         version: 0.45.0
@@ -3630,9 +3627,6 @@ packages:
 
   '@zag-js/dom-query@0.45.0':
     resolution: {integrity: sha512-8HuQcifb+2VQ9NJwqhI2kjefw9V+B1w00xbPk+pUszaYJ4VFM8y4nu9ifXvMmhoPXrGKSg5F8RuOq7sPn8HMmw==}
-
-  '@zag-js/editable@0.45.0':
-    resolution: {integrity: sha512-4Ge+iypwnknhb25GhC71FWNZeY/WfXrkBQVPYMGfwvrnwFvabRIFrZNBneTOFcGrwyUK3l7DdRJlfgYzrx90TQ==}
 
   '@zag-js/element-rect@0.45.0':
     resolution: {integrity: sha512-WzpdAsvq7sp+I+W+oRbWCv2iX1S/KGDX37LB45tj92877r/gTW4LPtcKQpbkdaS1ZYH+XT2GnjRoqfNULTgsSg==}
@@ -12205,17 +12199,6 @@ snapshots:
       '@zag-js/types': 0.45.0
 
   '@zag-js/dom-query@0.45.0': {}
-
-  '@zag-js/editable@0.45.0':
-    dependencies:
-      '@zag-js/anatomy': 0.45.0
-      '@zag-js/core': 0.45.0
-      '@zag-js/dom-event': 0.45.0
-      '@zag-js/dom-query': 0.45.0
-      '@zag-js/form-utils': 0.45.0
-      '@zag-js/interact-outside': 0.45.0
-      '@zag-js/types': 0.45.0
-      '@zag-js/utils': 0.45.0
 
   '@zag-js/element-rect@0.45.0': {}
 
