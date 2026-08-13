@@ -133,6 +133,164 @@
   @apply border-c border-b;
 }
 
+/* Header.vue */
+
+.header {
+  @apply fixed inset-y-0 left-0 z-30 w-60 transition-all duration-200;
+}
+
+.header--collapsed {
+  @apply w-16;
+}
+
+.sidebar-panel {
+  @apply flex flex-col size-full p-3 bg-c border-r border-c;
+}
+
+.mobile-header {
+  @apply hidden;
+}
+
+.sidebar-backdrop {
+  @apply hidden;
+}
+
+.header-brand {
+  @apply hstack min-h-10 gap-1;
+}
+
+.brand-link,
+.sidebar-item {
+  @apply hstack min-w-0 gap-3 rounded-lg transition-colors hover:bg-darker-c;
+}
+
+.brand-link {
+  @apply flex-1 gap-2 px-1 py-1 overflow-hidden text-gray-900 dark:text-[#f0f0f0];
+}
+
+.brand-title {
+  @apply min-w-0 truncate text-base;
+}
+
+.collapse-button {
+  @apply circle flex-shrink-0 size-8 hover:bg-darker-c;
+}
+
+.sidebar-nav {
+  @apply flex flex-1 flex-col min-h-0 gap-1 mt-7 overflow-y-auto;
+}
+
+.sidebar-info-group,
+.sidebar-link-group {
+  @apply flex flex-col gap-1 mt-4 pt-3 border-t border-c;
+}
+
+.sidebar-settings {
+  @apply mt-auto pt-3 border-t border-c;
+}
+
+.sidebar-section-label {
+  @apply px-3 pb-1 text-xs font-bold uppercase tracking-wider text-lighter-c;
+}
+
+.sidebar-nav a,
+.sidebar-item {
+  @apply min-h-10 px-3;
+}
+
+.sidebar-nav a {
+  @apply gap-3 rounded-lg;
+}
+
+.sidebar-context {
+  @apply mt-4 overflow-hidden;
+}
+
+.coffee-link {
+  @apply text-gray-900 bg-yellow-400 hover:bg-yellow-300 dark:hover:bg-yellow-300;
+}
+
+.sidebar-label {
+  @apply whitespace-nowrap transition-opacity duration-150;
+}
+
+.header--collapsed .sidebar-label,
+.header--collapsed .hide-on-mobile {
+  @apply hidden;
+}
+
+.header--collapsed .brand-link,
+.header--collapsed .sidebar-item,
+.header--collapsed .sidebar-nav a {
+  @apply justify-center px-0;
+}
+
+.header--collapsed .header-brand {
+  @apply flex-col;
+}
+
+.header--collapsed .collapse-button {
+  @apply order-first mb-1;
+}
+
+.header--collapsed .brand-title {
+  @apply hidden;
+}
+
+.sidebar-nav a.router-link-active,
+a.router-link-active.sidebar-item {
+  @apply bg-darker-c font-bold;
+}
+
+@media (max-width: 768px) {
+  .header,
+  .header.header--collapsed {
+    @apply inset-x-0 top-0 bottom-auto w-full h-14 bg-c border-b border-c;
+  }
+
+  .mobile-header {
+    @apply hstack h-full gap-2 px-3;
+  }
+
+  .mobile-menu-button {
+    @apply circle flex-shrink-0 size-9 hover:bg-darker-c;
+  }
+
+  .mobile-title {
+    @apply hstack min-w-0 gap-2 text-base text-gray-900 dark:text-[#f0f0f0];
+  }
+
+  .sidebar-panel {
+    @apply flex fixed left-0 top-14 bottom-0 w-60 h-auto shadow-xl -translate-x-full opacity-0 invisible pointer-events-none;
+    transition:
+      transform 200ms ease,
+      opacity 200ms ease,
+      visibility 0s linear 200ms;
+  }
+
+  .sidebar-backdrop {
+    @apply block fixed inset-x-0 top-14 bottom-0 w-full bg-black/20;
+  }
+
+  .sidebar-panel .header-brand {
+    @apply hidden;
+  }
+
+  .header--mobile-open .sidebar-panel {
+    @apply translate-x-0 opacity-100 visible pointer-events-auto [transition-delay:0s];
+  }
+
+  .header--collapsed .sidebar-panel .sidebar-label {
+    @apply block;
+  }
+
+  .header--collapsed .sidebar-panel .brand-link,
+  .header--collapsed .sidebar-panel .sidebar-item,
+  .header--collapsed .sidebar-panel .sidebar-nav a {
+    @apply justify-start px-3;
+  }
+}
+
 /* settings.vue */
 
 @utility settings-card {
