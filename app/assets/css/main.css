@@ -396,6 +396,26 @@ a.router-link-active.sidebar-item {
   @apply text-brand hover:underline;
 }
 
+/* resumes/index.vue */
+
+.resumes-page .resume-card {
+  border-color: #d1d5db !important;
+  color-scheme: light;
+}
+
+.resumes-page .resume-card .vue-smart-pages {
+  background-color: white !important;
+  color: black !important;
+}
+
+.resumes-page button.resume-card {
+  background-color: #e5e7eb !important;
+}
+
+.resumes-page button.resume-card:hover {
+  background-color: white !important;
+}
+
 /* settings.vue (utilities) */
 
 @utility settings-card {
