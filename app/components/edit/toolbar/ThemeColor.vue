@@ -10,117 +10,47 @@
         :key="`${i}-${color}`"
         class="size-6 flex-center rounded text-white"
         :style="{ backgroundColor: color }"
-        @click="api.setValue(color)"
+        @click="themeColor = color"
       >
         <UIcon
-          v-show="getHexString(api.value) === color.toUpperCase()"
+          v-show="isActiveColor(color)"
           name="i-line-md:confirm"
         />
       </button>
     </div>
 
     <!-- Color picker -->
-    <div
-      v-bind="api.rootProps"
-      class="relative z-[21]"
-    >
-      <div
-        v-bind="api.controlProps"
-        class="w-full hstack h-9 space-x-2 px-2 py-1 rounded border"
-        :class="api.isOpen || isFocus ? 'border-darker-c' : 'border-c'"
-      >
-        <button v-bind="api.triggerProps">
-          <div
-            class="size-4 rounded-sm"
-            v-bind="api.getSwatchProps({ value: api.value })"
-          />
-        </button>
-        <input
-          v-bind="api.getChannelInputProps({ channel: 'hex' })"
-          class="bg-transparent outline-none"
-          @focus="isFocus = true"
-          @blur="isFocus = false"
-        >
-      </div>
-
-      <div
-        v-bind="api.positionerProps"
-        class="w-full ml-2"
-      >
+    <UPopover class="w-full">
+      <template #default="{ open }">
         <div
-          v-bind="api.contentProps"
-          class="bg-c overflow-hidden shadow-md border border-c rounded"
+          class="w-full hstack h-9 space-x-2 px-2 py-1 rounded border cursor-pointer"
+          :class="open ? 'border-darker-c' : 'border-c'"
         >
-          <div v-bind="api.getAreaProps()">
-            <div
-              v-bind="api.getAreaBackgroundProps()"
-              class="w-full h-[7.5rem]"
-            />
-            <div
-              v-bind="api.getAreaThumbProps()"
-              class="size-4 rounded-full border-2 border-black"
-            >
-              <span class="absolute size-3 border-2 border-white rounded-full" />
-            </div>
-          </div>
-
-          <div class="hstack my-3 px-3 space-x-3">
-            <button
-              v-bind="api.eyeDropperTriggerProps"
-              class="flex-center size-7 rounded hover:bg-dark-c"
-            >
-              <UIcon
-                name="i-bx:bxs-eyedropper"
-                class="text-lg"
-              />
-            </button>
-            <div
-              v-bind="api.getChannelSliderProps({ channel: 'hue' })"
-              class="flex-1"
-            >
-              <div
-                v-bind="api.getChannelSliderTrackProps({ channel: 'hue' })"
-                class="w-full h-2.5 rounded-full"
-              />
-              <div
-                v-bind="api.getChannelSliderThumbProps({ channel: 'hue' })"
-                class="size-[1.125rem] -mt-2 -ml-2 border-2 border-black rounded-full"
-              >
-                <span class="absolute size-3.5 border-2 border-white rounded-full" />
-              </div>
-            </div>
-          </div>
+          <span
+            class="size-4 rounded-sm"
+            :style="{ backgroundColor: styles.themeColor }"
+          />
+          <span class="uppercase">{{ styles.themeColor }}</span>
         </div>
-      </div>
-    </div>
+      </template>
+
+      <template #content>
+        <UColorPicker
+          v-model="themeColor"
+          class="p-2"
+        />
+      </template>
+    </UPopover>
   </ToolItem>
 </template>
 
 <script lang="ts" setup>
-import * as colorPicker from '@zag-js/color-picker'
-import { normalizeProps, useMachine } from '@zag-js/vue'
-
 const { styles, setStyle } = useStyleStore()
-const isFocus = ref(false)
 
-const [state, send] = useMachine(
-  colorPicker.machine({
-    id: 'theme-color',
-    value: colorPicker.parse(styles.themeColor),
-    positioning: {
-      gutter: 14,
-    },
-    onValueChange: details => setStyle('themeColor', getHexString(details.value)),
-  }),
-)
-const api = computed(() => colorPicker.connect(state.value, send, normalizeProps))
+const themeColor = computed({
+  get: () => styles.themeColor,
+  set: value => setStyle('themeColor', value),
+})
 
-watch(
-  () => styles.themeColor,
-  () => api.value.setValue(colorPicker.parse(styles.themeColor)),
-)
-
-const getHexString = (value: colorPicker.Color) => {
-  return '#' + value.toHexInt().toString(16).toUpperCase().padStart(6, '0')
-}
+const isActiveColor = (color: string) => styles.themeColor.toUpperCase() === color
 </script>

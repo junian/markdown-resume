@@ -29,7 +29,6 @@
     "@vite-pwa/nuxt": "^1.1.1",
     "@vueuse/core": "^14.4.0",
     "@vueuse/nuxt": "^14.4.0",
-    "@zag-js/color-picker": "^0.45.0",
     "@zag-js/dialog": "^0.45.0",
     "@zag-js/menu": "^0.45.0",
     "@zag-js/slider": "^0.45.0",

@@ -56,9 +56,6 @@ importers:
       '@vueuse/nuxt':
         specifier: ^14.4.0
         version: 14.4.0(magic-string@1.1.0)(magicast@0.5.4)(nuxt@4.5.2(4a07c8b665a34e99db6da3aedf4c078e))(oxc-parser@0.141.0)(rolldown@1.2.3)(unplugin@3.3.0(esbuild@0.28.2)(rolldown@1.2.3)(rollup@4.62.4)(vite@8.2.1(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.49.2)(yaml@2.9.0))(webpack@5.109.2(cssnano@8.0.5(postcss@8.5.26))(csso@5.0.5)(esbuild@0.28.2)(lightningcss@1.33.0)(postcss@8.5.26)))(vue@3.5.41(typescript@6.0.3))
-      '@zag-js/color-picker':
-        specifier: ^0.45.0
-        version: 0.45.0
       '@zag-js/dialog':
         specifier: ^0.45.0
         version: 0.45.0
@@ -3604,12 +3601,6 @@ packages:
   '@zag-js/aria-hidden@0.45.0':
     resolution: {integrity: sha512-AA+6ksdMHkYSMsqoiDd3UP1FOYDWntdqiv/wZkJC9L5pj50zbH7w3Qu4inehjYVbw876dCpWgPiNK/B8HSR4nw==}
 
-  '@zag-js/color-picker@0.45.0':
-    resolution: {integrity: sha512-5xwz4gd9V71a3rM0TpS8EZ/VoZQjnDwNMWvEZ3WA0jP/Zg3ghvZ4uZ53/o4MkbJEzPcXk293Oqe+FqaIrDerYQ==}
-
-  '@zag-js/color-utils@0.45.0':
-    resolution: {integrity: sha512-oU73VX4INzqXUsaX2lojGctQf+T0o12tj7Z6CZUVaYLeo+BFAfiljYhhpnCoAMnqNSqNu83CmgyW61eYERqXuw==}
-
   '@zag-js/core@0.45.0':
     resolution: {integrity: sha512-GBmYX94Y5ViJKVbbPIZ/EFqR2vKyajpyJ7VhSsGoWo8hPvWuBQMP8XiFhH5NbCOAYm7F0GH5RLmmxHbTb3g9uA==}
 
@@ -3681,9 +3672,6 @@ packages:
 
   '@zag-js/utils@0.45.0':
     resolution: {integrity: sha512-DR5z7b4d0ZoqY/jzq/QA6g5b6ClPqJwna8YMxaplL3+uTey6I41UPvChSnsksr8HHf384m0sVzl2dMhzGVb47Q==}
-
-  '@zag-js/visually-hidden@0.45.0':
-    resolution: {integrity: sha512-ZsfprFMt0paXl8eWezgp10h8dY2UtE70yo7ORwSkgTaJyurasQ4ITeh1shYAnSzVVWmT/zMLpGw83Qjlt9ZusQ==}
 
   '@zag-js/vue@0.45.0':
     resolution: {integrity: sha512-VJxxlxPhQkeIJr/3uvxUgDWLl0CN6jsalnacnzbnohrpRWSDK4n4dOYos11mugDUoI6sHtagqPl5TUQ1/NtpiA==}
@@ -12137,26 +12125,6 @@ snapshots:
     dependencies:
       '@zag-js/dom-query': 0.45.0
 
-  '@zag-js/color-picker@0.45.0':
-    dependencies:
-      '@zag-js/anatomy': 0.45.0
-      '@zag-js/color-utils': 0.45.0
-      '@zag-js/core': 0.45.0
-      '@zag-js/dismissable': 0.45.0
-      '@zag-js/dom-event': 0.45.0
-      '@zag-js/dom-query': 0.45.0
-      '@zag-js/form-utils': 0.45.0
-      '@zag-js/popper': 0.45.0
-      '@zag-js/tabbable': 0.45.0
-      '@zag-js/text-selection': 0.45.0
-      '@zag-js/types': 0.45.0
-      '@zag-js/utils': 0.45.0
-      '@zag-js/visually-hidden': 0.45.0
-
-  '@zag-js/color-utils@0.45.0':
-    dependencies:
-      '@zag-js/numeric-range': 0.45.0
-
   '@zag-js/core@0.45.0':
     dependencies:
       '@zag-js/store': 0.45.0
@@ -12284,8 +12252,6 @@ snapshots:
       csstype: 3.1.3
 
   '@zag-js/utils@0.45.0': {}
-
-  '@zag-js/visually-hidden@0.45.0': {}
 
   '@zag-js/vue@0.45.0(vue@3.5.41(typescript@6.0.3))':
     dependencies:
