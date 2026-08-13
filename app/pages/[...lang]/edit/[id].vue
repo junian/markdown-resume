@@ -70,7 +70,7 @@
               @click="action.run"
             >
               <UIcon
-                name="{action.icon}"
+                :name="action.icon"
                 class="text-lg"
               />
             </button>
