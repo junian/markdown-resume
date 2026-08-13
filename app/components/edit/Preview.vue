@@ -19,25 +19,25 @@
         class="zoom-bar-button"
         @click="scale *= 1.1"
       >
-        <UICon name="i-lucide:zoom-in" />
+        <UIcon name="i-lucide:zoom-in" />
       </button>
       <button
         class="zoom-bar-button"
         @click="scale /= 1.1"
       >
-        <UICon name="i-lucide:zoom-out" />
+        <UIcon name="i-lucide:zoom-out" />
       </button>
       <button
         class="zoom-bar-button"
         @click="fitWidth"
       >
-        <UICon name="i-fluent:arrow-autofit-width-20-filled" />
+        <UIcon name="i-fluent:arrow-autofit-width-20-filled" />
       </button>
       <button
         class="zoom-bar-button"
         @click="fitHeight"
       >
-        <UICon name="i-fluent:arrow-autofit-height-20-filled" />
+        <UIcon name="i-fluent:arrow-autofit-height-20-filled" />
       </button>
     </div>
   </div>

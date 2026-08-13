@@ -9,27 +9,28 @@
         v-if="!isSplitterReady"
         class="min-w-0 flex-1"
       />
-      <div
+      <SplitterGroup
         v-else
-        v-bind="api.rootProps"
+        id="editor-preview"
         class="px-3"
+        :direction="isStackedLayout ? 'vertical' : 'horizontal'"
       >
-        <div
+        <SplitterPanel
+          id="editor"
           class="editor-pane"
-          v-bind="api.getPanelProps({ id: 'editor' })"
         >
           <Editor />
-        </div>
+        </SplitterPanel>
 
-        <div v-bind="api.getResizeTriggerProps({ id: 'editor:preview' })" />
+        <SplitterResizeHandle id="editor-preview-resize" />
 
-        <div
+        <SplitterPanel
+          id="preview"
           class="preview-pane"
-          v-bind="api.getPanelProps({ id: 'preview' })"
         >
           <Preview />
-        </div>
-      </div>
+        </SplitterPanel>
+      </SplitterGroup>
 
       <div
         class="tools-pane"
@@ -82,8 +83,7 @@
 </template>
 
 <script lang="ts" setup>
-import * as splitter from '@zag-js/splitter'
-import { normalizeProps, useMachine } from '@zag-js/vue'
+import { SplitterGroup, SplitterPanel, SplitterResizeHandle } from 'reka-ui'
 
 const isStackedLayout = ref(false)
 const isSplitterReady = ref(false)
@@ -91,21 +91,6 @@ let layoutMediaQuery: MediaQueryList | undefined
 const updateLayout = () => {
   if (layoutMediaQuery) isStackedLayout.value = layoutMediaQuery.matches
 }
-
-const splitterContext = computed(() => ({
-  orientation: isStackedLayout.value ? ('vertical' as const) : ('horizontal' as const),
-}))
-
-// Side-by-side on desktop, stacked on tablet and mobile.
-const [state, send] = useMachine(
-  splitter.machine({
-    id: 'h',
-    size: [{ id: 'editor' }, { id: 'preview' }],
-  }),
-  { context: splitterContext },
-)
-
-const api = computed(() => splitter.connect(state.value, send, normalizeProps))
 
 // Fetch resume data
 const route = useRoute();

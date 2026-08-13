@@ -468,19 +468,19 @@ a.router-link-active.sidebar-item {
 
 /* edit/[id].vue */
 
-[data-scope="splitter"][data-part="resize-trigger"] {
+[data-resize-handle] {
   @apply relative w-3 outline-none;
 }
 
-[data-scope="splitter"][data-part="resize-trigger"]::after {
+[data-resize-handle]::after {
   @apply content-[""] absolute bg-gray-400/40 w-1 h-10 rounded-full inset-0 m-auto;
 }
 
-[data-scope="splitter"][data-part="resize-trigger"][data-orientation="vertical"] {
+[data-resize-handle][data-orientation="vertical"] {
   @apply w-auto h-3;
 }
 
-[data-scope="splitter"][data-part="resize-trigger"][data-orientation="vertical"]::after {
+[data-resize-handle][data-orientation="vertical"]::after {
   @apply w-10 h-1;
 }
 
@@ -548,7 +548,7 @@ a.router-link-active.sidebar-item {
   }
 
   .workspace,
-  [data-scope="splitter"] {
+  [data-panel-group] {
     overflow: visible !important;
     display: block !important;
     padding: 0 !important;
