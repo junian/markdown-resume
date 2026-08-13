@@ -1,5 +1,4 @@
 @import "./fonts.css";
-@import "./edit.css";
 
 body {
   @apply bg-dark-c;

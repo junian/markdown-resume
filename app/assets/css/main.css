@@ -434,6 +434,114 @@ a.router-link-active.sidebar-item {
   @apply w-10 h-1;
 }
 
+.edit-page {
+  @apply h-screen;
+}
+
+.pane-container {
+  @apply h-full rounded-xl overflow-scroll;
+}
+
+.pane-container::-webkit-scrollbar {
+  @apply hidden;
+}
+
+.preview-pane .pane-container {
+  @apply border-4;
+  background-color: #e5e7eb !important;
+  border-color: #e5e7eb !important;
+  color-scheme: light;
+}
+
+.editor-pane .pane-container,
+.tools-pane .pane-container {
+  @apply bg-c;
+}
+
+.tools-pane {
+  @apply flex flex-col flex-none w-72 max-w-72 h-full overflow-hidden transition-all duration-200;
+}
+
+.tools-pane--collapsed {
+  @apply w-12 bg-c border-l border-c;
+}
+
+#vue-smart-pages-preview .vue-smart-page-break {
+  @apply border-t-4;
+  border-color: #e5e7eb !important;
+}
+
+.dark #vue-smart-pages-preview {
+  background-color: white !important;
+  color: black !important;
+  color-scheme: light;
+}
+
+/* Print mode */
+
+@media print {
+  @page {
+    margin: 0;
+  }
+
+  body {
+    background-color: white !important;
+  }
+
+  body > *:not(#__nuxt) {
+    display: none !important;
+  }
+
+  .edit-page {
+    height: auto;
+    padding-left: 0 !important;
+  }
+
+  .workspace,
+  [data-scope="splitter"] {
+    overflow: visible !important;
+    display: block !important;
+    padding: 0 !important;
+  }
+
+  .edit-page > .workspace {
+    width: 100% !important;
+    padding-top: 0 !important;
+  }
+
+  .header,
+  .editor-pane,
+  .tools-pane,
+  .zoom-bar,
+  .toast-container,
+  #nuxt-devtools-container {
+    display: none !important;
+  }
+
+  .pane-container {
+    border: none !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+  }
+
+  .vue-zoom {
+    transform: scale(1) !important;
+    margin: 0 !important;
+  }
+
+  #vue-smart-pages-preview {
+    padding-bottom: 0 !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .vue-smart-page-break {
+    page-break-before: always;
+    margin-top: 0 !important;
+    border: none;
+  }
+}
+
 /* settings.vue (utilities) */
 
 @utility settings-card {
