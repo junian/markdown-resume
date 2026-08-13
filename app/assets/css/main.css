@@ -291,7 +291,66 @@ a.router-link-active.sidebar-item {
   }
 }
 
-/* settings.vue */
+/* settings.vue (component rules) */
+
+.language-menu-content {
+  transform-origin: var(--transform-origin);
+}
+
+.language-menu-content[data-state="open"] {
+  animation: language-menu-in 150ms ease-out;
+}
+
+.language-menu-content[data-state="closed"] {
+  animation: language-menu-out 100ms ease-in;
+}
+
+.language-menu-item[data-highlighted] {
+  @apply bg-darker-c text-dark-c;
+}
+
+@keyframes language-menu-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-0.25rem);
+  }
+}
+
+@keyframes language-menu-out {
+  to {
+    opacity: 0;
+    transform: scale(0.95) translateY(-0.25rem);
+  }
+}
+
+.storage-ring {
+  --storage-percent: 0%;
+  background: conic-gradient(rgb(168 85 247) var(--storage-percent), rgb(229 231 235) 0);
+  @apply circle flex-none size-32;
+}
+
+.storage-ring--loading {
+  @apply animate-pulse bg-gray-200 dark:bg-zinc-700;
+}
+
+.dark .storage-ring {
+  background: conic-gradient(#007acc var(--storage-percent), #3f3f46 0);
+}
+
+.storage-ring-center strong {
+  @apply text-xl;
+}
+
+.storage-ring-center span,
+.storage-stat dt {
+  @apply text-xs text-light-c;
+}
+
+.storage-stat dd {
+  @apply mt-1 text-lg font-bold;
+}
+
+/* settings.vue (utilities) */
 
 @utility settings-card {
   @apply rounded-xl border border-c bg-c p-5 shadow-sm;
