@@ -102,11 +102,3 @@ watch(
   () => (options.value = props.items),
 )
 </script>
-
-<style scoped>
-@reference "~/assets/css/main.css";
-
-[data-part="item"][data-highlighted] {
-  @apply bg-dark-c;
-}
-</style>

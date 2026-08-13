@@ -73,11 +73,3 @@ const middle = computed(() => (min.value + max.value) / 2)
 
 const unit = computed(() => props.unit || '')
 </script>
-
-<style scoped>
-@reference "~/assets/css/main.css";
-
-[data-part="thumb"] span::after {
-  @apply absolute content-[""] size-0 border-[5px] border-transparent border-t-red-400 dark:border-t-rose-400 top-full inset-x-0 mx-auto;
-}
-</style>
