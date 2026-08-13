@@ -350,6 +350,52 @@ a.router-link-active.sidebar-item {
   @apply mt-1 text-lg font-bold;
 }
 
+/* [...slug].vue */
+
+.page-content {
+  @apply space-y-8 leading-7 text-gray-700 dark:text-gray-200;
+}
+
+.page-content h2 {
+  @apply text-xl font-bold text-black dark:text-white;
+}
+
+.page-content ul {
+  @apply list-disc pl-5 space-y-1;
+}
+
+.page-content a {
+  @apply text-brand underline underline-offset-2;
+}
+
+.page-content table {
+  @apply w-full border-collapse text-sm;
+}
+
+.page-content thead {
+  @apply border-b border-gray-300 dark:border-gray-600;
+}
+
+.page-content th {
+  @apply text-left font-bold text-black dark:text-white py-3 px-4;
+}
+
+.page-content tbody tr {
+  @apply border-b border-gray-200 dark:border-gray-700;
+}
+
+.page-content tbody tr:last-child {
+  @apply border-b-0;
+}
+
+.page-content td {
+  @apply py-3 px-4 text-gray-700 dark:text-gray-300;
+}
+
+.page-content td a {
+  @apply text-brand hover:underline;
+}
+
 /* settings.vue (utilities) */
 
 @utility settings-card {
