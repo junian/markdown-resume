@@ -16,6 +16,7 @@ settings:
   description: Kelola bahasa, tampilan, dan penyimpanan lokal.
   language: Bahasa
   language_label: Bahasa tampilan
+  filter_language: Saring bahasa...
   appearance: Tampilan
   theme: Tema warna
   light: Terang

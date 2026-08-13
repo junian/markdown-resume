@@ -16,6 +16,7 @@ settings:
   description: Manage language, appearance, and local storage.
   language: Language
   language_label: Display language
+  filter_language: Filter languages...
   appearance: Appearance
   theme: Color theme
   light: Light

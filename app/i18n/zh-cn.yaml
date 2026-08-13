@@ -16,6 +16,7 @@ settings:
   description: 管理语言、外观和本地存储。
   language: 语言
   language_label: 显示语言
+  filter_language: 筛选语言...
   appearance: 外观
   theme: 颜色主题
   light: 浅色

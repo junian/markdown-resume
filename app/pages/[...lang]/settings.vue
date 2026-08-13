@@ -79,16 +79,17 @@
           }}</label>
           <USelectMenu
             id="settings-language"
+            v-model="selectedLanguage"
             :items="languageItems"
-            :model-value="locale"
+            :search-input="{
+              placeholder: t('settings.filter_language'),
+              icon: 'i-lucide-search',
+            }"
             class="w-full"
-            value-key="value"
-            label-key="label"
-            @update:model-value="onLocaleChange"
           >
             <template #leading="{ modelValue }">
               <UIcon
-                :name="getLocaleIcon(modelValue)"
+                :name="modelValue?.icon"
                 class="text-lg"
               />
             </template>
@@ -338,11 +339,13 @@ import {
 import { PAPER } from '~/utils/constants/data'
 import type { PaperType } from '~/types'
 
+import type { SelectMenuItem } from '@nuxt/ui'
+
 const colorMode = useColorMode()
 const { t, locale, locales } = useI18n()
 const switchLocalePath = useSwitchLocalePath()
 
-const languageItems = computed(() =>
+const languageItems = computed<SelectMenuItem[]>(() =>
   locales.value.map(item => ({
     label: item.name,
     value: item.code,
@@ -350,12 +353,14 @@ const languageItems = computed(() =>
   })),
 )
 
-const getLocaleIcon = (value: unknown) =>
-  locales.value.find(item => item.code === value)?.icon
-
-const onLocaleChange = (value: string) => {
-  navigateTo(switchLocalePath(value))
-}
+const selectedLanguage = computed<SelectMenuItem | undefined>({
+  get: () => languageItems.value.find(item => item.value === locale.value),
+  set: (item) => {
+    if (item?.value && item.value !== locale.value) {
+      navigateTo(switchLocalePath(item.value))
+    }
+  },
+})
 
 const themeModes = computed(() => [
   { value: 'system', label: t('settings.auto'), icon: 'i-ph:desktop-bold' },
