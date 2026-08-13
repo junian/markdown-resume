@@ -29,7 +29,6 @@
     "@vite-pwa/nuxt": "^1.1.1",
     "@vueuse/core": "^14.4.0",
     "@vueuse/nuxt": "^14.4.0",
-    "@zag-js/menu": "^0.45.0",
     "@zag-js/splitter": "^0.45.0",
     "@zag-js/vue": "^0.45.0",
     "better-sqlite3": "^13.0.3",
