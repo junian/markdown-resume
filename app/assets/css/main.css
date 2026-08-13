@@ -127,6 +127,12 @@
   @apply flex flex-col items-center gap-2 py-2;
 }
 
+/* Toolbar.vue */
+
+#toolbar .tool-item:not(:last-child) {
+  @apply border-c border-b;
+}
+
 /* settings.vue */
 
 @utility settings-card {

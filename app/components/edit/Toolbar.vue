@@ -86,11 +86,3 @@ const Navbar = () => (
   </div>
 )
 </script>
-
-<style>
-@reference "~/assets/css/main.css";
-
-#toolbar .tool-item:not(:last-child) {
-  @apply border-c border-b;
-}
-</style>
