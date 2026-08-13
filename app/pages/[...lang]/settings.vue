@@ -37,14 +37,13 @@
               >
                 {{ $t("settings.defaults.name") }}
               </label>
-              <input
+              <UInput
                 id="default-full-name"
+                class="w-full"
                 v-model="defaultFullName"
-                class="language-menu-trigger"
-                type="text"
                 :placeholder="$t('settings.defaults.name_placeholder')"
-                @input="setDefaultFullName(defaultFullName)"
-              >
+                @update:model-value="setDefaultFullName"
+              />
             </div>
             <div>
               <label
@@ -137,42 +136,22 @@
             <h2>{{ $t("settings.editor") }}</h2>
           </div>
           <div class="editor-settings">
-            <label
+            <UCheckbox
+              id="editor-minimap"
+              v-model="minimapEnabled"
               class="editor-setting"
-              for="editor-minimap"
-            >
-              <input
-                id="editor-minimap"
-                v-model="minimapEnabled"
-                class="editor-checkbox"
-                type="checkbox"
-                @change="saveMinimapSetting"
-              >
-              <span>
-                <span class="block font-bold">{{ $t("settings.minimap") }}</span>
-                <span class="mt-1 block text-sm text-light-c">
-                  {{ $t("settings.minimap_description") }}
-                </span>
-              </span>
-            </label>
-            <label
+              :label="$t('settings.minimap')"
+              :description="$t('settings.minimap_description')"
+              @update:model-value="setEditorMinimapEnabled"
+            />
+            <UCheckbox
+              id="editor-line-numbers"
+              v-model="lineNumbersEnabled"
               class="editor-setting"
-              for="editor-line-numbers"
-            >
-              <input
-                id="editor-line-numbers"
-                v-model="lineNumbersEnabled"
-                class="editor-checkbox"
-                type="checkbox"
-                @change="saveLineNumbersSetting"
-              >
-              <span>
-                <span class="block font-bold">{{ $t("settings.line_numbers") }}</span>
-                <span class="mt-1 block text-sm text-light-c">
-                  {{ $t("settings.line_numbers_description") }}
-                </span>
-              </span>
-            </label>
+              :label="$t('settings.line_numbers')"
+              :description="$t('settings.line_numbers_description')"
+              @update:model-value="setEditorLineNumbersEnabled"
+            />
           </div>
         </section>
 
@@ -322,15 +301,16 @@
                 >
                   {{ $t("settings.type_delete") }}
                 </label>
-                <input
+                <UInput
                   id="delete-confirmation"
                   v-model="deleteConfirmation"
-                  class="danger-confirmation-input"
-                  type="text"
                   autocomplete="off"
                   spellcheck="false"
                   placeholder="DELETE"
-                >
+                  color="error"
+                  class="w-full"
+                  :ui="{ base: 'font-mono' }"
+                />
                 <button
                   class="danger-confirm-button"
                   type="button"
@@ -406,10 +386,6 @@ const paperItems = Object.keys(PAPER).map(paper => ({
     setDefaultPaperSize(paper)
   },
 }))
-
-const saveMinimapSetting = () => setEditorMinimapEnabled(minimapEnabled.value)
-const saveLineNumbersSetting = () =>
-  setEditorLineNumbersEnabled(lineNumbersEnabled.value)
 
 const eraseAllData = async () => {
   if (deleteConfirmation.value !== 'DELETE' || isErasing.value) return

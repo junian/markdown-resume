@@ -612,10 +612,6 @@ a.router-link-active.sidebar-item {
   @apply block mb-2 text-sm font-bold text-c;
 }
 
-@utility language-menu-trigger {
-  @apply hstack w-full h-11 gap-3 rounded-lg border border-c bg-c px-3 text-sm text-dark-c outline-none transition-colors hover:bg-dark-c focus:border-blue-400 focus:ring-2 focus:ring-blue-400/25 dark:focus:border-[#007acc] dark:focus:ring-[#007acc]/35;
-}
-
 @utility theme-option {
   @apply flex-center flex-col gap-2 rounded-lg border border-c px-2 py-3 text-sm hover:bg-dark-c;
 }
@@ -630,10 +626,6 @@ a.router-link-active.sidebar-item {
 
 @utility editor-settings {
   @apply grid gap-3;
-}
-
-@utility editor-checkbox {
-  @apply mt-0.5 size-4 flex-none cursor-pointer accent-blue-500 dark:accent-[#007acc];
 }
 
 @utility storage-skeleton {
@@ -694,10 +686,6 @@ a.router-link-active.sidebar-item {
 
 @utility danger-dialog-content {
   @apply flex flex-col gap-4 border-t border-c bg-dark-c p-5 text-sm;
-}
-
-@utility danger-confirmation-input {
-  @apply h-10 rounded-md border border-c bg-c px-3 font-mono outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/20;
 }
 
 @utility danger-confirm-button {
