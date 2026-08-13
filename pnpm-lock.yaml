@@ -62,9 +62,6 @@ importers:
       '@zag-js/menu':
         specifier: ^0.45.0
         version: 0.45.0
-      '@zag-js/slider':
-        specifier: ^0.45.0
-        version: 0.45.0
       '@zag-js/splitter':
         specifier: ^0.45.0
         version: 0.45.0
@@ -3619,12 +3616,6 @@ packages:
   '@zag-js/element-rect@0.45.0':
     resolution: {integrity: sha512-WzpdAsvq7sp+I+W+oRbWCv2iX1S/KGDX37LB45tj92877r/gTW4LPtcKQpbkdaS1ZYH+XT2GnjRoqfNULTgsSg==}
 
-  '@zag-js/element-size@0.45.0':
-    resolution: {integrity: sha512-xRCwQnL5x7ppkHt2CzFGbxWxQk6RpoXzbUS58qW2t09dMjK0z7vyaIa+KF0OMRx9rb+ti0fp877QzuUqDfnpTg==}
-
-  '@zag-js/form-utils@0.45.0':
-    resolution: {integrity: sha512-XlW5MTdgVMsOdqeq5QZNl+AqfFT+hu4YPmGtWlddFznJMnUuBu8EhQHbslcqOwrImHgeAYElCA/gL5vgVsIOaw==}
-
   '@zag-js/interact-outside@0.45.0':
     resolution: {integrity: sha512-LOhr7vsUo2/UwI+BfgUtI2GCMUCjvaTNL1r0gG59MvxG3WSI44mipHzHgf38qnJTO5OzpCLW7+rAHG76Jenb4w==}
 
@@ -3637,9 +3628,6 @@ packages:
   '@zag-js/number-utils@0.45.0':
     resolution: {integrity: sha512-P4sENRAAz5IoeBge8eHr8eOJgTqHwmyd+Gc0U+XUWHZquh03PiwJbZraHR8EGMPnA7lAiz6Ju56O2Oi3ErelLQ==}
 
-  '@zag-js/numeric-range@0.45.0':
-    resolution: {integrity: sha512-ME4siMbVB3F9VWNpYfAE+hDmKojvXw8lq32n3YwsOKmbgG4TJgcio0XbZ2DSQINIXXsNWa6/+UXK6jdPzzBRBg==}
-
   '@zag-js/popper@0.45.0':
     resolution: {integrity: sha512-QsWA1taW9M+yKhwet058VGfVSqb5JjgZekmJOsMJ+CF+LPzLBQ56rm0An1Gkzy/0PXm2ipNJFwmDbevZ9pctmg==}
 
@@ -3648,9 +3636,6 @@ packages:
 
   '@zag-js/remove-scroll@0.45.0':
     resolution: {integrity: sha512-Hy7ENl3h9NFMXj47Tb0URHf+ELpWhMnmJoi4exiUiQ7Ad6udkMn5y61DmPHw/TMHQRbcmdd86Huo+K2QuGH+jQ==}
-
-  '@zag-js/slider@0.45.0':
-    resolution: {integrity: sha512-yCH4fgoMHQHZrpnKFmvbnhBMSKP/xcqxraroJzbXE54lBnBhEv61wlqwXqLmpRiPcXxVI9/cLikUpRClFRSZYg==}
 
   '@zag-js/splitter@0.45.0':
     resolution: {integrity: sha512-O9jU8xbfNf9IORclX6mVHdHfQZKlAwP8nbt/AH+go6+E1wyjLhfhaTm7Olg0uuEyMSfOsDebmH3JJL9GicXBEQ==}
@@ -12158,12 +12143,6 @@ snapshots:
 
   '@zag-js/element-rect@0.45.0': {}
 
-  '@zag-js/element-size@0.45.0': {}
-
-  '@zag-js/form-utils@0.45.0':
-    dependencies:
-      '@zag-js/mutation-observer': 0.45.0
-
   '@zag-js/interact-outside@0.45.0':
     dependencies:
       '@zag-js/dom-event': 0.45.0
@@ -12188,8 +12167,6 @@ snapshots:
 
   '@zag-js/number-utils@0.45.0': {}
 
-  '@zag-js/numeric-range@0.45.0': {}
-
   '@zag-js/popper@0.45.0':
     dependencies:
       '@floating-ui/dom': 1.6.3
@@ -12201,18 +12178,6 @@ snapshots:
   '@zag-js/remove-scroll@0.45.0':
     dependencies:
       '@zag-js/dom-query': 0.45.0
-
-  '@zag-js/slider@0.45.0':
-    dependencies:
-      '@zag-js/anatomy': 0.45.0
-      '@zag-js/core': 0.45.0
-      '@zag-js/dom-event': 0.45.0
-      '@zag-js/dom-query': 0.45.0
-      '@zag-js/element-size': 0.45.0
-      '@zag-js/form-utils': 0.45.0
-      '@zag-js/numeric-range': 0.45.0
-      '@zag-js/types': 0.45.0
-      '@zag-js/utils': 0.45.0
 
   '@zag-js/splitter@0.45.0':
     dependencies:

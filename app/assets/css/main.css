@@ -153,12 +153,6 @@ svg.iconify {
   background-color: rgb(55 65 81); /* gray-700 */
 }
 
-/* Slider.vue */
-
-[data-scope="slider"] [data-part="thumb"] span::after {
-  @apply absolute content-[""] size-0 border-[5px] border-transparent border-t-red-400 dark:border-t-rose-400 top-full inset-x-0 mx-auto;
-}
-
 /* Header.vue */
 
 .header {
