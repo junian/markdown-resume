@@ -136,23 +136,3 @@ const exportActions = computed(() => [
   { label: t('toolbar.file.export_docx'), icon: 'i-mdi:file-word', run: exportDocx },
 ])
 </script>
-
-<style scoped>
-@reference "~/assets/css/main.css";
-
-[data-scope="splitter"][data-part="resize-trigger"] {
-  @apply relative w-3 outline-none;
-}
-
-[data-scope="splitter"][data-part="resize-trigger"]::after {
-  @apply content-[""] absolute bg-gray-400/40 w-1 h-10 rounded-full inset-0 m-auto;
-}
-
-[data-scope="splitter"][data-part="resize-trigger"][data-orientation="vertical"] {
-  @apply w-auto h-3;
-}
-
-[data-scope="splitter"][data-part="resize-trigger"][data-orientation="vertical"]::after {
-  @apply w-10 h-1;
-}
-</style>

@@ -416,6 +416,24 @@ a.router-link-active.sidebar-item {
   background-color: white !important;
 }
 
+/* edit/[id].vue */
+
+[data-scope="splitter"][data-part="resize-trigger"] {
+  @apply relative w-3 outline-none;
+}
+
+[data-scope="splitter"][data-part="resize-trigger"]::after {
+  @apply content-[""] absolute bg-gray-400/40 w-1 h-10 rounded-full inset-0 m-auto;
+}
+
+[data-scope="splitter"][data-part="resize-trigger"][data-orientation="vertical"] {
+  @apply w-auto h-3;
+}
+
+[data-scope="splitter"][data-part="resize-trigger"][data-orientation="vertical"]::after {
+  @apply w-10 h-1;
+}
+
 /* settings.vue (utilities) */
 
 @utility settings-card {
