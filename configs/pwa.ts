@@ -8,6 +8,10 @@ export const pwa: ModuleOptions = {
   registerType: 'autoUpdate',
   devOptions: {
     enabled: true,
+    // In dev there are no build artifacts to precache, which makes
+    // workbox-build warn that the glob patterns match nothing. This replaces
+    // them with a single placeholder file so the dev worker builds cleanly.
+    suppressWarnings: true,
     // Let Nuxt handle direct navigation to development deep links. The dev
     // worker's fallback document is the Home page, so it must only handle the
     // exact application root.
