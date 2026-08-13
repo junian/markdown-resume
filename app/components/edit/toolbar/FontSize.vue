@@ -3,7 +3,7 @@
     :text="$t('toolbar.font_size')"
     icon="i-ri:font-size-2"
   >
-    <Slider
+    <LabeledSlider
       id="font-size"
       unit="px"
       :default="styles.fontSize"

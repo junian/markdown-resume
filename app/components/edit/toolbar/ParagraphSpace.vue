@@ -3,7 +3,7 @@
     :text="$t('toolbar.paragraph')"
     icon="i-icon-park-outline:paragraph-break-two"
   >
-    <Slider
+    <LabeledSlider
       id="paragrapg-space"
       unit="px"
       :default="styles.paragraphSpace"

@@ -3,7 +3,7 @@
     :text="$t('toolbar.line')"
     icon="i-ic:round-format-line-spacing"
   >
-    <Slider
+    <LabeledSlider
       id="line-height"
       :default="styles.lineHeight"
       :min="1"

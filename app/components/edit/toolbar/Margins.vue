@@ -9,7 +9,7 @@
         <span>{{ $t("toolbar.vertical") }}</span>
       </div>
 
-      <Slider
+      <LabeledSlider
         id="margin-v"
         unit="px"
         :default="styles.marginV"
@@ -23,7 +23,7 @@
         <span>{{ $t("toolbar.horizontal") }}</span>
       </div>
 
-      <Slider
+      <LabeledSlider
         id="margin-h"
         unit="px"
         :default="styles.marginH"
