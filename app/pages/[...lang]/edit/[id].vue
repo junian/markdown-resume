@@ -1,6 +1,6 @@
 <template>
   <div class="edit-page sidebar-layout flex flex-col">
-    <Header default-collapsed />
+    <MainSidebar default-collapsed />
 
     <div
       class="workspace size-full overflow-hidden flex flex-1 pb-2"

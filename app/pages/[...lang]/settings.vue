@@ -1,6 +1,6 @@
 <template>
   <div class="settings-page sidebar-layout">
-    <Header />
+    <MainSidebar />
 
     <main class="max-w-[60rem] mx-auto px-5 py-12 md:px-10 md:py-16 text-dark-c">
       <div class="hstack gap-3 mb-10">

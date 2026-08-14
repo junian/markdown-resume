@@ -153,7 +153,7 @@ svg.iconify {
   background-color: rgb(55 65 81); /* gray-700 */
 }
 
-/* Header.vue */
+/* MainSidebar.vue */
 
 .header {
   @apply fixed inset-y-0 left-0 z-30 w-60 transition-all duration-200;

@@ -1,6 +1,6 @@
 <template>
   <div class="home-page sidebar-layout">
-    <Header />
+    <MainSidebar />
 
     <main class="max-w-[76.5rem] mx-auto px-5 py-12 md:px-10 md:py-16 text-dark-c">
       <!-- Hero Section -->
