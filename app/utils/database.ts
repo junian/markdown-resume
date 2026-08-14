@@ -241,7 +241,9 @@ export const duplicateResume = async (id: string) => {
     const baseName = originalName.replace(/ copy \d+$/i, '')
 
     // Check for existing copies of the base name
-    const copyRegex = new RegExp(`^${baseName} copy (\\d+)$`, 'i')
+    // (escape the base name so regex metacharacters in resume names don't break the pattern)
+    const escapedBaseName = baseName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+    const copyRegex = new RegExp(`^${escapedBaseName} copy (\\d+)$`, 'i')
     let maxCopyNumber = 0
 
     Object.values(storage).forEach((item) => {
@@ -255,12 +257,13 @@ export const duplicateResume = async (id: string) => {
     })
 
     const newCopyNumber = maxCopyNumber + 1
-    resume.name = `${baseName} copy ${newCopyNumber}`
+    const newName = `${baseName} copy ${newCopyNumber}`
+    resume.name = newName
     resume.update = newId
     storage[newId] = resume
 
     await localForage.setItem(MARKDOWN_RESUME_KEY, storage)
-    toast.duplicate(originalName)
+    toast.duplicate(originalName, newName)
   }
 }
 

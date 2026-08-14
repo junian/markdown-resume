@@ -1,12 +1,12 @@
 <template>
   <div
-    class="min-w-0 border-[1.5px] rounded hstack space-x-1"
+    class="min-w-0 border-[1.5px] rounded hstack"
     :class="isEditing ? 'border-dark-c' : 'border-transparent'"
   >
     <button
-      v-if="iconPosition === 'left'"
       type="button"
       class="cursor-pointer p-1 rounded transition-colors hover:bg-gray-200 dark:hover:bg-[#2a2d2e]"
+      :class="iconPosition === 'left' ? 'order-first mr-1' : 'order-last ml-1'"
       :title="$t ? $t('resumes.rename') : 'Rename'"
       @click="startEdit"
     >
@@ -38,19 +38,6 @@
         {{ displayText }}
       </div>
     </div>
-
-    <button
-      v-if="iconPosition === 'right'"
-      type="button"
-      class="cursor-pointer p-1 rounded transition-colors hover:bg-gray-200 dark:hover:bg-[#2a2d2e]"
-      :title="$t ? $t('resumes.rename') : 'Rename'"
-      @click="startEdit"
-    >
-      <UIcon
-        name="i-mdi:pencil"
-        class="text-sm"
-      />
-    </button>
   </div>
 </template>
 

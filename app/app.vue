@@ -6,12 +6,10 @@
 </template>
 
 <script setup lang="ts">
-// usePreferredDark();
 import { siteConfig } from '~~/configs/siteConfig'
 
 const { t, locale } = useI18n()
 const colorMode = useColorMode()
-const preferredDark = { value: false }
 
 useHead({
   title: t('head.title'),
@@ -30,9 +28,7 @@ useHead({
     {
       rel: 'icon',
       type: 'image/svg+xml',
-      href: () => (preferredDark.value
-        ? `${siteConfig.baseURL}favicon-dark.svg`
-        : `${siteConfig.baseURL}favicon.svg`),
+      href: `${siteConfig.baseURL}favicon.svg`,
     },
   ],
   script: [

@@ -126,43 +126,20 @@
             {{ $t("nav.links") }}
           </div>
           <a
-            class="sidebar-item coffee-link"
-            href="https://www.junian.dev/coffee/"
-            target="_blank"
-            rel="nofollow noopener"
-            :title="isCollapsed ? $t('nav.coffee') : undefined"
-          >
-            <UIcon
-              name="i-twemoji:hot-beverage"
-              class="text-lg"
-            />
-            <span class="sidebar-label">{{ $t("nav.coffee") }}</span>
-          </a>
-          <a
+            v-for="link in externalLinks"
+            :key="link.href"
             class="sidebar-item"
-            href="https://github.com/junian/markdown-resume/"
+            :class="{ 'coffee-link': link.coffee }"
+            :href="link.href"
             target="_blank"
-            rel="nofollow noopener"
-            title="GitHub"
+            :rel="link.rel"
+            :title="isCollapsed ? link.label : undefined"
           >
             <UIcon
-              name="i-tabler:brand-github"
+              :name="link.icon"
               class="text-lg"
             />
-            <span class="sidebar-label">GitHub</span>
-          </a>
-          <a
-            class="sidebar-item"
-            href="https://www.junian.dev/"
-            target="_blank"
-            rel="dofollow"
-            title="Junian.dev"
-          >
-            <UIcon
-              name="i-tabler:world"
-              class="text-lg"
-            />
-            <span class="sidebar-label">Junian.dev</span>
+            <span class="sidebar-label">{{ link.label }}</span>
           </a>
         </div>
 
@@ -188,12 +165,36 @@ const props = withDefaults(
   },
 )
 
+const { t } = useI18n()
+
 const isCollapsed = ref(props.defaultCollapsed)
 const isMobileOpen = ref(false)
 
+const externalLinks = [
+  {
+    href: 'https://www.junian.dev/coffee/',
+    rel: 'nofollow noopener',
+    icon: 'i-twemoji:hot-beverage',
+    label: t('nav.coffee'),
+    coffee: true,
+  },
+  {
+    href: 'https://github.com/junian/markdown-resume/',
+    rel: 'nofollow noopener',
+    icon: 'i-tabler:brand-github',
+    label: 'GitHub',
+  },
+  {
+    href: 'https://www.junian.dev/',
+    rel: 'dofollow',
+    icon: 'i-tabler:world',
+    label: 'Junian.dev',
+  },
+]
+
 const toggleSidebar = () => {
   isCollapsed.value = !isCollapsed.value
-  localStorage.setItem('navigation-collapsed', String(isCollapsed.value))
+  localStorage.setItem(NAVIGATION_COLLAPSED_STORAGE_KEY, String(isCollapsed.value))
 }
 
 onMounted(() => {
@@ -202,7 +203,7 @@ onMounted(() => {
     return
   }
 
-  const savedState = localStorage.getItem('navigation-collapsed')
+  const savedState = localStorage.getItem(NAVIGATION_COLLAPSED_STORAGE_KEY)
   isCollapsed.value = savedState ? savedState === 'true' : window.innerWidth < 769
 })
 </script>

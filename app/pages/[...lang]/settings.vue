@@ -328,6 +328,8 @@ import {
   setDefaultFullName,
   getDefaultPaperSize,
   setDefaultPaperSize,
+  DEFAULT_FULL_NAME_STORAGE_KEY,
+  DEFAULT_PAPER_SIZE_STORAGE_KEY,
 } from '~/utils/defaultSettings'
 import { PAPER } from '~/utils/constants/data'
 import type { PaperType } from '~/types'
@@ -393,12 +395,12 @@ const eraseAllData = async () => {
     clearResumeStorage(),
     clearImageStorage(),
   ])
-  localStorage.removeItem('navigation-collapsed')
+  localStorage.removeItem(NAVIGATION_COLLAPSED_STORAGE_KEY)
   localStorage.removeItem('nuxt-color-mode')
   localStorage.removeItem(EDITOR_MINIMAP_STORAGE_KEY)
   localStorage.removeItem(EDITOR_LINE_NUMBERS_STORAGE_KEY)
-  localStorage.removeItem('default-full-name')
-  localStorage.removeItem('default-paper-size')
+  localStorage.removeItem(DEFAULT_FULL_NAME_STORAGE_KEY)
+  localStorage.removeItem(DEFAULT_PAPER_SIZE_STORAGE_KEY)
   window.location.reload()
 }
 const displayPercent = computed(() => {

@@ -36,18 +36,29 @@ const paperCss = (styles: ResumeStyles) => {
   return `@media print { @page { size: ${styles.paper}; } }`
 }
 
-export const setDynamicCss = (styles: ResumeStyles, id: string) => {
+/**
+ * Build the dynamic style rules for a resume, scoped to `#vue-smart-pages-<id>`.
+ * Shared between the live preview and the exported HTML document so they stay in sync.
+ */
+export const getDynamicCss = (
+  styles: ResumeStyles,
+  id: string,
+  includePaper = false,
+) => {
   const pageId = `vue-smart-pages-${id}`
 
-  const content
-    = fontFamilyCss(styles, pageId)
-      + fontSizeCss(styles, pageId)
-      + themeColorCss(styles, pageId)
-      + paragraphSpaceCss(styles, pageId)
-      + lineHeightCss(styles, pageId)
-      + (id === 'preview' ? paperCss(styles) : '')
+  return (
+    fontFamilyCss(styles, pageId)
+    + fontSizeCss(styles, pageId)
+    + themeColorCss(styles, pageId)
+    + paragraphSpaceCss(styles, pageId)
+    + lineHeightCss(styles, pageId)
+    + (includePaper ? paperCss(styles) : '')
+  )
+}
 
-  injectCSS(content, `markdown-resume-dynamic-${id}`)
+export const setDynamicCss = (styles: ResumeStyles, id: string) => {
+  injectCSS(getDynamicCss(styles, id, id === 'preview'), `markdown-resume-dynamic-${id}`)
 }
 
 export const setBackboneCss = (css: string, id: string) => {

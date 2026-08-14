@@ -90,7 +90,3 @@ export const extractFrontMatter = (string: string): FrontMatterResults<any> => {
     }
   }
 }
-
-export const testFrontMatter = (string: string): boolean => {
-  return regex.test(string || '')
-}

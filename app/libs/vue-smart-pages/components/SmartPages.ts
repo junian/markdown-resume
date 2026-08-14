@@ -102,6 +102,11 @@ export default defineComponent({
       else resolveBreak()
     }
 
+    // Debounce instances are created once so rapid style/content changes
+    // coalesce into a single reflow instead of one per change.
+    const resolvePagesDebounced = debounce(resolvePages, 200)
+    const resolvePagesDelayedDebounced = debounce(() => resolvePages(100), 200)
+
     onMounted(() => {
       // Update styles
       watch(
@@ -115,13 +120,13 @@ export default defineComponent({
           props.height,
           ...props.watch,
         ],
-        () => debounce(resolvePages, 200)(),
+        () => resolvePagesDebounced(),
       )
 
       // Font update or something
       watch(
         () => props.watchDelay,
-        () => debounce(() => resolvePages(100), 200)(),
+        () => resolvePagesDelayedDebounced(),
       )
 
       // Initialize styles

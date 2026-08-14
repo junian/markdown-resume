@@ -21,16 +21,6 @@ export type SystemData = {
   curResumeName: string
 }
 
-export type ToastFlagData = {
-  save: boolean
-  delete: boolean | string
-  switch: boolean | string
-  new: boolean
-  duplicate: boolean | string
-  correct: boolean | number
-  import: boolean | 'yes' | 'no'
-}
-
 export type ResumeHeaderItem = {
   readonly text: string
   readonly link?: string
@@ -61,12 +51,6 @@ export type ResumeStorage = {
 
 export interface ResumeListItem extends ResumeStorageItem {
   id: string
-}
-
-export type DropdownItem = {
-  label: string
-  icon?: string
-  link: string
 }
 
 export type ImageStorageItem = {

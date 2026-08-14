@@ -30,11 +30,11 @@ export const useAppToast = () => {
     })
   }
 
-  const duplicate = (msg: string) => {
+  const duplicate = (msg: string, newName: string) => {
     toast.add({
       description: t('notification.duplicate', {
         old: msg,
-        new: msg + ' Copy',
+        new: newName,
       }),
       color: 'success',
     })

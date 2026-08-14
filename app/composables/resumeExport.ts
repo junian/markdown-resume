@@ -1,4 +1,5 @@
 import { downloadFile } from '~/libs/utils'
+import { getDynamicCss } from '~/utils/css'
 import { siteConfig } from '~~/configs/siteConfig'
 
 export const useResumeExport = () => {
@@ -13,8 +14,6 @@ export const useResumeExport = () => {
     const paperWidthPx = getPaperPx(styles.paper, 'w')
     const dynamicCss = `
       body {
-        font-family: ${styles.fontEN.fontFamily || styles.fontEN.name}, ${styles.fontCJK.fontFamily || styles.fontCJK.name};
-        font-size: ${styles.fontSize}px;
         background-color: #f5f5f5;
         color: black;
         margin: 0;
@@ -30,12 +29,7 @@ export const useResumeExport = () => {
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         box-sizing: border-box;
       }
-      :not(.resume-header-item) > a, h1, h2, h3 { color: ${styles.themeColor}; }
-      h1, h2 { border-bottom-color: ${styles.themeColor}; }
-      p, li { line-height: ${styles.lineHeight.toFixed(2)}; }
-      h2, h3 { line-height: ${(styles.lineHeight * 1.154).toFixed(2)}; }
-      dl { line-height: ${(styles.lineHeight * 1.038).toFixed(2)}; }
-      h2 { margin-top: ${styles.paragraphSpace}px; }
+      ${getDynamicCss(styles, 'preview')}
       @media print {
         body { background-color: white; padding: 0; margin: 0; }
         #vue-smart-pages-preview {

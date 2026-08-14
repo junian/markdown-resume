@@ -1,5 +1,6 @@
 export const DEFAULT_FULL_NAME_STORAGE_KEY = 'default-full-name'
 export const DEFAULT_PAPER_SIZE_STORAGE_KEY = 'default-paper-size'
+export const NAVIGATION_COLLAPSED_STORAGE_KEY = 'navigation-collapsed'
 
 export const DEFAULT_FULL_NAME = '' // Now empty by default
 export const DEFAULT_PAPER_SIZE = 'A4'

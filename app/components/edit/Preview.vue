@@ -62,5 +62,8 @@ const fitHeight = () => {
   scale.value = height.value / getPaperPx(styles.paper, 'h')
 }
 
-watch(width, () => debounce(fitWidth, 100)())
+// Debounce instance is created once so pane resize events coalesce
+const fitWidthDebounced = debounce(fitWidth, 100)
+
+watch(width, () => fitWidthDebounced())
 </script>
