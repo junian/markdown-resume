@@ -8,9 +8,10 @@
           height: `${height}px`,
         }"
       >
-        <nuxt-link
+        <ULink
+          raw
           class="block size-full"
-          :to="$nuxt.$localePath(`/edit/${props.resume.id}`)"
+          :to="`/edit/${props.resume.id}`"
         >
           <ResumeRender
             :id="resume.id"
@@ -22,7 +23,7 @@
             }"
             class="origin-top-left"
           />
-        </nuxt-link>
+        </ULink>
         <ResumeOptions
           class="z-20 group-hover:block hidden"
           :resume="resume"

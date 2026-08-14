@@ -32,16 +32,17 @@
               </p>
             </div>
           </div>
-          <nuxt-link
+          <ULink
+            raw
             class="hstack gap-1.5 px-4 py-2 rounded-lg border border-c text-sm font-medium hover:bg-darker-c transition-colors"
-            :to="$nuxt.$localePath('/resumes')"
+            to="/resumes"
           >
             <span>{{ $t("nav.see_more") }}</span>
             <UIcon
               name="i-tabler:arrow-right"
               class="text-base"
             />
-          </nuxt-link>
+          </ULink>
         </div>
 
         <div class="resumes-row-wrap">
@@ -77,16 +78,17 @@
               </p>
             </div>
           </div>
-          <nuxt-link
+          <ULink
+            raw
             class="hstack gap-1.5 px-4 py-2 rounded-lg border border-c text-sm font-medium hover:bg-darker-c transition-colors"
-            :to="$nuxt.$localePath('/images')"
+            to="/images"
           >
             <span>{{ $t("nav.see_more") }}</span>
             <UIcon
               name="i-tabler:arrow-right"
               class="text-base"
             />
-          </nuxt-link>
+          </ULink>
         </div>
 
         <div
@@ -115,16 +117,17 @@
           <p class="text-sm">
             {{ $t("images.empty") }}
           </p>
-          <nuxt-link
+          <ULink
+            raw
             class="hstack gap-1.5 px-4 py-1.5 rounded-lg bg-brand text-white text-sm hover:opacity-90 transition-opacity"
-            :to="$nuxt.$localePath('/images')"
+            to="/images"
           >
             <UIcon
               name="i-ic:round-upload-file"
               class="text-lg"
             />
             <span>{{ $t("images.upload") }}</span>
-          </nuxt-link>
+          </ULink>
         </div>
       </section>
     </main>

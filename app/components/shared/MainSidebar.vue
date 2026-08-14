@@ -19,13 +19,14 @@
           class="text-xl"
         />
       </button>
-      <nuxt-link
+      <ULink
+        raw
         class="mobile-title"
-        :to="$nuxt.$localePath('/')"
+        to="/"
       >
         <Logo class="flex-shrink-0 text-base" />
         <BrandName />
-      </nuxt-link>
+      </ULink>
     </div>
 
     <button
@@ -38,9 +39,10 @@
 
     <aside class="sidebar-panel">
       <div class="header-brand">
-        <nuxt-link
+        <ULink
+          raw
           class="brand-link"
-          :to="$nuxt.$localePath('/')"
+          to="/"
           :title="isCollapsed ? $t('head.title') : undefined"
         >
           <Logo
@@ -50,7 +52,7 @@
           <div class="brand-title sidebar-label">
             <BrandName />
           </div>
-        </nuxt-link>
+        </ULink>
 
         <button
           class="collapse-button"
