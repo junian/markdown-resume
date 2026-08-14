@@ -44,7 +44,6 @@ export default defineNuxtConfig({
         { rel: 'mask-icon', href: `${siteConfig.baseURL}safari-pinned-tab.svg`, color: '#222' },
       ],
       meta: [
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'description', content: siteConfig.description },
         { name: 'application-name', content: siteConfig.title },
         { name: 'apple-mobile-web-app-title', content: siteConfig.title },
