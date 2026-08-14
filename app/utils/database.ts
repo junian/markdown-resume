@@ -5,6 +5,7 @@ import {
   getDefaultFullName,
   getDefaultPaperSize,
 } from './defaultSettings'
+import { isValidResume } from '~/utils/resumeValidation'
 import type { ResumeStorage, ResumeStorageItem, ResumeStyles, PaperType } from '~/types'
 
 const MARKDOWN_RESUME_KEY = 'MARKDOWN_RESUME_data'
@@ -149,39 +150,12 @@ export const saveResumesToLocal = async () => {
 export const importResumesFromLocal = async (callback?: () => void) => {
   const toast = useAppToast()
 
-  const check = (data: ResumeStorage) => {
-    for (const resume of Object.values(data)) {
-      if (typeof resume.name !== 'string') return false
-      if (typeof resume.markdown !== 'string') return false
-      if (typeof resume.css !== 'string') return false
-      if (typeof resume.styles !== 'object') return false
-      if (!['string', 'undefined'].includes(typeof resume.update)) return false
-
-      const styles = resume.styles
-
-      if (typeof styles.fontSize !== 'number') return false
-      if (typeof styles.lineHeight !== 'number') return false
-      if (typeof styles.marginH !== 'number') return false
-      if (typeof styles.marginV !== 'number') return false
-      if (typeof styles.paper !== 'string') return false
-      if (typeof styles.paragraphSpace !== 'number') return false
-      if (typeof styles.themeColor !== 'string') return false
-
-      if (typeof styles.fontCJK !== 'object' || typeof styles.fontCJK.name !== 'string')
-        return false
-      if (typeof styles.fontEN !== 'object' || typeof styles.fontEN.name !== 'string')
-        return false
-    }
-
-    return true
-  }
-
   const storage = (await getStorage()) || {}
 
   const merge = async (content: string) => {
     const data = JSON.parse(content) as ResumeStorage
 
-    if (!check(data)) {
+    if (!Object.values(data).every(isValidResume)) {
       toast.import(false)
       return
     }
