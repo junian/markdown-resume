@@ -1,5 +1,5 @@
 import * as localForage from 'localforage'
-import { downloadFile, uploadFile, copy, isClient } from '~/libs/utils'
+import { downloadFile, uploadFile, copy, isClient, storageToList } from '~/libs/utils'
 import { DEFAULT_STYLES, DEFAULT_NAME, DEFAULT_MD_CONTENT, DEFAULT_CSS_CONTENT } from '.'
 import {
   getDefaultFullName,
@@ -17,11 +17,7 @@ export const getStorage = async () =>
 
 export const getResumeList = async () => {
   const storage = (await getStorage()) || {}
-  return Object.keys(storage)
-    .map(i => ({
-      id: i,
-      ...storage[i],
-    }))
+  return storageToList(storage)
     .sort((a, b) => (b.update || b.id).localeCompare(a.update || a.id))
 }
 

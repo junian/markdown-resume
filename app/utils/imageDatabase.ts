@@ -1,5 +1,5 @@
 import * as localForage from 'localforage'
-import { isClient } from '~/libs/utils'
+import { isClient, storageToList } from '~/libs/utils'
 import type { ImageStorage, ImageStorageItem, ImageListItem } from '~/types'
 
 const IMAGE_GALLERY_KEY = 'MARKDOWN_RESUME_images'
@@ -16,12 +16,8 @@ export const getImageStorage = async () =>
 
 export const getImageList = async (sortAsc = false) => {
   const storage = (await getImageStorage()) || {}
-  const list = Object.keys(storage).map(id => ({
-    id,
-    ...storage[id]!,
-  }))
 
-  return list.sort((a, b) => {
+  return storageToList(storage).sort((a, b) => {
     const cmp = a.createdAt.localeCompare(b.createdAt)
     return sortAsc ? cmp : -cmp
   })
