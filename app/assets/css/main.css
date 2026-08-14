@@ -419,7 +419,7 @@ svg.iconify {
 }
 
 .resumes-row {
-  @apply flex flex-nowrap gap-4 pr-3;
+  @apply flex flex-nowrap gap-2 pr-3;
 }
 
 .images-row {
