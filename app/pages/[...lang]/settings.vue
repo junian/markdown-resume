@@ -266,7 +266,7 @@
             {{ $t("settings.danger_description") }}
           </p>
 
-          <Dialog
+          <AppDialog
             id="erase-all-data"
             :title="$t('settings.erase_all_data')"
             icon="i-mdi:alert-outline"
@@ -315,7 +315,7 @@
                 </button>
               </div>
             </template>
-          </Dialog>
+          </AppDialog>
         </section>
       </div>
     </main>

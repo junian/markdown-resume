@@ -3,7 +3,7 @@
     :text="$t('toolbar.file.text')"
     icon="i-carbon:import-export"
   >
-    <Dialog
+    <AppDialog
       id="import-md"
       :title="$t('import.title')"
       icon="i-mdi:upload"
@@ -25,7 +25,7 @@
       <template #content>
         <ImportDialogContent />
       </template>
-    </Dialog>
+    </AppDialog>
 
     <hr
       border-dashed
