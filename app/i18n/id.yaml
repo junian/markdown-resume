@@ -131,7 +131,7 @@ images:
   delete: Hapus
   empty: Belum ada gambar. Unggah satu untuk memulai.
   upload_title: Unggah Gambar
-  from_local: Seret gambar Anda ke sini, atau klik di sini untuk memilih file
+  from_local: Letakkan gambar Anda di sini
   copied: URL disalin ke clipboard
   deleted: Gambar "{msg}" telah dihapus
   uploaded: Gambar "{msg}" berhasil diunggah

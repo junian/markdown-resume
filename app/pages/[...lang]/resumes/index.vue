@@ -25,7 +25,7 @@
         <FileOptions @update="loadResumes" />
       </div>
 
-      <div class="flex flex-wrap gap-x-4 gap-y-8">
+      <div class="grid justify-between gap-x-1 gap-y-8 grid-cols-[repeat(auto-fill,14rem)]">
         <NewResume />
         <ResumeItem
           v-for="resume in list"

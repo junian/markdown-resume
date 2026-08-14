@@ -131,7 +131,7 @@ images:
   delete: Delete
   empty: No images yet. Upload one to get started.
   upload_title: Upload an Image
-  from_local: Drag your image here, or click here to choose a file
+  from_local: Drop your image here
   copied: URL copied to clipboard
   deleted: Image "{msg}" has been deleted
   uploaded: Image "{msg}" uploaded successfully

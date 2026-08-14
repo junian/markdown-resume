@@ -2,7 +2,7 @@
   <div class="image-item group">
     <!-- Card thumbnail -->
     <div
-      class="relative w-44 h-44 overflow-hidden rounded-md border border-c cursor-pointer duration-150 hover:-translate-y-2 hover:drop-shadow-xl"
+      class="relative w-52 h-52 overflow-hidden rounded-md border border-c cursor-pointer duration-150 hover:-translate-y-2 hover:drop-shadow-xl"
     >
       <img
         :src="imageUrl"
@@ -32,7 +32,7 @@
     </div>
 
     <!-- Image name + date -->
-    <div class="mt-2 w-44 space-y-0.5">
+    <div class="mt-2 w-52 space-y-0.5">
       <p
         class="text-sm text-dark-c truncate"
         :title="image.name"

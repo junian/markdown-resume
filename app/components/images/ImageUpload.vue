@@ -1,14 +1,22 @@
 <template>
-  <UFileUpload
-    v-model="selectedFile"
-    icon="i-lucide-image"
-    :label="$t('images.from_local')"
-    description="SVG, PNG, JPG"
-    accept="image/*"
-    :preview="false"
-    class="w-full"
-    @change="onFilesSelected"
-  />
+  <div class="w-52 h-52">
+    <UFileUpload
+      v-model="selectedFile"
+      icon="i-lucide-image"
+      color="neutral"
+      highlight
+      :label="$t('images.from_local')"
+      description="SVG, PNG, JPG"
+      accept="image/*"
+      :preview="false"
+      class="size-full duration-150 hover:-translate-y-2 hover:drop-shadow-xl"
+      :ui="{
+        base: 'hover:bg-default',
+        avatar: 'size-10',
+      }"
+      @change="onFilesSelected"
+    />
+  </div>
 </template>
 
 <script lang="ts" setup>

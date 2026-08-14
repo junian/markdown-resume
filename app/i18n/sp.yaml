@@ -131,7 +131,7 @@ images:
   delete: Eliminar
   empty: Aún no hay imágenes. Sube una para empezar.
   upload_title: Subir una Imagen
-  from_local: Arrastra tu imagen aquí, o haz clic para elegir un archivo
+  from_local: Suelta tu imagen aquí
   copied: URL copiada al portapapeles
   deleted: La imagen "{msg}" ha sido eliminada
   uploaded: La imagen "{msg}" se ha subido correctamente

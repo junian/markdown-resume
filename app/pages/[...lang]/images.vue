@@ -24,50 +24,24 @@
           </div>
         </div>
 
-        <div class="hstack space-x-2">
-          <!-- Sort toggle -->
-          <button
-            class="rect-btn border border-dark-c hover:bg-darker-c text-sm"
-            :aria-label="sortAsc ? $t('images.sort_desc') : $t('images.sort_asc')"
-            @click="toggleSort"
-          >
-            <UIcon
-              :name="sortAsc ? 'i-ic:round-arrow-upward' : 'i-ic:round-arrow-downward'"
-              class="text-lg"
-            />
-            <span>{{ sortAsc ? $t("images.sort_asc") : $t("images.sort_desc") }}</span>
-          </button>
-
-          <!-- Upload button -->
-          <button
-            class="rect-btn border border-dark-c hover:bg-darker-c text-sm"
-            :aria-label="$t('images.upload')"
-            @click="showUpload = !showUpload"
-          >
-            <UIcon
-              name="i-ic:round-upload-file"
-              class="text-lg"
-            />
-            <span>{{ $t("images.upload") }}</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Inline upload dropzone (collapsible) -->
-      <div
-        v-if="showUpload"
-        class="mt-4"
-      >
-        <ImageUpload @uploaded="onUploaded" />
+        <button
+          class="rect-btn border border-dark-c hover:bg-darker-c text-sm"
+          :aria-label="sortAsc ? $t('images.sort_desc') : $t('images.sort_asc')"
+          @click="toggleSort"
+        >
+          <UIcon
+            :name="sortAsc ? 'i-ic:round-arrow-upward' : 'i-ic:round-arrow-downward'"
+            class="text-lg"
+          />
+          <span>{{ sortAsc ? $t("images.sort_asc") : $t("images.sort_desc") }}</span>
+        </button>
       </div>
 
       <!-- Gallery grid -->
-      <div
-        v-if="list && list.length > 0"
-        class="flex flex-wrap gap-x-6 gap-y-8 mt-8"
-      >
+      <div class="grid justify-between gap-x-6 gap-y-8 mt-8 grid-cols-[repeat(auto-fill,13rem)]">
+        <ImageUpload @uploaded="loadImages" />
         <ImageItem
-          v-for="image in list"
+          v-for="image in list ?? []"
           :key="image.id"
           :image="image"
           @update="loadImages"
@@ -76,7 +50,7 @@
 
       <!-- Empty state -->
       <div
-        v-else-if="list && list.length === 0"
+        v-if="list && list.length === 0"
         class="mt-16 flex-center flex-col gap-3 text-lighter-c"
       >
         <UIcon
@@ -96,7 +70,6 @@ import type { ImageListItem } from '~/types'
 
 const list = ref<ImageListItem[]>()
 const sortAsc = ref(false)
-const showUpload = ref(false)
 
 const loadImages = async () => {
   list.value = await getImageList(sortAsc.value)
@@ -105,11 +78,6 @@ const loadImages = async () => {
 const toggleSort = async () => {
   sortAsc.value = !sortAsc.value
   await loadImages()
-}
-
-const onUploaded = async () => {
-  await loadImages()
-  showUpload.value = false
 }
 
 onMounted(loadImages)
