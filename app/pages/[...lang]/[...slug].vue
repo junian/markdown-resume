@@ -1,5 +1,10 @@
 <template>
-  <div class="content-page sidebar-layout">
+  <HomePage v-if="isHome" />
+
+  <div
+    v-else
+    class="content-page sidebar-layout"
+  >
     <Header />
 
     <main class="max-w-[52.5rem] mx-auto px-5 py-12 md:px-10 md:py-16 text-dark-c">
@@ -48,6 +53,8 @@
 </template>
 
 <script setup lang="ts">
+// Locale roots (e.g. /sp, /en) are matched by this catch-all route instead of
+// pages/index.vue, so render the home page for them when the slug is empty.
 const route = useRoute()
 const { locale } = useI18n()
 
@@ -64,9 +71,14 @@ const slug = computed(() => {
   return `/${segments.join('/')}`
 })
 
+// An empty slug means we're at a locale root (e.g. /sp) — show the home page.
+const isHome = computed(() => slug.value === '/')
+
 const { data: page } = await useAsyncData(
   `content-page:${locale.value}:${slug.value}`,
   async () => {
+    if (isHome.value) return null
+
     const pathFor = (lang: string) => `/${lang}${slug.value}`
     let doc = await queryCollection('content').path(pathFor(locale.value)).first()
     if (!doc && locale.value !== 'en') {
