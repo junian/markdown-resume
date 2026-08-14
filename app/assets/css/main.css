@@ -142,17 +142,6 @@ svg.iconify {
   @apply border-c border-b;
 }
 
-/* NavItem.vue */
-
-.sidebar-nav a.router-link-active {
-  background-color: rgb(229 231 235); /* gray-200 */
-  font-weight: 600;
-}
-
-.dark .sidebar-nav a.router-link-active {
-  background-color: rgb(55 65 81); /* gray-700 */
-}
-
 /* MainSidebar.vue */
 
 .header {
@@ -179,13 +168,8 @@ svg.iconify {
   @apply hstack min-h-10 gap-1;
 }
 
-.brand-link,
-.sidebar-item {
-  @apply hstack min-w-0 gap-3 rounded-lg transition-colors hover:bg-darker-c;
-}
-
 .brand-link {
-  @apply flex-1 gap-2 px-1 py-1 overflow-hidden text-gray-900 dark:text-[#f0f0f0];
+  @apply hstack min-w-0 gap-3 rounded-lg transition-colors hover:bg-darker-c flex-1 gap-2 px-1 py-1 overflow-hidden text-gray-900 dark:text-[#f0f0f0];
 }
 
 .brand-title {
@@ -200,26 +184,9 @@ svg.iconify {
   @apply flex flex-1 flex-col min-h-0 gap-1 mt-7 overflow-y-auto;
 }
 
-.sidebar-info-group,
-.sidebar-link-group {
-  @apply flex flex-col gap-1 mt-4 pt-3 border-t border-c;
-}
-
-.sidebar-settings {
-  @apply mt-auto pt-3 border-t border-c;
-}
-
-.sidebar-section-label {
-  @apply px-3 pb-1 text-xs font-bold uppercase tracking-wider text-lighter-c;
-}
-
-.sidebar-nav a,
-.sidebar-item {
-  @apply min-h-10 px-3;
-}
-
-.sidebar-nav a {
-  @apply gap-3 rounded-lg;
+/* UNavigationMenu: keep the settings group pinned to the bottom */
+.sidebar-nav [data-slot='separator']:last-of-type {
+  margin-top: auto;
 }
 
 .sidebar-context {
@@ -227,7 +194,7 @@ svg.iconify {
 }
 
 .coffee-link {
-  @apply text-gray-900 bg-yellow-400 hover:bg-yellow-300 dark:hover:bg-yellow-300;
+  @apply rounded-lg text-gray-900 bg-yellow-400 hover:bg-yellow-300 dark:hover:bg-yellow-300;
 }
 
 .sidebar-label {
@@ -265,8 +232,7 @@ svg.iconify {
 }
 
 .header--collapsed .brand-link,
-.header--collapsed .sidebar-item,
-.header--collapsed .sidebar-nav a {
+.header--collapsed .sidebar-nav [data-slot='link'] {
   @apply justify-center px-0;
 }
 
@@ -280,11 +246,6 @@ svg.iconify {
 
 .header--collapsed .brand-title {
   @apply hidden;
-}
-
-.sidebar-nav a.router-link-active,
-a.router-link-active.sidebar-item {
-  @apply bg-darker-c font-bold;
 }
 
 @media (max-width: 768px) {
@@ -330,8 +291,7 @@ a.router-link-active.sidebar-item {
   }
 
   .header--collapsed .sidebar-panel .brand-link,
-  .header--collapsed .sidebar-panel .sidebar-item,
-  .header--collapsed .sidebar-panel .sidebar-nav a {
+  .header--collapsed .sidebar-panel .sidebar-nav [data-slot='link'] {
     @apply justify-start px-3;
   }
 }

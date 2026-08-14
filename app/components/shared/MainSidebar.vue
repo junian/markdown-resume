@@ -78,84 +78,25 @@
         aria-label="Main navigation"
         @click="isMobileOpen = false"
       >
-        <NavItem
-          :link="$nuxt.$localePath('/')"
-          :label="$t('nav.home')"
-          icon="i-ic:outline-home"
+        <UNavigationMenu
+          as="div"
+          orientation="vertical"
+          color="neutral"
+          :collapsed="isNavCollapsed"
+          :items="navItems"
+          tooltip
+          :external-icon="false"
+          class="flex-1 min-h-0"
+          :ui="navigationMenuUi"
         />
-        <NavItem
-          :link="$nuxt.$localePath('/resumes')"
-          :label="$t('resumes.my_resumes')"
-          icon="i-ep:document"
-        />
-        <NavItem
-          :link="$nuxt.$localePath('/images')"
-          :label="$t('images.my_images')"
-          icon="i-ic:outline-photo-library"
-        />
-        <div class="sidebar-info-group">
-          <div class="sidebar-section-label sidebar-label">
-            {{ $t("nav.information") }}
-          </div>
-          <nuxt-link
-            class="sidebar-item"
-            :to="$nuxt.$localePath('/about')"
-            :title="isCollapsed ? $t('nav.about') : undefined"
-          >
-            <UIcon
-              name="i-ic:outline-info"
-              class="text-lg"
-            />
-            <span class="sidebar-label">{{ $t("nav.about") }}</span>
-          </nuxt-link>
-          <nuxt-link
-            class="sidebar-item"
-            :to="$nuxt.$localePath('/privacy')"
-            :title="isCollapsed ? $t('nav.privacy') : undefined"
-          >
-            <UIcon
-              name="i-mdi:shield-lock-outline"
-              class="text-lg"
-            />
-            <span class="sidebar-label">{{ $t("nav.privacy") }}</span>
-          </nuxt-link>
-        </div>
-
-        <div class="sidebar-link-group">
-          <div class="sidebar-section-label sidebar-label">
-            {{ $t("nav.links") }}
-          </div>
-          <a
-            v-for="link in externalLinks"
-            :key="link.href"
-            class="sidebar-item"
-            :class="{ 'coffee-link': link.coffee }"
-            :href="link.href"
-            target="_blank"
-            :rel="link.rel"
-            :title="isCollapsed ? link.label : undefined"
-          >
-            <UIcon
-              :name="link.icon"
-              class="text-lg"
-            />
-            <span class="sidebar-label">{{ link.label }}</span>
-          </a>
-        </div>
-
-        <div class="sidebar-settings">
-          <NavItem
-            :link="$nuxt.$localePath('/settings')"
-            :label="$t('nav.settings')"
-            icon="i-ic:outline-settings"
-          />
-        </div>
       </nav>
     </aside>
   </header>
 </template>
 
 <script lang="ts" setup>
+import type { NavigationMenuItem } from '@nuxt/ui'
+
 const props = withDefaults(
   defineProps<{
     defaultCollapsed?: boolean
@@ -166,11 +107,22 @@ const props = withDefaults(
 )
 
 const { t } = useI18n()
+const isMobile = useMediaQuery('(max-width: 768px)')
 
 const isCollapsed = ref(props.defaultCollapsed)
 const isMobileOpen = ref(false)
 
-const externalLinks = [
+// The NavigationMenu is only collapsed on desktop; on mobile the sidebar
+// drawer always renders the full labels regardless of the collapsed state.
+const isNavCollapsed = computed(() => isCollapsed.value && !isMobile.value)
+
+const navigationMenuUi = {
+  label: 'px-3 pb-1 text-xs font-bold uppercase tracking-wider text-lighter-c',
+  list: 'flex flex-col gap-1',
+  link: 'min-h-10',
+}
+
+const externalLinks = computed(() => [
   {
     href: 'https://www.junian.dev/coffee/',
     rel: 'nofollow noopener',
@@ -190,7 +142,58 @@ const externalLinks = [
     icon: 'i-tabler:world',
     label: 'Junian.dev',
   },
-]
+])
+
+const navItems = computed<NavigationMenuItem[][]>(() => [
+  [
+    {
+      label: t('nav.home'),
+      icon: 'i-ic:outline-home',
+      to: '/',
+    },
+    {
+      label: t('resumes.my_resumes'),
+      icon: 'i-ep:document',
+      to: '/resumes',
+    },
+    {
+      label: t('images.my_images'),
+      icon: 'i-ic:outline-photo-library',
+      to: '/images',
+    },
+  ],
+  [
+    { label: t('nav.information'), type: 'label' },
+    {
+      label: t('nav.about'),
+      icon: 'i-ic:outline-info',
+      to: '/about',
+    },
+    {
+      label: t('nav.privacy'),
+      icon: 'i-mdi:shield-lock-outline',
+      to: '/privacy',
+    },
+  ],
+  [
+    { label: t('nav.links'), type: 'label' },
+    ...externalLinks.value.map(link => ({
+      label: link.label,
+      icon: link.icon,
+      href: link.href,
+      target: '_blank',
+      rel: link.rel,
+      class: link.coffee ? 'coffee-link' : undefined,
+    })),
+  ],
+  [
+    {
+      label: t('nav.settings'),
+      icon: 'i-ic:outline-settings',
+      to: '/settings',
+    },
+  ],
+])
 
 const toggleSidebar = () => {
   isCollapsed.value = !isCollapsed.value
