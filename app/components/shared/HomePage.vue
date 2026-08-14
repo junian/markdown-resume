@@ -91,43 +91,17 @@
           </ULink>
         </div>
 
-        <div
-          v-if="recentImages && recentImages.length > 0"
-          class="images-row-wrap"
-        >
+        <div class="images-row-wrap">
           <div class="images-row">
+            <ImageUpload class="flex-shrink-0" @uploaded="loadImages" />
             <ImageItem
-              v-for="image in recentImages"
+              v-for="image in recentImages ?? []"
               :key="image.id"
               class="flex-shrink-0"
               :image="image"
               @update="loadImages"
             />
           </div>
-        </div>
-
-        <div
-          v-else-if="recentImages && recentImages.length === 0"
-          class="mt-8 flex-center flex-col gap-3 text-lighter-c py-12 rounded-xl border border-dashed border-c"
-        >
-          <UIcon
-            name="i-ic:outline-photo-library"
-            class="text-5xl"
-          />
-          <p class="text-sm">
-            {{ $t("images.empty") }}
-          </p>
-          <ULink
-            raw
-            class="hstack gap-1.5 px-4 py-1.5 rounded-lg bg-brand text-white text-sm hover:opacity-90 transition-opacity"
-            to="/images"
-          >
-            <UIcon
-              name="i-ic:round-upload-file"
-              class="text-lg"
-            />
-            <span>{{ $t("images.upload") }}</span>
-          </ULink>
         </div>
       </section>
     </main>
