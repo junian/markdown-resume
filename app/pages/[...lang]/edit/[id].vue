@@ -62,19 +62,16 @@
               @toggle-toolbar="isToolbarOpen = true"
             />
             <SaveResume />
-            <button
+            <UButton
               v-for="action in exportActions"
               :key="action.label"
+              variant="ghost"
               class="round-btn"
+              :icon="action.icon"
               :aria-label="action.label"
               :title="action.label"
               @click="action.run"
-            >
-              <UIcon
-                :name="action.icon"
-                class="text-lg"
-              />
-            </button>
+            />
           </div>
         </div>
       </div>
