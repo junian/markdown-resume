@@ -5,18 +5,17 @@
   >
     <!-- Color presets -->
     <div class="flex justify-between mb-4">
-      <button
+      <UButton
         v-for="(color, i) in THEME_COLORS"
         :key="`${i}-${color}`"
-        class="size-6 flex-center rounded text-white"
-        :style="{ backgroundColor: color }"
+        class="size-6 flex-center rounded"
+        :style="{ backgroundColor: color, color: '#fff' }"
+        :ui="{ leadingIcon: 'size-3.5' }"
+        :icon="isActiveColor(color) ? 'i-line-md:confirm' : undefined"
+        :aria-label="$t('toolbar.select_color', { color })"
+        :title="$t('toolbar.select_color', { color })"
         @click="themeColor = color"
-      >
-        <UIcon
-          v-show="isActiveColor(color)"
-          name="i-line-md:confirm"
-        />
-      </button>
+      />
     </div>
 
     <!-- Color picker -->

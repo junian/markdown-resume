@@ -8,13 +8,14 @@
       {{ $t('toolbar.correct_case.note') }}
     </div>
 
-    <button
-      class="rect-btn mt-3 ml-auto text-white bg-blue-500 hover:bg-blue-600 dark:hover:bg-blue-400"
+    <UButton
+      color="secondary"
+      class="mt-3 ml-auto text-white"
+      icon="i-carbon:rocket"
       @click="correct"
     >
-      <UIcon name="i-carbon:rocket" />
-      <span>{{ $t("toolbar.correct_case.btn") }}</span>
-    </button>
+      {{ $t("toolbar.correct_case.btn") }}
+    </UButton>
   </ToolItem>
 </template>
 

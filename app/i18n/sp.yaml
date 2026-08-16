@@ -89,6 +89,7 @@ import:
   title: Importar un archivo Markdown
   from_local: Arrastra tu archivo aquí, o haz clic aquí para elegir un archivo
   from_url: Pegar la URL del archivo
+  from_url_confirm: Cargar archivo desde URL
 
 toolbar:
   open: Abrir barra lateral de formato
@@ -115,6 +116,7 @@ toolbar:
   cjk: CJK
   en: Inglés
   theme_color: Color de tema
+  select_color: Establecer el color del tema a {color}
   paragraph: Espaciado de párrafo
   line: Espaciado de línea
   margin: Márgenes

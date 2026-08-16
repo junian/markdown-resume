@@ -89,6 +89,7 @@ import:
   title: Import a Markdown file
   from_local: Drag your file here, or click here to choose a file
   from_url: Paste file URL
+  from_url_confirm: Load file from URL
 
 toolbar:
   open: Open formatting sidebar
@@ -115,6 +116,7 @@ toolbar:
   cjk: CJK
   en: English
   theme_color: Theme Color
+  select_color: Set theme color to {color}
   paragraph: Paragraph Spacing
   line: Line Spacing
   margin: Margin

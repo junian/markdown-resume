@@ -89,6 +89,7 @@ import:
   title: Impor file Markdown
   from_local: Seret file Anda ke sini, atau klik di sini untuk memilih file
   from_url: Tempel URL file
+  from_url_confirm: Muat file dari URL
 
 toolbar:
   open: Buka bilah sisi pemformatan
@@ -115,6 +116,7 @@ toolbar:
   cjk: CJK
   en: Inggris
   theme_color: Warna Tema
+  select_color: Tetapkan warna tema ke {color}
   paragraph: Jarak Paragraf
   line: Jarak Baris
   margin: Margin

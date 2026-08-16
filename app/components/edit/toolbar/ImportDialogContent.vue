@@ -34,12 +34,15 @@
         @update:model-value="pastedURL = $event"
         @keydown.enter="uploadFileFromURL"
       />
-      <button
-        class="flex-center w-8 h-7 bg-blue-500 hover:bg-blue-600 text-white rounded-sm"
+      <UButton
+        color="secondary"
+        size="xs"
+        class="flex-center w-8 h-7 rounded-sm text-white"
+        icon="i-line-md:confirm"
+        :aria-label="$t('import.from_url_confirm')"
+        :title="$t('import.from_url_confirm')"
         @click="uploadFileFromURL"
-      >
-        <UIcon name="i-line-md:confirm" />
-      </button>
+      />
     </div>
   </div>
 </template>

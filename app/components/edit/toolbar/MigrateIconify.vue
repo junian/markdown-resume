@@ -7,13 +7,14 @@
       {{ $t("toolbar.migrate_iconify.desc") }}
     </div>
 
-    <button
-      class="rect-btn mt-3 ml-auto text-white bg-blue-500 hover:bg-blue-600 dark:hover:bg-blue-400"
+    <UButton
+      color="secondary"
+      class="mt-3 ml-auto text-white"
+      icon="i-tabler:transform"
       @click="migrate"
     >
-      <UIcon name="i-tabler:transform" />
-      <span>{{ $t("toolbar.migrate_iconify.btn") }}</span>
-    </button>
+      {{ $t("toolbar.migrate_iconify.btn") }}
+    </UButton>
   </ToolItem>
 </template>
 

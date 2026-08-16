@@ -89,6 +89,7 @@ import:
   title: 上传一个 Markdown 文件
   from_local: 将文件拖拽至这里，或点击这里以选择文件
   from_url: 粘贴文件 URL
+  from_url_confirm: 从 URL 加载文件
 
 toolbar:
   open: 打开格式侧边栏
@@ -115,6 +116,7 @@ toolbar:
   cjk: 中日韩
   en: 英文
   theme_color: 主题色
+  select_color: 将主题色设置为 {color}
   paragraph: 段间距
   line: 行间距
   margin: 页边距
