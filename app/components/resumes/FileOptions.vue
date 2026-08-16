@@ -1,27 +1,23 @@
 <template>
   <div class="file-options hstack space-x-2">
-    <button
-      class="rect-btn border border-dark-c hover:bg-darker-c"
+    <UButton
+      variant="outline"
+      color="neutral"
+      icon="i-ic:baseline-save-as"
       :aria-label="$t('resumes.saveas')"
       @click="saveResumesToLocal"
     >
-      <UIcon
-        name="i-ic:baseline-save-as"
-        class="text-lg"
-      />
-      <span>{{ $t("resumes.saveas") }}</span>
-    </button>
-    <button
-      class="rect-btn border border-dark-c hover:bg-darker-c"
+      {{ $t("resumes.saveas") }}
+    </UButton>
+    <UButton
+      variant="outline"
+      color="neutral"
+      icon="i-ic:round-upload-file"
       :aria-label="$t('resumes.import')"
       @click="() => importResumesFromLocal(() => $emit('update'))"
     >
-      <UIcon
-        name="i-ic:round-upload-file"
-        class="text-lg"
-      />
-      <span>{{ $t("resumes.import") }}</span>
-    </button>
+      {{ $t("resumes.import") }}
+    </UButton>
   </div>
 </template>
 
