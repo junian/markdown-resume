@@ -52,6 +52,9 @@ settings:
 disqus:
   leave_a_comment: Deja un Comentario
 
+dialog:
+  close: Cerrar diálogo
+
 head:
   title: Markdown Resume - Creador de Currículums Online Gratuito
   desc: Creador de currículums vitae en línea gratuito, te permite crear tu currículum en minutos con Markdown!
