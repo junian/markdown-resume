@@ -6,6 +6,18 @@
 </template>
 
 <script lang="tsx" setup>
+import File from './toolbar/File.vue'
+import Paper from './toolbar/Paper.vue'
+import ThemeColor from './toolbar/ThemeColor.vue'
+import FontFamily from './toolbar/FontFamily.vue'
+import FontSize from './toolbar/FontSize.vue'
+import Margins from './toolbar/Margins.vue'
+import ParagraphSpace from './toolbar/ParagraphSpace.vue'
+import LineHeight from './toolbar/LineHeight.vue'
+import CorrectCase from './toolbar/CorrectCase.vue'
+import MigrateIconify from './toolbar/MigrateIconify.vue'
+import UIcon from '@nuxt/ui/components/Icon.vue'
+
 const sections = [
   {
     name: 'file',

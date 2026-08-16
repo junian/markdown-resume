@@ -47,7 +47,9 @@
     "tailwindcss": "^4.3.3",
     "ts-debounce": "^4.0.0",
     "typescript": "^6.0.3",
-    "user-agent-data-types": "^0.4.2"
+    "user-agent-data-types": "^0.4.2",
+    "vue": "^3.5.41",
+    "vue-tsc": "^3.3.9"
   },
   "version": "0.1.1"
 }
