@@ -12,22 +12,24 @@
 
       <!-- Hover action buttons -->
       <div class="absolute right-2 top-2 hidden group-hover:flex flex-col gap-2">
-        <button
-          class="action-btn"
+        <UButton
+          type="button"
+          variant="ghost"
+          class="action-btn text-white hover:bg-gray-500"
+          icon="i-ic:baseline-content-copy"
           :title="$t('images.copy_url')"
           :aria-label="$t('images.copy_url')"
           @click.stop="copyUrl"
-        >
-          <UIcon name="i-ic:baseline-content-copy" />
-        </button>
-        <button
-          class="action-btn"
+        />
+        <UButton
+          type="button"
+          variant="ghost"
+          class="action-btn text-white hover:bg-gray-500"
+          icon="i-material-symbols:delete-outline-rounded"
           :title="$t('images.delete')"
           :aria-label="$t('images.delete')"
           @click.stop="remove"
-        >
-          <UIcon name="i-material-symbols:delete-outline-rounded" />
-        </button>
+        />
       </div>
     </div>
 

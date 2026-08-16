@@ -1,21 +1,23 @@
 <template>
   <div class="absolute right-3 top-3 space-y-2">
-    <button
-      class="action-btn"
+    <UButton
+      type="button"
+      variant="ghost"
+      class="action-btn text-white hover:bg-gray-500"
+      icon="i-ion:duplicate"
       :title="$t('resumes.duplicate')"
       :aria-label="$t('resumes.duplicate')"
       @click="duplicate"
-    >
-      <UIcon name="i-ion:duplicate" />
-    </button>
-    <button
-      class="action-btn"
+    />
+    <UButton
+      type="button"
+      variant="ghost"
+      class="action-btn text-white hover:bg-gray-500"
+      icon="i-material-symbols:delete-outline-rounded"
       :title="$t('resumes.delete')"
       :aria-label="$t('resumes.delete')"
       @click="remove"
-    >
-      <UIcon name="i-material-symbols:delete-outline-rounded" />
-    </button>
+    />
   </div>
 </template>
 

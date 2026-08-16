@@ -1,7 +1,9 @@
 <template>
   <div class="w-56 h-80">
-    <button
-      class="resume-card group w-[210px] h-[299px] flex-center bg-darker-c hover:bg-c"
+    <UButton
+      type="button"
+      variant="ghost"
+      class="resume-card group w-56 h-75 flex-center bg-darker-c hover:bg-white dark:hover:bg-[#252526] transition-all"
       :aria-label="$t('resumes.new')"
       @click="newAndSwitch"
     >
@@ -9,7 +11,7 @@
         name="i-ic:round-plus"
         class="text-5xl text-light-c group-hover:text-brand"
       />
-    </button>
+    </UButton>
   </div>
 </template>
 
