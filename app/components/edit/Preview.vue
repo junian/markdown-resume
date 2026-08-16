@@ -15,30 +15,30 @@
     <div
       class="zoom-bar hstack fixed bottom-4 lg:bottom-auto lg:top-[3.75rem] ml-2 shadow-c rounded-full overflow-hidden text-white bg-blue-500 lg:opacity-0 hover:opacity-100"
     >
-      <button
-        class="zoom-bar-button"
+      <UButton
+        variant="ghost"
+        class="zoom-bar-button text-white rounded-none"
+        icon="i-lucide:zoom-in"
         @click="scale *= 1.1"
-      >
-        <UIcon name="i-lucide:zoom-in" />
-      </button>
-      <button
-        class="zoom-bar-button"
+      />
+      <UButton
+        variant="ghost"
+        class="zoom-bar-button text-white rounded-none"
+        icon="i-lucide:zoom-out"
         @click="scale /= 1.1"
-      >
-        <UIcon name="i-lucide:zoom-out" />
-      </button>
-      <button
-        class="zoom-bar-button"
+      />
+      <UButton
+        variant="ghost"
+        class="zoom-bar-button text-white rounded-none"
+        icon="i-fluent:arrow-autofit-width-20-filled"
         @click="fitWidth"
-      >
-        <UIcon name="i-fluent:arrow-autofit-width-20-filled" />
-      </button>
-      <button
-        class="zoom-bar-button"
+      />
+      <UButton
+        variant="ghost"
+        class="zoom-bar-button text-white rounded-none"
+        icon="i-fluent:arrow-autofit-height-20-filled"
         @click="fitHeight"
-      >
-        <UIcon name="i-fluent:arrow-autofit-height-20-filled" />
-      </button>
+      />
     </div>
   </div>
 </template>
