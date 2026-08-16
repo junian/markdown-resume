@@ -7,18 +7,15 @@
     }"
   >
     <div class="mobile-header">
-      <button
-        class="mobile-menu-button"
+      <UButton
         type="button"
+        variant="ghost"
+        class="mobile-menu-button"
+        icon="i-tabler:menu-2"
         aria-label="Open navigation"
         :aria-expanded="isMobileOpen"
         @click="isMobileOpen = !isMobileOpen"
-      >
-        <UIcon
-          name="i-tabler:menu-2"
-          class="text-xl"
-        />
-      </button>
+      />
       <ULink
         raw
         class="mobile-title"
@@ -29,10 +26,11 @@
       </ULink>
     </div>
 
-    <button
+    <UButton
       v-if="isMobileOpen"
-      class="sidebar-backdrop"
       type="button"
+      variant="ghost"
+      class="sidebar-backdrop"
       aria-label="Close navigation"
       @click="isMobileOpen = false"
     />
@@ -54,18 +52,15 @@
           </div>
         </ULink>
 
-        <button
-          class="collapse-button"
+        <UButton
           type="button"
+          variant="ghost"
+          class="collapse-button"
+          :icon="isCollapsed ? 'i-tabler:layout-sidebar-left-expand' : 'i-tabler:layout-sidebar-left-collapse'"
           :aria-label="isCollapsed ? 'Expand navigation' : 'Collapse navigation'"
           :aria-expanded="!isCollapsed"
           @click="toggleSidebar"
-        >
-          <UIcon
-            :name="isCollapsed ? 'i-tabler:layout-sidebar-left-expand' : 'i-tabler:layout-sidebar-left-collapse'"
-            class="text-xl"
-          />
-        </button>
+        />
       </div>
 
       <div
