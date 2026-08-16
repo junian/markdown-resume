@@ -102,22 +102,22 @@
             role="radiogroup"
             :aria-label="$t('settings.theme')"
           >
-            <button
+            <UButton
               v-for="mode in themeModes"
               :key="mode.value"
-              class="theme-option"
-              :class="{ 'theme-option--active': colorMode.preference === mode.value }"
               type="button"
+              variant="ghost"
+              class="theme-option aspect-4/3"
+              :class="colorMode.preference === mode.value
+                ? 'theme-option--active text-blue-700 dark:text-white'
+                : ''"
               role="radio"
               :aria-checked="colorMode.preference === mode.value"
+              :icon="mode.icon"
               @click="colorMode.preference = mode.value"
             >
-              <UIcon
-                :name="mode.icon"
-                class="text-xl"
-              />
-              <span>{{ mode.label }}</span>
-            </button>
+              {{ mode.label }}
+            </UButton>
           </div>
         </section>
 
@@ -156,20 +156,17 @@
               class="text-xl"
             />
             <h2>{{ $t("settings.storage") }}</h2>
-            <button
-              class="storage-refresh-button"
+            <UButton
               type="button"
+              variant="ghost"
+              class="storage-refresh-button"
+              :class="{ 'animate-spin': isRefreshingStorage }"
+              icon="i-mdi:refresh"
               :title="$t('settings.refresh_storage')"
               :aria-label="$t('settings.refresh_storage')"
               :disabled="isRefreshingStorage"
               @click="refreshStorageEstimate"
-            >
-              <UIcon
-                name="i-mdi:refresh"
-                class="text-lg"
-                :class="{ 'animate-spin': isRefreshingStorage }"
-              />
-            </button>
+            />
           </div>
           <p class="storage-description">
             {{ $t("settings.storage_estimate_note") }}
@@ -273,17 +270,15 @@
             box-class="w-11/12 max-w-[27.5rem]"
           >
             <template #button>
-              <button
-                class="danger-button"
+              <UButton
                 type="button"
+                variant="ghost"
+                class="danger-button"
+                icon="i-mdi:delete-forever-outline"
                 @click="deleteConfirmation = ''"
               >
-                <UIcon
-                  name="i-mdi:delete-forever-outline"
-                  class="text-lg"
-                />
-                <span>{{ $t("settings.erase_all_data") }}</span>
-              </button>
+                {{ $t("settings.erase_all_data") }}
+              </UButton>
             </template>
 
             <template #content>
@@ -305,14 +300,15 @@
                   class="w-full"
                   :ui="{ base: 'font-mono' }"
                 />
-                <button
-                  class="danger-confirm-button"
+                <UButton
                   type="button"
+                  variant="ghost"
+                  class="danger-confirm-button"
                   :disabled="deleteConfirmation !== 'DELETE' || isErasing"
                   @click="eraseAllData"
                 >
                   {{ $t("settings.confirm") }}
-                </button>
+                </UButton>
               </div>
             </template>
           </AppDialog>
