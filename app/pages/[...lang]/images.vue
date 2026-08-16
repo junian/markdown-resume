@@ -24,17 +24,15 @@
           </div>
         </div>
 
-        <button
-          class="rect-btn border border-dark-c hover:bg-darker-c text-sm"
+        <UButton
+          variant="outline"
+          color="neutral"
+          :icon="sortAsc ? 'i-ic:round-arrow-upward' : 'i-ic:round-arrow-downward'"
           :aria-label="sortAsc ? $t('images.sort_desc') : $t('images.sort_asc')"
           @click="toggleSort"
         >
-          <UIcon
-            :name="sortAsc ? 'i-ic:round-arrow-upward' : 'i-ic:round-arrow-downward'"
-            class="text-lg"
-          />
-          <span>{{ sortAsc ? $t("images.sort_asc") : $t("images.sort_desc") }}</span>
-        </button>
+          {{ sortAsc ? $t("images.sort_asc") : $t("images.sort_desc") }}
+        </UButton>
       </div>
 
       <!-- Gallery grid -->
