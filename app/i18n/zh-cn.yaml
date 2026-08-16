@@ -123,6 +123,12 @@ toolbar:
   vertical: 上下
   horizontal: 左右
 
+zoom:
+  in: 放大
+  out: 缩小
+  fit_width: 适应宽度
+  fit_height: 适应高度
+
 images:
   my_images: 我的图片
   description: 管理本地图片并在简历中使用。

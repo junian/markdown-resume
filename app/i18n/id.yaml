@@ -123,6 +123,12 @@ toolbar:
   vertical: Atas & Bawah
   horizontal: Kiri & Kanan
 
+zoom:
+  in: Perbesar
+  out: Perkecil
+  fit_width: Sesuaikan lebar
+  fit_height: Sesuaikan tinggi
+
 images:
   my_images: Gambar Saya
   description: Kelola gambar lokal untuk digunakan dalam resume Anda.

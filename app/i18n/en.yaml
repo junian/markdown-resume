@@ -123,6 +123,12 @@ toolbar:
   vertical: Top & Bottom
   horizontal: Left & Right
 
+zoom:
+  in: Zoom in
+  out: Zoom out
+  fit_width: Fit to width
+  fit_height: Fit to height
+
 images:
   my_images: My Images
   description: Manage images stored locally for use in your resumes.

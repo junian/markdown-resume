@@ -19,24 +19,32 @@
         variant="ghost"
         class="zoom-bar-button text-white rounded-none"
         icon="i-lucide:zoom-in"
+        :aria-label="$t('zoom.in')"
+        :title="$t('zoom.in')"
         @click="scale *= 1.1"
       />
       <UButton
         variant="ghost"
         class="zoom-bar-button text-white rounded-none"
         icon="i-lucide:zoom-out"
+        :aria-label="$t('zoom.out')"
+        :title="$t('zoom.out')"
         @click="scale /= 1.1"
       />
       <UButton
         variant="ghost"
         class="zoom-bar-button text-white rounded-none"
         icon="i-fluent:arrow-autofit-width-20-filled"
+        :aria-label="$t('zoom.fit_width')"
+        :title="$t('zoom.fit_width')"
         @click="fitWidth"
       />
       <UButton
         variant="ghost"
         class="zoom-bar-button text-white rounded-none"
         icon="i-fluent:arrow-autofit-height-20-filled"
+        :aria-label="$t('zoom.fit_height')"
+        :title="$t('zoom.fit_height')"
         @click="fitHeight"
       />
     </div>

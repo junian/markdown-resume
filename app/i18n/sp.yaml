@@ -123,6 +123,12 @@ toolbar:
   vertical: Arriba y abajo
   horizontal: Izquierda y derecha
 
+zoom:
+  in: Acercar
+  out: Alejar
+  fit_width: Ajustar al ancho
+  fit_height: Ajustar a la altura
+
 images:
   my_images: Mis Imágenes
   description: Administra imágenes locales para usarlas en tus currículums.
