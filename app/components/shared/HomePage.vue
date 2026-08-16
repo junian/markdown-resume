@@ -93,7 +93,10 @@
 
         <div class="images-row-wrap">
           <div class="images-row">
-            <ImageUpload class="flex-shrink-0" @uploaded="loadImages" />
+            <ImageUpload
+              class="flex-shrink-0"
+              @uploaded="loadImages"
+            />
             <ImageItem
               v-for="image in recentImages ?? []"
               :key="image.id"
