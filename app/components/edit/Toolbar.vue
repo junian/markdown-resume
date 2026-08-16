@@ -16,7 +16,7 @@ import ParagraphSpace from './toolbar/ParagraphSpace.vue'
 import LineHeight from './toolbar/LineHeight.vue'
 import CorrectCase from './toolbar/CorrectCase.vue'
 import MigrateIconify from './toolbar/MigrateIconify.vue'
-import UIcon from '@nuxt/ui/components/Icon.vue'
+import UButton from '@nuxt/ui/components/Button.vue'
 
 const sections = [
   {
@@ -91,9 +91,12 @@ const Tools = () => (
 const Navbar = () => (
   <div class="flex-center flex-col flex-none space-y-1 w-9 md:w-10 border-l border-c border-dashed lg:border-none">
     {sections.map(item => (
-      <button class="round-btn" onClick={() => scrollTo(item.name)}>
-        <UIcon name={item.icon} class="text-sm md:text-base" />
-      </button>
+      <UButton
+        variant="ghost"
+        class="round-btn"
+        icon={item.icon}
+        onClick={() => scrollTo(item.name)}
+      />
     ))}
   </div>
 )
