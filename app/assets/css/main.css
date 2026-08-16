@@ -84,20 +84,8 @@ svg.iconify {
   @apply border-black dark:border-[#6b6b6b];
 }
 
-@utility border-light-c {
-  @apply border-gray-200 dark:border-[#333337];
-}
-
-@utility hide-on-mobile {
-  @apply max-md:hidden;
-}
-
 @utility shadow-c {
   @apply shadow shadow-slate-300 dark:shadow-black/50;
-}
-
-@utility dropdown-container {
-  @apply bg-c border border-c rounded shadow-c overflow-x-hidden overflow-y-scroll;
 }
 
 @utility dropdown-li {
@@ -110,10 +98,6 @@ svg.iconify {
 
 @utility round-btn {
   @apply circle size-7 md:size-8 hover:bg-darker-c! text-c!;
-}
-
-@utility rect-btn {
-  @apply hstack space-x-1.5 px-2.5 py-1.5 rounded;
 }
 
 @utility resume-card {
@@ -226,8 +210,7 @@ svg.iconify {
   }
 }
 
-.header--collapsed .sidebar-label,
-.header--collapsed .hide-on-mobile {
+.header--collapsed .sidebar-label {
   @apply hidden;
 }
 
