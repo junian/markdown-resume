@@ -4,14 +4,14 @@
       v-if="!loaded"
       class="flex justify-center"
     >
-      <button
-        class="text-white bg-brand rounded-lg duration-200 outline outline-4 outline-transparent hover:outline-rose-300/50 hstack space-x-1.5"
-        p="x-4 y-3"
+      <UButton
+        variant="ghost"
+        class="text-white bg-brand rounded-lg px-4 py-3 duration-200 outline outline-4 outline-transparent hover:bg-brand hover:outline-rose-300/50"
+        icon="i-ic:outline-comment"
         @click="load"
       >
-        <UIcon name="i-ic:outline-comment" />
-        <span>{{ $t('disqus.leave_a_comment') }}</span>
-      </button>
+        {{ $t('disqus.leave_a_comment') }}
+      </UButton>
     </div>
 
     <div v-else>

@@ -14,13 +14,14 @@
           <span>{{ title }}</span>
         </div>
 
-        <button
-          class="circle p-1 duration-100 hover:bg-dark-c hover:rotate-90"
+        <UButton
           type="button"
+          variant="ghost"
+          class="circle p-1 duration-100 hover:bg-dark-c hover:rotate-90"
+          :ui="{ leadingIcon: 'size-3.5' }"
+          icon="i-ic:baseline-close"
           @click="close()"
-        >
-          <UIcon name="i-ic:baseline-close" />
-        </button>
+        />
       </div>
 
       <slot name="content" />
