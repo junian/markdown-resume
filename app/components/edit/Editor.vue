@@ -5,6 +5,7 @@
       :items="tabList"
       :content="false"
       variant="link"
+      color="secondary"
       class="flex-none"
       :ui="{
         list: 'hstack h-9 md:h-10 text-sm md:text-base w-full text-c bg-c border-b border-c px-4 space-x-2',
