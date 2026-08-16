@@ -22,8 +22,10 @@ declare module "@vue/runtime-dom" {
 
 declare module "vue" {
   interface ComponentCustomProps {
-    // Allow `id` (and other HTML attributes) to fall through to a
-    // component's root element without being declared as a prop.
+    // Allow HTML attributes to fall through to a component's root element
+    // without being declared as a prop.
     id?: string
+    "aria-label"?: string
+    title?: string
   }
 }

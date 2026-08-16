@@ -2,12 +2,16 @@
   <div class="absolute right-3 top-3 space-y-2">
     <button
       class="action-btn"
+      :title="$t('resumes.duplicate')"
+      :aria-label="$t('resumes.duplicate')"
       @click="duplicate"
     >
       <UIcon name="i-ion:duplicate" />
     </button>
     <button
       class="action-btn"
+      :title="$t('resumes.delete')"
+      :aria-label="$t('resumes.delete')"
       @click="remove"
     >
       <UIcon name="i-material-symbols:delete-outline-rounded" />
