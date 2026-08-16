@@ -3,18 +3,16 @@
     class="min-w-0 border-[1.5px] rounded hstack"
     :class="isEditing ? 'border-dark-c' : 'border-transparent'"
   >
-    <button
-      type="button"
-      class="cursor-pointer p-1 rounded transition-colors hover:bg-gray-200 dark:hover:bg-[#2a2d2e]"
+    <UButton
+      variant="ghost"
+      class="cursor-pointer hover:bg-gray-200 dark:hover:bg-[#2a2d2e]"
       :class="iconPosition === 'left' ? 'order-first mr-1' : 'order-last ml-1'"
+      :ui="{ base: 'p-1 rounded', leadingIcon: 'size-3.5' }"
+      icon="i-mdi:pencil"
+      :aria-label="$t ? $t('resumes.rename') : 'Rename'"
       :title="$t ? $t('resumes.rename') : 'Rename'"
       @click="startEdit"
-    >
-      <UIcon
-        name="i-mdi:pencil"
-        class="text-sm"
-      />
-    </button>
+    />
 
     <div class="min-w-0 flex-1 overflow-hidden">
       <UInput
