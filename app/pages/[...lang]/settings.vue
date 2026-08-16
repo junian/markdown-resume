@@ -136,7 +136,7 @@
               class="editor-setting"
               :label="$t('settings.minimap')"
               :description="$t('settings.minimap_description')"
-              @update:model-value="setEditorMinimapEnabled"
+              @update:model-value="enabled => setEditorMinimapEnabled(enabled === true)"
             />
             <UCheckbox
               id="editor-line-numbers"
@@ -144,7 +144,7 @@
               class="editor-setting"
               :label="$t('settings.line_numbers')"
               :description="$t('settings.line_numbers_description')"
-              @update:model-value="setEditorLineNumbersEnabled"
+              @update:model-value="enabled => setEditorLineNumbersEnabled(enabled === true)"
             />
           </div>
         </section>
@@ -349,9 +349,12 @@ const languageItems = computed<SelectMenuItem[]>(() =>
 )
 
 const selectedLanguage = computed<SelectMenuItem | undefined>({
-  get: () => languageItems.value.find(item => item.value === locale.value),
+  get: () =>
+    languageItems.value.find(
+      item => typeof item === 'object' && item !== null && item.value === locale.value,
+    ),
   set: (item) => {
-    if (item?.value && item.value !== locale.value) {
+    if (typeof item === 'object' && item !== null && item.value && item.value !== locale.value) {
       navigateTo(switchLocalePath(item.value))
     }
   },

@@ -32,7 +32,7 @@ const migrateLegacyIconify = (markdown: string) => {
 
       if (!classAttribute || !iconAttribute) return original
 
-      const classes = classAttribute[2].split(/\s+/).filter(Boolean)
+      const classes = classAttribute[2]!.split(/\s+/).filter(Boolean)
       if (!classes.includes('iconify')) return original
 
       const remainingClasses = classes.filter(name => name !== 'iconify')

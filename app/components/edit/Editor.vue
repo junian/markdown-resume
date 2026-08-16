@@ -21,25 +21,12 @@
 </template>
 
 <script lang="ts" setup>
-import type * as Monaco from 'monaco-editor'
 import { isClient } from '~/libs/utils'
 import { setupMonacoEditor } from '~/libs/monaco'
 
 const editorRef = ref<HTMLDivElement>()
 
-let editor:
-  | {
-    editor: Monaco.editor.IStandaloneCodeEditor
-    models: {
-      [key: string]: {
-        getModel: () => Monaco.editor.ITextModel
-        activate: () => void
-        dispose: () => void
-      }
-    }
-    dispose: () => void
-  }
-  | undefined
+let editor: Awaited<ReturnType<typeof setupMonacoEditor>> | undefined
 
 // Setup Monaco editor
 onMounted(async () => {
