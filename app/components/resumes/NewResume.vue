@@ -3,7 +3,7 @@
     <UButton
       type="button"
       variant="ghost"
-      class="resume-card group w-56 h-75 flex-center bg-darker-c hover:bg-white dark:hover:bg-[#252526] transition-all"
+      class="resume-card group border border-c w-56 h-75 flex-center bg-darker-c hover:bg-white dark:hover:bg-[#252526] transition-all"
       :aria-label="$t('resumes.new')"
       @click="newAndSwitch"
     >
