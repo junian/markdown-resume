@@ -3,7 +3,7 @@
     <UButton
       type="button"
       variant="ghost"
-      class="action-btn text-white hover:bg-gray-500"
+      class="action-btn text-white hover:bg-gray-500 flex"
       icon="i-ion:duplicate"
       :title="$t('resumes.duplicate')"
       :aria-label="$t('resumes.duplicate')"
@@ -12,7 +12,7 @@
     <UButton
       type="button"
       variant="ghost"
-      class="action-btn text-white hover:bg-gray-500"
+      class="action-btn text-white hover:bg-gray-500 flex"
       icon="i-material-symbols:delete-outline-rounded"
       :title="$t('resumes.delete')"
       :aria-label="$t('resumes.delete')"
