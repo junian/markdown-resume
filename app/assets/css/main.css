@@ -105,11 +105,11 @@ svg.iconify {
 }
 
 @utility circle {
-  @apply rounded-full flex-center;
+  @apply rounded-full! flex-center;
 }
 
 @utility round-btn {
-  @apply circle size-7 md:size-8 hover:bg-darker-c text-c;
+  @apply circle size-7 md:size-8 hover:bg-darker-c! text-c!;
 }
 
 @utility rect-btn {
@@ -121,7 +121,7 @@ svg.iconify {
 }
 
 @utility zoom-bar-button {
-  @apply flex-center size-10 text-lg hover:bg-blue-600;
+  @apply flex-center size-10 text-lg hover:bg-blue-600!;
 }
 
 @utility action-btn {
@@ -177,7 +177,7 @@ svg.iconify {
 }
 
 .collapse-button {
-  @apply circle flex-shrink-0 size-8 hover:bg-darker-c;
+  @apply circle flex-shrink-0 size-8 hover:bg-darker-c!;
 }
 
 .sidebar-nav {
@@ -259,7 +259,7 @@ svg.iconify {
   }
 
   .mobile-menu-button {
-    @apply circle flex-shrink-0 size-9 hover:bg-darker-c;
+    @apply circle flex-shrink-0 size-9 hover:bg-darker-c!;
   }
 
   .mobile-title {
@@ -611,7 +611,7 @@ svg.iconify {
 }
 
 @utility storage-refresh-button {
-  @apply circle ml-auto size-8 text-light-c transition-colors hover:bg-darker-c hover:text-dark-c disabled:cursor-not-allowed disabled:opacity-50;
+  @apply circle ml-auto size-8 text-light-c! transition-colors hover:bg-darker-c! hover:text-dark-c! disabled:cursor-not-allowed disabled:opacity-50;
 }
 
 @utility storage-ring-center {
@@ -635,7 +635,7 @@ svg.iconify {
 }
 
 @utility danger-button {
-  @apply hstack justify-center gap-2 rounded-lg border border-red-500 px-3 py-2 text-sm font-bold text-red-600 transition-colors hover:bg-red-600 hover:text-white dark:border-red-500 dark:text-red-400 dark:hover:bg-red-600 dark:hover:text-white;
+  @apply hstack justify-center gap-2 rounded-lg! border border-red-500 px-3! py-2! text-sm font-bold! text-red-600! transition-colors hover:bg-red-600! hover:text-white! dark:border-red-500 dark:text-red-400! dark:hover:bg-red-600! dark:hover:text-white!;
 }
 
 @utility danger-dialog-content {
@@ -643,5 +643,5 @@ svg.iconify {
 }
 
 @utility danger-confirm-button {
-  @apply hstack justify-center gap-2 rounded-lg border border-red-500 px-3 py-2 text-sm font-bold text-red-600 transition-colors hover:bg-red-600 hover:text-white dark:border-red-500 dark:text-red-400 dark:hover:bg-red-600 dark:hover:text-white self-end min-w-24 bg-red-600 text-white disabled:cursor-not-allowed disabled:border-red-400 disabled:bg-red-400 disabled:opacity-60 dark:disabled:border-red-900 dark:disabled:bg-red-900 dark:disabled:text-red-300;
+  @apply hstack justify-center gap-2 rounded-lg! border border-red-500 px-3! py-2! text-sm font-bold! text-red-600! transition-colors hover:bg-red-600! hover:text-white! dark:border-red-500 dark:text-red-400! dark:hover:bg-red-600! dark:hover:text-white! self-end min-w-24 bg-red-600! text-white! disabled:cursor-not-allowed disabled:border-red-400! disabled:bg-red-400! disabled:opacity-60! dark:disabled:border-red-900! dark:disabled:bg-red-900! dark:disabled:text-red-300!;
 }

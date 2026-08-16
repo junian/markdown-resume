@@ -17,6 +17,7 @@
         <UButton
           type="button"
           variant="ghost"
+          color="neutral"
           class="circle p-1 duration-100 hover:bg-dark-c hover:rotate-90"
           :ui="{ leadingIcon: 'size-3.5' }"
           icon="i-ic:baseline-close"

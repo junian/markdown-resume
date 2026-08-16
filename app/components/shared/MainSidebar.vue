@@ -10,6 +10,7 @@
       <UButton
         type="button"
         variant="ghost"
+        color="neutral"
         class="mobile-menu-button"
         icon="i-tabler:menu-2"
         aria-label="Open navigation"
@@ -55,6 +56,7 @@
         <UButton
           type="button"
           variant="ghost"
+          color="neutral"
           class="collapse-button"
           :icon="isCollapsed ? 'i-tabler:layout-sidebar-left-expand' : 'i-tabler:layout-sidebar-left-collapse'"
           :aria-label="isCollapsed ? 'Expand navigation' : 'Collapse navigation'"

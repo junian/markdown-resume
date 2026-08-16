@@ -107,6 +107,7 @@
               :key="mode.value"
               type="button"
               variant="ghost"
+              color="neutral"
               class="theme-option aspect-4/3"
               :class="colorMode.preference === mode.value
                 ? 'theme-option--active text-blue-700 dark:text-white'

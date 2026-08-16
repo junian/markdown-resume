@@ -5,6 +5,7 @@
   >
     <UButton
       variant="ghost"
+      color="neutral"
       class="cursor-pointer hover:bg-gray-200 dark:hover:bg-[#2a2d2e]"
       :class="iconPosition === 'left' ? 'order-first mr-1' : 'order-last ml-1'"
       :ui="{ base: 'p-1 rounded', leadingIcon: 'size-3.5' }"
