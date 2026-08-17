@@ -22,7 +22,7 @@
         class="mobile-title"
         to="/"
       >
-        <Logo class="flex-shrink-0 text-base" />
+        <Logo class="shrink-0 text-base" />
         <BrandName />
       </ULink>
     </div>
@@ -46,7 +46,7 @@
         >
           <Logo
             v-show="!isCollapsed"
-            class="flex-shrink-0 text-base"
+            class="shrink-0 text-base"
           />
           <div class="brand-title sidebar-label">
             <BrandName />

@@ -2,13 +2,13 @@
   <div class="images-page sidebar-layout">
     <MainSidebar />
 
-    <main class="max-w-[76.5rem] mx-auto px-5 py-12 md:px-10 md:py-16 text-dark-c">
+    <main class="max-w-306 mx-auto px-5 py-12 md:px-10 md:py-16 text-dark-c">
       <!-- Page header row -->
       <div
         class="flex flex-col gap-4 mb-10 sm:flex-row sm:items-center sm:justify-between"
       >
         <div class="hstack gap-3">
-          <span class="circle size-10 flex-shrink-0 bg-brand text-white">
+          <span class="circle size-10 shrink-0 bg-brand text-white">
             <UIcon
               name="i-ic:outline-photo-library"
               class="text-xl"

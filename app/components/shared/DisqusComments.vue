@@ -6,7 +6,7 @@
     >
       <UButton
         variant="ghost"
-        class="text-white bg-brand rounded-lg px-4 py-3 duration-200 outline outline-4 outline-transparent hover:bg-blue-500 dark:hover:bg-[#007acc] hover:outline-rose-300/50"
+        class="text-white bg-brand rounded-lg px-4 py-3 duration-200 outline-4 outline-transparent hover:bg-blue-500 dark:hover:bg-[#007acc] hover:outline-rose-300/50"
         icon="i-ic:outline-comment"
         @click="load"
       >

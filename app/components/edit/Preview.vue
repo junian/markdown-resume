@@ -13,7 +13,7 @@
     </Zoom>
 
     <div
-      class="zoom-bar hstack fixed bottom-4 lg:bottom-auto lg:top-[3.75rem] ml-2 shadow-c rounded-full overflow-hidden text-white bg-blue-500 lg:opacity-0 hover:opacity-100"
+      class="zoom-bar hstack fixed bottom-4 lg:bottom-auto lg:top-15 ml-2 shadow-c rounded-full overflow-hidden text-white bg-blue-500 lg:opacity-0 hover:opacity-100"
     >
       <UButton
         variant="ghost"

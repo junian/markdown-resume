@@ -2,7 +2,7 @@
   <div class="home-page sidebar-layout">
     <MainSidebar />
 
-    <main class="max-w-[76.5rem] mx-auto px-5 py-12 md:px-10 md:py-16 text-dark-c">
+    <main class="max-w-306 mx-auto px-5 py-12 md:px-10 md:py-16 text-dark-c">
       <!-- Hero Section -->
       <section class="mb-14 text-center">
         <h1 class="text-4xl md:text-5xl font-bold mb-4">
@@ -17,7 +17,7 @@
       <section class="mb-14">
         <div class="flex items-center justify-between mb-6">
           <div class="hstack gap-3">
-            <span class="circle size-9 flex-shrink-0 bg-brand text-white">
+            <span class="circle size-9 shrink-0 bg-brand text-white">
               <UIcon
                 name="i-ep:document"
                 class="text-lg"
@@ -51,7 +51,7 @@
             <ResumeItem
               v-for="resume in recentResumes"
               :key="resume.id"
-              class="resume-item flex-shrink-0"
+              class="resume-item shrink-0"
               :resume="resume"
               @update="loadResumes"
             />
@@ -63,7 +63,7 @@
       <section>
         <div class="flex items-center justify-between mb-6">
           <div class="hstack gap-3">
-            <span class="circle size-9 flex-shrink-0 bg-brand text-white">
+            <span class="circle size-9 shrink-0 bg-brand text-white">
               <UIcon
                 name="i-ic:outline-photo-library"
                 class="text-lg"
@@ -94,13 +94,13 @@
         <div class="images-row-wrap">
           <div class="images-row">
             <ImageUpload
-              class="flex-shrink-0"
+              class="shrink-0"
               @uploaded="loadImages"
             />
             <ImageItem
               v-for="image in recentImages ?? []"
               :key="image.id"
-              class="flex-shrink-0"
+              class="shrink-0"
               :image="image"
               @update="loadImages"
             />

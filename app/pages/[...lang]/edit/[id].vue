@@ -42,7 +42,7 @@
         >
           <UIcon
             name="i-ep:document"
-            class="flex-shrink-0 text-lg"
+            class="shrink-0 text-lg"
           />
           <RenameResume />
           <SaveResume />

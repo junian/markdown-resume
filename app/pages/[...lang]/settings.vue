@@ -2,7 +2,7 @@
   <div class="settings-page sidebar-layout">
     <MainSidebar />
 
-    <main class="max-w-[60rem] mx-auto px-5 py-12 md:px-10 md:py-16 text-dark-c">
+    <main class="max-w-240 mx-auto px-5 py-12 md:px-10 md:py-16 text-dark-c">
       <div class="hstack gap-3 mb-10">
         <span class="circle size-10 bg-brand text-white">
           <UIcon

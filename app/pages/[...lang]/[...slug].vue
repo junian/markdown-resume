@@ -7,7 +7,7 @@
   >
     <MainSidebar />
 
-    <main class="max-w-[52.5rem] mx-auto px-5 py-12 md:px-10 md:py-16 text-dark-c">
+    <main class="max-w-210 mx-auto px-5 py-12 md:px-10 md:py-16 text-dark-c">
       <template v-if="page">
         <div class="mb-10">
           <div class="hstack gap-3 mb-3">

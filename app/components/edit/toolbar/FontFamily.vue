@@ -12,7 +12,7 @@
         value-key="value"
         label-key="label"
       />
-      <span class="w-[3.25rem]">{{ $t("toolbar.cjk") }}</span>
+      <span class="w-13">{{ $t("toolbar.cjk") }}</span>
     </div>
 
     <div class="hstack space-x-2 w-full">
