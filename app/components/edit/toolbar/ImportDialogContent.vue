@@ -35,7 +35,6 @@
         @keydown.enter="uploadFileFromURL"
       />
       <UButton
-        color="secondary"
         size="xs"
         class="flex-center w-8 h-7 rounded-sm text-white"
         icon="i-line-md:confirm"

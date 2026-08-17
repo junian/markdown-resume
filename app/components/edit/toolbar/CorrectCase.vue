@@ -9,7 +9,6 @@
     </div>
 
     <UButton
-      color="secondary"
       class="mt-3 ml-auto text-white"
       icon="i-carbon:rocket"
       @click="correct"
