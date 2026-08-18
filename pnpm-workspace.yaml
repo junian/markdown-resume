@@ -8,3 +8,5 @@ overrides:
   oxc-parser: ">=0.140.0"
   unplugin: "^3.3.0"
   "@bomb.sh/tab": "^0.0.22"
+  "glob": "^13.0.6"
+  "@types/parse-path": "npm:parse-path@7.1.0"
