@@ -91,21 +91,42 @@ describe('iconifyIconToSvg', () => {
   })
 
   it('returns null when the request fails', async () => {
-    fetchMock.mockRejectedValueOnce(new Error('offline'))
+    fetchMock.mockRejectedValue(new Error('offline'))
 
     expect(await iconifyIconToSvg('mdi:home')).toBeNull()
   })
 
   it('returns null when the API responds with an error', async () => {
-    fetchMock.mockResolvedValueOnce({ ok: false })
+    fetchMock.mockResolvedValue({ ok: false })
 
     expect(await iconifyIconToSvg('mdi:home')).toBeNull()
   })
 
   it('returns null when the response is not an SVG', async () => {
-    fetchMock.mockResolvedValueOnce({ ok: true, text: async () => 'not svg' })
+    fetchMock.mockResolvedValue({ ok: true, text: async () => 'not svg' })
 
     expect(await iconifyIconToSvg('mdi:home')).toBeNull()
+  })
+
+  it('falls back to backup hosts when the primary fails', async () => {
+    fetchMock.mockResolvedValueOnce({ ok: false })
+    fetchMock.mockResolvedValueOnce({ ok: true, text: async () => baseSvg })
+
+    const svg = await iconifyIconToSvg('mdi:home')
+
+    expect(svg).toBe(baseSvg)
+    expect(fetchMock).toHaveBeenCalledTimes(2)
+    expect(fetchMock).toHaveBeenNthCalledWith(1, 'https://api.iconify.design/mdi:home.svg')
+    expect(fetchMock).toHaveBeenNthCalledWith(2, 'https://api.simplesvg.com/mdi:home.svg')
+  })
+
+  it('tries every host before giving up', async () => {
+    fetchMock.mockRejectedValueOnce(new Error('offline'))
+    fetchMock.mockResolvedValueOnce({ ok: true, text: async () => 'not svg' })
+    fetchMock.mockResolvedValueOnce({ ok: false })
+
+    expect(await iconifyIconToSvg('mdi:home')).toBeNull()
+    expect(fetchMock).toHaveBeenCalledTimes(3)
   })
 
   it('caches responses for repeated calls', async () => {
@@ -207,7 +228,7 @@ describe('replaceIconifyIconsInHtml', () => {
   })
 
   it('leaves unresolved icons untouched', async () => {
-    fetchMock.mockResolvedValueOnce({ ok: false })
+    fetchMock.mockResolvedValue({ ok: false })
     const rendered = '<p><iconify-icon icon="mdi:home"></iconify-icon></p>'
 
     const result = await replaceIconifyIconsInHtml(rendered)

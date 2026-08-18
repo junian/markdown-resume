@@ -2,7 +2,11 @@ import * as localForage from 'localforage'
 import { isClient } from '~/libs/utils'
 import { extractIconifyOptions } from './iconifyMigration'
 
-const ICONIFY_API_URL = 'https://api.iconify.design'
+const ICONIFY_API_HOSTS = [
+  'https://api.iconify.design',
+  'https://api.simplesvg.com',
+  'https://api.unisvg.com',
+]
 const ICONIFY_SVG_CACHE_PREFIX = 'MARKDOWN_RESUME_iconify_svg:'
 
 const VALID_ICON_REGEX = /^[\w-]+:[\w-]+$/
@@ -47,6 +51,7 @@ const applyStylesToSvg = (svg: string, styles: string[]) => {
  *
  * Fetches the raw icon SVG from the Iconify API so exported documents are
  * fully self-contained and do not need the iconify-icon web component script.
+ * Hosts are tried in order and fall back to the next one on failure.
  * Successful results are cached in localForage (and an in-memory Map) so
  * offline exports can reuse previously resolved icons. Returns `null` when
  * the icon cannot be resolved (offline, unknown icon, ...).
@@ -66,9 +71,12 @@ export const iconifyIconToSvg = async (
     : null
 
   // Icon names only contain URL-safe characters (letters, digits, -, :)
-  const url = `${ICONIFY_API_URL}/${name}.svg${
+  // The SVG is identical across hosts, so the primary host URL is used as
+  // the cache key even when the icon was resolved from a backup host.
+  const iconPath = `${name}.svg${
     numericSize ? `?height=${numericSize}` : ''
   }`
+  const url = `${ICONIFY_API_HOSTS[0]}/${iconPath}`
 
   if (svgCache.has(url)) return svgCache.get(url)!
 
@@ -83,15 +91,20 @@ export const iconifyIconToSvg = async (
 
   let svg: string | null = null
 
-  try {
-    const response = await fetch(url)
-    if (!response.ok) return null
+  for (const host of ICONIFY_API_HOSTS) {
+    try {
+      const response = await fetch(`${host}/${iconPath}`)
+      if (!response.ok) continue
 
-    const text = (await response.text()).trim()
-    if (text.startsWith('<svg')) svg = text
-  }
-  catch {
-    svg = null
+      const text = (await response.text()).trim()
+      if (text.startsWith('<svg')) {
+        svg = text
+        break
+      }
+    }
+    catch {
+      // try the next host
+    }
   }
 
   if (svg) {
