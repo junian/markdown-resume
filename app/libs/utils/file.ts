@@ -57,3 +57,16 @@ export const downloadFile = (filename: string, content: string) => {
 
   document.body.removeChild(element)
 }
+
+export const downloadBlob = (filename: string, content: Blob) => {
+  const element = document.createElement('a')
+
+  element.href = URL.createObjectURL(content)
+  element.download = filename
+  element.style.display = 'none'
+
+  document.body.appendChild(element)
+  element.click()
+
+  document.body.removeChild(element)
+}

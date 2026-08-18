@@ -1,6 +1,7 @@
-import { downloadFile } from '~/libs/utils'
+import { downloadFile, downloadBlob } from '~/libs/utils'
 import { getDynamicCss } from '~/utils/css'
 import { replaceIconifyIconsInHtml } from '~/utils/iconifySvg'
+import { PREVIEW_SELECTOR } from '~/utils/constants/default'
 
 export const useResumeExport = () => {
   const { data } = useDataStore()
@@ -71,16 +72,37 @@ export const useResumeExport = () => {
 
   const exportDocx = async () => {
     try {
-      const htmlDocument = await generateHtmlDocument()
-      const HTMLtoDOCX = (await import('@turbodocx/html-to-docx')).default
-      const { fileSave } = await import('browser-fs-access')
-      const result = await HTMLtoDOCX(htmlDocument)
-      const blob = result instanceof Blob
-        ? result
-        : new Blob([result as BlobPart], {
-            type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-          })
-      fileSave(blob, { fileName: `${saveName.value}.docx` })
+      const { convertHtmlToDocx } = await import('dom-docx/browser')
+
+      const preview = document.querySelector(PREVIEW_SELECTOR) as HTMLElement
+      if (!preview) throw new Error('Preview element not found')
+
+      let html = await inlineImagesInHtml(preview.innerHTML)
+      html = html.replace(
+        /<div class="vue-smart-page-break"[^>]*>\s*<\/div>/gi,
+        '<p style="break-after:page"></p>',
+      )
+
+      const blob = await convertHtmlToDocx(html, {
+        styleSource: 'computed',
+        root: preview,
+        pageSize: styles.paper === 'A4' ? 'a4' : 'letter',
+        margins: {
+          top: styles.marginV / 96,
+          right: styles.marginH / 96,
+          bottom: styles.marginV / 96,
+          left: styles.marginH / 96,
+        },
+        metadata: { title: data.curResumeName },
+        rasterizeInPlace: { scale: 1 },
+        imageResolver: async (src) => {
+          const res = await fetch(src);
+          if (!res.ok) return null;
+          return { data: new Uint8Array(await res.arrayBuffer()), type: res.headers.get('Content-Type') || 'image/png' };
+        },
+      })
+
+      downloadBlob(`${saveName.value}.docx`, blob)
     }
     catch (error) {
       console.error('Error exporting DOCX:', error)
