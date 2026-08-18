@@ -37,6 +37,10 @@ settings:
   images: 图片
   storage_estimate_note: 存储配额为估算值，可能因设备和浏览器而异。
   storage_unavailable: 此浏览器不支持存储空间估算。
+  svg_icons: SVG 图标
+  svg_icons_description: 内联 SVG 会在本地缓存，以便离线导出。
+  cached_icons: 已缓存图标
+  clear_svg_cache: 清除 SVG 缓存
   danger_zone: 危险区域
   danger_description: 永久删除存储在此设备上的所有简历、图片和应用设置。
   erase_all_data: 清除所有内容和设置

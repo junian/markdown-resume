@@ -1,17 +1,40 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import {
   clearIconifySvgCache,
+  getCachedSvgCount,
   iconifyIconToSvg,
   replaceIconifyIconsInHtml,
 } from './iconifySvg'
+
+const mockStore = vi.hoisted(() => new Map<string, unknown>())
+
+vi.mock('~/libs/utils', () => ({
+  isClient: true,
+}))
+
+vi.mock('localforage', () => {
+  const getItem = async (key: string) => mockStore.get(key) ?? null
+  const setItem = async (key: string, value: unknown) => {
+    mockStore.set(key, value)
+    return value
+  }
+  const removeItem = async (key: string) => {
+    mockStore.delete(key)
+  }
+  const keys = async () => Array.from(mockStore.keys())
+
+  const impl = { getItem, setItem, removeItem, keys }
+  return { default: impl, ...impl }
+})
 
 const baseSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M10 20v-6h4v6h5v-8h3L12 3L2 12h3v8z"/></svg>'
 const sizedSvg = baseSvg.replace('width="1em" height="1em"', 'width="24" height="24"')
 
 let fetchMock: ReturnType<typeof vi.fn>
 
-beforeEach(() => {
-  clearIconifySvgCache()
+beforeEach(async () => {
+  await clearIconifySvgCache()
+  mockStore.clear()
   fetchMock = vi.fn(async (url: string) => {
     if (url.includes('?height=24')) {
       return { ok: true, text: async () => sizedSvg }
@@ -93,9 +116,56 @@ describe('iconifyIconToSvg', () => {
   })
 })
 
+describe('svg cache', () => {
+  it('persists successful lookups to localForage', async () => {
+    expect(await getCachedSvgCount()).toBe(0)
+
+    await iconifyIconToSvg('mdi:home')
+
+    expect(await getCachedSvgCount()).toBe(1)
+    expect(mockStore.has('MARKDOWN_RESUME_iconify_svg:https://api.iconify.design/mdi:home.svg')).toBe(true)
+  })
+
+  it('reuses persisted icons without fetching again', async () => {
+    mockStore.set(
+      'MARKDOWN_RESUME_iconify_svg:https://api.iconify.design/mdi:home.svg',
+      baseSvg,
+    )
+
+    expect(await iconifyIconToSvg('mdi:home')).toBe(baseSvg)
+    expect(fetchMock).not.toHaveBeenCalled()
+  })
+
+  it('does not persist failed lookups', async () => {
+    fetchMock.mockResolvedValue({ ok: false })
+
+    expect(await iconifyIconToSvg('mdi:home')).toBeNull()
+    expect(await getCachedSvgCount()).toBe(0)
+  })
+
+  it('counts only cached SVG entries', async () => {
+    await iconifyIconToSvg('mdi:home')
+    await iconifyIconToSvg('tabler:mail')
+
+    expect(await getCachedSvgCount()).toBe(2)
+  })
+
+  it('clears the in-memory and persisted caches', async () => {
+    await iconifyIconToSvg('mdi:home')
+    expect(await getCachedSvgCount()).toBe(1)
+
+    await clearIconifySvgCache()
+
+    expect(await getCachedSvgCount()).toBe(0)
+    expect(fetchMock).toHaveBeenCalledTimes(1)
+
+    await iconifyIconToSvg('mdi:home')
+    expect(fetchMock).toHaveBeenCalledTimes(2)
+  })
+})
+
 describe('replaceIconifyIconsInHtml', () => {
   it('replaces iconify-icon tags with inline SVGs', async () => {
-    const html = '<p>Hi ::mdi:home::</p>'
     // The rendered markdown emits <iconify-icon> tags
     const rendered = '<p>Hi <iconify-icon icon="mdi:home"></iconify-icon></p>'
 

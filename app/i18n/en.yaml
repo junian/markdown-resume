@@ -37,6 +37,10 @@ settings:
   images: Images
   storage_estimate_note: Storage quota is an estimate and may vary by device and browser.
   storage_unavailable: Storage estimates are not available in this browser.
+  svg_icons: SVG Icons
+  svg_icons_description: Inline SVGs are cached locally so exports work offline.
+  cached_icons: Cached Icons
+  clear_svg_cache: Clear SVG Cache
   danger_zone: Danger Zone
   danger_description: Permanently erase every resume, image, and app setting stored on this device.
   erase_all_data: Erase All Content and Settings

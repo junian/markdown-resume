@@ -252,6 +252,38 @@
           </div>
         </section>
 
+        <section class="settings-card md:col-span-2">
+          <div class="settings-card-heading">
+            <UIcon
+              name="i-mdi:svg"
+              class="text-xl"
+            />
+            <h2>{{ $t("settings.svg_icons") }}</h2>
+          </div>
+          <p class="storage-description">
+            {{ $t("settings.svg_icons_description") }}
+          </p>
+
+          <div class="svg-cache-overview">
+            <div class="svg-cache-stat">
+              <dt>{{ $t("settings.cached_icons") }}</dt>
+              <dd>{{ cachedSvgCount }}</dd>
+            </div>
+            <UButton
+              type="button"
+              variant="outline"
+              color="error"
+              class="flex-none"
+              icon="i-mdi:trash-can-outline"
+              :loading="isClearingSvgCache"
+              :disabled="cachedSvgCount === 0 || isClearingSvgCache"
+              @click="clearSvgCache"
+            >
+              {{ $t("settings.clear_svg_cache") }}
+            </UButton>
+          </div>
+        </section>
+
         <section class="settings-card danger-card md:col-span-2">
           <div class="settings-card-heading danger-heading">
             <UIcon
@@ -328,6 +360,10 @@ import {
   DEFAULT_FULL_NAME_STORAGE_KEY,
   DEFAULT_PAPER_SIZE_STORAGE_KEY,
 } from '~/utils/defaultSettings'
+import {
+  clearIconifySvgCache,
+  getCachedSvgCount,
+} from '~/utils/iconifySvg'
 import { PAPER } from '~/utils/constants/data'
 import type { PaperType } from '~/types'
 
@@ -369,6 +405,8 @@ const storageQuota = ref(0)
 const resumeCount = ref(0)
 const imageCount = ref(0)
 const isRefreshingStorage = ref(false)
+const cachedSvgCount = ref(0)
+const isClearingSvgCache = ref(false)
 const storagePercent = computed(() =>
   storageQuota.value ? Math.min(100, (storageUsage.value / storageQuota.value) * 100) : 0,
 )
@@ -394,6 +432,7 @@ const eraseAllData = async () => {
   await Promise.all([
     clearResumeStorage(),
     clearImageStorage(),
+    clearIconifySvgCache(),
   ])
   localStorage.removeItem(NAVIGATION_COLLAPSED_STORAGE_KEY)
   localStorage.removeItem('nuxt-color-mode')
@@ -448,12 +487,26 @@ const refreshStorageEstimate = async () => {
   }
 }
 
+const refreshSvgCacheCount = async () => {
+  cachedSvgCount.value = await getCachedSvgCount()
+}
+
+const clearSvgCache = async () => {
+  if (isClearingSvgCache.value) return
+
+  isClearingSvgCache.value = true
+  await clearIconifySvgCache()
+  cachedSvgCount.value = 0
+  isClearingSvgCache.value = false
+}
+
 onMounted(async () => {
   minimapEnabled.value = getEditorMinimapEnabled()
   lineNumbersEnabled.value = getEditorLineNumbersEnabled()
   defaultFullName.value = getDefaultFullName()
   defaultPaperSize.value = getDefaultPaperSize() as PaperType
   await refreshStorageEstimate()
+  await refreshSvgCacheCount()
 })
 
 useHead({ title: () => `${t('settings.title')} — Markdown Resume` })

@@ -37,6 +37,10 @@ settings:
   images: Imágenes
   storage_estimate_note: La cuota de almacenamiento es una estimación y puede variar según el dispositivo y el navegador.
   storage_unavailable: Las estimaciones de almacenamiento no están disponibles en este navegador.
+  svg_icons: Iconos SVG
+  svg_icons_description: Los SVG en línea se guardan en caché localmente para que las exportaciones funcionen sin conexión.
+  cached_icons: Iconos en caché
+  clear_svg_cache: Vaciar caché de SVG
   danger_zone: Zona de riesgo
   danger_description: Borra permanentemente todas las currículums, imágenes y ajustes de la app guardados en este dispositivo.
   erase_all_data: Borrar Todo el Contenido y los Ajustes

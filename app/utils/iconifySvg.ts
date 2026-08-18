@@ -1,13 +1,33 @@
+import * as localForage from 'localforage'
+import { isClient } from '~/libs/utils'
 import { extractIconifyOptions } from './iconifyMigration'
 
 const ICONIFY_API_URL = 'https://api.iconify.design'
+const ICONIFY_SVG_CACHE_PREFIX = 'MARKDOWN_RESUME_iconify_svg:'
 
 const VALID_ICON_REGEX = /^[\w-]+:[\w-]+$/
 
 const svgCache = new Map<string, string | null>()
 
-export const clearIconifySvgCache = () => {
+const svgCacheKey = (url: string) => `${ICONIFY_SVG_CACHE_PREFIX}${url}`
+
+export const getCachedSvgCount = async () => {
+  if (!isClient) return 0
+
+  const keys = await localForage.keys()
+  return keys.filter(key => key.startsWith(ICONIFY_SVG_CACHE_PREFIX)).length
+}
+
+export const clearIconifySvgCache = async () => {
   svgCache.clear()
+  if (!isClient) return
+
+  const keys = await localForage.keys()
+  await Promise.all(
+    keys
+      .filter(key => key.startsWith(ICONIFY_SVG_CACHE_PREFIX))
+      .map(key => localForage.removeItem(key)),
+  )
 }
 
 const applyStylesToSvg = (svg: string, styles: string[]) => {
@@ -27,7 +47,9 @@ const applyStylesToSvg = (svg: string, styles: string[]) => {
  *
  * Fetches the raw icon SVG from the Iconify API so exported documents are
  * fully self-contained and do not need the iconify-icon web component script.
- * Returns `null` when the icon cannot be resolved (offline, unknown icon, ...).
+ * Successful results are cached in localForage (and an in-memory Map) so
+ * offline exports can reuse previously resolved icons. Returns `null` when
+ * the icon cannot be resolved (offline, unknown icon, ...).
  */
 export const iconifyIconToSvg = async (
   icon: string,
@@ -49,6 +71,15 @@ export const iconifyIconToSvg = async (
   }`
 
   if (svgCache.has(url)) return svgCache.get(url)!
+
+  // Reuse icons persisted by a previous session
+  if (isClient) {
+    const cached = await localForage.getItem<string>(svgCacheKey(url))
+    if (cached) {
+      svgCache.set(url, cached)
+      return cached
+    }
+  }
 
   let svg: string | null = null
 
@@ -74,6 +105,10 @@ export const iconifyIconToSvg = async (
 
   svgCache.set(url, svg)
 
+  // Only successful lookups are persisted; failed lookups (null) stay in
+  // memory so transient network errors are not cached permanently.
+  if (svg && isClient) await localForage.setItem(svgCacheKey(url), svg)
+
   return svg
 }
 
@@ -88,10 +123,10 @@ export const replaceIconifyIconsInHtml = async (html: string) => {
   )
 
   const results = await Promise.all(tags.map(async ([tag, attributes]) => {
-    const icon = attributes.match(/\bicon\s*=\s*(["'])(.*?)\1/i)?.[2]
+    const icon = attributes?.match(/\bicon\s*=\s*(["'])(.*?)\1/i)?.[2]
     if (!icon) return null
 
-    const svg = await iconifyIconToSvg(icon, extractIconifyOptions(attributes))
+    const svg = await iconifyIconToSvg(icon, extractIconifyOptions(attributes ?? ''))
     if (!svg) return null
 
     return { tag, svg }
