@@ -10,6 +10,7 @@
     "lint:fix": "eslint . --fix",
     "release": "nuxt generate",
     "serve": "nuxt preview",
+    "test": "vitest run",
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
@@ -52,6 +53,7 @@
     "ts-debounce": "^4.0.0",
     "typescript": "^6.0.3",
     "user-agent-data-types": "^0.4.2",
+    "vitest": "^4.1.10",
     "vue": "^3.5.41",
     "vue-tsc": "^3.3.9"
   },
