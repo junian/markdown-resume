@@ -1,6 +1,6 @@
 import { downloadFile } from '~/libs/utils'
 import { getDynamicCss } from '~/utils/css'
-import { siteConfig } from '~~/configs/siteConfig'
+import { replaceIconifyIconsInHtml } from '~/utils/iconifySvg'
 
 export const useResumeExport = () => {
   const { data } = useDataStore()
@@ -10,6 +10,7 @@ export const useResumeExport = () => {
   const generateHtmlDocument = async () => {
     let html = renderMarkdown(data.mdContent)
     html = await inlineImagesInHtml(html)
+    html = await replaceIconifyIconsInHtml(html)
 
     const paperWidthPx = getPaperPx(styles.paper, 'w')
     const dynamicCss = `
@@ -43,14 +44,12 @@ export const useResumeExport = () => {
       }
     `
 
-    const scriptTag = `<script src="${siteConfig.iconifyScriptURL}"></script>`
     return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${data.curResumeName}</title>
-  ${scriptTag}
   <style>${data.cssContent + dynamicCss}</style>
 </head>
 <body><main id="vue-smart-pages-preview" class="markdown-resume">${html}</main></body>

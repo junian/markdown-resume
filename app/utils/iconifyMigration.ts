@@ -8,7 +8,7 @@ const getAttr = (attributes: string, name: string) => {
   return match?.[2]
 }
 
-const extractIconifyOptions = (attributes: string) => {
+export const extractIconifyOptions = (attributes: string) => {
   let size = ''
   let color = ''
 
