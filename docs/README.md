@@ -37,8 +37,8 @@ Highly recommend using Chromium-based browsers, e.g., [Chrome][chrome] or [Micro
 - Export to PDF, Markdown, self-contained HTML, and DOCX
 - Export to A4 and US Letter paper sizes
 - Customize page margins, theme colors, line heights, fonts, etc.
-- Add icons easily via [Iconify](https://github.com/iconify/iconify) (search icons on [Icônes](https://icones.js.org/))
-- Fix legacy Iconify markup from older resumes and save the migrated content
+- Add icons easily with Markdown syntax (`::icon::`) via [Iconify](https://github.com/iconify/iconify) (search icons on [Icônes](https://icones.js.org/))
+- Fix legacy Iconify markup from older resumes by converting it to Markdown icon syntax
 - TeX support ([KaTeX](https://github.com/KaTeX/KaTeX))
 - Cross-referencing (useful for academic CVs)
 - Case correction (e.g., `Github` → `GitHub`)
@@ -55,6 +55,18 @@ Highly recommend using Chromium-based browsers, e.g., [Chrome][chrome] or [Micro
 - Local storage usage estimates, refresh controls, and a protected factory-reset action
 - Data is saved locally in your browser using IndexedDB browser feature (see [`localForage` repo](https://localforage.github.io/localForage/) for details)
 - [**Image Gallery**](https://www.junian.dev/markdown-resume/images/) — upload images and reference them in your resume using Markdown or HTML (see below)
+
+## Icon Support
+
+Add icons to your resume with Markdown syntax, e.g. `::mdi:home::`. Search icons on [Icônes](https://icones.js.org/) and use the Iconify icon names.
+
+You can also set the size and color of an icon:
+
+```markdown
+::mdi:home =24 /red::
+```
+
+The **Fix Icons** toolbar tool automatically converts legacy markup — both old `<span class="iconify" data-icon="...">` markup and `<iconify-icon icon="...">` tags — into this Markdown syntax.
 
 ## Image Support
 

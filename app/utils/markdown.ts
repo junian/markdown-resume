@@ -1,3 +1,4 @@
+import { icon, iconifyRender } from '@mdit/plugin-icon'
 import MarkdownIt from 'markdown-it'
 // @ts-expect-error missing types
 import MarkdownItDeflist from 'markdown-it-deflist'
@@ -10,6 +11,9 @@ import type { ResumeFrontMatter } from '~/types'
 
 const markdown = (() => {
   const md = new MarkdownIt({ html: true })
+
+  // Iconify icons via Markdown syntax: ::mdi:home:: (see @mdit/plugin-icon docs)
+  md.use(icon, { render: iconifyRender })
 
   md.use(MarkdownItDeflist)
   md.use(MarkdownItKatex)

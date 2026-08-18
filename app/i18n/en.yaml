@@ -114,7 +114,7 @@ toolbar:
     btn: Correct it!
   migrate_iconify:
     text: Fix Icons
-    desc: Convert legacy Iconify span markup in this resume to the Iconify web component format.
+    desc: Convert legacy Iconify span and iconify-icon markup in this resume to Markdown icon syntax, e.g. ::icon::.
     btn: Migrate and Save
   paper: Paper Size
   font_family: Font Family

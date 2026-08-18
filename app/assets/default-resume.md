@@ -3,13 +3,13 @@
 
 # Firstname Lastname
 
-<iconify-icon icon="eva:people-outline"></iconify-icon> [example.com](https://example.com/)
-  : <iconify-icon icon="tabler:brand-github"></iconify-icon> [github.com/example](https://github.com/example)
-  : <iconify-icon icon="tabler:phone"></iconify-icon> [(+1) 123-456-7890](https://wa.me/11234567890)
+::eva:people-outline:: [example.com](https://example.com/)
+  : ::tabler:brand-github:: [github.com/example](https://github.com/example)
+  : ::tabler:phone:: [(+1) 123-456-7890](https://wa.me/11234567890)
 
-<iconify-icon icon="ic:outline-location-on"></iconify-icon> 1234 Abc Street, Example, EX 01234
-  : <iconify-icon icon="tabler:brand-linkedin"></iconify-icon> [linkedin.com/in/example](https://linkedin.com/in/example/)
-  : <iconify-icon icon="tabler:mail"></iconify-icon> [email@example.com](mailto:mail@example.com)
+::ic:outline-location-on:: 1234 Abc Street, Example, EX 01234
+  : ::tabler:brand-linkedin:: [linkedin.com/in/example](https://linkedin.com/in/example/)
+  : ::tabler:mail:: [email@example.com](mailto:mail@example.com)
 
 ## Experience
 
@@ -65,7 +65,7 @@ Huangdu Institute of Technology
 
 ## Skills
 
-**Programming Languages:** <iconify-icon icon="vscode-icons:file-type-python"></iconify-icon> Python, <iconify-icon icon="vscode-icons:file-type-js-official"></iconify-icon> JavaScript / <iconify-icon icon="vscode-icons:file-type-typescript-official"></iconify-icon> TypeScript, <iconify-icon icon="vscode-icons:file-type-html"></iconify-icon> HTML / <iconify-icon icon="vscode-icons:file-type-css"></iconify-icon> CSS, <iconify-icon icon="logos:java"></iconify-icon> Java
+**Programming Languages:** ::vscode-icons:file-type-python:: Python, ::vscode-icons:file-type-js-official:: JavaScript / ::vscode-icons:file-type-typescript-official:: TypeScript, ::vscode-icons:file-type-html:: HTML / ::vscode-icons:file-type-css:: CSS, ::logos:java:: Java
 
 **Tools and Frameworks:** Git, PyTorch, Keras, scikit-learn, Linux, Vue, React, Django, $\LaTeX$
 

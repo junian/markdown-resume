@@ -114,7 +114,7 @@ toolbar:
     btn: 修正
   migrate_iconify:
     text: 修复图标
-    desc: 将当前简历中的旧版 Iconify span 标记转换为 Iconify Web 组件格式。
+    desc: 将当前简历中的旧版 Iconify span 标记和 iconify-icon 标签转换为 Markdown 图标语法，例如 ::icon::。
     btn: 迁移并保存
   paper: 纸张尺寸
   font_family: 字体

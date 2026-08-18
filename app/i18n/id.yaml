@@ -114,7 +114,7 @@ toolbar:
     btn: Perbaiki!
   migrate_iconify:
     text: Perbaiki Ikon
-    desc: Ubah markup span Iconify lama di resume ini ke format komponen web Iconify.
+    desc: Ubah markup span Iconify lama dan tag iconify-icon di resume ini menjadi sintaks ikon Markdown, misalnya ::icon::.
     btn: Migrasikan dan Simpan
   paper: Ukuran Kertas
   font_family: Jenis Font

@@ -114,7 +114,7 @@ toolbar:
     btn: Corrígelo!
   migrate_iconify:
     text: Corregir Iconos
-    desc: Convierte el marcado de span de Iconify heredado en este currículum al formato de componente web de Iconify.
+    desc: Convierte el marcado de span de Iconify heredado y las etiquetas iconify-icon de este currículum a la sintaxis de iconos de Markdown, p. ej. ::icon::.
     btn: Migrar y guardar
   paper: Tamaño de hoja
   font_family: Fuente
