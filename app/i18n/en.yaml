@@ -89,17 +89,20 @@ resumes:
   delete: Delete
 
 import:
-  title: Import a Markdown file
+  title: Import a file
   from_local: Drag your file here, or click here to choose a file
+  converting: Converting file to Markdown...
   from_url: Paste file URL
   from_url_confirm: Load file from URL
+  error_title: Import failed
+  error_close: Close
 
 toolbar:
   open: Open formatting sidebar
   close: Close formatting sidebar
   file:
     text: Import / Export
-    import: Import Markdown
+    import: Import Resume
     export_pdf: Export PDF
     export_md: Export Markdown
     export_html: Export HTML
@@ -162,3 +165,4 @@ notification:
   import:
     yes: Data has been successfully imported!
     no: Data format is invalid.
+    loaded: '{filename} is loaded successfully'

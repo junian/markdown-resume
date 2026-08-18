@@ -27,7 +27,10 @@
         />
       </div>
 
-      <slot name="content" />
+      <slot
+        name="content"
+        :close="close"
+      />
     </template>
   </UModal>
 </template>

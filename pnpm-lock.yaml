@@ -15,6 +15,9 @@ importers:
 
   .:
     devDependencies:
+      '@firecrawl/anydoc-wasm':
+        specifier: ^0.1.9
+        version: 0.1.9
       '@iconify/json':
         specifier: ^2.2.517
         version: 2.2.517
@@ -1293,6 +1296,9 @@ packages:
   '@eslint/plugin-kit@0.7.2':
     resolution: {integrity: sha512-+CNAzxglkrpNf/kKywqQfk74QjtceuOE7Qm+AF8miRvPF/wmmK5+OJOgVh3AVTT3RP2mH3+FOaxlE5v72owk0A==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
+
+  '@firecrawl/anydoc-wasm@0.1.9':
+    resolution: {integrity: sha512-wxUAR6zoK6Tc17CKmfFxtjJ8pkvVWsZtnk9lyFQ/gQQbTbWp1LKIpMerFigu95NEa4bp3z+dpaoTbB2uZV7REQ==}
 
   '@floating-ui/core@1.8.0':
     resolution: {integrity: sha512-0CIZ5itps/8x7BG8dEIhs53BvCUH2PCoogtakwRTut+Arm58sJooJ0AuZhLw2HJYIR5cMLNPBSS728sPho2khQ==}
@@ -8639,6 +8645,8 @@ snapshots:
     dependencies:
       '@eslint/core': 1.2.1
       levn: 0.4.1
+
+  '@firecrawl/anydoc-wasm@0.1.9': {}
 
   '@floating-ui/core@1.8.0':
     dependencies:

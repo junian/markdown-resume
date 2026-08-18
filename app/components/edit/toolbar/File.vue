@@ -22,16 +22,12 @@
         </li>
       </template>
 
-      <template #content>
-        <ImportDialogContent />
+      <template #content="{ close }">
+        <ImportDialogContent :close="close" />
       </template>
     </AppDialog>
 
-    <hr
-      border-dashed
-      border-c
-      my-1
-    >
+    <hr class="border-t border-dashed border-c my-1">
 
     <li
       class="dropdown-li space-x-1.5 rounded"

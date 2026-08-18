@@ -89,17 +89,20 @@ resumes:
   delete: 删除
 
 import:
-  title: 上传一个 Markdown 文件
+  title: 上传一个文件
   from_local: 将文件拖拽至这里，或点击这里以选择文件
+  converting: 正在将文件转换为 Markdown...
   from_url: 粘贴文件 URL
   from_url_confirm: 从 URL 加载文件
+  error_title: 导入失败
+  error_close: 关闭
 
 toolbar:
   open: 打开格式侧边栏
   close: 关闭格式侧边栏
   file:
     text: 导入 / 导出
-    import: 导入 Markdown
+    import: 导入简历
     export_pdf: 导出为 PDF
     export_md: 导出为 Markdown
     export_html: 导出为 HTML
@@ -162,3 +165,4 @@ notification:
   import:
     yes: 已成功导入数据！
     no: 数据格式不正确
+    loaded: '{filename} 加载成功'

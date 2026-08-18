@@ -82,6 +82,13 @@ export const useAppToast = () => {
     }
   }
 
+  const importLoaded = (filename: string) => {
+    toast.add({
+      description: t('notification.import.loaded', { filename }),
+      color: 'success',
+    })
+  }
+
   const uploadImage = (msg: string) => {
     toast.add({
       description: t('images.uploaded', { msg }),
@@ -112,6 +119,7 @@ export const useAppToast = () => {
     correct,
     migrateIconify,
     import: importResume,
+    importLoaded,
     uploadImage,
     deleteImage,
     copyImageUrl,

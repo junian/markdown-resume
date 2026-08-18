@@ -89,17 +89,20 @@ resumes:
   delete: Hapus
 
 import:
-  title: Impor file Markdown
+  title: Impor file
   from_local: Seret file Anda ke sini, atau klik di sini untuk memilih file
+  converting: Mengonversi file ke Markdown...
   from_url: Tempel URL file
   from_url_confirm: Muat file dari URL
+  error_title: Impor gagal
+  error_close: Tutup
 
 toolbar:
   open: Buka bilah sisi pemformatan
   close: Tutup bilah sisi pemformatan
   file:
     text: Impor / Ekspor
-    import: Impor Markdown
+    import: Impor Resume
     export_pdf: Ekspor PDF
     export_md: Ekspor Markdown
     export_html: Ekspor HTML
@@ -162,3 +165,4 @@ notification:
   import:
     yes: Data berhasil diimpor!
     no: Format data tidak valid.
+    loaded: '{filename} berhasil dimuat'

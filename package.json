@@ -13,6 +13,7 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@firecrawl/anydoc-wasm": "^0.1.9",
     "@iconify/json": "^2.2.517",
     "@nuxt/content": "^3.15.2",
     "@nuxt/eslint": "^1.17.0",

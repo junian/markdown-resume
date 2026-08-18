@@ -89,17 +89,20 @@ resumes:
   delete: Eliminar
 
 import:
-  title: Importar un archivo Markdown
+  title: Importar un archivo
   from_local: Arrastra tu archivo aquí, o haz clic aquí para elegir un archivo
+  converting: Convirtiendo archivo a Markdown...
   from_url: Pegar la URL del archivo
   from_url_confirm: Cargar archivo desde URL
+  error_title: Error al importar
+  error_close: Cerrar
 
 toolbar:
   open: Abrir barra lateral de formato
   close: Cerrar barra lateral de formato
   file:
     text: Importar / Exportar
-    import: Importar Markdown
+    import: Importar Currículum
     export_pdf: Exportar PDF
     export_md: Exportar Markdown
     export_html: Exportar HTML
@@ -162,3 +165,4 @@ notification:
   import:
     yes: ¡Los datos se han importado correctamente!
     no: El formato de datos no es válido.
+    loaded: '{filename} se cargó correctamente'
