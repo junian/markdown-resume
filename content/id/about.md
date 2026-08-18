@@ -59,7 +59,7 @@ memungkinkan adanya alat-alat seperti ini. Terima kasih khusus untuk proyek dan 
 | [Pinia](https://pinia.vuejs.org/){target="_blank" rel="nofollow noopener noreferrer"} | Manajemen state | MIT License |
 | [VueUse](https://vueuse.org/){target="_blank" rel="nofollow noopener noreferrer"} | Utilitas komposisi Vue | MIT License |
 | [browser-fs-access](https://github.com/GoogleChromeLabs/browser-fs-access){target="_blank" rel="nofollow noopener noreferrer"} | Penyimpanan file | Apache License 2.0 |
-| [html-docx-js-typescript](https://github.com/lalalic/html-docx-js){target="_blank" rel="nofollow noopener noreferrer"} | Ekspor DOCX | MIT License |
+| [@turbodocx/html-to-docx](https://github.com/TurboDocx/html-to-docx){target="_blank" rel="nofollow noopener noreferrer"} | Ekspor DOCX | MIT License |
 | [localforage](https://github.com/localForage/localForage){target="_blank" rel="nofollow noopener noreferrer"} | Penyimpanan offline | Apache License 2.0 |
 | [markdown-it](https://github.com/markdown-it/markdown-it){target="_blank" rel="nofollow noopener noreferrer"} | Penguraian Markdown | MIT License |
 | [@nuxtjs/i18n](https://i18n.nuxtjs.org/){target="_blank" rel="nofollow noopener noreferrer"} | Internasionalisasi | MIT License |

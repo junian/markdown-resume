@@ -58,7 +58,7 @@ Markdown Resume 被设计为一款**本地优先应用**，这意味着您的简
 | [Pinia](https://pinia.vuejs.org/){target="_blank" rel="nofollow noopener noreferrer"} | 状态管理 | MIT License |
 | [VueUse](https://vueuse.org/){target="_blank" rel="nofollow noopener noreferrer"} | Vue 组合式工具 | MIT License |
 | [browser-fs-access](https://github.com/GoogleChromeLabs/browser-fs-access){target="_blank" rel="nofollow noopener noreferrer"} | 文件保存 | Apache License 2.0 |
-| [html-docx-js-typescript](https://github.com/lalalic/html-docx-js){target="_blank" rel="nofollow noopener noreferrer"} | DOCX 导出 | MIT License |
+| [@turbodocx/html-to-docx](https://github.com/TurboDocx/html-to-docx){target="_blank" rel="nofollow noopener noreferrer"} | DOCX 导出 | MIT License |
 | [localforage](https://github.com/localForage/localForage){target="_blank" rel="nofollow noopener noreferrer"} | 离线存储 | Apache License 2.0 |
 | [markdown-it](https://github.com/markdown-it/markdown-it){target="_blank" rel="nofollow noopener noreferrer"} | Markdown 解析 | MIT License |
 | [@nuxtjs/i18n](https://i18n.nuxtjs.org/){target="_blank" rel="nofollow noopener noreferrer"} | 国际化 | MIT License |

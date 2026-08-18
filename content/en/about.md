@@ -59,7 +59,7 @@ tools like this possible. Special thanks to these projects and libraries:
 | [Pinia](https://pinia.vuejs.org/){target="_blank" rel="nofollow noopener noreferrer"} | State management | MIT License |
 | [VueUse](https://vueuse.org/){target="_blank" rel="nofollow noopener noreferrer"} | Vue composition utilities | MIT License |
 | [browser-fs-access](https://github.com/GoogleChromeLabs/browser-fs-access){target="_blank" rel="nofollow noopener noreferrer"} | File saving | Apache License 2.0 |
-| [html-docx-js-typescript](https://github.com/lalalic/html-docx-js){target="_blank" rel="nofollow noopener noreferrer"} | DOCX export | MIT License |
+| [@turbodocx/html-to-docx](https://github.com/TurboDocx/html-to-docx){target="_blank" rel="nofollow noopener noreferrer"} | DOCX export | MIT License |
 | [localforage](https://github.com/localForage/localForage){target="_blank" rel="nofollow noopener noreferrer"} | Offline storage | Apache License 2.0 |
 | [markdown-it](https://github.com/markdown-it/markdown-it){target="_blank" rel="nofollow noopener noreferrer"} | Markdown parsing | MIT License |
 | [@nuxtjs/i18n](https://i18n.nuxtjs.org/){target="_blank" rel="nofollow noopener noreferrer"} | Internationalization | MIT License |

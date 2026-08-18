@@ -59,7 +59,7 @@ por hacer posibles herramientas como esta. Un agradecimiento especial a estos pr
 | [Pinia](https://pinia.vuejs.org/){target="_blank" rel="nofollow noopener noreferrer"} | Gestión de estado | MIT License |
 | [VueUse](https://vueuse.org/){target="_blank" rel="nofollow noopener noreferrer"} | Utilidades de composición de Vue | MIT License |
 | [browser-fs-access](https://github.com/GoogleChromeLabs/browser-fs-access){target="_blank" rel="nofollow noopener noreferrer"} | Guardado de archivos | Apache License 2.0 |
-| [html-docx-js-typescript](https://github.com/lalalic/html-docx-js){target="_blank" rel="nofollow noopener noreferrer"} | Exportación DOCX | MIT License |
+| [@turbodocx/html-to-docx](https://github.com/TurboDocx/html-to-docx){target="_blank" rel="nofollow noopener noreferrer"} | Exportación DOCX | MIT License |
 | [localforage](https://github.com/localForage/localForage){target="_blank" rel="nofollow noopener noreferrer"} | Almacenamiento sin conexión | Apache License 2.0 |
 | [markdown-it](https://github.com/markdown-it/markdown-it){target="_blank" rel="nofollow noopener noreferrer"} | Análisis de Markdown | MIT License |
 | [@nuxtjs/i18n](https://i18n.nuxtjs.org/){target="_blank" rel="nofollow noopener noreferrer"} | Internacionalización | MIT License |

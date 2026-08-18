@@ -73,9 +73,14 @@ export const useResumeExport = () => {
   const exportDocx = async () => {
     try {
       const htmlDocument = await generateHtmlDocument()
-      const { asBlob } = await import('html-docx-js-typescript')
+      const HTMLtoDOCX = (await import('@turbodocx/html-to-docx')).default
       const { fileSave } = await import('browser-fs-access')
-      const blob = (await asBlob(htmlDocument)) as Blob
+      const result = await HTMLtoDOCX(htmlDocument)
+      const blob = result instanceof Blob
+        ? result
+        : new Blob([result as BlobPart], {
+            type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+          })
       fileSave(blob, { fileName: `${saveName.value}.docx` })
     }
     catch (error) {
