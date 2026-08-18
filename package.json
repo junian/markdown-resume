@@ -50,7 +50,7 @@
     "pinia": "^4.0.3",
     "reka-ui": "^2.10.3",
     "tailwindcss": "^4.3.3",
-    "ts-debounce": "^4.0.0",
+    "ts-debounce": "^5.0.1",
     "typescript": "^6.0.3",
     "user-agent-data-types": "^0.4.2",
     "vitest": "^4.1.10",
