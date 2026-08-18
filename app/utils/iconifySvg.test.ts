@@ -186,26 +186,27 @@ describe('svg cache', () => {
 })
 
 describe('replaceIconifyIconsInHtml', () => {
-  it('replaces iconify-icon tags with inline SVGs', async () => {
+  it('keeps the original tag and injects the inline SVG inside it', async () => {
     // The rendered markdown emits <iconify-icon> tags
     const rendered = '<p>Hi <iconify-icon icon="mdi:home"></iconify-icon></p>'
 
     const result = await replaceIconifyIconsInHtml(rendered)
 
     expect(result).toContain('<svg')
-    expect(result).not.toContain('<iconify-icon')
-    expect(result).toBe('<p>Hi ' + baseSvg + '</p>')
+    expect(result).toContain('icon="mdi:home"')
+    expect(result).toBe(`<p>Hi <iconify-icon icon="mdi:home">${baseSvg}</iconify-icon></p>`)
   })
 
-  it('replaces styled tags and preserves their size and color', async () => {
+  it('preserves the original attributes and applies size and color to the SVG', async () => {
     const rendered
       = '<p><iconify-icon icon="mdi:home" style="font-size:24px;color:red"></iconify-icon></p>'
 
     const result = await replaceIconifyIconsInHtml(rendered)
 
+    expect(result).toContain('icon="mdi:home"')
+    expect(result).toContain('style="font-size:24px;color:red"')
     expect(result).toContain('width="24" height="24"')
     expect(result).toContain('color:red')
-    expect(result).not.toContain('<iconify-icon')
   })
 
   it('replaces multiple distinct icons in one document', async () => {

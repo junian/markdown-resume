@@ -26,6 +26,10 @@ svg.iconify {
   @apply inline-block;
 }
 
+iconify-icon {
+  @apply inline-block size-[1em];
+}
+
 /* ─── Utility shortcuts (converted from unocss.config.ts) ── */
 
 @utility flex-center {

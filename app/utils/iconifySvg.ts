@@ -128,7 +128,12 @@ export const iconifyIconToSvg = async (
 /**
  * Replace every `<iconify-icon icon="...">` tag in rendered HTML with an
  * inline SVG so the document renders without the iconify-icon web component.
- * Tags that cannot be resolved are left untouched.
+ *
+ * The original tag (as rendered from Markdown) is kept untouched and the
+ * resolved SVG is injected as its child. When the iconify-icon web component
+ * is loaded it renders through its shadow root (hiding the light-DOM SVG);
+ * otherwise the inline SVG is used as a self-contained fallback. Tags that
+ * cannot be resolved are left untouched.
  */
 export const replaceIconifyIconsInHtml = async (html: string) => {
   const tags = Array.from(
@@ -142,13 +147,18 @@ export const replaceIconifyIconsInHtml = async (html: string) => {
     const svg = await iconifyIconToSvg(icon, extractIconifyOptions(attributes ?? ''))
     if (!svg) return null
 
-    return { tag, svg }
+    const replacement = tag.replace(
+      />\s*<\/iconify-icon>$/i,
+      `>${svg}</iconify-icon>`,
+    )
+
+    return { tag, replacement }
   }))
 
   let result = html
 
   for (const replacement of results) {
-    if (replacement) result = result.split(replacement.tag).join(replacement.svg)
+    if (replacement) result = result.split(replacement.tag).join(replacement.replacement)
   }
 
   return result
