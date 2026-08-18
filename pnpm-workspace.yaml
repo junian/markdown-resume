@@ -3,3 +3,8 @@ allowBuilds:
   esbuild: true
   unrs-resolver: true
   vue-demi: true
+
+overrides:
+  oxc-parser: ">=0.140.0"
+  unplugin: "^3.3.0"
+  "@bomb.sh/tab": "^0.0.22"
