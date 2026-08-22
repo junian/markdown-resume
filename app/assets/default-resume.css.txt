@@ -82,7 +82,7 @@
 
 /* SVG & Images */
 
-iconify-icon {
+#PREVIEW_SELECTOR iconify-icon {
   display: inline-block;
   width: 1em;
   height: 1em;
