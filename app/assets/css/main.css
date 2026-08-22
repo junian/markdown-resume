@@ -482,28 +482,24 @@ iconify-icon {
   }
 
   body {
-    background-color: white !important;
+    @apply bg-white!;
   }
 
   body > *:not(#__nuxt) {
-    display: none !important;
+    @apply hidden!;
   }
 
   .edit-page {
-    height: auto;
-    padding-left: 0 !important;
+    @apply h-auto! pl-0!;
   }
 
   .workspace,
   [data-panel-group] {
-    overflow: visible !important;
-    display: block !important;
-    padding: 0 !important;
+    @apply overflow-visible! block! p-0!;
   }
 
   .edit-page > .workspace {
-    width: 100% !important;
-    padding-top: 0 !important;
+    @apply w-full! pt-0!;
   }
 
   .header,
@@ -512,56 +508,45 @@ iconify-icon {
   .zoom-bar,
   .toast-container,
   #nuxt-devtools-container {
-    display: none !important;
+    @apply hidden!;
   }
 
   .pane-container {
-    border: none !important;
-    background: transparent !important;
-    border-radius: 0 !important;
-    height: auto !important;
-    overflow: visible !important;
+    @apply border-0! bg-transparent! rounded-none! h-auto! overflow-visible!;
   }
 
   .preview-pane {
-    height: auto !important;
-    overflow: visible !important;
+    @apply h-auto! overflow-visible!;
   }
 
   html,
   body {
-    height: auto !important;
-    overflow: visible !important;
+    @apply h-auto! overflow-visible!;
   }
 
   .vue-zoom {
     transform: scale(1) !important;
-    margin: 0 !important;
-    height: auto !important;
+    @apply m-0! h-auto!;
   }
 
   #vue-smart-pages-preview {
-    padding-bottom: 0 !important;
-    min-height: auto !important;
-    height: auto !important;
+    @apply pb-0! min-h-auto! h-auto!;
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
   }
 
   .vue-smart-pages {
-    min-height: auto !important;
-    height: auto !important;
+    @apply min-h-auto! h-auto!;
   }
 
   .vue-smart-page-break {
     page-break-before: always;
-    margin-top: 0 !important;
-    border: none;
+    @apply mt-0! border-none;
   }
 
   /* Avoid an empty trailing page caused by the last break element */
   .vue-smart-page-break:last-child {
-    display: none !important;
+    @apply hidden!;
   }
 }
 
