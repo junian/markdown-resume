@@ -519,23 +519,49 @@ iconify-icon {
     border: none !important;
     background: transparent !important;
     border-radius: 0 !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .preview-pane {
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  html,
+  body {
+    height: auto !important;
+    overflow: visible !important;
   }
 
   .vue-zoom {
     transform: scale(1) !important;
     margin: 0 !important;
+    height: auto !important;
   }
 
   #vue-smart-pages-preview {
     padding-bottom: 0 !important;
+    min-height: auto !important;
+    height: auto !important;
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
+  }
+
+  .vue-smart-pages {
+    min-height: auto !important;
+    height: auto !important;
   }
 
   .vue-smart-page-break {
     page-break-before: always;
     margin-top: 0 !important;
     border: none;
+  }
+
+  /* Avoid an empty trailing page caused by the last break element */
+  .vue-smart-page-break:last-child {
+    display: none !important;
   }
 }
 

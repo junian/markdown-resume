@@ -40,7 +40,7 @@ export const breakPage = (
   for (const child of Array.from(page.children)) {
     const style = window.getComputedStyle(child, null)
     const childH
-      = child.clientHeight + parseInt(style.marginTop) + parseInt(style.marginBottom)
+      = child.clientHeight + parseFloat(style.marginTop) + parseFloat(style.marginBottom)
 
     if (pageH + childH > contentH || child.className === NEW_PAGE) {
       newPage.appendChild(getPageBreakElement(height - pageH - top))
@@ -52,5 +52,8 @@ export const breakPage = (
   }
 
   page.innerHTML = newPage.innerHTML
-  page.style.paddingBottom = `${height - pageH - top}px`
+  // Avoid creating a trailing filler that exceeds the page and produces
+  // an extra blank page in print (e.g. when content exactly fills a page).
+  const finalPadding = height - pageH - top
+  page.style.paddingBottom = `${finalPadding > 0 && finalPadding < height ? finalPadding : 0}px`
 }
