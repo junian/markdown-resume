@@ -23,7 +23,7 @@ export const useResumeExport = () => {
         display: flex;
         justify-content: center;
       }
-      #vue-smart-pages-preview {
+      main {
         background-color: white;
         width: ${paperWidthPx}px;
         max-width: 100%;
@@ -34,7 +34,7 @@ export const useResumeExport = () => {
       ${getDynamicCss(styles, 'preview')}
       @media print {
         body { background-color: white; padding: 0; margin: 0; }
-        #vue-smart-pages-preview {
+        main {
           width: 100%;
           max-width: none;
           box-shadow: none;
