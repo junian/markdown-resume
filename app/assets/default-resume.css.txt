@@ -82,8 +82,9 @@
 
 /* SVG & Images */
 
+#PREVIEW_SELECTOR span.iconify,
 #PREVIEW_SELECTOR iconify-icon {
-  display: inline-block;
+  display: inline-flex;
   width: 1em;
   height: 1em;
 }

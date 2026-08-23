@@ -129,10 +129,9 @@ export const iconifyIconToSvg = async (
  * Replace every `<iconify-icon icon="...">` tag in rendered HTML with an
  * inline SVG so the document renders without the iconify-icon web component.
  *
- * The original tag (as rendered from Markdown) is kept untouched and the
- * resolved SVG is injected as its child. When the iconify-icon web component
- * is loaded it renders through its shadow root (hiding the light-DOM SVG);
- * otherwise the inline SVG is used as a self-contained fallback. Tags that
+ * Each tag is replaced with a `<span class="iconify" data-icon="...">` wrapper
+ * containing the resolved SVG. The span provides a semantic fallback / hook
+ * for styling and keeps the original icon name via `data-icon`. Tags that
  * cannot be resolved are left untouched.
  */
 export const replaceIconifyIconsInHtml = async (html: string) => {
@@ -147,10 +146,7 @@ export const replaceIconifyIconsInHtml = async (html: string) => {
     const svg = await iconifyIconToSvg(icon, extractIconifyOptions(attributes ?? ''))
     if (!svg) return null
 
-    const replacement = tag.replace(
-      />\s*<\/iconify-icon>$/i,
-      `>${svg}</iconify-icon>`,
-    )
+    const replacement = `<span class="iconify ${icon}" data-icon="${icon}">${svg}</span>`
 
     return { tag, replacement }
   }))

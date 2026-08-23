@@ -94,7 +94,7 @@ export const useResumeExport = () => {
           left: styles.marginH / 96,
         },
         metadata: { title: data.curResumeName },
-        rasterizeInPlace: { scale: 1 },
+        rasterizeInPlace: { scale: 2 },
         imageResolver: async (src) => {
           const res = await fetch(src);
           if (!res.ok) return null;
