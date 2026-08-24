@@ -88,6 +88,7 @@ export const useResumeExport = () => {
         root: preview,
         pageSize: styles.paper === 'A4' ? 'a4' : 'letter',
         orientation: 'portrait',
+        defaultFont: { family: styles.fontEN.name, sizePt: styles.fontSize },
         margins: {
           top: styles.marginV / 96,
           right: styles.marginH / 96,
