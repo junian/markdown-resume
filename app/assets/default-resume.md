@@ -5,9 +5,9 @@
 
 ::eva:people-outline:: [example.com](https://example.com/)
   : ::tabler:brand-github:: [github.com/example](https://github.com/example)
-  : ::tabler:phone:: [(+1) 123-456-7890](https://wa.me/11234567890)
+  : ::tabler:phone:: &nbsp;[(+1) 123-456-7890](https://wa.me/11234567890)
 
-::ic:outline-location-on:: 1234 Abc Street, Example, EX 01234
+::ic:outline-location-on:: Scranton, United States
   : ::tabler:brand-linkedin:: [linkedin.com/in/example](https://linkedin.com/in/example/)
   : ::tabler:mail:: [email@example.com](mailto:mail@example.com)
 
