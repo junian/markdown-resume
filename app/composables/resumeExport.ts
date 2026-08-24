@@ -96,9 +96,9 @@ export const useResumeExport = () => {
         metadata: { title: data.curResumeName },
         rasterizeInPlace: { scale: 2 },
         imageResolver: async (src) => {
-          const res = await fetch(src);
-          if (!res.ok) return null;
-          return { data: new Uint8Array(await res.arrayBuffer()), type: res.headers.get('Content-Type') || 'image/png' };
+          const res = await fetch(src)
+          if (!res.ok) return null
+          return { data: new Uint8Array(await res.arrayBuffer()), type: res.headers.get('Content-Type') || 'image/png' }
         },
       })
 
