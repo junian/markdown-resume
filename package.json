@@ -11,6 +11,7 @@
     "release": "nuxt generate",
     "serve": "nuxt preview",
     "test": "vitest run",
+    "typecheck": "nuxt typecheck",
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {

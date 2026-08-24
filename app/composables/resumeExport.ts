@@ -87,13 +87,14 @@ export const useResumeExport = () => {
         styleSource: 'computed',
         root: preview,
         pageSize: styles.paper === 'A4' ? 'a4' : 'letter',
+        orientation: 'portrait',
         margins: {
           top: styles.marginV / 96,
           right: styles.marginH / 96,
           bottom: styles.marginV / 96,
           left: styles.marginH / 96,
         },
-        metadata: { title: data.curResumeName },
+        metadata: { title: data.curResumeName, creator: 'Markdown Resume' },
         rasterizeInPlace: { scale: 2 },
         imageResolver: async (src) => {
           const res = await fetch(src)
