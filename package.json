@@ -2,7 +2,7 @@
   "name": "markdown-resume",
   "private": true,
   "type": "module",
-  "packageManager": "pnpm@11.22.0+sha512.1ff870c4c6133dfd88fb2afc46dd13d47f09c9794b438c6fdb47ca98caf3bc16381ee0be93a091b8e3824cf01f889f46d7d9e20910fb0be1ab0fb5baa80dd621",
+  "packageManager": "pnpm@11.23.0+sha512.f00082e5b283a199b74e079da28d155c008fe232f44c8a06ea7ddfa014ecf719fc362f790ecc67b28106ddac2afb24c49a9a079159da560b2ce7d1e98efd11af",
   "scripts": {
     "build": "nuxt generate",
     "dev": "nuxt dev",
@@ -37,7 +37,7 @@
     "better-sqlite3": "^13.0.3",
     "browser-fs-access": "^0.38.0",
     "case-police": "^0.6.1",
-    "dom-docx": "^0.1.22",
+    "dom-docx": "^1.0.1",
     "eslint": "^10.8.1",
     "glob": "^13.0.6",
     "js-yaml": "^5.3.0",
