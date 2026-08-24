@@ -98,7 +98,18 @@ export const useResumeExport = () => {
         imageResolver: async (src) => {
           const res = await fetch(src)
           if (!res.ok) return null
-          return { data: new Uint8Array(await res.arrayBuffer()), type: res.headers.get('Content-Type') || 'image/png' }
+          const contentType = res.headers.get('Content-Type')?.toLowerCase() ?? ''
+          let type: 'png' | 'jpg' | 'gif' | 'bmp' = 'png'
+          if (contentType.includes('png')) type = 'png'
+          else if (contentType.includes('jpeg') || contentType.includes('jpg')) type = 'jpg'
+          else if (contentType.includes('gif')) type = 'gif'
+          else if (contentType.includes('bmp')) type = 'bmp'
+          else {
+            const ext = src.split('?')[0]?.split('#')[0]?.split('.').pop()?.toLowerCase()
+            if (ext === 'jpg' || ext === 'jpeg') type = 'jpg'
+            else if (ext === 'png' || ext === 'gif' || ext === 'bmp') type = ext as typeof type
+          }
+          return { data: new Uint8Array(await res.arrayBuffer()), type }
         },
       })
 
