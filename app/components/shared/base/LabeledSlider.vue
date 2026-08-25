@@ -1,16 +1,17 @@
 <template>
   <div>
-    <div class="py-2">
+    <div class="py-2 cursor-pointer">
       <USlider
         v-model="model"
         :min="min"
         :max="max"
         :step="step"
         tooltip
+        class="cursor-pointer"
         :ui="{
-          track: 'h-1 bg-slate-400/50',
+          track: 'h-1 bg-slate-400/50 cursor-pointer',
           range: 'bg-brand',
-          thumb: 'bg-white dark:bg-slate-300 shadow shadow-slate-500',
+          thumb: 'bg-white dark:bg-slate-300 shadow shadow-slate-500 cursor-pointer',
         }"
       />
     </div>

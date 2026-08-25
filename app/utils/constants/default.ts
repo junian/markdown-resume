@@ -6,8 +6,8 @@ import { SYSTEM_CJK_FONT_FAMILY } from './data'
 export const DEFAULT_NAME = 'My Resume'
 
 export const DEFAULT_STYLES = {
-  marginV: 55,
-  marginH: 45,
+  marginV: 48,
+  marginH: 48,
   lineHeight: 1.3,
   paragraphSpace: 5,
   themeColor: '#000000',
