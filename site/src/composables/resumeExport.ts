@@ -46,6 +46,7 @@ export const useResumeExport = () => {
           padding: ${styles.marginV}px ${styles.marginH}px;
         }
         @page { size: ${styles.paper}; margin: 0; }
+        .md-it-newpage { page-break-before: always; break-before: page; }
       }
     `;
 
