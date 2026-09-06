@@ -1,8 +1,14 @@
 {
   "name": "markdown-resume",
+  "version": "0.1.1",
   "private": true,
+  "repository": "git@github.com:junian/markdown-resume.git",
+  "author": "Junian Triajianto <author@junian.dev>",
+  "packageManager": "pnpm@12.3.4+sha512.961aa41fb077da3a04a441d9f8e15ebc0c96da8ef710b2eb67bf9ee7cb0610eabd48f1fd85f51cffe73846785fa0f87c56a3a872a1d893f8446741b5cce45457",
   "type": "module",
-  "packageManager": "pnpm@11.25.0+sha512.5cde925b4f075f725eb71fbae18a42ffe784524789f19b61c731cb8721ec28aaee160e01a8d5af4fedb2a42cdbf300efe23db356b0d4a17b4d63e11f8ab7c956",
+  "engines": {
+    "node": "24.x"
+  },
   "scripts": {
     "build": "nuxt generate",
     "dev": "nuxt dev",
@@ -54,9 +60,8 @@
     "ts-debounce": "^5.0.1",
     "typescript": "^6.0.3",
     "user-agent-data-types": "^0.4.2",
-    "vitest": "^4.1.10",
+    "vitest": "^4.1.11",
     "vue": "^3.5.41",
     "vue-tsc": "^3.3.9"
-  },
-  "version": "0.1.1"
+  }
 }
