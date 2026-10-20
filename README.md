@@ -99,7 +99,15 @@ When exporting to **HTML** or **DOCX**, image references are automatically repla
     ./build.sh
     ```
 
-4. Deploy the contents of the `.output/public` directory to any static hosting provider (GitHub Pages, Netlify, Vercel, Nginx, etc.).
+4. Preview the build locally:
+
+    ```bash
+    pnpm serve
+    ```
+
+    Open the URL printed in the terminal (normally `http://localhost:3000`). The build script only generates files; it does not start a server.
+
+5. Deploy the contents of the `site/.output/public` directory to any static hosting provider (GitHub Pages, Netlify, Vercel, Nginx, etc.). If hosting under a subdirectory, set `NUXT_APP_BASE_URL=/markdown-resume/` before building.
 
 ## Environment Variables
 
@@ -111,6 +119,7 @@ cp site/.env.example site/.env
 
 | Variable | Description |
 |---|---|
+| `NUXT_APP_BASE_URL` | Base path for the site. Defaults to `/` for localhost or a domain root. Set to `/markdown-resume/` when hosting under that subdirectory. Rebuild after changing it. |
 | `NUXT_PUBLIC_GOOGLE_FONTS_KEY` | [Google Fonts Developer API Key](https://developers.google.com/fonts/docs/developer_api#APIKey). Required to enable the font picker that lists fonts from Google Fonts. Without this key the font selection will only show locally available fonts. |
 | `NUXT_PUBLIC_GTAG_ID` | [Google Analytics 4](https://analytics.google.com/) Measurement ID (e.g. `G-XXXXXXXXXX`). Enables GA4 page-view and event tracking. Leave empty to disable analytics. |
 | `NUXT_CLARITY_ID` | [Microsoft Clarity](https://clarity.microsoft.com/) Project ID. Enables session recording and heatmap analytics. Leave empty to disable Clarity. |
