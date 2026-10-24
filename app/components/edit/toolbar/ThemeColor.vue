@@ -38,6 +38,12 @@
           v-model="themeColor"
           class="p-2"
         />
+        <UInput
+          v-model="hexInput"
+          placeholder="#000000"
+          maxlength="7"
+          class="w-full p-2"
+        />
       </template>
     </UPopover>
   </ToolItem>
@@ -49,6 +55,17 @@ const { styles, setStyle } = useStyleStore()
 const themeColor = computed({
   get: () => styles.themeColor,
   set: value => setStyle('themeColor', value),
+})
+
+const hexInput = ref(styles.themeColor)
+
+// keep the field in sync when a preset or the picker changes the color
+watch(() => styles.themeColor, (value) => { hexInput.value = value })
+
+// only save complete, valid hex codes
+watch(hexInput, (value) => {
+  if (/^#[0-9a-f]{6}$/i.test(value))
+    setStyle('themeColor', value)
 })
 
 const isActiveColor = (color: string) => styles.themeColor.toUpperCase() === color
