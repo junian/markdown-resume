@@ -26,10 +26,25 @@
           :class="open ? 'border-darker-c' : 'border-c'"
         >
           <span
-            class="size-4 rounded-sm"
+            class="size-4 shrink-0 rounded-sm"
             :style="{ backgroundColor: styles.themeColor }"
           />
-          <span class="uppercase">{{ styles.themeColor }}</span>
+          <UInput
+            v-model="hexInput"
+            type="text"
+            variant="none"
+            size="sm"
+            class="w-full min-w-0"
+            :ui="{ base: 'px-0 py-0 text-xs md:text-sm uppercase outline-none' }"
+            spellcheck="false"
+            autocomplete="off"
+            :aria-label="$t('toolbar.theme_color')"
+            @click.stop
+            @update:model-value="onHexInput"
+            @keydown.enter="commitHex"
+            @keydown.esc="resetHex"
+            @blur="commitHex"
+          />
         </div>
       </template>
 
@@ -37,12 +52,6 @@
         <UColorPicker
           v-model="themeColor"
           class="p-2"
-        />
-        <UInput
-          v-model="hexInput"
-          placeholder="#000000"
-          maxlength="7"
-          class="w-full p-2"
         />
       </template>
     </UPopover>
@@ -59,14 +68,31 @@ const themeColor = computed({
 
 const hexInput = ref(styles.themeColor)
 
-// keep the field in sync when a preset or the picker changes the color
-watch(() => styles.themeColor, (value) => { hexInput.value = value })
+watch(
+  () => styles.themeColor,
+  color => (hexInput.value = color),
+)
 
-// only save complete, valid hex codes
-watch(hexInput, (value) => {
-  if (/^#[0-9a-f]{6}$/i.test(value))
-    setStyle('themeColor', value)
-})
+const normalizeHex = (value: string) => {
+  let hex = value.trim().replace(/^#/, '')
+  if (/^[0-9a-f]{3}$/i.test(hex))
+    hex = hex.split('').map(char => char + char).join('')
+  if (!/^[0-9a-f]{6}$/i.test(hex)) return null
+  return `#${hex.toUpperCase()}`
+}
+
+const onHexInput = (value: string) => {
+  const hex = value.trim().replace(/^#/, '')
+  if (/^[0-9a-f]{6}$/i.test(hex)) themeColor.value = `#${hex.toUpperCase()}`
+}
+
+const commitHex = () => {
+  const hex = normalizeHex(hexInput.value)
+  if (hex) themeColor.value = hex
+  hexInput.value = hex ?? styles.themeColor
+}
+
+const resetHex = () => (hexInput.value = styles.themeColor)
 
 const isActiveColor = (color: string) => styles.themeColor.toUpperCase() === color
 </script>
