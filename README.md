@@ -146,6 +146,10 @@ pnpm run dev
 pnpm run build
 ```
 
+## Related tools
+
+- [Resume Master](https://markmiller1.github.io/resume-master/)
+
 ## License
 
 This project is licensed under the [AGPL-3.0](LICENSE) license.
@@ -162,7 +166,3 @@ Made with ☕ by [Junian.dev](https://www.junian.dev).
 [sw]: https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API
 [app]: <https://www.junian.dev/markdown-resume/> "Write Resume / CV in Markdown"
 [coffee]: <https://www.junian.dev/coffee/> "Buy Junian.dev a Coffee"
-
-## 🔗 相关工具 / Related tools
-
-- [简历大师 Resume Master](https://markmiller1.github.io/resume-master/) — 免费、纯前端、隐私优先的简历生成器，64 套模板 + 面试/谈薪指南，数据不出本机
