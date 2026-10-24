@@ -2,82 +2,85 @@
   <div class="image-item group">
     <!-- Card thumbnail -->
     <div
-      class="relative w-44 h-44 overflow-hidden rounded-md border border-c cursor-pointer duration-150 hover:(-translate-y-2 drop-shadow-xl)"
+      class="relative w-52 h-52 overflow-hidden rounded-md border border-c cursor-pointer duration-150 hover:-translate-y-2 hover:drop-shadow-xl"
     >
       <img
         :src="imageUrl"
         :alt="image.name"
         class="w-full h-full object-cover"
-      />
+      >
 
       <!-- Hover action buttons -->
       <div class="absolute right-2 top-2 hidden group-hover:flex flex-col gap-2">
-        <button
-          class="image-action-btn"
+        <UButton
+          type="button"
+          variant="ghost"
+          class="action-btn text-white hover:bg-gray-500"
+          icon="i-ic:baseline-content-copy"
           :title="$t('images.copy_url')"
           :aria-label="$t('images.copy_url')"
           @click.stop="copyUrl"
-        >
-          <span i-ic:baseline-content-copy />
-        </button>
-        <button
-          class="image-action-btn"
+        />
+        <UButton
+          type="button"
+          variant="ghost"
+          class="action-btn text-white hover:bg-gray-500"
+          icon="i-material-symbols:delete-outline-rounded"
           :title="$t('images.delete')"
           :aria-label="$t('images.delete')"
           @click.stop="remove"
-        >
-          <span i-material-symbols:delete-outline-rounded />
-        </button>
+        />
       </div>
     </div>
 
     <!-- Image name + date -->
-    <div class="mt-2 w-44 space-y-0.5">
-      <p class="text-sm text-dark-c truncate" :title="image.name">{{ image.name }}</p>
-      <p class="text-xs text-lighter-c">{{ formattedDate }}</p>
+    <div class="mt-2 w-52 space-y-0.5">
+      <p
+        class="text-sm text-dark-c truncate"
+        :title="image.name"
+      >
+        {{ image.name }}
+      </p>
+      <p class="text-xs text-lighter-c">
+        {{ formattedDate }}
+      </p>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import type { ImageListItem } from "~/types";
+import type { ImageListItem } from '~/types'
 
 const props = defineProps<{
-  image: ImageListItem;
-}>();
+  image: ImageListItem
+}>()
 
 const emit = defineEmits<{
-  (e: "update"): void;
-}>();
+  (e: 'update'): void
+}>()
 
-const toast = useToast();
+const toast = useAppToast()
 
 // Stable URL served by the image Service Worker
-const imageUrl = computed(() => getImageUrl(props.image.id));
+const imageUrl = computed(() => getImageUrl(props.image.id))
 
 const formattedDate = computed(() =>
   new Date(props.image.createdAt).toLocaleDateString(undefined, {
-    year: "numeric",
-    month: "short",
-    day: "numeric"
-  })
-);
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  }),
+)
 
 const copyUrl = async () => {
-  const markdown = `![${props.image.name}](${imageUrl.value})`;
-  await navigator.clipboard.writeText(markdown);
-  toast.copyImageUrl();
-};
+  const markdown = `![${props.image.name}](${imageUrl.value})`
+  await navigator.clipboard.writeText(markdown)
+  toast.copyImageUrl()
+}
 
 const remove = async () => {
-  await deleteImage(props.image.id);
-  toast.deleteImage(props.image.name);
-  emit("update");
-};
-</script>
-
-<style scoped>
-.image-action-btn {
-  @apply circle size-8 text-white bg-gray-500/80 hover:bg-gray-500;
+  await deleteImage(props.image.id)
+  toast.deleteImage(props.image.name)
+  emit('update')
 }
-</style>
+</script>

@@ -1,29 +1,29 @@
-import { acceptHMRUpdate, defineStore } from "pinia";
-import { copy } from "~/libs/utils";
-import type { ResumeStyles, Font } from "~/types";
+import { acceptHMRUpdate, defineStore } from 'pinia'
+import { copy } from '~/libs/utils'
+import type { ResumeStyles, Font } from '~/types'
 
-export const useStyleStore = defineStore("style", () => {
-  const copiedStyles = copy(DEFAULT_STYLES);
-  const styles = reactive<ResumeStyles>(copiedStyles);
+export const useStyleStore = defineStore('style', () => {
+  const copiedStyles = copy(DEFAULT_STYLES)
+  const styles = reactive<ResumeStyles>(copiedStyles)
 
   const setStyle = async <T extends keyof ResumeStyles>(
     key: T,
-    value: ResumeStyles[T]
+    value: ResumeStyles[T],
   ) => {
     // handle Google fonts
-    if (["fontCJK", "fontEN"].includes(key)) await resolveGoogleFont(value as Font);
+    if (['fontCJK', 'fontEN'].includes(key)) await resolveGoogleFont(value as Font)
     // update styles for the current resume
-    styles[key] = value;
+    styles[key] = value
     // update CSS
     // vue-smart-pages will handle margins, height and width
-    if (!["marginV", "marginH"].includes(key)) setDynamicCss(styles, "preview");
-  };
+    if (!['marginV', 'marginH'].includes(key)) setDynamicCss(styles, 'preview')
+  }
 
   return {
     styles,
-    setStyle
-  };
-});
+    setStyle,
+  }
+})
 
 if (import.meta.hot)
-  import.meta.hot.accept(acceptHMRUpdate(useStyleStore, import.meta.hot));
+  import.meta.hot.accept(acceptHMRUpdate(useStyleStore, import.meta.hot))

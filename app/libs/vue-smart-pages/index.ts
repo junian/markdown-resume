@@ -1,3 +1,3 @@
-import SmartPages from "./components/SmartPages";
+import SmartPages from './components/SmartPages'
 
-export default SmartPages;
+export default SmartPages

@@ -9,6 +9,8 @@ Write an ATS-friendly resume in Markdown. Available for everyone, optimized for 
 [![Markdown Resume](https://img.shields.io/badge/Start_Writing_Now-1a73e8?style=for-the-badge&logo=markdown&logoColor=white "Write Resume in Markdown")][app]
 [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?&logo=buy-me-a-coffee&logoColor=black&style=for-the-badge "Buy me a Coffee")][coffee]
 
+<a href="https://trendshift.io/repositories/157153?utm_source=trendshift-badge&amp;utm_medium=badge&amp;utm_campaign=badge-trendshift-157153" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/trendshift/repositories/157153/daily?language=Vue" alt="junian%2Fmarkdown-resume | Trendshift" width="250" height="55"/></a>
+
 [![Markdown Resume Screenshot](https://www.junian.dev/img/b/R29vZ2xl/AVvXsEi0XXzED8hJoI6NjzZSGKN68nANKihJrglZSuv9LnTFrSTN6w7Xgl0smpr8q5s6vLGCl1BOIeQYeBF-AbpOxpOHzeR6531A3eAuLJrTUimd01QWAmvP6gZZYUggkND1q7LOh5iQuNJg3nu7ekr5wezPa9quyhh0O9itQj9qTPY0vkmdwv1dtfTa-7uYsds/s1600/markdown-resume-screenshot.png "Markdown Resume")][app]
 
 </div>
@@ -37,8 +39,8 @@ Highly recommend using Chromium-based browsers, e.g., [Chrome][chrome] or [Micro
 - Export to PDF, Markdown, self-contained HTML, and DOCX
 - Export to A4 and US Letter paper sizes
 - Customize page margins, theme colors, line heights, fonts, etc.
-- Add icons easily via [Iconify](https://github.com/iconify/iconify) (search icons on [Icônes](https://icones.js.org/))
-- Fix legacy Iconify markup from older resumes and save the migrated content
+- Add icons easily with Markdown syntax (`::icon::`) via [Iconify](https://github.com/iconify/iconify) (search icons on [Icônes](https://icones.js.org/))
+- Fix legacy Iconify markup from older resumes by converting it to Markdown icon syntax
 - TeX support ([KaTeX](https://github.com/KaTeX/KaTeX))
 - Cross-referencing (useful for academic CVs)
 - Case correction (e.g., `Github` → `GitHub`)
@@ -55,6 +57,18 @@ Highly recommend using Chromium-based browsers, e.g., [Chrome][chrome] or [Micro
 - Local storage usage estimates, refresh controls, and a protected factory-reset action
 - Data is saved locally in your browser using IndexedDB browser feature (see [`localForage` repo](https://localforage.github.io/localForage/) for details)
 - [**Image Gallery**](https://www.junian.dev/markdown-resume/images/) — upload images and reference them in your resume using Markdown or HTML (see below)
+
+## Icon Support
+
+Add icons to your resume with Markdown syntax, e.g. `::mdi:home::`. Search icons on [Icônes](https://icones.js.org/) and use the Iconify icon names.
+
+You can also set the size and color of an icon:
+
+```markdown
+::mdi:home =24 /red::
+```
+
+The **Fix Icons** toolbar tool automatically converts legacy markup — both old `<span class="iconify" data-icon="...">` markup and `<iconify-icon icon="...">` tags — into this Markdown syntax.
 
 ## Image Support
 
@@ -99,15 +113,7 @@ When exporting to **HTML** or **DOCX**, image references are automatically repla
     ./build.sh
     ```
 
-4. Preview the build locally:
-
-    ```bash
-    pnpm serve
-    ```
-
-    Open the URL printed in the terminal (normally `http://localhost:3000`). The build script only generates files; it does not start a server.
-
-5. Deploy the contents of the `site/.output/public` directory to any static hosting provider (GitHub Pages, Netlify, Vercel, Nginx, etc.). If hosting under a subdirectory, set `NUXT_APP_BASE_URL=/markdown-resume/` before building.
+4. Deploy the contents of the `.output/public` directory to any static hosting provider (GitHub Pages, Netlify, Vercel, Nginx, etc.).
 
 ## Environment Variables
 
@@ -119,10 +125,10 @@ cp .env.example .env
 
 | Variable | Description |
 |---|---|
-| `NUXT_APP_BASE_URL` | Base path for the site. Defaults to `/` for localhost or a domain root. Set to `/markdown-resume/` when hosting under that subdirectory. Rebuild after changing it. |
+| `NUXT_PUBLIC_SITE_URL` | Site origin URL (e.g. `https://example.com`). Defaults to `https://www.junian.dev`. |
+| `NUXT_APP_BASE_URL` | Site base URL (e.g. `/` for root or `/my-app/` for a subpath). Defaults to `/markdown-resume/`. |
 | `NUXT_PUBLIC_GOOGLE_FONTS_KEY` | [Google Fonts Developer API Key](https://developers.google.com/fonts/docs/developer_api#APIKey). Required to enable the font picker that lists fonts from Google Fonts. Without this key the font selection will only show locally available fonts. |
-| `NUXT_PUBLIC_GTAG_ID` | [Google Analytics 4](https://analytics.google.com/) Measurement ID (e.g. `G-XXXXXXXXXX`). Enables GA4 page-view and event tracking. Leave empty to disable analytics. |
-| `NUXT_CLARITY_ID` | [Microsoft Clarity](https://clarity.microsoft.com/) Project ID. Enables session recording and heatmap analytics. Leave empty to disable Clarity. |
+| `NUXT_PUBLIC_SCRIPTS_GOOGLE_ANALYTICS_ID` | [Google Analytics 4](https://analytics.google.com/) Measurement ID (e.g. `G-XXXXXXXXXX`). Enables GA4 page-view and event tracking. Leave empty to disable analytics. |
 | `NUXT_PUBLIC_DISQUS_SHORTNAME` | [Disqus](https://disqus.com/) shortname for your site. Enables the Disqus comment section. Leave empty to hide comments. |
 
 ## Development
@@ -139,10 +145,6 @@ Start developing / building the site:
 pnpm run dev
 pnpm run build
 ```
-
-## Related tools
-
-- [Resume Master](https://markmiller1.github.io/resume-master/)
 
 ## License
 

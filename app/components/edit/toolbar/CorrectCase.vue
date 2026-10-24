@@ -3,32 +3,34 @@
     :text="$t('toolbar.correct_case.text')"
     icon="i-icon-park-outline:check-correct"
   >
-    <div bg="c lg:dark-c" p="y-2 x-3" rounded v-html="$t('toolbar.correct_case.desc')" />
+    <div class="bg-c lg:bg-dark-c py-2 px-3 rounded">
+      {{ $t('toolbar.correct_case.desc') }}<br>
+      {{ $t('toolbar.correct_case.note') }}
+    </div>
 
-    <button
-      class="rect-btn mt-3 ml-auto text-white"
-      bg="blue-500 hover:(blue-600 dark:blue-400)"
+    <UButton
+      class="mt-3 ml-auto text-white"
+      icon="i-carbon:rocket"
       @click="correct"
     >
-      <span i-carbon:rocket />
-      <span>{{ $t("toolbar.correct_case.btn") }}</span>
-    </button>
+      {{ $t("toolbar.correct_case.btn") }}
+    </UButton>
   </ToolItem>
 </template>
 
 <script lang="ts" setup>
-import { correctCase } from "~/libs/correct-case";
+import { correctCase } from '~/libs/correct-case'
 
-const { data } = useDataStore();
-const toast = useToast();
+const { data } = useDataStore()
+const toast = useAppToast()
 
 const correct = async () => {
-  const md = data.mdContent;
-  const result = await correctCase(md);
+  const md = data.mdContent
+  const result = await correctCase(md)
 
-  setResumeMd(result.text);
+  setResumeMd(result.text)
 
-  const corrected = result.correctedWords ? result.correctedWords.length : true;
-  toast.correct(corrected);
-};
+  const corrected = result.correctedWords ? result.correctedWords.length : true
+  toast.correct(corrected)
+}
 </script>

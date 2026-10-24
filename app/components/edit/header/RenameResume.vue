@@ -9,10 +9,10 @@
 </template>
 
 <script lang="ts" setup>
-const { data } = useDataStore();
+const { data } = useDataStore()
 
 const rename = (text: string) => {
-  data.curResumeName = text;
-  renameResume(data.curResumeId!, text);
-};
+  data.curResumeName = text
+  renameResume(data.curResumeId!, text)
+}
 </script>

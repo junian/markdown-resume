@@ -1,20 +1,21 @@
-import { downloadFile } from "~/libs/utils";
-import { siteConfig } from "~~/configs/siteConfig";
+import { downloadFile, downloadBlob } from '~/libs/utils'
+import { getDynamicCss } from '~/utils/css'
+import { replaceIconifyIconsInHtml } from '~/utils/iconifySvg'
+import { PREVIEW_SELECTOR } from '~/utils/constants/default'
 
 export const useResumeExport = () => {
-  const { data } = useDataStore();
-  const { styles } = useStyleStore();
-  const saveName = computed(() => data.curResumeName.trim().replace(/\s+/g, "_"));
+  const { data } = useDataStore()
+  const { styles } = useStyleStore()
+  const saveName = computed(() => data.curResumeName.trim().replace(/\s+/g, '_'))
 
   const generateHtmlDocument = async () => {
-    let html = renderMarkdown(data.mdContent);
-    html = await inlineImagesInHtml(html);
+    let html = renderMarkdown(data.mdContent)
+    html = await inlineImagesInHtml(html)
+    html = await replaceIconifyIconsInHtml(html)
 
-    const paperWidthPx = getPaperPx(styles.paper, "w");
+    const paperWidthPx = getPaperPx(styles.paper, 'w')
     const dynamicCss = `
       body {
-        font-family: ${styles.fontEN.fontFamily || styles.fontEN.name}, ${styles.fontCJK.fontFamily || styles.fontCJK.name};
-        font-size: ${styles.fontSize}px;
         background-color: #f5f5f5;
         color: black;
         margin: 0;
@@ -22,7 +23,7 @@ export const useResumeExport = () => {
         display: flex;
         justify-content: center;
       }
-      #vue-smart-pages-preview {
+      main {
         background-color: white;
         width: ${paperWidthPx}px;
         max-width: 100%;
@@ -30,15 +31,10 @@ export const useResumeExport = () => {
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         box-sizing: border-box;
       }
-      :not(.resume-header-item) > a, h1, h2, h3 { color: ${styles.themeColor}; }
-      h1, h2 { border-bottom-color: ${styles.themeColor}; }
-      p, li { line-height: ${styles.lineHeight.toFixed(2)}; }
-      h2, h3 { line-height: ${(styles.lineHeight * 1.154).toFixed(2)}; }
-      dl { line-height: ${(styles.lineHeight * 1.038).toFixed(2)}; }
-      h2 { margin-top: ${styles.paragraphSpace}px; }
+      ${getDynamicCss(styles, 'preview')}
       @media print {
         body { background-color: white; padding: 0; margin: 0; }
-        #vue-smart-pages-preview {
+        main {
           width: 100%;
           max-width: none;
           box-shadow: none;
@@ -46,49 +42,86 @@ export const useResumeExport = () => {
           padding: ${styles.marginV}px ${styles.marginH}px;
         }
         @page { size: ${styles.paper}; margin: 0; }
-        .md-it-newpage { page-break-before: always; break-before: page; }
       }
-    `;
+    `
 
-    const scriptTag = `<script src="${siteConfig.iconifyScriptURL}"></script>`;
     return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${data.curResumeName}</title>
-  ${scriptTag}
   <style>${data.cssContent + dynamicCss}</style>
 </head>
 <body><main id="vue-smart-pages-preview" class="markdown-resume">${html}</main></body>
-</html>`;
-  };
+</html>`
+  }
 
   const exportPDF = () => {
-    const title = document.title;
-    document.title = saveName.value;
-    window.print();
-    document.title = title;
-  };
+    const title = document.title
+    document.title = saveName.value
+    window.print()
+    document.title = title
+  }
 
-  const exportMd = () => downloadFile(`${saveName.value}.md`, data.mdContent);
+  const exportMd = () => downloadFile(`${saveName.value}.md`, data.mdContent)
 
   const exportHtml = async () => {
-    downloadFile(`${saveName.value}.html`, await generateHtmlDocument());
-  };
+    downloadFile(`${saveName.value}.html`, await generateHtmlDocument())
+  }
 
   const exportDocx = async () => {
     try {
-      const htmlDocument = await generateHtmlDocument();
-      const { asBlob } = await import("html-docx-js-typescript");
-      // @ts-ignore file-saver does not provide types
-      const { saveAs } = await import("file-saver");
-      asBlob(htmlDocument).then((blob) => saveAs(blob, `${saveName.value}.docx`));
-    } catch (error) {
-      console.error("Error exporting DOCX:", error);
-      alert("Failed to export DOCX. Please try again.");
-    }
-  };
+      const { convertHtmlToDocx } = await import('dom-docx/browser')
 
-  return { exportPDF, exportMd, exportHtml, exportDocx };
-};
+      const preview = document.querySelector(PREVIEW_SELECTOR) as HTMLElement
+      if (!preview) throw new Error('Preview element not found')
+
+      let html = await inlineImagesInHtml(preview.innerHTML)
+      html = html.replace(
+        /<div class="vue-smart-page-break"[^>]*>\s*<\/div>/gi,
+        '<p style="break-after:page"></p>',
+      )
+
+      const blob = await convertHtmlToDocx(html, {
+        styleSource: 'computed',
+        root: preview,
+        pageSize: styles.paper === 'A4' ? 'a4' : 'letter',
+        orientation: 'portrait',
+        defaultFont: { family: styles.fontEN.name, sizePt: styles.fontSize },
+        margins: {
+          top: styles.marginV / 96,
+          right: styles.marginH / 96,
+          bottom: styles.marginV / 96,
+          left: styles.marginH / 96,
+        },
+        metadata: { title: data.curResumeName, creator: 'Markdown Resume' },
+        rasterizeInPlace: { scale: 2 },
+        imageResolver: async (src) => {
+          const res = await fetch(src)
+          if (!res.ok) return null
+          const contentType = res.headers.get('Content-Type')?.toLowerCase() ?? ''
+          let type: 'png' | 'jpg' | 'gif' | 'bmp' = 'png'
+          if (contentType.includes('png')) type = 'png'
+          else if (contentType.includes('jpeg') || contentType.includes('jpg')) type = 'jpg'
+          else if (contentType.includes('gif')) type = 'gif'
+          else if (contentType.includes('bmp')) type = 'bmp'
+          else {
+            const ext = src.split('?')[0]?.split('#')[0]?.split('.').pop()?.toLowerCase()
+            if (ext === 'jpg' || ext === 'jpeg') type = 'jpg'
+            else if (ext === 'png' || ext === 'gif' || ext === 'bmp') type = ext as typeof type
+          }
+          return { data: new Uint8Array(await res.arrayBuffer()), type }
+        },
+      })
+
+      downloadBlob(`${saveName.value}.docx`, blob)
+    }
+    catch (error) {
+      console.error('Error exporting DOCX:', error)
+      alert('Failed to export DOCX. Please try again.')
+    }
+  }
+
+  return { exportPDF, exportMd, exportHtml, exportDocx }
+}

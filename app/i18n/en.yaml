@@ -16,6 +16,7 @@ settings:
   description: Manage language, appearance, and local storage.
   language: Language
   language_label: Display language
+  filter_language: Filter languages...
   appearance: Appearance
   theme: Color theme
   light: Light
@@ -36,15 +37,27 @@ settings:
   images: Images
   storage_estimate_note: Storage quota is an estimate and may vary by device and browser.
   storage_unavailable: Storage estimates are not available in this browser.
+  svg_icons: SVG Icons
+  svg_icons_description: Inline SVGs are cached locally so exports work offline.
+  cached_icons: Cached Icons
+  clear_svg_cache: Clear SVG Cache
   danger_zone: Danger Zone
   danger_description: Permanently erase every resume, image, and app setting stored on this device.
   erase_all_data: Erase All Content and Settings
   erase_warning: This action will remove all data and return this app to its factory state. This cannot be undone.
   type_delete: Type DELETE to confirm.
   confirm: Confirm
+  defaults:
+    title: Defaults
+    name: Full Name
+    name_placeholder: e.g., Bruce Wayne
+    paper_size: Paper Size
 
 disqus:
   leave_a_comment: Leave a Comment
+
+dialog:
+  close: Close dialog
 
 head:
   title: Markdown Resume - Free Online Markdown Resume Maker
@@ -53,7 +66,7 @@ head:
 
 landing:
   hero: Write your <span text-brand>resume</span> in Markdown!
-  desc: is a free and open source tool created to build and manage your resumes as easy as possible, without losing the privacy of your data.
+  desc: is a free and open source tool created to build and manage your resumes as easily as possible, without losing the privacy of your data.
   start: Create My Resume
   feats:
     - title: Simple and Powerful
@@ -80,27 +93,32 @@ resumes:
   delete: Delete
 
 import:
-  title: Import a Markdown file
+  title: Import a file
   from_local: Drag your file here, or click here to choose a file
+  converting: Converting file to Markdown...
   from_url: Paste file URL
+  from_url_confirm: Load file from URL
+  error_title: Import failed
+  error_close: Close
 
 toolbar:
   open: Open formatting sidebar
   close: Close formatting sidebar
   file:
     text: Import / Export
-    import: Import Markdown
+    import: Import Resume
     export_pdf: Export PDF
     export_md: Export Markdown
     export_html: Export HTML
     export_docx: Export DOCX
   correct_case:
     text: Correct Case
-    desc: 'Example: "Github" → "GitHub" <br> Note: the words only including uppercase or lowercase ("GITHUB" or "github") will be left untouched'
+    desc: 'Example: "Github" → "GitHub"'
+    note: 'Note: the words only including uppercase or lowercase ("GITHUB" or "github") will be left untouched'
     btn: Correct it!
   migrate_iconify:
     text: Fix Icons
-    desc: Convert legacy Iconify span markup in this resume to the Iconify web component format.
+    desc: Convert legacy Iconify span and iconify-icon markup in this resume to Markdown icon syntax, e.g. ::icon::.
     btn: Migrate and Save
   paper: Paper Size
   font_family: Font Family
@@ -108,11 +126,18 @@ toolbar:
   cjk: CJK
   en: English
   theme_color: Theme Color
+  select_color: Set theme color to {color}
   paragraph: Paragraph Spacing
   line: Line Spacing
   margin: Margin
   vertical: Top & Bottom
   horizontal: Left & Right
+
+zoom:
+  in: Zoom in
+  out: Zoom out
+  fit_width: Fit to width
+  fit_height: Fit to height
 
 images:
   my_images: My Images
@@ -124,7 +149,7 @@ images:
   delete: Delete
   empty: No images yet. Upload one to get started.
   upload_title: Upload an Image
-  from_local: Drag your image here, or click here to choose a file
+  from_local: Drop your image here
   copied: URL copied to clipboard
   deleted: Image "{msg}" has been deleted
   uploaded: Image "{msg}" uploaded successfully
@@ -134,13 +159,14 @@ notification:
   switch: Switched to resume "{msg}"
   delete: Resume "{msg}" has been deleted
   new: New resume created
-  duplicate: Created resume "{old}"'s duplication "{new}"
+  duplicate: Created copy "{new}" of resume "{old}"
   correct:
     yes: Corrected {num} words
-    no: All case are correct!
+    no: All cases are correct!
   iconify_migration:
     yes: Migrated and saved {count} Iconify icon(s)
     no: No legacy Iconify icons were found
   import:
     yes: Data has been successfully imported!
     no: Data format is invalid.
+    loaded: '{filename} is loaded successfully'

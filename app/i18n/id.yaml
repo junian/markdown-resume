@@ -16,6 +16,7 @@ settings:
   description: Kelola bahasa, tampilan, dan penyimpanan lokal.
   language: Bahasa
   language_label: Bahasa tampilan
+  filter_language: Saring bahasa...
   appearance: Tampilan
   theme: Tema warna
   light: Terang
@@ -36,15 +37,27 @@ settings:
   images: Gambar
   storage_estimate_note: Kuota penyimpanan adalah perkiraan dan dapat berbeda tergantung perangkat dan browser.
   storage_unavailable: Perkiraan penyimpanan tidak tersedia di browser ini.
+  svg_icons: Ikon SVG
+  svg_icons_description: SVG inline di-cache secara lokal agar ekspor tetap berfungsi saat offline.
+  cached_icons: Ikon di-cache
+  clear_svg_cache: Bersihkan Cache SVG
   danger_zone: Zona Berbahaya
   danger_description: Hapus permanen semua resume, gambar, dan pengaturan aplikasi yang tersimpan di perangkat ini.
   erase_all_data: Hapus Semua Konten dan Pengaturan
   erase_warning: Tindakan ini akan menghapus semua data dan mengembalikan aplikasi ke keadaan awal. Tindakan ini tidak dapat dibatalkan.
   type_delete: Ketik DELETE untuk mengonfirmasi.
   confirm: Konfirmasi
+  defaults:
+    title: Default
+    name: Nama Lengkap
+    name_placeholder: cth., Bruce Wayne
+    paper_size: Ukuran Kertas
 
 disqus:
   leave_a_comment: Tinggalkan Komentar
+
+dialog:
+  close: Tutup dialog
 
 head:
   title: Markdown Resume - Pembuat Resume Markdown Online Gratis
@@ -80,27 +93,32 @@ resumes:
   delete: Hapus
 
 import:
-  title: Impor file Markdown
+  title: Impor file
   from_local: Seret file Anda ke sini, atau klik di sini untuk memilih file
+  converting: Mengonversi file ke Markdown...
   from_url: Tempel URL file
+  from_url_confirm: Muat file dari URL
+  error_title: Impor gagal
+  error_close: Tutup
 
 toolbar:
   open: Buka bilah sisi pemformatan
   close: Tutup bilah sisi pemformatan
   file:
     text: Impor / Ekspor
-    import: Impor Markdown
+    import: Impor Resume
     export_pdf: Ekspor PDF
     export_md: Ekspor Markdown
     export_html: Ekspor HTML
     export_docx: Ekspor DOCX
   correct_case:
     text: Perbaiki Huruf Besar/Kecil
-    desc: 'Contoh: "Github" → "GitHub" <br> Catatan: kata-kata yang hanya berisi huruf besar atau kecil ("GITHUB" atau "github") tidak akan diubah'
+    desc: 'Contoh: "Github" → "GitHub"'
+    note: 'Catatan: kata-kata yang hanya berisi huruf besar atau kecil ("GITHUB" atau "github") tidak akan diubah'
     btn: Perbaiki!
   migrate_iconify:
     text: Perbaiki Ikon
-    desc: Ubah markup span Iconify lama di resume ini ke format komponen web Iconify.
+    desc: Ubah markup span Iconify lama dan tag iconify-icon di resume ini menjadi sintaks ikon Markdown, misalnya ::icon::.
     btn: Migrasikan dan Simpan
   paper: Ukuran Kertas
   font_family: Jenis Font
@@ -108,11 +126,18 @@ toolbar:
   cjk: CJK
   en: Inggris
   theme_color: Warna Tema
+  select_color: Tetapkan warna tema ke {color}
   paragraph: Jarak Paragraf
   line: Jarak Baris
   margin: Margin
   vertical: Atas & Bawah
   horizontal: Kiri & Kanan
+
+zoom:
+  in: Perbesar
+  out: Perkecil
+  fit_width: Sesuaikan lebar
+  fit_height: Sesuaikan tinggi
 
 images:
   my_images: Gambar Saya
@@ -124,7 +149,7 @@ images:
   delete: Hapus
   empty: Belum ada gambar. Unggah satu untuk memulai.
   upload_title: Unggah Gambar
-  from_local: Seret gambar Anda ke sini, atau klik di sini untuk memilih file
+  from_local: Letakkan gambar Anda di sini
   copied: URL disalin ke clipboard
   deleted: Gambar "{msg}" telah dihapus
   uploaded: Gambar "{msg}" berhasil diunggah
@@ -134,7 +159,7 @@ notification:
   switch: Beralih ke resume "{msg}"
   delete: Resume "{msg}" telah dihapus
   new: Resume baru dibuat
-  duplicate: Duplikat resume "{old}" dibuat "{new}"
+  duplicate: Salinan resume "{old}" dibuat "{new}"
   correct:
     yes: Memperbaiki {num} kata
     no: Semua huruf sudah benar!
@@ -144,3 +169,4 @@ notification:
   import:
     yes: Data berhasil diimpor!
     no: Format data tidak valid.
+    loaded: '{filename} berhasil dimuat'

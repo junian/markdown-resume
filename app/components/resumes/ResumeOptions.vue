@@ -1,38 +1,44 @@
 <template>
   <div class="absolute right-3 top-3 space-y-2">
-    <button @click="duplicate">
-      <span i-ion:duplicate />
-    </button>
-    <button @click="remove">
-      <span i-material-symbols:delete-outline-rounded />
-    </button>
+    <UButton
+      type="button"
+      variant="ghost"
+      class="action-btn text-white hover:bg-gray-500 flex"
+      icon="i-ion:duplicate"
+      :title="$t('resumes.duplicate')"
+      :aria-label="$t('resumes.duplicate')"
+      @click="duplicate"
+    />
+    <UButton
+      type="button"
+      variant="ghost"
+      class="action-btn text-white hover:bg-gray-500 flex"
+      icon="i-material-symbols:delete-outline-rounded"
+      :title="$t('resumes.delete')"
+      :aria-label="$t('resumes.delete')"
+      @click="remove"
+    />
   </div>
 </template>
 
 <script lang="ts" setup>
-import type { ResumeListItem } from "~/types";
+import type { ResumeListItem } from '~/types'
 
 const props = defineProps<{
-  resume: ResumeListItem;
-}>();
+  resume: ResumeListItem
+}>()
 
 const emit = defineEmits<{
-  (e: "update"): void;
-}>();
+  (e: 'update'): void
+}>()
 
 const duplicate = async () => {
-  await duplicateResume(props.resume.id);
-  emit("update");
-};
+  await duplicateResume(props.resume.id)
+  emit('update')
+}
 
 const remove = async () => {
-  await deleteResume(props.resume.id);
-  emit("update");
-};
-</script>
-
-<style scoped>
-button {
-  @apply circle size-8 text-white bg-gray-500/80 hover:bg-gray-500;
+  await deleteResume(props.resume.id)
+  emit('update')
 }
-</style>
+</script>

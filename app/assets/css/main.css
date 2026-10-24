@@ -1,0 +1,653 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+@import "./fonts.css";
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+body {
+  @apply bg-dark-c;
+}
+
+
+/* ─── Custom theme overrides ─────────────────────────────── */
+@theme {
+  --breakpoint-sm: 641px;
+  --breakpoint-md: 769px;
+  --breakpoint-lg: 1025px;
+  --font-ui: Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif;
+}
+
+svg.iconify {
+  @apply inline-block;
+}
+
+iconify-icon {
+  @apply inline-block size-[1em];
+}
+
+/* ─── Utility shortcuts (converted from unocss.config.ts) ── */
+
+@utility flex-center {
+  @apply flex items-center justify-center;
+}
+
+@utility hstack {
+  @apply flex items-center;
+}
+
+@utility text-c {
+  @apply text-gray-600 dark:text-[#cccccc];
+}
+
+@utility text-light-c {
+  @apply text-gray-500 dark:text-[#a0a0a0];
+}
+
+@utility text-lighter-c {
+  @apply text-gray-400 dark:text-[#858585];
+}
+
+@utility text-dark-c {
+  @apply text-black dark:text-[#f0f0f0];
+}
+
+@utility text-brand {
+  @apply text-blue-500 dark:text-[#4daafc];
+}
+
+@utility bg-c {
+  @apply bg-white dark:bg-[#252526];
+}
+
+@utility bg-dark-c {
+  @apply bg-gray-100 dark:bg-[#1e1e1e];
+}
+
+@utility bg-darker-c {
+  @apply bg-gray-200 dark:bg-[#2d2d30];
+}
+
+@utility bg-brand {
+  @apply bg-blue-500 dark:bg-[#007acc];
+}
+
+@utility border-c {
+  @apply border-gray-300 dark:border-[#3f3f46];
+}
+
+@utility border-dark-c {
+  @apply border-gray-500 dark:border-[#555555];
+}
+
+@utility border-darker-c {
+  @apply border-black dark:border-[#6b6b6b];
+}
+
+@utility shadow-c {
+  @apply shadow shadow-slate-300 dark:shadow-black/50;
+}
+
+@utility dropdown-li {
+  @apply hstack px-3 h-8 truncate cursor-pointer hover:bg-dark-c;
+}
+
+@utility circle {
+  @apply rounded-full! flex-center;
+}
+
+@utility round-btn {
+  @apply circle size-7 md:size-8 hover:bg-darker-c! text-c!;
+}
+
+@utility resume-card {
+  @apply cursor-pointer mx-auto overflow-hidden rounded-md duration-150 hover:-translate-y-3 hover:drop-shadow-xl;
+}
+
+@utility zoom-bar-button {
+  @apply flex-center size-10 text-lg hover:bg-blue-600!;
+}
+
+@utility action-btn {
+  @apply circle size-8 text-white bg-gray-500/80 hover:bg-gray-500;
+}
+
+@utility tools-pane-header {
+  @apply hstack flex-none min-w-0 w-full gap-1 min-h-12 px-2 overflow-hidden bg-c border-b border-c text-c;
+}
+
+@utility collapsed-tools {
+  @apply flex flex-col items-center gap-2 py-2;
+}
+
+/* Toolbar.vue */
+
+#toolbar .tool-item:not(:last-child) {
+  @apply border-c border-b;
+}
+
+/* MainSidebar.vue */
+
+.header {
+  @apply fixed inset-y-0 left-0 z-30 w-60 transition-all duration-200;
+}
+
+.header--collapsed {
+  @apply w-16;
+}
+
+.sidebar-panel {
+  @apply flex flex-col size-full p-3 bg-c border-r border-c;
+}
+
+.mobile-header {
+  @apply hidden;
+}
+
+.sidebar-backdrop {
+  @apply hidden;
+}
+
+.header-brand {
+  @apply hstack min-h-10 gap-1;
+}
+
+.brand-link {
+  @apply hstack min-w-0 gap-3 rounded-lg transition-colors hover:bg-darker-c flex-1 gap-2 px-1 py-1 overflow-hidden text-gray-900 dark:text-[#f0f0f0];
+}
+
+.brand-title {
+  @apply min-w-0 truncate text-base;
+}
+
+.collapse-button {
+  @apply circle flex-shrink-0 size-8 hover:bg-darker-c!;
+}
+
+.sidebar-nav {
+  @apply flex flex-1 flex-col min-h-0 gap-1 mt-7 overflow-y-auto;
+}
+
+/* UNavigationMenu: keep the settings group pinned to the bottom */
+.sidebar-nav [data-slot='separator']:last-of-type {
+  margin-top: auto;
+}
+
+.sidebar-context {
+  @apply mt-4 overflow-hidden;
+}
+
+.coffee-link {
+  @apply rounded-lg text-gray-900 bg-yellow-400 hover:bg-yellow-300 dark:hover:bg-yellow-300;
+}
+
+.sidebar-label {
+  @apply whitespace-nowrap transition-opacity duration-150;
+}
+
+.sidebar-layout {
+  box-sizing: border-box;
+  padding-left: 15rem;
+  transition: padding-left 200ms ease;
+}
+
+.sidebar-layout:has(> .header.header--collapsed) {
+  padding-left: 4rem;
+}
+
+@media (max-width: 768px) {
+  .sidebar-layout,
+  .sidebar-layout:has(> .header.header--collapsed) {
+    padding-left: 0;
+  }
+
+  .sidebar-layout:not(.edit-page) > .header ~ * {
+    margin-top: 3.5rem;
+  }
+
+  .edit-page > .header ~ .workspace {
+    padding-top: 4rem;
+  }
+}
+
+.header--collapsed .sidebar-label {
+  @apply hidden;
+}
+
+.header--collapsed .brand-link,
+.header--collapsed .sidebar-nav [data-slot='link'] {
+  @apply justify-center px-0;
+}
+
+.header--collapsed .header-brand {
+  @apply flex-col;
+}
+
+.header--collapsed .collapse-button {
+  @apply order-first mb-1;
+}
+
+.header--collapsed .brand-title {
+  @apply hidden;
+}
+
+@media (max-width: 768px) {
+  .header,
+  .header.header--collapsed {
+    @apply inset-x-0 top-0 bottom-auto w-full h-14 bg-c border-b border-c;
+  }
+
+  .mobile-header {
+    @apply hstack h-full gap-2 px-3;
+  }
+
+  .mobile-menu-button {
+    @apply circle flex-shrink-0 size-9 hover:bg-darker-c!;
+  }
+
+  .mobile-title {
+    @apply hstack min-w-0 gap-2 text-base text-gray-900 dark:text-[#f0f0f0];
+  }
+
+  .sidebar-panel {
+    @apply flex fixed left-0 top-14 bottom-0 w-60 h-auto shadow-xl -translate-x-full opacity-0 invisible pointer-events-none;
+    transition:
+      transform 200ms ease,
+      opacity 200ms ease,
+      visibility 0s linear 200ms;
+  }
+
+  .sidebar-backdrop {
+    @apply block fixed inset-x-0 top-14 bottom-0 w-full bg-black/20;
+  }
+
+  .sidebar-panel .header-brand {
+    @apply hidden;
+  }
+
+  .header--mobile-open .sidebar-panel {
+    @apply translate-x-0 opacity-100 visible pointer-events-auto [transition-delay:0s];
+  }
+
+  .header--collapsed .sidebar-panel .sidebar-label {
+    @apply block;
+  }
+
+  .header--collapsed .sidebar-panel .brand-link,
+  .header--collapsed .sidebar-panel .sidebar-nav [data-slot='link'] {
+    @apply justify-start px-3;
+  }
+}
+
+/* settings.vue (component rules) */
+
+.storage-ring {
+  --storage-percent: 0%;
+  background: conic-gradient(rgb(168 85 247) var(--storage-percent), rgb(229 231 235) 0);
+  @apply circle flex-none size-32;
+}
+
+.storage-ring--loading {
+  @apply animate-pulse bg-gray-200 dark:bg-zinc-700;
+}
+
+.dark .storage-ring {
+  background: conic-gradient(#007acc var(--storage-percent), #3f3f46 0);
+}
+
+.storage-ring-center strong {
+  @apply text-xl;
+}
+
+.storage-ring-center span,
+.storage-stat dt {
+  @apply text-xs text-light-c;
+}
+
+.storage-stat dd {
+  @apply mt-1 text-lg font-bold;
+}
+
+/* [...slug].vue */
+
+.page-content {
+  @apply space-y-8 leading-7 text-gray-700 dark:text-gray-200;
+}
+
+.page-content h2 {
+  @apply text-xl font-bold text-black dark:text-white;
+}
+
+.page-content ul {
+  @apply list-disc pl-5 space-y-1;
+}
+
+.page-content a {
+  @apply text-brand underline underline-offset-2;
+}
+
+.page-content table {
+  @apply w-full border-collapse text-sm;
+}
+
+.page-content thead {
+  @apply border-b border-gray-300 dark:border-gray-600;
+}
+
+.page-content th {
+  @apply text-left font-bold text-black dark:text-white py-3 px-4;
+}
+
+.page-content tbody tr {
+  @apply border-b border-gray-200 dark:border-gray-700;
+}
+
+.page-content tbody tr:last-child {
+  @apply border-b-0;
+}
+
+.page-content td {
+  @apply py-3 px-4 text-gray-700 dark:text-gray-300;
+}
+
+.page-content td a {
+  @apply text-brand hover:underline;
+}
+
+/* resumes/index.vue */
+
+.resumes-page .resume-card {
+  border-color: #d1d5db !important;
+  color-scheme: light;
+}
+
+.resumes-page .resume-card .vue-smart-pages {
+  background-color: white !important;
+  color: black !important;
+}
+
+.resumes-page button.resume-card {
+  background-color: #e5e7eb !important;
+}
+
+.resumes-page button.resume-card:hover {
+  background-color: white !important;
+}
+
+/* index.vue */
+
+.home-page .resume-card {
+  border-color: #d1d5db !important;
+  color-scheme: light;
+}
+
+.home-page .resume-card .vue-smart-pages {
+  background-color: white !important;
+  color: black !important;
+}
+
+.home-page button.resume-card {
+  background-color: #e5e7eb !important;
+}
+
+.home-page button.resume-card:hover {
+  background-color: white !important;
+}
+
+/* Wrapper allows horizontal scroll while keeping overflow-y visible so
+   the translate-up hover and drop-shadow on cards are not clipped */
+.resumes-row-wrap,
+.images-row-wrap {
+  @apply overflow-x-auto overflow-y-visible pt-3 -mt-3 pb-3 pr-3 [scrollbar-width:thin];
+}
+
+.resumes-row {
+  @apply flex flex-nowrap gap-2 pr-3;
+}
+
+.images-row {
+  @apply flex flex-nowrap gap-6 pr-3;
+}
+
+/* edit/[id].vue */
+
+[data-resize-handle] {
+  @apply relative w-3 outline-none;
+}
+
+[data-resize-handle]::after {
+  @apply content-[""] absolute bg-gray-400/40 w-1 h-10 rounded-full inset-0 m-auto;
+}
+
+[data-resize-handle][data-orientation="vertical"] {
+  @apply w-auto h-3;
+}
+
+[data-resize-handle][data-orientation="vertical"]::after {
+  @apply w-10 h-1;
+}
+
+.edit-page {
+  @apply h-screen;
+}
+
+.pane-container {
+  @apply h-full rounded-xl overflow-scroll;
+}
+
+.pane-container::-webkit-scrollbar {
+  @apply hidden;
+}
+
+.preview-pane .pane-container {
+  @apply border-4;
+  background-color: #e5e7eb !important;
+  border-color: #e5e7eb !important;
+  color-scheme: light;
+}
+
+.editor-pane .pane-container,
+.tools-pane .pane-container {
+  @apply bg-c;
+}
+
+.tools-pane {
+  @apply flex flex-col flex-none w-72 max-w-72 h-full overflow-hidden transition-all duration-200;
+}
+
+.tools-pane--collapsed {
+  @apply w-12 bg-c border-l border-c;
+}
+
+#vue-smart-pages-preview .vue-smart-page-break {
+  @apply border-t-4;
+  border-color: #e5e7eb !important;
+}
+
+.dark #vue-smart-pages-preview {
+  background-color: white !important;
+  color: black !important;
+  color-scheme: light;
+}
+
+/* Print mode */
+
+@media print {
+  @page {
+    margin: 0;
+  }
+
+  body {
+    @apply bg-white!;
+  }
+
+  body > *:not(#__nuxt) {
+    @apply hidden!;
+  }
+
+  .edit-page {
+    @apply h-auto! pl-0!;
+  }
+
+  .workspace,
+  [data-panel-group] {
+    @apply overflow-visible! block! p-0!;
+  }
+
+  .edit-page > .workspace {
+    @apply w-full! pt-0!;
+  }
+
+  .header,
+  .editor-pane,
+  .tools-pane,
+  .zoom-bar,
+  .toast-container,
+  #nuxt-devtools-container {
+    @apply hidden!;
+  }
+
+  .pane-container {
+    @apply border-0! bg-transparent! rounded-none! h-auto! overflow-visible!;
+  }
+
+  .preview-pane {
+    @apply h-auto! overflow-visible!;
+  }
+
+  html,
+  body {
+    @apply h-auto! overflow-visible!;
+  }
+
+  .vue-zoom {
+    transform: scale(1) !important;
+    @apply m-0! h-auto!;
+  }
+
+  #vue-smart-pages-preview {
+    @apply pb-0! min-h-auto! h-auto!;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .vue-smart-pages {
+    @apply min-h-auto! h-auto!;
+  }
+
+  .vue-smart-page-break {
+    page-break-before: always;
+    @apply mt-0! border-none;
+  }
+
+  /* Avoid an empty trailing page caused by the last break element */
+  .vue-smart-page-break:last-child {
+    @apply hidden!;
+  }
+}
+
+/* settings.vue (utilities) */
+
+@utility settings-card {
+  @apply rounded-xl border border-c bg-c p-5 shadow-sm;
+}
+
+@utility settings-card-heading {
+  @apply hstack gap-2 mb-5 text-lg font-bold;
+}
+
+@utility field-label {
+  @apply block mb-2 text-sm font-bold text-c;
+}
+
+@utility theme-option {
+  @apply flex-center flex-col gap-2 rounded-lg border border-c px-2 py-3 text-sm hover:bg-dark-c;
+}
+
+@utility theme-option--active {
+  @apply border-blue-400 bg-blue-50 text-blue-700 dark:border-[#007acc] dark:bg-[#37373d] dark:text-[#ffffff];
+}
+
+@utility editor-setting {
+  @apply flex cursor-pointer items-start gap-3 rounded-lg border border-c bg-dark-c p-4 transition-colors hover:bg-darker-c;
+}
+
+@utility editor-settings {
+  @apply grid gap-3;
+}
+
+@utility storage-skeleton {
+  @apply animate-pulse bg-gray-200 dark:bg-zinc-700 block rounded;
+}
+
+@utility storage-skeleton--label {
+  @apply h-3 w-12;
+}
+
+@utility storage-skeleton--value {
+  @apply mt-2 h-6 w-20;
+}
+
+@utility storage-description {
+  @apply -mt-3 mb-5 text-sm leading-5 text-light-c;
+}
+
+@utility storage-overview {
+  @apply flex flex-col items-center gap-6 sm:flex-row sm:items-stretch;
+}
+
+@utility storage-stats {
+  @apply grid flex-1 w-full grid-cols-2 gap-4 lg:grid-cols-4;
+}
+
+@utility storage-unavailable {
+  @apply flex max-w-40 items-center text-sm leading-5 text-light-c;
+}
+
+@utility storage-refresh-button {
+  @apply circle ml-auto size-8 text-light-c! transition-colors hover:bg-darker-c! hover:text-dark-c! disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+@utility storage-ring-center {
+  @apply circle flex-col size-[6.25rem] bg-c;
+}
+
+@utility storage-stat {
+  @apply rounded-lg bg-dark-c p-4;
+}
+
+@utility svg-cache-overview {
+  @apply flex flex-wrap items-center justify-between gap-4;
+}
+
+@utility svg-cache-stat {
+  @apply flex items-baseline gap-3 rounded-lg bg-dark-c p-4;
+}
+
+@utility danger-card {
+  @apply border-red-300 dark:border-red-900/80;
+}
+
+@utility danger-heading {
+  @apply text-red-600 dark:text-red-400;
+}
+
+@utility danger-description {
+  @apply -mt-3 mb-5 text-sm leading-5 text-light-c;
+}
+
+@utility danger-button {
+  @apply hstack justify-center gap-2 rounded-lg! border border-red-500 px-3! py-2! text-sm font-bold! text-red-600! transition-colors hover:bg-red-600! hover:text-white! dark:border-red-500 dark:text-red-400! dark:hover:bg-red-600! dark:hover:text-white!;
+}
+
+@utility danger-dialog-content {
+  @apply flex flex-col gap-4 border-t border-c bg-dark-c p-5 text-sm;
+}
+
+@utility danger-confirm-button {
+  @apply hstack justify-center gap-2 rounded-lg! border border-red-500 px-3! py-2! text-sm font-bold! text-red-600! transition-colors hover:bg-red-600! hover:text-white! dark:border-red-500 dark:text-red-400! dark:hover:bg-red-600! dark:hover:text-white! self-end min-w-24 bg-red-600! text-white! disabled:cursor-not-allowed disabled:border-red-400! disabled:bg-red-400! disabled:opacity-60! dark:disabled:border-red-900! dark:disabled:bg-red-900! dark:disabled:text-red-300!;
+}

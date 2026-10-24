@@ -3,7 +3,7 @@
     :text="$t('toolbar.paragraph')"
     icon="i-icon-park-outline:paragraph-break-two"
   >
-    <Slider
+    <LabeledSlider
       id="paragrapg-space"
       unit="px"
       :default="styles.paragraphSpace"
@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts" setup>
-const { styles, setStyle } = useStyleStore();
+const { styles, setStyle } = useStyleStore()
 
-const setParagraphSpace = (value: number) => setStyle("paragraphSpace", value);
+const setParagraphSpace = (value: number) => setStyle('paragraphSpace', value)
 </script>

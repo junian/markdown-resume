@@ -32,7 +32,6 @@ jobs:
 
     env:
       NODE_VERSION: 20
-      NUXT_APP_BASE_URL: /markdown-resume/
 
     steps:
       - uses: actions/checkout@v3

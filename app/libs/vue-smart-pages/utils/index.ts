@@ -1,1 +1,1 @@
-export * from "./breakPage";
+export * from './breakPage'

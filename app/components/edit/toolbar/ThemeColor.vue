@@ -1,110 +1,98 @@
 <template>
-  <ToolItem :text="$t('toolbar.theme_color')" icon="i-material-symbols:palette-outline">
+  <ToolItem
+    :text="$t('toolbar.theme_color')"
+    icon="i-material-symbols:palette-outline"
+  >
     <!-- Color presets -->
     <div class="flex justify-between mb-4">
-      <button
+      <UButton
         v-for="(color, i) in THEME_COLORS"
         :key="`${i}-${color}`"
-        class="size-6 flex-center rounded text-white"
-        :style="{ backgroundColor: color }"
-        @click="api.setValue(color)"
-      >
-        <span
-          v-show="getHexString(api.value) === color.toUpperCase()"
-          i-line-md:confirm
-        />
-      </button>
+        class="size-6 flex-center rounded"
+        :style="{ backgroundColor: color, color: '#fff' }"
+        :ui="{ leadingIcon: 'size-3.5' }"
+        :icon="isActiveColor(color) ? 'i-line-md:confirm' : undefined"
+        :aria-label="$t('toolbar.select_color', { color })"
+        :title="$t('toolbar.select_color', { color })"
+        @click="themeColor = color"
+      />
     </div>
 
     <!-- Color picker -->
-    <div v-bind="api.rootProps" relative z-21>
-      <div
-        v-bind="api.controlProps"
-        class="w-full hstack h-9 space-x-2 px-2 py-1 rounded border"
-        :class="api.isOpen || isFocus ? 'border-darker-c' : 'border-c'"
-      >
-        <button v-bind="api.triggerProps">
-          <div
-            class="size-4 rounded-sm"
-            v-bind="api.getSwatchProps({ value: api.value })"
-          />
-        </button>
-        <input
-          v-bind="api.getChannelInputProps({ channel: 'hex' })"
-          class="bg-transparent outline-none"
-          @focus="isFocus = true"
-          @blur="isFocus = false"
-        />
-      </div>
-
-      <div v-bind="api.positionerProps" w-full ml-2>
+    <UPopover class="w-full">
+      <template #default="{ open }">
         <div
-          v-bind="api.contentProps"
-          class="bg-c overflow-hidden shadow-md"
-          border="~ c rounded"
+          class="w-full hstack h-9 space-x-2 px-2 py-1 rounded border cursor-pointer"
+          :class="open ? 'border-darker-c' : 'border-c'"
         >
-          <div v-bind="api.getAreaProps()">
-            <div v-bind="api.getAreaBackgroundProps()" class="w-full h-30" />
-            <div
-              v-bind="api.getAreaThumbProps()"
-              class="size-4 rounded-full border-2 border-black"
-            >
-              <span absolute size-3 border="2 white rounded-full" />
-            </div>
-          </div>
-
-          <div hstack my-3 px-3 space-x-3>
-            <button
-              v-bind="api.eyeDropperTriggerProps"
-              class="flex-center size-7 rounded hover:bg-dark-c"
-            >
-              <span i-bx:bxs-eyedropper text-lg />
-            </button>
-            <div v-bind="api.getChannelSliderProps({ channel: 'hue' })" flex-1>
-              <div
-                v-bind="api.getChannelSliderTrackProps({ channel: 'hue' })"
-                class="w-full h-2.5 rounded-full"
-              />
-              <div
-                v-bind="api.getChannelSliderThumbProps({ channel: 'hue' })"
-                class="size-4.5 -mt-2 -ml-2"
-                border="2 black rounded-full"
-              >
-                <span absolute size-3.5 border="2 white rounded-full" />
-              </div>
-            </div>
-          </div>
+          <span
+            class="size-4 shrink-0 rounded-sm"
+            :style="{ backgroundColor: styles.themeColor }"
+          />
+          <UInput
+            v-model="hexInput"
+            type="text"
+            variant="none"
+            size="sm"
+            class="w-full min-w-0"
+            :ui="{ base: 'px-0 py-0 text-xs md:text-sm uppercase outline-none' }"
+            spellcheck="false"
+            autocomplete="off"
+            :aria-label="$t('toolbar.theme_color')"
+            @click.stop
+            @update:model-value="onHexInput"
+            @keydown.enter="commitHex"
+            @keydown.esc="resetHex"
+            @blur="commitHex"
+          />
         </div>
-      </div>
-    </div>
+      </template>
+
+      <template #content>
+        <UColorPicker
+          v-model="themeColor"
+          class="p-2"
+        />
+      </template>
+    </UPopover>
   </ToolItem>
 </template>
 
 <script lang="ts" setup>
-import * as colorPicker from "@zag-js/color-picker";
-import { normalizeProps, useMachine } from "@zag-js/vue";
+const { styles, setStyle } = useStyleStore()
 
-const { styles, setStyle } = useStyleStore();
-const isFocus = ref(false);
+const themeColor = computed({
+  get: () => styles.themeColor,
+  set: value => setStyle('themeColor', value),
+})
 
-const [state, send] = useMachine(
-  colorPicker.machine({
-    id: "theme-color",
-    value: colorPicker.parse(styles.themeColor),
-    positioning: {
-      gutter: 14
-    },
-    onValueChange: (details) => setStyle("themeColor", getHexString(details.value))
-  })
-);
-const api = computed(() => colorPicker.connect(state.value, send, normalizeProps));
+const hexInput = ref(styles.themeColor)
 
 watch(
   () => styles.themeColor,
-  () => api.value.setValue(colorPicker.parse(styles.themeColor))
-);
+  color => (hexInput.value = color),
+)
 
-const getHexString = (value: colorPicker.Color) => {
-  return "#" + value.toHexInt().toString(16).toUpperCase().padStart(6, "0");
-};
+const normalizeHex = (value: string) => {
+  let hex = value.trim().replace(/^#/, '')
+  if (/^[0-9a-f]{3}$/i.test(hex))
+    hex = hex.split('').map(char => char + char).join('')
+  if (!/^[0-9a-f]{6}$/i.test(hex)) return null
+  return `#${hex.toUpperCase()}`
+}
+
+const onHexInput = (value: string) => {
+  const hex = value.trim().replace(/^#/, '')
+  if (/^[0-9a-f]{6}$/i.test(hex)) themeColor.value = `#${hex.toUpperCase()}`
+}
+
+const commitHex = () => {
+  const hex = normalizeHex(hexInput.value)
+  if (hex) themeColor.value = hex
+  hexInput.value = hex ?? styles.themeColor
+}
+
+const resetHex = () => (hexInput.value = styles.themeColor)
+
+const isActiveColor = (color: string) => styles.themeColor.toUpperCase() === color
 </script>

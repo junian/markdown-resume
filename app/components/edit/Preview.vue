@@ -1,6 +1,9 @@
 <template>
   <div class="pane-container">
-    <Zoom ref="zoom" :scale="scale">
+    <Zoom
+      ref="zoom"
+      :scale="scale"
+    >
       <ResumeRender
         id="preview"
         :markdown="data.mdContent"
@@ -10,48 +13,65 @@
     </Zoom>
 
     <div
-      class="zoom-bar hstack fixed bottom-4 lg:(bottom-auto top-15) ml-2 shadow-c rounded-full overflow-hidden text-white bg-blue-500 lg:opacity-0 hover:opacity-100"
+      class="zoom-bar hstack fixed bottom-4 lg:bottom-auto lg:top-15 ml-2 shadow-c rounded-full overflow-hidden text-white bg-blue-500 lg:opacity-0 hover:opacity-100"
     >
-      <button @click="scale *= 1.1">
-        <span i-lucide:zoom-in />
-      </button>
-      <button @click="scale /= 1.1">
-        <span i-lucide:zoom-out />
-      </button>
-      <button @click="fitWidth">
-        <span i-fluent:arrow-autofit-width-20-filled />
-      </button>
-      <button @click="fitHeight">
-        <span i-fluent:arrow-autofit-height-20-filled />
-      </button>
+      <UButton
+        variant="ghost"
+        class="zoom-bar-button text-white rounded-none"
+        icon="i-lucide:zoom-in"
+        :aria-label="$t('zoom.in')"
+        :title="$t('zoom.in')"
+        @click="scale *= 1.1"
+      />
+      <UButton
+        variant="ghost"
+        class="zoom-bar-button text-white rounded-none"
+        icon="i-lucide:zoom-out"
+        :aria-label="$t('zoom.out')"
+        :title="$t('zoom.out')"
+        @click="scale /= 1.1"
+      />
+      <UButton
+        variant="ghost"
+        class="zoom-bar-button text-white rounded-none"
+        icon="i-fluent:arrow-autofit-width-20-filled"
+        :aria-label="$t('zoom.fit_width')"
+        :title="$t('zoom.fit_width')"
+        @click="fitWidth"
+      />
+      <UButton
+        variant="ghost"
+        class="zoom-bar-button text-white rounded-none"
+        icon="i-fluent:arrow-autofit-height-20-filled"
+        :aria-label="$t('zoom.fit_height')"
+        :title="$t('zoom.fit_height')"
+        @click="fitHeight"
+      />
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { debounce } from "ts-debounce";
-import Zoom from "~/libs/vue-zoom";
+import { debounce } from 'ts-debounce'
+import Zoom from '~/libs/vue-zoom'
 
-const scale = ref(1);
-const zoom = ref<InstanceType<typeof Zoom>>();
+const scale = ref(1)
+const zoom = ref<InstanceType<typeof Zoom>>()
 
-const { width, height } = useElementSize(zoom);
-const { styles } = useStyleStore();
-const { data } = useDataStore();
+const { width, height } = useElementSize(zoom)
+const { styles } = useStyleStore()
+const { data } = useDataStore()
 
 const fitWidth = () => {
-  scale.value = width.value / getPaperPx(styles.paper, "w");
-};
+  scale.value = width.value / getPaperPx(styles.paper, 'w')
+}
 
 const fitHeight = () => {
-  scale.value = height.value / getPaperPx(styles.paper, "h");
-};
-
-watch(width, () => debounce(fitWidth, 100)());
-</script>
-
-<style scoped>
-.zoom-bar button {
-  @apply flex-center size-10 text-lg hover:bg-blue-600;
+  scale.value = height.value / getPaperPx(styles.paper, 'h')
 }
-</style>
+
+// Debounce instance is created once so pane resize events coalesce
+const fitWidthDebounced = debounce(fitWidth, 100)
+
+watch(width, () => fitWidthDebounced())
+</script>
