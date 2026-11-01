@@ -13,10 +13,27 @@ Portions of this project were adapted from other open-source repositories. Their
 
 Built with:
 
-- [Nuxt 3](https://nuxt.com)
-- [Vue 3](https://github.com/vuejs/vue-next)
-- [Vite](https://github.com/vitejs/vite)
-- [Zag](https://zagjs.com/)
-- [UnoCSS](https://github.com/antfu/unocss)
+- [Nuxt 4](https://nuxt.com)
+- [Vue 3](https://vuejs.org)
+- [Vite](https://vite.dev)
+- [Nuxt UI 4](https://ui.nuxt.com)
+- [Tailwind CSS 4](https://tailwindcss.com)
+- [Reka UI](https://reka-ui.com)
+- [Pinia](https://pinia.vuejs.org)
+- [VueUse](https://vueuse.org)
+- [Nuxt Content](https://content.nuxt.com)
+- [Nuxt i18n](https://i18n.nuxtjs.org)
+- [Nuxt Color Mode](https://color-mode.nuxtjs.org)
+- [Nuxt Sitemap](https://sitemap.nuxtjs.org)
+- [Nuxt PWA](https://vite-pwa-org.netlify.app/frameworks/nuxt)
+- [Nuxt Scripts](https://scripts.nuxt.com)
+- [Monaco Editor](https://microsoft.github.io/monaco-editor/)
+- [markdown-it](https://github.com/markdown-it/markdown-it)
+- [KaTeX](https://katex.org)
+- [localForage](https://localforage.github.io/localForage/)
+- [dom-docx](https://dom-docx.com)
+- [Vitest](https://vitest.dev)
 
-[markdown-resume]: <https://www.junian.dev/markdown-resume> "Markdow Resume Online App by Junian.dev"
+…and the other open-source packages listed in [`package.json`](../package.json).
+
+[markdown-resume]: <https://www.junian.dev/markdown-resume/> "Markdow Resume Online App by Junian.dev"

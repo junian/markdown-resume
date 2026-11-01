@@ -4,10 +4,10 @@
   "private": true,
   "repository": "git@github.com:junian/markdown-resume.git",
   "author": "Junian Triajianto <author@junian.dev>",
-  "packageManager": "pnpm@12.15.0+sha512.b3951d6d6ff4a9f13dc7cf56cd28d2b8eb37dbcc9c68e52e1e1191873ea9f82a017287ab50baadc5ccc494f036c67c0e47eb13608c2fa36f47711b61ea128e61",
+  "packageManager": "pnpm@12.16.1",
   "type": "module",
   "engines": {
-    "node": "24.x"
+    "node": "26.x"
   },
   "scripts": {
     "build": "nuxt generate",
