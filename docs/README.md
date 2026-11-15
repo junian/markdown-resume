@@ -148,8 +148,7 @@ pnpm run build
 
 ## License
 
-This project is licensed under the [MIT](LICENSE) license.
-
+This project is licensed under the [MIT](LICENSE) license. \
 See [ACKNOWLEDGMENTS](ACKNOWLEDGMENTS.md) for credits.
 
 ---
